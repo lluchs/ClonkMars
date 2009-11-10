@@ -1,0 +1,2 @@
+DE:Explosion3
+US:Blast3

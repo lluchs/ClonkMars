@@ -1,0 +1,8 @@
+This is the primary part of a settlement, cause it storages energy.
+
+
+Controls:
+
+Jump  --> Shows the energy ressources
+Dig   --> refueling the Jetbelt
+Throw --> recharging energy cell

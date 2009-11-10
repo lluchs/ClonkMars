@@ -1,0 +1,1 @@
+An empty energy cell. Can refuiled at the accu station.

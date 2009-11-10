@@ -1,0 +1,8 @@
+[Action]
+Name=FlyBase
+Procedure=ATTACH
+Length=41
+Delay=2
+Facet=0,0,18,18
+NextAction=FlyBase
+AbortCall=ResetCategory

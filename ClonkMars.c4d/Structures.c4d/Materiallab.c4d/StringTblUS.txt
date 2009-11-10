@@ -1,0 +1,2 @@
+TxtNothingProducible=Nothing producible
+TxtNotEnoughOil=Not enough Oil in the tanks available!

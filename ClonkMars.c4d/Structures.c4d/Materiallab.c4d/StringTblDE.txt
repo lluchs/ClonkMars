@@ -1,0 +1,2 @@
+TxtNothingProducible=Nichts produzierbar
+TxtNotEnoughOil=Nicht genügend Öl in den Tanks vorhanden!

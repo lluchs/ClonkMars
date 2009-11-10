@@ -1,0 +1,4 @@
+Grab and press:
+
+- grab to beam as fast as it can
+- jump to beam with less energy but more time

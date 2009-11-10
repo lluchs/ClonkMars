@@ -1,0 +1,2 @@
+DE:Energieverbrauch
+US:Power usage

@@ -1,0 +1,34 @@
+Mehr oder weniger langfristige todos, bis zum Release.
+
+# Clonk
+- JetpackclonkClonk sollte keine Jump Action haben, lieber Walk oder sowas.
+- Zurück zur Basis fehlt nun im Kontextmenü
+- Möglichkeit für Health (NF)
+- wer unter einer Kapsel ist wird gleich verbrannt und stirbt sofort(?)
+- Jetpack Fuel auf HUD auslagern (NF, brr)
+- Jetpack ohne Öltank ist komisch (NF)
+
+# Upgrades.rtf, Weaponz.rtf
+
+# Baugrafiksystem
+
+# Transmitter
+- manuelle Ausrichtung der Splitter
+- Bennung mit Namen (Fluglotstenalphabet)
+
+# Gebäuderrepair
+
+# erweitertes Handelssystem (für Spieler untereinander)
+
+# Basis
+- gut wäre eine Einstellung des Reproduktionsverfahrens
+--> neuen Clonk reproduzieren
+--> toten Clonk neu klonen (vor allem um Flooding der Spieler.c4p Datei zu vermeiden)
+
+# ItemLog
+- Nachts kaum/nicht sichtbar (fix: Grafiken mit hellen Schein?)
+
+# Gebäudeschadenanzeige
+
+# Rules
+- Strahlung (s. Strahlung.rtf, Grafik vorhanden)

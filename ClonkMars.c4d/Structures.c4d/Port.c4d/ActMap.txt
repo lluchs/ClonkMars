@@ -1,0 +1,17 @@
+[Action]
+Name=Wait
+Delay=2
+Length=1
+FacetBase=0
+Facet=600,0,60,30,0,0
+NextAction=Wait
+
+[Action]
+Name=Active
+Delay=2
+Length=20
+FacetBase=0
+Facet=0,0,60,30
+NextAction=Active
+Sound=Warning_Standclear
+

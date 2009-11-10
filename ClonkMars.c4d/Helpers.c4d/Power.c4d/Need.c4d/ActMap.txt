@@ -1,0 +1,13 @@
+[Action]
+Name=ShowEnergy
+Length=1
+Delay=12
+Facet=0,0,11,17
+NextAction=Energy
+
+[Action]
+Name=NoEnergy
+Length=1
+Delay=12
+Facet=11,0,11,17
+NextAction=Energy

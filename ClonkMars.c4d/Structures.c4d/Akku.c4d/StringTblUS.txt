@@ -1,0 +1,4 @@
+TxtStored=Currently stored:|%d
+TxtCharged=Battery charged.
+TxtNotEnoughPower=Not enough power available.
+TxtNoCell=No empty cell in the Clonk.

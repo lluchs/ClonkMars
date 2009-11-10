@@ -1,0 +1,15 @@
+[Action]
+Name=Panel
+Procedure=NONE
+Length=50
+Facet=0,0,40,40
+NextAction=Hold
+
+[Action]
+Name=Back
+Procedure=NONE
+Length=50
+Delay=2
+Facet=0,0,40,40
+Reverse=1
+NextAction=Panel

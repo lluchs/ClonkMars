@@ -1,0 +1,3 @@
+Stellt aus Rohstoffen fertige Produkte her.
+
+Dauerproduktion per Itemauswählen und mit Spezial2 bestätigen.

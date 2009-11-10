@@ -1,0 +1,11 @@
+Größe 40x40px
+
+Erste Reihe: Flug aus dem Orbit entgegen der Oberfläche, das Hitzeschild klappt sich zurück. Length=50
+
+zweite Reihe: Nach y-Check zur Oberfläche werden die Bremsraketen gezündet und die Füße ausgefahren. Partikel dennoch hinzufügen. Length=26
+
+dritte Reihe: Start der Kapsel mittels Raketenantrieb und die Füße werden wieder eingefahren. Partikel dennoch hinzufügen. Lenght=16
+
+
+zweite Reihe, erstes Bild: Kann  für normales Idle am Boden verwendet werden.
+

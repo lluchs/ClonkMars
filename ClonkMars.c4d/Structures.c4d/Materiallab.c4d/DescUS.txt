@@ -1,0 +1,1 @@
+Can produce building materials from resources.

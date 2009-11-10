@@ -1,0 +1,93 @@
+
+[div align="center"][img src="Logo_v2.jpg" title="" align="center"][/div]
+
+Die Ferne Welten Sparte bekommt einen neuen Bruder: Clonks auf dem roten Nachbarplaneten!
+[i]"aber ich versage da so, was den Sauerstoff angeht :<"[/i] -Luchs
+
+[region expanded="false" name="Neues" title="Neues"]
+[img src="Portrait3.jpg" title="" align="right"]
+[li][u]11.10.09:[/u] [i]rev316[/i]: Wir freuen uns heute ein erstes Alpha Release in Form einer Demoversion rauszubringen. Downloadbar ist es auf dem http://cc.striver.net/download.php?act=getinfo&dl=566,Clonk-Center;.[/li] Bugs und Featurewünsche zu den vorhandenen Systemen bitte in den Bugtracker, der nun öffentlich ist.[br][br]
+[li][u]07.10.09:[/u] [i]rev235[/i]: Heute war erster Multiplayertest. Nach dem vierten Anlauf sogar mit Erfolg! Teilnehmer waren Joshi, Icewing, Luchs und Nachtfalter. Die letzten beiden haben dann auch eher weitergesiedelt, da die anderen ins Bett mussten. Insgesamt ging die Runde über zwei Stunden und es hat schon richtig viel Spaß gemacht. Auch wurden eine Menge kleinerer Bugs sowie Balancingfragen geklärt, die nun möglichst bald umgesetzt werden. Unten gibt es zwei neue Screenshots aus der Runde.[/li][br]
+
+[li][u]02.10.09:[/u] [i]rev193[/i]: Relaunch der Projektseite, mit vielen neuen Sachen die ich hier gar nicht nennen kann. Wir haben jedenfalls viele neue Konzepte erstellt und zum Teil auch schon umgesetzt. Dadurch hat sich allerdings einiges an Terminen und Zeitplänen nach hinten verschoben, aber das ist denke ich mal nicht so schlimm. [/li][br]
+
+[li][u]14.09.09:[/u] [i]rev123[/i]: CM ist [b]Alpha[/b]! So viele Revisionen schon. Und ein Monat ist vergangen...was haben wir vorzuweisen? Eine Menge! Wir arbeiten sehr fleissig an dem Pack und es geht prima voran. Zwar wird der Bugtracker im voller und die Bugs immer weirder, dennoch sind wir frohen Mutes. Das Transmittersystem ist soweit fast fertig, die HUD Basics stehen auch und viele Änderung an Gebäuden und anderem wurden vorgenommen. Auch gibts einen neuen Clonk, den uns Randrian gebaut hat.
+
+Desweiteren habe ich bisher auch drei Musiktracks gemacht, die für noch mehr marsige Stimmung sorgen sollten. Zur Zeit arbeiten wir auch parallel an zwei Szenarios (und auch zwei Loader), um so wie wir hoffen möglichst bald eine public Alpha mit den primären Objekten zum Download anzubieten...
+
+Leider können wir auch nicht überall gleichzeitig arbeiten und mangels Priorität kann ich heute doch nicht (wie eigentlich versprochen) etwas näher auf die Vegetation eingehen. Möglicherweise beim nächsten Push. Achso, genau: In der aktuellen Ausgabe des CMags gibt es auch einen recht ausführlichen Artikel zum Projekt --> http://cmag.bplaced.net/magazine/online/0909/ClonkMagazin0909.html#CCF-news,Klick;[/li][br]
+
+[li][u]15.08.09:[/u] [i]rev44[/i]: Erzschmelze, Akkumulator, Terraformer (zum Teil) und eine neue Vegetationsart komplett fertig![/li]
+
+[li][u]14.08.09:[/u] [i]rev13[/i]: CM erreicht [b]Prealpha[/b] Status! Basis und Solarpaneele komplett fertig, Clonk hat Sauerstoffsystem[/li]
+
+[li][u]12.08.09:[/u] Projektseite eröffnet[/li]
+[/region]
+[br]
+[region expanded="false" region name="history" title="Die Mars Geschichte"]
+Alles fing mit Markus Lütkemeyers Colonize Mars im Jahr 2002 an. Das wurde noch für Clonk Planet programmiert. 2007/2008 habe ich versucht davon ein Remake zu machen, was aber letztendes an zu linearen Spielablauf (-Spaß) scheiterte. 2009 war nun die Idee einfach das Thema zu verwenden, aber mit eigenen Konzepten. Eine Bildergallerie zum Thema Mars-Geschichte in Clonk ist http://www.clonkforge.net/projects/project1125/History_big.jpg,hier; verfügbar.[/region]
+[br]
+[region expanded="true" region name="concept" title="Konzepte"]
+[br]
+[div class="kbox"]
+[div1 class="sprite clunker"]
+[/div1]
+[div1 class="konzept"]
+[b]Clunker verdienen[/b]
+Clunker braucht man immer und allgegenwärtig. Diverse Einnahmequellen wären zB der Verkauf von Energiezellen. Die Energie bekommt man durch die Sonne gratis, es muss nur genügend produziert werden, um die Siedlung zu versorgen, sowie auch Energiezellen auffüllen zu können.
+[/div1]
+[/div]
+
+[div class="kbox"]
+[div1 class="sprite materialien"]
+[/div1]
+[div1 class="konzept"]
+[b]Materialien verarbeiten[/b]
+Die Grundbausteine werden vermutlich (Änderungen vorbehalten) Plastik und Metall sein. Metall stellt man aus Erde her, die vom Himmel stets herabregnet (staubform). Die Erde ist sehr eisenhaltig, von daher ist das kein Problem für die Clonks. Plastik stellt man wiederum aus Öl her, dass es durch Ölquellen nahezu unbegrenzt gibt. Öl wird somit zu einem sehr wichtigen taktischen Element. Durch die Quellen und den Regen wird gewährleistet, dass kein Material zur Neige geht. Es gilt nur den Hunger nach selbigen zu stillen in dem man sein Gebiet ausweitet und immer mehr anknüpft. Wer zB 80% der Karte hat, hat gute Chancen für viele Ölquellen, sowie den Marsstaubregen.
+[/div1]
+[/div]
+
+[div class="kbox"]
+[div1 class="sprite siedeln"]
+[/div1]
+[div1 class="konzept"]
+[b]Siedeln oder Kämpfen?[/b]
+Die Antwort könnte beides sein. Für beide Fans wird es Elemente geben, die am Ende auch wenn gewünscht ein Siedelmelee ergeben. Einiges an Waffensystem wurde in den Konzepten vorgesehen, so zB Satelliten, Kontinentalraketen und ähnliches. Für Siedler ist zB das klassiche Punkte-/Geldstanderreichen vorgesehen, oder auch Reliktbergungen in sehr unwegsamen Geländen.
+[/div1]
+[/div]
+
+[div class="kbox"]
+[div1 class="sprite forschen"]
+[/div1]
+[div1 class="konzept"]
+[b]Forschen[/b]
+Es wird eine vielzahl von Upgrades geben, die es erst ermöglichen wirklich effektiv seine Ressourcen auszunutzen. Es kann von Erweiterungen der Speicherkapazitäten, bis hin zu moderner Waffentechnik gehen, die es ermöglicht den Spieler noch wegzubomben eh er selbst Waffen hat - insofern dieser zu faul/vergessen hat auch div. Techniken zu erforschen.
+[/div1]
+[/div]
+
+[div class="kbox"]
+[div1 class="sprite jetbelt"]
+[/div1]
+[div1 class="konzept"]
+[b]Unwirtliche Gegenden[/b]
+Desweiteren wird der Clonk extremen Bedingungen ausgesetzt. Erstens hat er stetigen Sauerstoffbedarf, der ohne Upgrades nur aus der Hauptbasis zu beziehen ist. Nachts, bzw. in Polgegenden kann er schneller frieren als sonst und muss sich so in div. Gebäuden wieder aufwärmen gehen, ansonsten nimmt er auch schaden. Die Gravitation ist hier zwar ein Freund, da so besser höhere Sprünge möglich sind, aber dafür mag der Clonk ganz und gar nicht tief fallen. Aus diesem Grund gibts per Upgrade ein Jetpack mitgeliefert, womit er noch höhere Punkte einfach erreichen kann, oder seinen größeren Sprüngen den Schwung nehmen kann.
+[/div1]
+[/div]
+[/region]
+
+[br]
+
+[region expanded="true" region name="screens" title="Sceenshots"]
+Es gibt noch sehr viel mehr zu entdecken auf dem Mars, aber alles wird natürlich nicht verraten. Zum Trost einfach noch ein paar Bilder.
+
+[a href="http://www.clonkforge.net/projects/project1125/Settle.jpg" title="Clonks bauen Tank zusammen" rel="lytebox(moo)"][img src="Settle_prev.jpg"  border="0"][/a]
+[a href="http://www.clonkforge.net/projects/project1125/Lobby.jpg" title="Lobbyansicht" rel="lytebox(moo)"][img src="Lobby_prev.jpg" border="0"][/a]
+[a href="http://www.clonkforge.net/projects/project1125/Abendtransmit.jpg" title="Beamen in der Abenddämmerung - wunderschön!" rel="lytebox(moo)"][img src="Abendtransmit_prev.jpg" border="0"][/a]
+[a href="http://www.clonkforge.net/projects/project1125/transmitter3.jpg" title="Öllager Bravo" rel="lytebox(moo)"][img src="transmitter3_prev.jpg" border="0"][/a]
+[a href="http://www.clonkforge.net/projects/project1125/bigsettlement.jpg" title="Zentrum der Kolonie" rel="lytebox(moo)"][img src="bigsettlement_prev.jpg" border="0"][/a]
+
+
+
+[/region]
+
+[eng]sorry, no english description aviable[br]please view in german[/eng]

@@ -1,0 +1,29 @@
+/* Phobos 
+
+map Phobos{
+  overlay {mat=Earth; tex=Smooth; algo=sin;zoomY=-69;oy=50;
+    overlay{mat=Rock; tex=Smooth;algo=boxes; x=50; a=20;b=50; turbulence=100; lambda=2; };
+    overlay{mat=Rock; tex=Smooth;algo=rndchecker; x=1;turbulence=100; lambda=2; };
+    };
+  //Hill
+  overlay{mat=Rock;x=65; y=10; algo=sin; oy=40; hgt=60; turbulence=650;};
+};*/
+
+/* Phobos */
+
+map Phobos{
+   //Tunnelsky
+   overlay{mat=Tunnel;algo=sin; oy=45;turbulence=50;zoomX=30;zoomY=10;};
+   
+  overlay {mat=Earth; tex=Smooth; algo=sin;zoomX=80; zoomY=-69;oy=50;loosebounds=1;
+    overlay{mat=Rock; tex=Smooth;algo=bozo; x=50; a=20;b=50; turbulence=100; lambda=2; };
+    overlay{mat=Rock; tex=Ridge;algo=rndchecker; x=1;turbulence=100; lambda=2; };
+    
+    overlay{mat=Tunnel;x=0;y=30; algo=bozo; a=25; b=10; turbulence=500;};
+    };
+      //Hill
+      overlay{mat=Rock;x=65; y=10; algo=sin; zoomX=50; zoomY=-100; oy=20; hgt=60; turbulence=650;rotate=80;
+      overlay{mat=Tunnel;x=0;y=30; algo=bozo; a=25; b=10; turbulence=500;
+      };
+    };
+  };

@@ -1,0 +1,13 @@
+[Particle]
+Name=Fragment3
+MaxCount=500
+InitFn=StdInit
+ExecFn=StdExec
+DrawFn=Std
+Face=0,0,8,8,-4,-4
+Delay=1000
+Repeats=1
+RByV=1
+GravityAcc=100
+VertexCount=1
+CollisionFn=Die

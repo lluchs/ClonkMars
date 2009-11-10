@@ -1,0 +1,2 @@
+notarget=Missing transmitt targets
+beamstation=Transmitt to selectected Station

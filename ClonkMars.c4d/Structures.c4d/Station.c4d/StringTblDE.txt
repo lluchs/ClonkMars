@@ -1,0 +1,2 @@
+notarget=Keine möglichen Teleportziele vorhanden
+beamstation=Zur ausgewählten Station beamen

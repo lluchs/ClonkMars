@@ -1,0 +1,12 @@
+[DefCore]
+id=SENG
+Name=Symbol
+Version=4,9,5
+Category=C4D_StaticBack|C4D_Foreground
+MaxUserSelect=1
+Width=11
+Height=17
+Offset=-5,-8
+Value=1
+Picture=0,0,11,17
+ 
