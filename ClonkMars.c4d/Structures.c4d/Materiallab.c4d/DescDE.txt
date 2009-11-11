@@ -1,3 +1,7 @@
 Stellt aus Rohstoffen fertige Produkte her.
 
 Dauerproduktion per Itemauswählen und mit Spezial2 bestätigen.
+
+Mit Springen ist das Menü für Mögliches-bauen mit vorhandenen Materialien erreichbar. Mit Graben wiederum ist alles baubare sichtbar, auch die erforderlichen Komponenten.
+
+Damit das Labor Plastik produzieren kann, muss es mit einem Öltank verbunden sein.

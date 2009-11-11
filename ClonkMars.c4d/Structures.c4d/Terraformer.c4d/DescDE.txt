@@ -1,1 +1,3 @@
-Die Terraforming Einheit macht den Boden für Pflanzen verträglich, wandelt CO² zu O2 um und lässt es regnen.
+Die Terraforming Einheit erzeugt Wärme und lässt es regen. 
+
+Aufgrund dessen wachsen dann Pflanzen, die wiederum Sauerstoff auf der Oberfläche des Planeten in einem gewissen Radius erzeugen.

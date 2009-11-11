@@ -1,1 +1,3 @@
 Speichert Öl und gibt es bei Bedarf wieder ab.
+
+Sollte mit Bohrturm und Materiallabor mittels Rohrbausatz verbunden sein.
