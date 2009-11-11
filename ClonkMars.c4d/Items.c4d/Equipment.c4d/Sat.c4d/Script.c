@@ -22,7 +22,7 @@ protected func Hit() {
 protected func Entrance(object pContainer) {
 	if(pContainer -> ~IsBase()) {
 		SetAction("FlyBase", pContainer);
-		Sound("trumpet");
+		Sound("Sat_Beep");
 		return 1;
 	}
 }
