@@ -32,3 +32,6 @@ Mehr oder weniger langfristige todos, bis zum Release.
 
 # Rules
 - Strahlung (s. Strahlung.rtf, Grafik vorhanden)
+
+#System.c4g
+- AllKnowledge.c vervollständigen (NF)

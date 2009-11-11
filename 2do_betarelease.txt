@@ -1,3 +1,5 @@
+# alle desc ens anpassen
+
 # Jetpack Fuel (NF)
 
 # Explosion.c4d statt Explosive.c4d
@@ -7,9 +9,6 @@
 
 # Materiallab
 - Abbruch auf Knopfdruck --> Ressourcen sind dann aber verloren
-
-#System.c4g
-- AllKnowledge.c vervollständigen (NF)
 
 # Terraformer
 - Wärme produzieren im Radius
