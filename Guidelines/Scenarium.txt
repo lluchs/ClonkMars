@@ -1,8 +1,0 @@
-Was ist wichtig beim Szenarienmachen?
-
-Scenario.txt
-
-SkipDefs=LNKT=20600048
-Precipitation=Earth //Erdregen
-Gravity=64,0,10,200 //Standard Mars Gravitations
-

@@ -1,9 +1,0 @@
-Vorgehensweise bei PMs wegen Buglöschung:
-
-
-
-Titel: CM Bugtracker
-
-Gelöschter Bug #002397: Biotop
-
-Grund: Ideen bitte nicht in den Bugtracker.
