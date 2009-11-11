@@ -51,7 +51,8 @@ global func Explode(int iLevel, object pObj, id idEffect, string szEffect)
   }
 
 	///Brandspuren...
-  if(EffectLevel() > EM4K_Low)
+  // Wir haben keine Effekteinstellungen oä., daher immer an
+  //if(EffectLevel() > EM4K_Low)
     CreateBurnMark(x,y,iLevel,20+iLevel/2);
 
   ///Lichteffekte bei Dunkelheit...
