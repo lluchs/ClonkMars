@@ -1,0 +1,48 @@
+# Jetpack Fuel (NF)
+
+# Explosion.c4d statt Explosive.c4d
+
+# Handelssystem
+- unabhängig machen vom Standard
+
+# Materiallab
+- Abbruch auf Knopfdruck --> Ressourcen sind dann aber verloren
+
+#System.c4g
+- AllKnowledge.c vervollständigen (NF)
+
+# Terraformer
+- Wärme produzieren im Radius
+- Pflanzen wachsen mehr in der Erde, Offset kontrollieren oder sowas!?
+
+# Rückbau
+- bestätigen Knopf
+--> dafür Symbole (NF)
+- auch Baustellen erfassen
+
+# Waffenlabor
+- Trägerraketen ins All schießen Funktionalität
+--> benötigt Upgrade: Booster
+--> benötigt Upgrade: Forschungssatellit
+--> dann bauen (nach components)
+--> Bunker öffnen lassen und start
+- Licht in Grafik einbauen (für Launch) (NF)
+
+# Forschungslabor
+- Updatesystem - komplett bauen
+- forschen: kostet Clunker
+
+# Crew
+- Globale O2 Warning für Clonks (nicht nur der angewählte)
+
+# Transmitter
+- Bei Ankunft in Zielstation auch Sparks bei Clonk-Rematerialisierung
+
+# Conkit
+- Grafik (NF)
+
+# Gebäude Overlays (NF)
+--> Labor, Matlab, Weaponbase (unvollständig)
+
+# Manual
+- updaten (NF)

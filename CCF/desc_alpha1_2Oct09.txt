@@ -1,0 +1,39 @@
+[div align="center"][img src="Logo_v2.jpg" title="" align="center"][/div]
+
+[region expanded="true" region name="Neues" title="Neues"]
+[img src="basetitle.jpg" title="" align="right"]
+[u]14.09.09:[/u] [i]rev123[/i]: CM ist [b]Alpha[/b]! So viele Revisionen schon. Und ein Monat ist vergangen...was haben wir vorzuweisen? Eine Menge! Wir arbeiten sehr fleissig an dem Pack und es geht prima voran. Zwar wird der Bugtracker im voller und die Bugs immer weirder, dennoch sind wir frohen Mutes. Das Transmittersystem ist soweit fast fertig, die HUD Basics stehen auch und viele Änderung an Gebäuden und anderem wurden vorgenommen. Auch gibts einen neuen Clonk, den uns Randrian gebaut hat.
+
+Desweiteren habe ich bisher auch drei Musiktracks gemacht, die für noch mehr marsige Stimmung sorgen sollten. Zur Zeit arbeiten wir auch parallel an zwei Szenarios (und auch zwei Loader), um so wie wir hoffen möglichst bald eine public Alpha mit den primären Objekten zum Download anzubieten...
+
+Leider können wir auch nicht überall gleichzeitig arbeiten und mangels Priorität kann ich heute doch nicht (wie eigentlich versprochen) etwas näher auf die Vegetation eingehen. Möglicherweise beim nächsten Push. Achso, genau: In der aktuellen Ausgabe des CMags gibt es auch einen recht ausführlichen Artikel zum Projekt --> http://cmag.bplaced.net/magazine/online/0909/ClonkMagazin0909.html#CCF-news,Klick;
+
+[u]15.08.09:[/u] [i]rev44[/i]: Erzschmelze, Akkumulator, Terraformer (zum Teil) und eine neue Vegetationsart komplett fertig!
+
+[u]14.08.09:[/u] [i]rev13[/i]: CM erreicht [b]Prealpha[/b] Status! Basis und Solarpaneele komplett fertig, Clonk hat Sauerstoffsystem
+
+[u]12.08.09:[/u] Projektseite eröffnet
+[/region]
+[br][br]
+[region expanded="true" region name="dev" title="Entwicklung"]
+Worum gehts? Eigentlich wieder um dasselbe Thema, nämlich Clonks auf den Mars zu schicken. Der Unterschied aber zwischen dem hier und CMR ist, dass es keine lineare Mission werden soll, sondern ein vielseitig verwendbares Pack zu diesem Thema. 
+[img src="base.png" title="Basis mit Solarpaneelen" align="right"]
+[/region]
+Der Spieler hat wie gewohnt eine Basis, in der er sich mit Materialien und Sauerstoff versorgen kann. SaubereEnergie wird von den Panelen erzeugt und kann so nahezu unbegrenzt benutzt/erzeugt werden. 
+
+Reguläres Ziel ist es kleine Terraformingeinheiten zu bauen, die wiederum den Marsboden in fruchtbare Erde verwandeln, worin Bäume wachsen können, die wiederum Sauerstoff produzieren. Wer nach Ablauf der Zeit am meisten Boden renaturiert hat, hat gewonnen. Kleine Fieslichkeiten werden wir uns noch einfallen lassen. Aber auch normale Siedelspielmodi wird es sicherlich geben. Versorgen kann sich der Spieler mit sauberen Solarstrom, sowie Metall und Plastik. 
+
+[img src="HUD.jpg" title="HeadUp Display" align="right"]
+Hier sieht man das neue HUD, mit seinen rudimentären Bestandteilen. Atm zeigt es den Volumeninhalt des O2Tanks an (blauer Balken links), sowie in der Mitte die aktuelle Temperatur (warm). Warum das? 
+
+Der Clonk hat zwar einen Anzug an, aber kann nur begrenzt bei Nacht umherwandern, denn dann fängt er an zu frieren und muss sich in einem Gebäude seiner Wahl wieder aufwärmen. Auch der Sauerstoff muss nachgefüllt werden, das kann aber nur in der Basis passieren. Weitere Infos die es geben könnte, wären zB div Ereignisse (Crewmitglied tot, Strom failt, HQ meldet sich, oder ähnliches). Mal sehen was uns dazu noch einfällt, ihr könnt wie immer auch ein paar Ideen hier hin schreiben wenn ihr wollt.
+
+[img src="Glacier.jpg" title="Eiskalt am Nordpol" align="right"]
+Wie weiter oben schon erwähnt hat sich am Clonk noch einiges getan. Es gibt ein Temperatursystem, sodass der Spieler gezwungen wird sich aufzuwärmen und Sauerstoff nachzutanken. So einfach macht es der Mars uns nicht ihn zu besiedeln. Schon gar nicht, wenn man keine 1337-supertoll-hau-mich-tot-Technik hat.
+
+Der Clonk wird zudem aber auch noch etwas aufgemotzt. Mangels Fluggerät (zumindest ist es nicht geplant), wird jeder Clonk standardmässig ein Jetpack integriert haben, das ihn auf höhere Ebenen bringen kann. Doch auch diese Technik hat seinen Preis: Als Sprit fungiert Strom, der mittels Batterie immer eingespeißt werden muss. Aufgeladen werden können die Batterien dann wiederum am großem Akkumulator, der ja von den Solarpaneelen versorgt wird. Eine Runde Sache das.
+
+Auf dem letzten Screenshot sieht man btw den Transmitter. Dieser kann den Clonk in Licht aufsplitten und dann mittels Strahl ihn über diverse ausrichtbare Hohlspiegel(sog. Splitter) durch den Raum schicken. Dieser Vorgang kostet aber enorme Energie, und bis so ein System mal konfiguriert, alle Hohlspigel ausgerichtet und genügend Ressourcen aufgebracht wurden, vergeht einiges an Zeit. Ein guter Punkt zum Thema Micromanagement.
+
+
+[eng]sorry, no english description aviable[br]please view in german[/eng]
