@@ -2,8 +2,6 @@
 
 # Jetpack Fuel (NF)
 
-# Explosion.c4d statt Explosive.c4d
-
 # Handelssystem
 - unabhängig machen vom Standard
 
