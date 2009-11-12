@@ -156,7 +156,7 @@ protected func FxJetbeltTimer()
   if(!GetFuel()) RefillFuel();
   DoFuel(-Consumption());
   
-  Message("@Treibstoff:|%d", this, GetFuel() / 100);
+  Message("@Treibstoff:|%d", this, GetFuel() * 100 / MaxFuel());
 
     
   r-=180;
