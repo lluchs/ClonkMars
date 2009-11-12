@@ -50,8 +50,8 @@ Magic=MWP2=0;MFFA=0;MVLC=0;MWND=0;MQKE=0;CMFG=0;RMMG=0;MBRG=0;EXTG=0;ETFL=0;MGHL
 VegetationLevel=100,0,0,100
 InEarthLevel=65,0,0,100
 Sky=Sky_Starfield
-MapWidth=141,0,64,250
-MapHeight=141,0,40,250
+MapWidth=141,0,0,0
+MapHeight=141,0,0,0
 Phase=0,0,0,100
 Period=0,0,0,100
 Random=12,0,0,100
