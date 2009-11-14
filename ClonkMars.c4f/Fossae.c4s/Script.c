@@ -8,10 +8,7 @@ func Initialize() {
   SetGamma(RGB(50,0,0), RGB(140,100,100), RGB(255,220,220));
   SetSkyParallax(0,10,0,3,0);
   DigBuildingsFree();
-  //place Dust
-  for(var i;i<40;++i) 
-  CreateParticle("Dust2",Random(LandscapeWidth()),Random(LandscapeHeight()*2/3),RandomX(3,9),0,RandomX(1000,1500));
-  
+  ScriptGo(1);
   return(1);
 }
 
@@ -21,3 +18,10 @@ protected func InitializePlayer(int iPlr) {
 		pObj -> Enter(pCapsule);
 	}
 }
+
+protected func Script5(){
+  //place Dust
+  for(var i;i<140;++i) 
+  CreateParticle("Dust2",Random(LandscapeWidth()),Random(LandscapeHeight()*2/3),RandomX(3,9),0,RandomX(1000,1500));
+  return(goto(0));
+  }
