@@ -5,13 +5,17 @@
 func Initialize() {
   SetPosition(150,90);
   SetVisibility(VIS_Owner);
+  
+  SetStillOverlayAction("Temperatur", HUD_Temp);
+  SetStillOverlayAction("ItemLog", HUD_ItemLog);
   return(1);
 }
 
 static const HUD_O2 = 1;
 static const HUD_Fuel = 2;
 static const HUD_Gencode = 3;
-static const HUD_Temp = 4; // anti-error
+static const HUD_Temp = 4;
+static const HUD_ItemLog = 5;
 
 local warning;
 
