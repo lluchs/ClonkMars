@@ -39,7 +39,7 @@ public func UpdateO2(int iO2) {
 		return;
 	}
 	
-	SetStillOverlayAction(Format("O2%d", iO2), HUD_O2);
+	SetStillOverlayAction(Format("O2%d", 100-iO2), HUD_O2);
 	
 	if(!warning && iO2 <= 30) {
 		warning = 1;
@@ -58,7 +58,7 @@ public func UpdateFuel(int iFuel) {
 		return;
 	}
 	
-	SetStillOverlayAction(Format("Fuel%d", iFuel), HUD_Fuel);
+	SetStillOverlayAction(Format("Fuel%d", 100-iFuel), HUD_Fuel);
 	return 1;
 }
 
@@ -68,7 +68,7 @@ public func UpdateGencode(int iValue) {
 		return;
 	}
 	
-	SetStillOverlayAction(Format("Gencode%d", iValue), HUD_Gencode);
+	SetStillOverlayAction(Format("Gencode%d", 100-iValue), HUD_Gencode);
 	return 1;
 }
 
