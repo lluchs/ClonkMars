@@ -62,9 +62,9 @@ protected func Terraforming() { // TimerCall
 		iEnergy++;
 		fTerraforming = false;
 		if(NoEnergy() && !Random(5)) {
-			var pTree = FindObject2(Find_Distance(TERA_RADIUS), Find_Func("IsTree"), Find_Not(Find_Func("IsDeadTree")));
+			var pTree = FindObject2(Find_Distance(TERA_RADIUS), Find_Func("IsTree"), Sort_Random());
 			if(pTree)
-				pTree -> ChangeDef(GetDefBurnTo(pTree -> GetID()));
+				pTree -> DoCon(-1);
 		}
 		return;
 	}
@@ -79,11 +79,6 @@ protected func Terraforming() { // TimerCall
   	iEnergy--;
   	
   fTerraforming = true;
-  
-  var pTree;
-  if(!Random(10) && (pTree = FindObject2(Find_Distance(TERA_RADIUS), Find_Func("IsDeadTree")))) { // Bäume wiederbeleben
-  	pTree -> ChangeDef(pTree -> BurnedFrom());
-  }
   
   if(!Random(10) && ObjectCount2(Find_Distance(TERA_RADIUS), Find_Func("IsTree")) < Random(10)) { // neue Bäume
   	var pTree = PlaceVegetation(RandomTreeID(), TERA_RADIUS / -2, TERA_RADIUS / -2, TERA_RADIUS, TERA_RADIUS, 10);
