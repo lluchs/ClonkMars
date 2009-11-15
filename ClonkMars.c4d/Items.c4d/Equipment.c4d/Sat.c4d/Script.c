@@ -8,12 +8,6 @@ func ResetCategory()
   return 1;
 }
 
-func OnOwnerChanged(int new_owner, int old_owner)
-{
-  // Flagge hat den Besitzer verloren? Dann runterfallen!
-  if (new_owner == NO_OWNER) SetAction("Idle");
-}
-
 protected func Hit() {
   Sound("MetalHit*");
   return(1);
