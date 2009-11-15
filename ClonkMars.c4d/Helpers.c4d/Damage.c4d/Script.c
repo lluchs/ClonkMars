@@ -47,14 +47,10 @@ private func DestroyBlast(object pTarget) {
 	GetRect(pTarget->GetID(), ox, oy, wdt, hgt);
 	var metlcount = pTarget->GetComponent(METL);
 	var power = Sqrt(wdt ** 2 + hgt ** 2);
-	AddLightFlash(power);
-	pTarget->CreateParticle(Format("Blast%d",Random(3)), 0,0,0,0, power*10, RGBa(255,255,255,Random(128)));
-	Sound("Blast3", false, pTarget, 100);
 	pTarget->CastObjects(ORE1,metlcount/2,power);
 	for(var pObj in FindObjects(Find_Container(this), Find_Not(Find_Func("IsLight"))))
 		pObj -> Exit(0, Random(wdt) - wdt / 2, Random(hgt) - hgt / 2);
-	BlastObjects(pTarget -> GetX(), pTarget -> GetY(), power);
-	RemoveObject(pTarget, true);
+	pTarget -> Explode(power / 2);
 	return true;
 }
 
