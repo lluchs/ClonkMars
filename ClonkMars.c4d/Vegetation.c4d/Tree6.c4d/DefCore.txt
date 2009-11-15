@@ -18,9 +18,6 @@ Value=5
 Mass=400
 Components=WOOD=2
 Picture=0,0,26,36
-ContactIncinerate=2
-BlastIncinerate=10
-BurnTo=TRB5
 Growth=1
 Grab=1
 Rotate=1
