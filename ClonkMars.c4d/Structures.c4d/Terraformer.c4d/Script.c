@@ -9,6 +9,7 @@ static const TERA_RADIUS = 200; // Radius in Pixeln
 
 protected func Initialize() {
 	CreateDigger();
+	fOn = true;
 }
 
 private func CreateDigger() {
@@ -52,12 +53,12 @@ public func Deconstruction() {
 }
 
 local iEnergy; // kleines Polster falls die Energie kurzzeitig nicht ausreicht
-local fTerraforming;
+local fTerraforming, fOn;
 
 protected func Terraforming() { // TimerCall
 	if(!(GetOCF() & OCF_Fullcon))
 		return;
-	if(!CheckPower(30)) {
+	if(!fOn || !CheckPower(30)) {
 		iEnergy++;
 		fTerraforming = false;
 		if(NoEnergy() && !Random(5)) {
@@ -162,6 +163,11 @@ protected func ControlUp(){
 
 protected func ControlDig() {
 	ShowDigger();
+}
+
+protected func ControlThrow() {
+	fOn = !fOn;
+	fTerraforming = fOn;
 }
 
 protected func ContextRecreateDigger() {
