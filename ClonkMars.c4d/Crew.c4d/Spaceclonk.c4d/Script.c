@@ -40,16 +40,24 @@ public func Birth() {
 }
 
 protected func FxReproductionTimer(object pTarget, int iEffectNumber, int iEffectTime) {
-	if(!(Contained() -> CheckPower(3, false, true)))
-		return -1;
-	if(!(iEffectTime % 4000) && !(Contained() -> ~IsFull())) {
+	if(!(Contained() -> CheckPower(2, false, true))) {
+		EffectVar(0, pTarget, iEffectNumber) = 0;
+	}
+	UpdateHUDValue(HUD_Gencode, Min(++EffectVar(0, pTarget, iEffectNumber), 100));
+	if(EffectVar(0, pTarget, iEffectNumber) >= 100 && !(Contained() -> ~IsFull())) {
 	 var pClonk = CreateObject(SCNK, 0, 0, GetOwner());
 	 pClonk -> Enter(Contained());
 	 pClonk -> DoCon(-40);
 	 pClonk -> Schedule("DoCon(1)", 50, 40);
 	 pClonk -> Birth();
 	 MakeCrewMember(pClonk, GetOwner());
+	 EffectVar(0, pTarget, iEffectNumber) = -1;
 	}
+}
+
+protected func FxReproductionStop(object pTarget, int iEffectNumber, int iReason, bool fTemp) {
+	if(!fTemp)
+		UpdateHUDValue(HUD_Gencode, 0);
 }
 
 /* Itemlimit */
@@ -91,7 +99,7 @@ protected func Entrance(object pContainer) {
 	}
 	
 	if(pContainer -> ~Reproduction())
-		AddEffect("Reproduction", this, 1, 50, this);
+		AddEffect("Reproduction", this, 1, 40, this);
 	return _inherited(pContainer, ...);
 }
 
