@@ -35,6 +35,11 @@ private func EnergyCheck(int iEnergy, object pObj) {
 	return pObj -> CheckPower(iEnergy / 200);
 }
 
+protected func Pumping() {
+	if(!ReadyToPump() || GetEffect("EnergyNeed", this))
+		SetAction("Wait", pDrillHead);
+}
+
 private func PipeHeadCheck()
 {
   // Bei Bedarf Bohrkopf und Leitung erzeugen
