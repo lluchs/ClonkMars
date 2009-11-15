@@ -10,7 +10,7 @@ Offset=-80,-60
 Value=10
 Mass=10
 Components=_NEW=1;
-Picture=0,0,160,120
+Picture=0,120,160,120
 Vertices=1
 VertexY=1
 VertexFriction=20
