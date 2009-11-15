@@ -5,13 +5,13 @@
 func Initialize() {
   SetPosition(150,90);
   SetVisibility(VIS_Owner);
-	SetStillOverlayAction("lowoxywarning1", HUD_O2Warning);
   return(1);
 }
 
 static const HUD_O2 = 1;
-static const HUD_Temp = 2;
-static const HUD_O2Warning = 3;
+static const HUD_Fuel = 2;
+static const HUD_Gencode = 3;
+static const HUD_Temp = 4; // anti-error
 
 local warning;
 
@@ -26,29 +26,49 @@ global func UpdateHUD(int iPlr, int iType, int iValue) {
 	for(var HUD in HUDs) {
 		if(iType == HUD_O2)
 			HUD -> UpdateO2(iValue);
-		else if(iType == HUD_Temp)
-			HUD -> UpdateTemp(iValue);
+		else if(iType == HUD_Fuel)
+			HUD -> UpdateFuel(iValue);
+		else if(iType == HUD_Gencode)
+			HUD -> UpdateGencode(iValue);
 	}
 }
 
 public func UpdateO2(int iO2) {
-	if(iO2 % 10 || iO2 < 0 || iO2 > 100) {
+	if(iO2 < 0 || iO2 > 100) {
 		DebugLog("ERROR: HUD: ungültige Sauerstofffüllung übergeben");
 		return;
 	}
-	SetGraphics(0, this, GetID(), HUD_O2, GFXOV_MODE_Action, Format("oxygen%d", iO2));
-	SetObjDrawTransform(1000, 0, -60000, 0, 1000, -23000, this, HUD_O2);
+	
+	SetStillOverlayAction(Format("O2%d", iO2), HUD_O2);
 	
 	if(!warning && iO2 <= 30) {
 		warning = 1;
-		SwitchWarning();
 		Sound("Warning_lowoxygen", true, 0, 0, GetOwner() + 1, +1);
 	}
 	else if(warning && iO2 > 30) {
 		warning = 0;
-		SetStillOverlayAction("lowoxywarning1", HUD_O2Warning);
 		Sound("Warning_lowoxygen", true, 0, 0, GetOwner() + 1, -1);
 	}
+	return 1;
+}
+
+public func UpdateFuel(int iFuel) {
+	if(iFuel < 0 || iFuel > 100) {
+		DebugLog("ERROR: HUD: ungültige Treibstofffüllung übergeben");
+		return;
+	}
+	
+	SetStillOverlayAction(Format("Fuel%d", iFuel), HUD_Fuel);
+	return 1;
+}
+
+public func UpdateGencode(int iValue) {
+	if(iValue < 0 || iValue > 100) {
+		DebugLog("ERROR: HUD: ungültige Treibstofffüllung übergeben");
+		return;
+	}
+	
+	SetStillOverlayAction(Format("Gencode%d", iValue), HUD_Gencode);
 	return 1;
 }
 
@@ -60,16 +80,4 @@ public func UpdateTemp(int iTemp) {
 	SetGraphics(0, this, GetID(), HUD_Temp, GFXOV_MODE_Action, Format("%d", iTemp));
 	SetObjDrawTransform(1000, 0, -8000, 0, 1000, -18000, this, HUD_Temp);
 	return 1;
-}
-
-private func SetWarning() {
-	SetStillOverlayAction(Format("lowoxywarning%d", warning), HUD_O2Warning);
-	ScheduleCall(this, "SwitchWarning", 20);
-}
-
-private func SwitchWarning() {
-	if(warning) {
-		warning = warning - 1 || 2;
-		SetWarning();
-	}
 }
