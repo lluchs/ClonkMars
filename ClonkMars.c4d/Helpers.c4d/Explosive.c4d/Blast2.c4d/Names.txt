@@ -1,2 +1,0 @@
-DE:Explosion2
-US:Blast2

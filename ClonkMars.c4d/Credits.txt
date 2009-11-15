@@ -2,13 +2,11 @@ Mirosh (EKE Pack): Schweiss-Sound
 
 Hazard Team: Dunkelheit- und Lasersystem, Effekte
 
-Henry: Jetbelt
+Henry: Jetbelt, Explosion.c4d
 
 Maikel: Power.c4d
 
 Randrian: Raumfahrerclonk
-
-Team StarEmpires: Explosion.c4d
 
 cgtextures.com: einige Bildertexturen
 
