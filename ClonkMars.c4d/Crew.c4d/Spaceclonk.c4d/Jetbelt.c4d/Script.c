@@ -8,6 +8,8 @@ protected func Initialize() {
 	effectnum = AddEffect("Jetbelt", this, 100, 0, this);
 	// Treibstoff füllen
 	fuel = MaxFuel();
+	// HUD-Update
+	this -> UpdateHUDValue(HUD_Fuel, GetFuel() * 100 / MaxFuel());
 	return _inherited(...);
 }
 
@@ -156,7 +158,7 @@ protected func FxJetbeltTimer()
   if(!GetFuel()) RefillFuel();
   DoFuel(-Consumption());
   
-  Message("@Treibstoff:|%d", this, GetFuel() * 100 / MaxFuel());
+  this -> UpdateHUDValue(HUD_Fuel, GetFuel() * 100 / MaxFuel());
 
     
   r-=180;

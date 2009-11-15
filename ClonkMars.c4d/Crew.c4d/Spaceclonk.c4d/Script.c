@@ -18,6 +18,10 @@ protected func Initialize() {
 	else
 		return;
 	
+	InitHUD();
+	
+	UpdateHUDValue(HUD_Gencode, 0);
+	
 	AddEffect("O2", this, 100, SCNK_O2 / 100, this);
 
 	// Stirnlampe erstellen
@@ -51,25 +55,13 @@ protected func FxReproductionTimer(object pTarget, int iEffectNumber, int iEffec
 /* Itemlimit */
 public func MaxContentsCount() { return 3; }
 
-private func UpdateO2Display(bool fRound) {
-	if((fRound || !(O2 % 10)) && GetCursor(GetOwner()) == this)
-		UpdateHUD(GetOwner(), HUD_O2, Round(O2));
-}
-
-private func Round(int iValue) {
-	var iMod = iValue % 10;
-	if(iMod < 5)
-		iValue -= iMod;
-	else
-		iValue += 10 - iMod;
-	return iValue;
-}
+/* Sauerstoff */
 
 protected func FxO2Start(object pTarget, int iEffectNumber, bool fTemp) {
 	if(fTemp)
 		return;
 	O2 = 100; // voller Sauerstoff am Anfang
-	UpdateO2Display();
+	UpdateHUDValue(HUD_O2, O2);
 }
 
 // der Timerintervall ist so gewählt, dass immer pro Zeiteinheit ein Prozentpunkt abgezogen wird
@@ -80,12 +72,12 @@ protected func FxO2Timer() {
 		O2 += 10;
 		if(O2 > 100)
 			O2 = 100;
-		UpdateO2Display(true);
+		UpdateHUDValue(HUD_O2, O2);
 		return 1;
 	}
 	if(O2) {
 		O2--;
-		UpdateO2Display();
+		UpdateHUDValue(HUD_O2, O2);
 	}
 	else {
 		DoEnergy(-20, this, false, FX_Call_EngAsphyxiation, GetOwner() + 1);
@@ -108,9 +100,31 @@ protected func Departure(object pContainer) {
 	return _inherited(pContainer, ...);
 }
 
+/* HUD-Zeugs */
+
+local HUD;
+
+public func InitHUD() {
+	if(!FindObject2(Find_Owner(GetOwner()), Find_ID(MHUD)))
+		CreateObject(MHUD,-120,60, GetOwner());
+	if(GetType(HUD) != C4V_Array)
+		HUD = CreateArray();
+	return 1;
+}
+
+public func UpdateHUDValue(int iType, int iValue) {
+	HUD[iType] = iValue;
+	if(GetCursor(GetOwner()) == this)
+		UpdateHUD(GetOwner(), iType, iValue);
+	return 1;
+}
+
 protected func CrewSelection(bool fDeselect) {
-	if(!fDeselect)
-		UpdateO2Display(true);
+	if(!fDeselect) {
+		for(var i = 0; i < GetLength(HUD); i++) {
+			UpdateHUD(GetOwner(), i, HUD[i]);
+		}
+	}
 }
 
 /* Spezialtaste: Inventarwechsel */ 
