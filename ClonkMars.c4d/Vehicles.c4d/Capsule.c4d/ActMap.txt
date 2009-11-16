@@ -39,7 +39,6 @@ Delay=2
 Lenght=4
 FacetBase=0
 Facet=0,45,60,45
-EndCall=SteuerungSpieler?
 Sound=Jetbelt
 
 [Action]
@@ -57,7 +56,6 @@ Delay=2
 Lenght=4
 FacetBase=0
 Facet=0,45,60,45
-EndCall=SteuerungSpieler?
 Sound=Jetbelt
 Reverse=1
 
@@ -68,7 +66,6 @@ Delay=2
 Lenght=4
 FacetBase=0
 Facet=0,135,60,45
-EndCall=SteuerungSpieler?
 Sound=Jetbelt
 
 [Action]
@@ -86,6 +83,5 @@ Delay=2
 Lenght=4
 FacetBase=0
 Facet=0,135,60,45
-EndCall=SteuerungSpieler?
 Sound=Jetbelt
 Reverse=1

@@ -1,4 +1,12 @@
 [Action]
+Name=Contruct
+Procedure=NONE
+Length=30
+Delay=2
+Facet=0,60,95,34,0,0
+FacetBase=0
+
+[Action]
 Name=Door
 Procedure=NONE
 Length=20
