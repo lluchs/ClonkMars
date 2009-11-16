@@ -1,0 +1,25 @@
+/* Tachyon */
+map Valley {
+     //Insel
+     overlay{mat=Earth;tex=Smooth;algo=bozo;a=15;oy=50;zoomX=20;loosebounds=1;turbulence=500;
+        overlay{mat=Crystal;algo=rndchecker;zoomX=50;};};
+     overlay{mat=Earth;tex=Smooth;algo=bozo;a=15;ox=30;oy=25;wdt=40;zoomX=20;loosebounds=1;turbulence=500;
+             overlay{mat=Crystal;algo=rndchecker;};};
+     overlay{mat=Rock;tex=Ridge;algo=bozo;a=15;b=8;oy=50;zoomX=20;loosebounds=1;turbulence=500;};
+    //Randlinks
+    overlay{mat=Rock;tex=Ridge;algo=rndchecker;ox=-85;oy=40;loosebounds=1;turbulence=70;};
+    //Randrechts
+    overlay{mat=Rock;tex=Ridge;algo=rndchecker;ox=85;oy=40;loosebounds=1;turbulence=70;};
+    //Krater
+    overlay{mat=Earth;algo=sin;a=50; zoomX=+90;oy=50;loosebounds=1;
+    overlay{mat=Sulphur;algo=checker;a=50;b=30;loosebounds=1;turbulence=2500;};
+    //aushub (Meteor!)
+    overlay{mat=Tunnel;algo=mandel;ox=10;zoomX=60;zoomY=50;turbulence=500;
+      overlay{mat=Oil;y=75;loosebounds=1;
+      };
+    };
+  };
+ overlay{mat=Sulphur;algo=lines;a=13; b=40;oy=75;loosebounds=1;turbulence=500;rotate=-25;};
+ overlay{mat=Sulphur;algo=lines;a=13; b=40;oy=125;loosebounds=1;turbulence=500;rotate=+25;};
+};
+  
