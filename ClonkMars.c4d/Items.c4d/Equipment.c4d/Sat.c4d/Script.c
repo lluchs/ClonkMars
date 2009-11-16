@@ -4,7 +4,7 @@
 
 func ResetCategory()
 {
-  SetCategory(2576);
+  SetCategory(GetDefCategory());
   return 1;
 }
 

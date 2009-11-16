@@ -344,3 +344,10 @@ protected func Death() {
 	}
 	return _inherited(...);
 }
+
+public func ContextHome(pCaller)
+{
+  [$CtxHomeDesc$|Image=CXHM|Condition=HasBase]
+  SetCommand(this, "Enter", FindBase(GetOwner(this)));
+  return(1);
+}

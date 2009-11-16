@@ -25,25 +25,12 @@ protected func Initialize() {
 }
 
 public func SetDstPort(object pPort) {
+	if(pPort) pPort->Occupy(this);
 	port = pPort;
-	var dst = Abs(GetY()-GetY(pPort))-15;
+	var dst = Abs(GetY()-GetY(pPort))-30;
 	if(!pPort) dst = Abs(GetY()-GetHorizon(GetX())) - 150;
-	var t1 = iCapsLandSpeed / iCapsAcceleration; //Time to reach land speed in acceleration
-	var t2 = (2*iCapsLandSpeed + Sqrt(4*iCapsLandSpeed**2 + (GetGravity()+iCapsAcceleration*2)*dst*2000)) / (4*(25+iCapsAcceleration)) *9/7;
-	//Eigentlich sollte diese Formel (Ohne *4/3) die Zeit liefern, die die Kapsel frei fliegen darf, bevor sie abbremsen muss
-	//um genau 30 Pixel über der Platform iCapsLandSpeed zu erreichen. Wer fixen will, nurzu. Ungefähr funktionert sie allerdings.
-	/*Diese hingegen versagt. Wer eine (vermutlich kaputte) Herleitung will, JCaesar ist schuld
-	var g = -iCapsAcceleration; //Scal: 500
-	var v = iCapsLandSpeed; //Scal: 500
-	var f = GetGravity(); //Scal: 500
-	var r = 10* g / f; //Scal: 10
-	var ta = 10* v / f; //Scal: 10
-	var a = (5*f + g*r**2/20); //Scal: 5.000
-	var b = -g*r**2*ta/10 -10*r*v; //Scal: 5.000
-	var c = g*r**2*ta**2/20 + r*v*ta; //Scal: 5.000
-	Log("g%d, v%d, f%d, r%d, ta%d, a%d, b%d, c%d -> %d", g,v,f,r,ta,a,b,c, (-b+Sqrt(b**-4*a*c))/(2*a));
-	ScheduleCall(this, "StartLanding", (-b+Sqrt(b**-4*a*c))/(2*a));*/
-	ScheduleCall(this, "StartLanding", t1+t2);
+	var t = GetRLaunchTime(dst); //This is a dumb and slow solution: Look for Revs around 1400 if you'd like to fix something intelligent but broken
+	ScheduleCall(this, "StartLanding", t);
 	if(port)
 		ScheduleCall(port, "PortActive", 50);
 	return 1;
@@ -194,3 +181,25 @@ protected func FxEffectsDustTimer() {
 }
 
 public func MaxDamage() { return 20; }
+
+private func GetRLaunchTime(int dst, int iter, int start) {
+	if(GetGravity() < 1) return -1;
+	if(iter == 0) iter = 1000/GetGravity();
+	var t=start;
+	while(true){
+		t+= iter;
+		var i=t,d=0,s=0;
+		while(i--) {
+			s += GetGravity();
+			d += s;
+		}
+		while(s > iCapsLandSpeed) {
+			s -= iCapsAcceleration;
+			d += s;
+		}
+		if(d/500 > dst) {
+			if(iter == 1) return t-iter;
+			else return GetRLaunchTime(dst, iter/2, t-2*iter);
+		}
+	}	
+}

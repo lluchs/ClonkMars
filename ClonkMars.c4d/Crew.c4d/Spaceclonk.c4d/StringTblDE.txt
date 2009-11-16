@@ -2,3 +2,4 @@ CtrlInventoryDesc=Inventar auswählen
 CtxDeconstructDesc=Rückbau
 DeconstructNotFound=Kein rückbaubares Gebäude gefunden.
 DeconstructMustWalk=Clonk muss für den Rückbau stehen.
+CtxHomeDesc=Zurück zur Basis

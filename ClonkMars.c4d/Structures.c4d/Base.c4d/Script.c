@@ -138,3 +138,14 @@ public func IsBase() {
 }
 
 public func MaxDamage() { return 50; } //Maximaler Schaden
+
+global func FindBase(int iPlr) {
+	return FindObject2(Find_Owner(iPlr), Find_Func("IsBase"), Sort_Distance()); // FIXME-performance: Use ID for speed optimisation
+}
+
+global func GetBase(object pObject) {
+	if(!pObject && !(pObject=this)) return NO_OWNER; 
+	var sat = pObject->~HasSat();
+	if(sat) return GetOwner(sat);
+	return NO_OWNER;
+}
