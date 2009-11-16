@@ -81,7 +81,7 @@ private func CapsuleCheck(object pClonk) {
 		return 1;
 	if(pSat -> GetCapsule()) {
 		Sound("Error");
-		Message("Du hast schon eine Kapsel!", pClonk);
+		Message("$TxtAlreadyCapsule$", pClonk);
 		return 1;
 	}
 }

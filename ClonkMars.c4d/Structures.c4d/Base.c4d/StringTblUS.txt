@@ -1,0 +1,1 @@
+TxtAlreadyCapsule=Only one capsule for|each player allowed!

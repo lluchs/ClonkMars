@@ -1,0 +1,1 @@
+TxtAlreadyCapsule=Du hast schon eine Kapsel!
