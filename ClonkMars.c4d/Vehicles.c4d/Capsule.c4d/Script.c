@@ -47,8 +47,9 @@ protected func ContactBottom() { if(GetEffect("Landing",this)) {RemoveEffect("La
 
 protected func Hit(int iXDir, int iYDir) {
 	var hit = Distance(iXDir, iYDir)/2 - 70;
+	Log("%d",hit);
 	if(hit < 1) return;
-	if(hit > 90) DoDamage(hit/3);
+	if(hit < 90) DoDamage(hit/3);
 	else DestroyBlast();
 	return;
 }
@@ -110,7 +111,7 @@ private func Launch() {
 }
 
 protected func FxLaunchingTimer(object pTarget, int iEffectNumber, int iEffectTime) {
-	var accspeed = Min(iCapsMaxSpeed - Cos(GetR()-Angle(0,0,GetXDir(this, 500),GetYDir(this, 500)),Distance(GetYDir(this, 500), GetXDir(this, 500))), iCapsAcceleration/3+GetGravity());
+	var accspeed = Min(iCapsMaxSpeed - Cos(GetR()-Angle(0,0,GetXDir(this, 500),GetYDir(this, 500)),Distance(GetYDir(this, 500), GetXDir(this, 500))), iCapsAcceleration/5+GetGravity());
 	SetXDir(GetXDir(this, 500)+Sin(GetR(),accspeed), this, 500);
 	SetYDir(GetYDir(this, 500)-Cos(GetR(),accspeed), this, 500);
 	if(GetY() <= 0) {
@@ -120,8 +121,8 @@ protected func FxLaunchingTimer(object pTarget, int iEffectNumber, int iEffectTi
 		RemoveObject();
 	}
 	if(GetR()) {
-		if(GetR() < 0) SetRDir(+1, 0, 50);
-		else SetRDir(-1, 0, 50);
+		if(GetR() < 0) SetRDir(+1, 0, 25);
+		else SetRDir(-1, 0, 25);
 	}
 	if(iEffectTime > (LandscapeHeight() + 300)) DoDamage(1); //Falls die Kapsel nicht richtig startet
 }
