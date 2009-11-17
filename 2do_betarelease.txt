@@ -1,4 +1,4 @@
-# alle desc ens anpassen
+# Trümmerteil noch falsche ID, da ich ORE1 nirgends in Damage finde
 
 # Jetpack Fuel (NF)
 

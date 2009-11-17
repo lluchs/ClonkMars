@@ -2,14 +2,13 @@ Mehr oder weniger langfristige todos, bis zum Release.
 
 # Clonk
 - JetpackclonkClonk sollte keine Jump Action haben, lieber Walk oder sowas.
-- Zurück zur Basis fehlt nun im Kontextmenü
 - Möglichkeit für Health (NF)
 - wer unter einer Kapsel ist wird gleich verbrannt und stirbt sofort(?)
 - Jetpack ohne Öltank ist komisch (NF)
 
 # Upgrades.rtf, Weaponz.rtf
 
-# Baugrafiksystem
+# Baugrafiksystem (@work)
 
 # Transmitter
 - manuelle Ausrichtung der Splitter
