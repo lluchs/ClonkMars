@@ -1,27 +1,31 @@
 [Action]
-Name=1
+Name=g1
 Procedure=NONE
 Length=1
 Delay=1
 Facet=0,0,16,16
+NextAction=g1
 
 [Action]
-Name=2
+Name=g2
 Procedure=NONE
 Length=1
 Delay=1
 Facet=16,0,16,16
+NextAction=g2
 
 [Action]
-Name=3
+Name=g3
 Procedure=NONE
 Length=1
 Delay=1
 Facet=32,0,16,16
+NextAction=g3
 
 [Action]
-Name=4
+Name=g4
 Procedure=NONE
 Length=1
 Delay=1
 Facet=48,0,16,16
+NextAction=g4
