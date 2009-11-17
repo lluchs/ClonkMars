@@ -1,2 +1,0 @@
-TxtNobridgeallowedhere=Hier darf keine Brücke|gebaut werden!
-TxtBuildmetalbridge=Metallbrücke bauen

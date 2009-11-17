@@ -45,7 +45,7 @@ Magic=ROCK=1
 VegetationLevel=100,0,0,100
 InEarth=FLNT=5;ROCK=4
 InEarthLevel=65,0,0,100
-Sky=Default;
+Sky=Sky_Fossae
 MapWidth=149,0,64,250
 MapHeight=93,0,40,250
 Phase=0,0,0,100

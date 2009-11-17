@@ -1,2 +1,0 @@
-TxtNobridgeallowedhere=No bridge allowed here
-TxtBuildmetalbridge=Build metal bridge
