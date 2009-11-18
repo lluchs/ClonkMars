@@ -42,6 +42,8 @@ public func Birth() {
 protected func FxReproductionTimer(object pTarget, int iEffectNumber, int iEffectTime) {
 	if(!(Contained() -> CheckPower(2, false, true))) {
 		EffectVar(0, pTarget, iEffectNumber) = 0;
+		UpdateHUDValue(HUD_Gencode, 0);
+		return;
 	}
 	UpdateHUDValue(HUD_Gencode, Min(++EffectVar(0, pTarget, iEffectNumber), 100));
 	if(EffectVar(0, pTarget, iEffectNumber) >= 100 && !(Contained() -> ~IsFull())) {
