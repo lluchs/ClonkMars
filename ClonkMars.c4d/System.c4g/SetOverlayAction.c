@@ -2,6 +2,14 @@
 
 #strict 2
 
+global func OverlayShiftX(int iWidth) {
+	return 1000*(GetDefCoreVal("Offset", "DefCore", GetID(), 0) + iWidth/2);
+}
+
+global func OverlayShiftY(int iHeight) {
+	return 1000*(GetDefCoreVal("Offset", "DefCore", GetID(), 0) + iHeight/2);
+}
+
 /* Methode 1: alle Einzelframes in der ActMap.txt */
 
 global func OverlayActionInit(string szAction, id ID) {
