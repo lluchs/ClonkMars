@@ -19,7 +19,7 @@ static const HUD_ItemLog = 5; // +2
 
 local warning;
 
-global func UpdateHUD(int iPlr, int iType, int iValue) {
+global func UpdateHUD(int iPlr, int iType, value) {
 	var HUDs;
 	if(iPlr == NO_OWNER)
 		HUDs = FindObjects(Find_ID(MHUD));
@@ -29,11 +29,13 @@ global func UpdateHUD(int iPlr, int iType, int iValue) {
 		return;
 	for(var HUD in HUDs) {
 		if(iType == HUD_O2)
-			HUD -> UpdateO2(iValue);
+			HUD -> UpdateO2(value);
 		else if(iType == HUD_Fuel)
-			HUD -> UpdateFuel(iValue);
+			HUD -> UpdateFuel(value);
 		else if(iType == HUD_Gencode)
-			HUD -> UpdateGencode(iValue);
+			HUD -> UpdateGencode(value);
+		else if(iType == HUD_ItemLog)
+			HUD -> AddLog(value);
 	}
 }
 
@@ -76,7 +78,7 @@ public func UpdateGencode(int iValue) {
 	return 1;
 }
 
-public func UpdateLog(id ID) {
+public func AddLog(id ID) {
 	if(!ID) {
 		DebugLog("ERROR: HUD: keine ID");
 		return;
