@@ -7,7 +7,7 @@ global func OverlayShiftX(int iWidth) {
 }
 
 global func OverlayShiftY(int iHeight) {
-	return 1000*(GetDefCoreVal("Offset", "DefCore", GetID(), 0) + iHeight/2);
+	return 1000*(GetDefCoreVal("Offset", "DefCore", GetID(), 1) + iHeight/2);
 }
 
 /* Methode 1: alle Einzelframes in der ActMap.txt */

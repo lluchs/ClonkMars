@@ -158,9 +158,12 @@ private func DrawLogItem(int iItem, id ID, int iEffectNumber) {
 	
 	SetGraphics(0, this, ID, iOverlay, GFXOV_MODE_IngamePicture);
 	iItem--;
-	// Größe des Bildes: angenommene 64x64 - leider stimmt das nicht, viel zu groß
-	// daher muss hier die größe angepasst werden
-	SetObjDrawTransform(1000, 0, OverlayShiftX(64) + 1000*(8 + iItem * 64), 0, 1000, OverlayShiftY(64) + 5000, this, iOverlay);
+	// Größe des Bildes: angenommene 64x64
+	// andere Grafikgrößen passen leider eher nicht (z.B. CNKT)
+	var iWidth, iHeight;
+	iWidth = GetDefCoreVal("Picture", "DefCore", ID, 2);
+	iHeight = GetDefCoreVal("Picture", "DefCore", ID, 3);
+	SetObjDrawTransform(15 * 1000 / iWidth, 0, OverlayShiftX(iWidth) + 1000*(18 + iItem * 18), 0, 15 * 1000 / iHeight, OverlayShiftY(iHeight) + 7000, this, iOverlay);
 	
 	return 1;
 }
