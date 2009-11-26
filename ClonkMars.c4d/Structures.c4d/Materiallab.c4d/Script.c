@@ -173,7 +173,17 @@ protected func Produce(idItem, iParameter, fRight) {
 
 protected func Finish() {
 	CreateContents(idProduce);
-	ItemLog(idProduce,0,1);
+	
+	// HUD-Update für alle Spieler, die einen Clonk hier drin haben
+	var aPlr = CreateArray(GetPlayerCount()), iPlr;
+	for(var pClonk in FindObjects(Find_Container(this), Find_OCF(OCF_CrewMember))) {
+		iPlr = pClonk -> GetOwner();
+		if(!aPlr[iPlr]) {
+			UpdateHUD(iPlr, HUD_ItemLog, idProduce);
+			aPlr[iPlr] = true;
+		}
+	}
+	
 	Sound("Pshshsh");
 	if(fContinue) {
 		if(idProduce == METL)
