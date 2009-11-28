@@ -48,7 +48,7 @@ private func DestroyBlast(object pTarget) {
 	var metlcount = pTarget->GetComponent(METL);
 	var power = Sqrt(wdt ** 2 + hgt ** 2);
 	pTarget->CastObjects(ORE1,metlcount/2,power);
-	for(var pObj in FindObjects(Find_Container(this), Find_Not(Find_Func("IsLight"))))
+	for(var pObj in FindObjects(Find_Container(pTarget), Find_Not(Find_Func("IsLight"))))
 		pObj -> Exit(0, Random(wdt) - wdt / 2, Random(hgt) - hgt / 2);
 	pTarget -> Explode(power / 2);
 	return true;
