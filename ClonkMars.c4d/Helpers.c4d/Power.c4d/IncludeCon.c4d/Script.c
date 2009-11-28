@@ -15,6 +15,12 @@ private func EnergyNeedOverlay() {
 	return GFX_Overlay;
 }
 
+// Returns if a power line can be connected to this object.
+public func CanPowerConnect() // Other name?
+{
+	return GetCon() >= 100;
+}
+
 /*-- Other --*/
 
 // Checks whether there is enough power to sustain iPowerNeed.

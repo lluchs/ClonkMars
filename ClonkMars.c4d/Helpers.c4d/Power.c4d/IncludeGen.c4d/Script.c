@@ -1,4 +1,4 @@
-/*-- Include for power generators --*/
+/*-- Power generator --*/
 
 #strict 2
 
@@ -6,18 +6,24 @@
 local iPower;
 
 /*-- Public calls --*/
-// Functions that specify object properties, should be overloaded by the object.
+// Functions that specify object properties, should be overloaded by the generator.
 
-// Maximum power that can be stored in this object.
+// Maximum amount of power that can be stored in this power generator.
 public func GetCapacity() 
 {
 	return 0;
 }
 
-// Returns whether the object is a power generator.
+// This object is a power generator.
 public func IsPowerGenerator()
 {
 	return true;
+}
+
+// Returns if a power line can be connected to this object.
+public func CanPowerConnect() // Other name?
+{
+	return GetCon() >= 100;
 }
 
 // Returns the generator's priority, consumers preferably drain from generators with the highest priority.
@@ -26,31 +32,39 @@ public func GetGeneratorPriority()
 	return 1;
 }
 
-// Returns whether the objects is a power genarator connected to pConsumer.
+// Returns whether this object is a power genarator connected to pConsumer.
+// The other two parameters pNext and pOldLine are only used for recursive purposes.
 public func IsPowerGeneratorFor(object pConsumer, object pNext, object pOldLine)
 {
-	if(!pNext)
+	if(!pNext) // Initial call to this function.
 		pNext = pConsumer;
-	for(var pLine in FindObjects(Find_Func("IsPowerLine")))
+	for(var pLine in FindObjects(Find_PowerLine(pNext))) // Check all lines connected to pNext.
 	{
-		if(pLine == pOldLine) // Recursive -> Not backwards.
+		if(pLine == pOldLine) // Recursive -> Not backwards<->forwards through lines.
 			continue;
-		if(!pLine -> IsConnectedWith(pNext)) // Line connected with pConsumer.
-			continue;
-		var pEnd = pLine -> GetConnectedObject(pNext); // What's on the other end.
+		//if(!pLine -> IsConnectedWith(pNext)) // Power line connected with pConsumer.
+			//continue;
+		var pEnd = pLine -> GetConnectedObject(pNext); // What is on the line's other end.
 		if(!pEnd) // Nothing on the other end.
 			continue;		
-		if(pEnd == pConsumer) // End of a loop.
+		if(pEnd == pConsumer) // End of a recursive loop.
 			continue;
 		if(pEnd == this) // Found this object, i.e. the generator.
 			return true;
-		if(IsPowerGeneratorFor(pConsumer, pEnd, pLine))
+		if(IsPowerGeneratorFor(pConsumer, pEnd, pLine)) // This building is not found, continue with next pEnd as next building.
 			return true;		
 	}
 	return false;
 }
 
-/*-- Public calls --*/
+// Finds all power lines connected to pObject (can be nil in local calls).
+private func Find_PowerLine(object pObject)
+{
+  if(!pObject) pObject = this;
+  return [C4FO_Func, "IsConnectedTo", pObject];
+}
+
+/*-- Power generation --*/
 // Functions that manipulate the power level.
 
 // Returns the current power level of this object.
@@ -63,14 +77,14 @@ public func GetPower()
 public func SetPower(int iSetPower)
 {
 	iPower = BoundBy(iSetPower, 0, GetCapacity());
-  return true;
+  return;
 }
 
 // Adds to the current power level of this object.
 public func DoPower(int iDoPower)
 {
 	iPower = BoundBy(iPower + iDoPower, 0, GetCapacity());
-  return true;
+  return;
 }
 
 /*-- Debug --*/
@@ -81,9 +95,10 @@ protected func Initialize()
 	return _inherited(...);
 }
 
-protected func FxShowPowerTimer(object pTarget, int iEffectNumber, int iEffectTime)
+private func FxShowPowerTimer(object pTarget, int iEffectNumber, int iEffectTime)
 {
 	Message("P:%d", pTarget, pTarget->GetPower());
 	return true;
 }
 */
+
