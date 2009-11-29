@@ -9,7 +9,7 @@ Height=16
 Offset=-8,-8
 Value=10
 Mass=35
-Components=METL=1;PSTK=1
+Components=METL=1;PSTC=2
 Picture=0,16,64,64
 Vertices=2
 VertexX=

@@ -8,7 +8,7 @@ func Initialize() {
   return(1);
 }
 
-protected func ControlDigDouble(){
+protected func Activate(){
   Split2Components(this());
   Sound("Connect");
   }
