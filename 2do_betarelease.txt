@@ -1,5 +1,3 @@
-# Trümmerteil noch falsche ID, da ich ORE1 nirgends in Damage finde
-
 # Jetpack Fuel (NF)
 
 # Handelssystem
@@ -39,4 +37,4 @@
 - Grafik (NF)
 
 # Gebäude Overlays (NF)
---> Labor, Matlab, Weaponbase (unvollständig)
+--> Labor, Weaponbase (unvollständig)
