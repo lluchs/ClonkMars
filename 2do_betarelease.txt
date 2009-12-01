@@ -35,6 +35,3 @@
 
 # Conkit
 - Grafik (NF)
-
-# Gebäude Overlays (NF)
---> Labor, Weaponbase (unvollständig)
