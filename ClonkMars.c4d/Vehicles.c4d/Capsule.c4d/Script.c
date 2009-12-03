@@ -43,11 +43,10 @@ public func IsO2Producer() {
 	return 1;
 }
 
-protected func ContactBottom() { if(GetEffect("Landing",this)) {RemoveEffect("Landing", this); Fertig();}}
+protected func ContactBottom() { if(GetEffect("Landing",this) || GetAction() == "FreeFall") {RemoveEffect("Landing", this); Fertig();}}
 
 protected func Hit(int iXDir, int iYDir) {
-	var hit = Distance(iXDir, iYDir)/2 - 70;
-	Log("%d",hit);
+	var hit = Distance(iXDir, iYDir)/3 - 70;
 	if(hit < 1) return;
 	if(hit < 90) DoDamage(hit/3);
 	else DestroyBlast();
@@ -185,7 +184,7 @@ public func MaxDamage() { return 20; }
 
 private func GetRLaunchTime(int dst, int iter, int start) {
 	if(GetGravity() < 1) return -1;
-	if(iter == 0) iter = 1000/GetGravity();
+	if(iter == 0) iter = 300000/GetGravity()/dst;
 	var t=start;
 	while(true){
 		t+= iter;
