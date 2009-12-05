@@ -1,5 +1,7 @@
 # Jetpack Fuel (NF)
 
+# RADO Funktionalität (Meteoritendisruptor)
+
 # Handelssystem
 - unabhängig machen vom Standard
 
