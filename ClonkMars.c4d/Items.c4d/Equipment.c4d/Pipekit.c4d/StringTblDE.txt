@@ -1,4 +1,0 @@
-TxtConnectline=Leitung anschließen
-TxtNoNewLine=Neue Leitung hier|nicht möglich.
-TxtLineRemoval=Leitung abgenommen.
-TxtConnect=Leitung verbunden|mit %s
