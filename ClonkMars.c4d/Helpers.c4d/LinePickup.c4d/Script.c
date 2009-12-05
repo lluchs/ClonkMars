@@ -2,7 +2,7 @@
 
 #strict 2
 
-private func LinePickup(dummy, object line)
+private func LinePickup(dummy, object line, bool forced, bool silent)
 {
 	if (!line) return false;
 	// Check physical
@@ -11,34 +11,38 @@ private func LinePickup(dummy, object line)
 	tstruct=FindObject2(Find_AtPoint(), Find_OCF(OCF_LineConstruct));
 	if (!tstruct) return false;
 
-	if (SetAction("Walk"));
-		SetSpeed();
-	SetComDir(COMD_Stop);
+	if (!forced) { //Bei forced nicht Action ändern
+		if (SetAction("Walk"));
+			SetSpeed();
+		SetComDir(COMD_Stop);
+	}
 
 	// Check line pickup
 	if (!line->ConnectedTo(tstruct)) return false;
 	// Check line connected to linekit at other end
 	if (line->ConnectedToLineKit())
 	{
-		Sound("Error",false,this, 100);
-		Message("$TxtNoDoubleKit$", this, line->GetName());
+		if (!silent) {
+			Sound("Error",false,this, 100);
+			Message("$TxtNoDoubleKit$", this, line->GetName());
+		}
 		return false;
 	}
 	var kitID = line->~LineKitID() || LNKT; //downwards compatible
 	// Create new linekit
 	if (!(linekit=CreateObject(kitID, 0, 0, line->GetOwner()))) return false;
 	// Enter linekit into clonk
-	if (!Collect(linekit))
+	if (!Collect(linekit) && !forced)
 	{
 		// Enter failed: abort operation
 		linekit->RemoveObject(); return false;
 	}
 	// Attach line to collected linekit
-	Sound("Connect",false, this, 100);
+	if (!silent) Sound("Connect",false, this, 100);
 	if (line->GetActionTarget(0)==tstruct) line->SetActionTargets(linekit, line->GetActionTarget(1));
 	if (line->GetActionTarget(1)==tstruct) line->SetActionTargets(linekit, line->GetActionTarget(0));
 	// Message
-	Message("$TxtDisconnect$", this, line->GetName(),tstruct->GetName());
+	if (!silent) Message("$TxtDisconnect$", this, line->GetName(),tstruct->GetName());
 	return true;
 }
 

@@ -290,8 +290,13 @@ private func Deconstruct(object struct)
 	if (buildspeed == 1) buildspeed = 100;
 	var mass = GetMass(0, GetID(struct));
 	var change = Max(buildspeed * 30 / mass, 1);
-	//Bei vollem erstmal Demolition aufrufen
-	if (GetCon(struct) >= 100) struct->~Deconstruction(this);
+	//Bei vollem erstmal Deconstruction aufrufen
+	if (GetCon(struct) >= 100) {
+		struct->~Deconstruction(this);
+		for (line in FindObjects(Find_Action("Connect"), Find_ActionTargets(struct), Find_Not(Find_Func("ConnectedToLineKit")))) {
+			LinePickup(/*dummy*/, line, true, true); //Leitung leise entfernen, und nicht immer aufnehmen
+		}
+	}
 	DoCon(-change, struct);
 	aAfter = CreateArray(GetLength(aIDs));
 	//Componenten nach der Änderung finden
