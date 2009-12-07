@@ -34,6 +34,3 @@
 
 # Transmitter
 - Bei Ankunft in Zielstation auch Sparks bei Clonk-Rematerialisierung
-
-# Conkit
-- Grafik (NF)
