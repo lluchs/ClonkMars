@@ -9,7 +9,7 @@
 static const SCNK_O2 = 2000; // für 3 Minuten= * 60 * 36
 private func ReproductionTime() { return(300); }
 
-local O2; // Sauerstoff in Prozent
+local O2, O2Warning; // Sauerstoff in Prozent, akustische Warnung
 local initialized;
 
 protected func Initialize() {
@@ -67,6 +67,10 @@ public func MaxContentsCount() { return 3; }
 
 /* Sauerstoff */
 
+public func LowO2() {
+	return O2Warning;
+}
+
 protected func FxO2Start(object pTarget, int iEffectNumber, bool fTemp) {
 	if(fTemp)
 		return;
@@ -83,14 +87,33 @@ protected func FxO2Timer() {
 		if(O2 > 100)
 			O2 = 100;
 		UpdateHUDValue(HUD_O2, O2);
-		return 1;
 	}
-	if(O2) {
+	else if(O2) {
 		O2--;
 		UpdateHUDValue(HUD_O2, O2);
 	}
 	else {
 		DoEnergy(-20, this, false, FX_Call_EngAsphyxiation, GetOwner() + 1);
+	}
+	
+	if(!O2Warning && O2 <= 30) {
+		O2Warning = true;
+		Sound("Warning_lowoxygen", true, 0, 0, GetOwner() + 1, +1);
+	}
+	else if(O2Warning && O2 > 30) {
+		O2Warning = false;
+		if(!ObjectCount2(Find_ID(GetID()), Find_OCF(OCF_Alive), Find_Owner(GetOwner()), Find_Func("LowO2")))
+			Sound("Warning_lowoxygen", true, 0, 0, GetOwner() + 1, -1);
+	}
+}
+
+protected func FxO2Stop(object pTarget, int iEffectNumber, int iReason, bool fTemp) {
+	if(fTemp)
+		return;
+	if(O2Warning) {
+		O2Warning = false;
+		if(!ObjectCount2(Find_ID(GetID()), Find_OCF(OCF_Alive), Find_Owner(GetOwner()), Find_Func("LowO2")))
+			Sound("Warning_lowoxygen", true, 0, 0, GetOwner() + 1, -1);
 	}
 }
 

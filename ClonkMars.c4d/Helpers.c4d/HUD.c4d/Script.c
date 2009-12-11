@@ -17,8 +17,6 @@ static const HUD_Gencode = 3;
 static const HUD_Temp = 4;
 static const HUD_ItemLog = 5; // +2
 
-local warning;
-
 global func UpdateHUD(int iPlr, int iType, value) {
 	var HUDs;
 	if(iPlr == NO_OWNER)
@@ -46,15 +44,6 @@ public func UpdateO2(int iO2) {
 	}
 	
 	SetStillOverlayAction(Format("O2%d", 100-iO2), HUD_O2);
-	
-	if(!warning && iO2 <= 30) {
-		warning = 1;
-		Sound("Warning_lowoxygen", true, 0, 0, GetOwner() + 1, +1);
-	}
-	else if(warning && iO2 > 30) {
-		warning = 0;
-		Sound("Warning_lowoxygen", true, 0, 0, GetOwner() + 1, -1);
-	}
 	return 1;
 }
 
