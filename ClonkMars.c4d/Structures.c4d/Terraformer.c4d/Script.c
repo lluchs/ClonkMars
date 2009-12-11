@@ -5,7 +5,7 @@
 #include PWRC
 #include DACT //Damagecontrol
 
-static const TERA_RADIUS = 200; // Radius in Pixeln
+static const TRFM_RADIUS = 200; // Radius in Pixeln
 
 protected func Initialize() {
 	CreateDigger();
@@ -14,7 +14,7 @@ protected func Initialize() {
 
 private func CreateDigger() {
 	// Erde weggraben
-	for(var iX = -TERA_RADIUS; iX < TERA_RADIUS; iX += 2) {
+	for(var iX = -TRFM_RADIUS; iX < TRFM_RADIUS; iX += 2) {
 		var iY = 0;
 		// an die Oberfläche versetzen
 		while(GBackSolid(iX, iY))
@@ -24,7 +24,7 @@ private func CreateDigger() {
 			iY++;
 		
 		// noch im Einflussbereich?
-		if(Distance(iX, iY) > TERA_RADIUS)
+		if(Distance(iX, iY) > TRFM_RADIUS)
 			continue;
 		// Effekt erstellen
 		AddEffect("DigEarth", this, 10, 10, this, 0, iX, iY);
@@ -61,11 +61,6 @@ protected func Terraforming() { // TimerCall
 	if(!fOn || !CheckPower(30)) {
 		iEnergy++;
 		fTerraforming = false;
-		if(NoEnergy() && !Random(5)) {
-			var pTree = FindObject2(Find_Distance(TERA_RADIUS), Find_Func("IsTree"), Sort_Random());
-			if(pTree)
-				pTree -> DoCon(-1);
-		}
 		return;
 	}
 		
@@ -80,10 +75,8 @@ protected func Terraforming() { // TimerCall
   	
   fTerraforming = true;
   
-  if(!Random(10) && ObjectCount2(Find_Distance(TERA_RADIUS), Find_Func("IsTree")) < Random(10)) { // neue Bäume
-  	var pTree = PlaceVegetation(RandomTreeID(), TERA_RADIUS / -2, TERA_RADIUS / -2, TERA_RADIUS, TERA_RADIUS, 10);
-  	if(ObjectDistance(pTree) > TERA_RADIUS)
-  		pTree -> RemoveObject();
+  if(!Random(10) && ObjectCount2(Find_Distance(TRFM_RADIUS), Find_Func("IsTree")) < Random(10)) { // neue Bäume
+  	PlaceVegetation(RandomTreeID(), TRFM_RADIUS / -2, TRFM_RADIUS / -2, TRFM_RADIUS, TRFM_RADIUS, 10);
   }
 }
 
@@ -103,9 +96,9 @@ private func RandomTreeID() {
 private func Rain() {
 	for(var i = RandomX(10, 20); i; i--) {
 		var iX = 0, iY = 0;
-		while(!iX || Distance(iX, iY) > TERA_RADIUS) {
-			iX = Random(TERA_RADIUS) - TERA_RADIUS / 2;
-			iY = RandomX(-TERA_RADIUS, -TERA_RADIUS / 2);
+		while(!iX || Distance(iX, iY) > TRFM_RADIUS) {
+			iX = Random(TRFM_RADIUS) - TRFM_RADIUS / 2;
+			iY = RandomX(-TRFM_RADIUS, -TRFM_RADIUS / 2);
 		}
 		if(GBackSolid(iX, iY))
 			continue;
@@ -134,7 +127,7 @@ protected func FxDigEarthTimer(object pTarget, int iEffectNumber) {
 	}
 	
 	// sind wir aus dem Einflussbereich gerutscht?
-	if(pTarget -> Distance(iX, iY) > TERA_RADIUS)
+	if(pTarget -> Distance(iX, iY) > TRFM_RADIUS)
 		return -1;
 	
 	EffectVar(1, pTarget, iEffectNumber) = iY;
@@ -153,7 +146,7 @@ public func ShowDigger() {
 protected func ControlUp(){
 // Bereich anzeigen
 	for(var i; i < 360; i++)
-		CreateParticle("PSpark", Cos(i, TERA_RADIUS), Sin(i, TERA_RADIUS), 0, 0, 70, RGBa(255, 255, 255, 128));
+		CreateParticle("PSpark", Cos(i, TRFM_RADIUS), Sin(i, TRFM_RADIUS), 0, 0, 70, RGBa(255, 255, 255, 128));
 		}
 
 protected func ControlDig() {
