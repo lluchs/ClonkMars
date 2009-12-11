@@ -40,10 +40,10 @@ protected func ContainedDig(object pClonk) {
 
 protected func ProduceMenu(object pClonk, fShowAll) {
 	if(GetAction() != "Idle") {
-		if(!fContinue)
-			return 1;
 		CreateMenu(GetID(), pClonk, this);
-		AddMenuItem("Abbruch", "fContinue = false;", RSR2, pClonk);
+		if(fContinue)
+			AddMenuItem("Abbruch", "fContinue = false;", RSR2, pClonk, 0, 0, "Abbruch der Dauerproduktion");
+		AddMenuItem("Sofortbbruch", "Cancel", RSR2, pClonk, 0, 0, "Abbruch der aktuellen Produktion. Achtung: die Baumaterialien gehen dabei verloren!");
 		return 1;
 	}
 	
@@ -195,6 +195,12 @@ protected func Finish() {
 		else
 			Produce(idProduce, 0, true);
 	}
+}
+
+protected func Cancel() {
+	SetAction("Idle");
+	Sound("Pshshsh");
+	fContinue = false;
 }
   
 /*Smoke*/
