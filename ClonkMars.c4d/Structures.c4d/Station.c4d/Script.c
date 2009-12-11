@@ -141,6 +141,9 @@ protected func FxBeamTimer(object pTarget, int iEffectNumber) {
 protected func FxBeamStop(object pTarget, int iEffectNumber, int iReason, bool fTemp) {
 	if(fTemp)
 		return;
+	var pStation = pTarget -> Contained();
+	pStation -> Sound("Energize");
+	pStation -> SetAction("Energize");
 	pTarget -> Exit(0, 18, 21);
 }
 
