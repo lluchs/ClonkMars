@@ -10,7 +10,8 @@ protected func Initialize() {
 }
 
 protected func OnClonkRecruitment(object pClonk) {
-	AddEffect("Temperature", pClonk, 10, 35, 0, GetID());
+	AddEffect("Temperature", pClonk, 10, 25, 0, GetID());
+	AddEffect("LandTempHUDUpdate", pClonk, 1, 10, 0, GetID());
 }
 
 /* Temperatureffekt für den Clonk */
@@ -23,13 +24,12 @@ protected func OnClonkRecruitment(object pClonk) {
 protected func FxTemperatureTimer(object pTarget, int iEffectNumber) {
 	var iTemp = EffectVar(0, pTarget, iEffectNumber);
 	
-	var iOuterTemp = ChangeRange(pTarget -> GetLandTemp(), -MaxTemp, MaxTemp, -80, 80);
+	var iOuterTemp = pTarget -> GetLandTemp();
+	
 	if(pTarget -> Contained())
 		iOuterTemp = pTarget -> Contained() -> ~GetTemp();
 	
-	UpdateHUD(pTarget -> GetOwner(), HUD_Temp, Round(iOuterTemp, 20));
-	
-	var k = 5; // fixer Wachstumsfaktor, könnte je nach Situation verändert werden
+	var k = 1+Random(2); // fixer Wachstumsfaktor, könnte je nach Situation verändert werden
 	// Beschränktes Wachstum
 	// Bestand + k * (Schranke - Bestand)
 	iTemp += k * (iOuterTemp - iTemp) / 10;
@@ -44,20 +44,42 @@ protected func FxTemperatureTimer(object pTarget, int iEffectNumber) {
 		// max. 10 Energieverlust
 		pTarget -> DoEnergy(-ChangeRange(Abs(iTemp) - iLimit, 0, MaxTemp - iLimit, 1, 10));
 	}
+	
+	var iHUD = 0;
+	if(iTemp > 0)
+		iHUD = ChangeRange(iTemp, 0, MaxTemp, 0, 27);
+	else if(iTemp < 0)
+		iHUD = ChangeRange(iTemp, -MaxTemp, 0, -133, 0);
+	pTarget -> UpdateHUDValue(HUD_ClonkTemp, iHUD);
+}
+
+protected func FxLandTempHUDUpdateTimer(object pTarget, int iEffectNumber) {
+	var iLandTemp = pTarget -> GetLandTemp(), iHUD = 0;
+	if(iLandTemp > 0)
+		iHUD = ChangeRange(iLandTemp, 0, MaxTemp, 0, 27);
+	else if(iLandTemp < 0)
+		iHUD = ChangeRange(iLandTemp, -MaxTemp, 0, -133, 0);
+	pTarget -> UpdateHUDValue(HUD_LandTemp, iHUD);
 }
 
 
 /* Temperatureffekt für die Landschaft */
 
-static LandTempEffects;
+static LandTempEffects, LandTempDebug;
 static const LandTempDist = 100;
 static const MaxTemp = 1000;
 
+global func ToggleLandTempDebug() {
+	return LandTempDebug = !LandTempDebug;
+}
+
 global func CreateLandTempEffects() {
 	LandTempEffects = CreateArray(LandscapeWidth() / LandTempDist);
-	for(var x = 0; x * LandTempDist < LandscapeWidth(); x++) {
+	// x-1 bzw. y-1, damit auch am Spielfeldrand ein Effekt vorhanden ist
+	// dieser ist natürlich außerhalb der Landschaft
+	for(var x = 0; (x-1) * LandTempDist < LandscapeWidth(); x++) {
 		LandTempEffects[x] = CreateArray(LandscapeHeight() / LandTempDist);
-		for(var y = 0; y * LandTempDist < LandscapeHeight(); y++) {
+		for(var y = 0; (y-1) * LandTempDist < LandscapeHeight(); y++) {
 			LandTempEffects[x][y] = AddEffect("LandTemp", 0, 10, 50, 0, 0, x, y);
 		}
 	}
@@ -101,7 +123,7 @@ global func FxLandTempTimer(object pTarget, int iEffectNumber) {
 		iOther += EffectVar(2, 0, GetLandTempEffect(x, y-1)); //* 2 / 3;
 	}
 	// unten
-	if(y != LandscapeHeight() / LandTempDist) {
+	if((y-1) != LandscapeHeight() / LandTempDist) {
 		iSides++;
 		iOther += EffectVar(2, 0, GetLandTempEffect(x, y+1));
 	}
@@ -111,7 +133,7 @@ global func FxLandTempTimer(object pTarget, int iEffectNumber) {
 		iOther += EffectVar(2, 0, GetLandTempEffect(x-1, y));
 	}
 	// rechts
-	if(x != LandscapeWidth() / LandTempDist) {
+	if((x-1) != LandscapeWidth() / LandTempDist) {
 		iSides++;
 		iOther += EffectVar(2, 0, GetLandTempEffect(x+1, y));
 	}
@@ -128,7 +150,7 @@ global func FxLandTempTimer(object pTarget, int iEffectNumber) {
 	
 	// Abkühlung ganz unten
 	if(y == LandscapeHeight() / LandTempDist) {
-		iOther = Max(iOther - 75, -MaxTemp);
+		iOther = Max(iOther - 100, -MaxTemp);
 	}
 	
 	var k = 1; // Wachstumstgeschwindigkeit * 10
@@ -147,14 +169,16 @@ global func FxLandTempTimer(object pTarget, int iEffectNumber) {
 	EffectVar(2, 0, iEffectNumber) = iTemp;
 	
 	// Toller Partikel!
-	var b0 = RGB(0, 0, 255), b1 = RGB(255, 0, 0);
-	var i1,i2,b; i2 = (iTemp+MaxTemp)*256/(MaxTemp*2); i1 = 256-i2;
-
-    b =   ((b0&16711935)*i1 + (b1&16711935)*i2)>>8 & 16711935
-        | ((b0>>8&16711935)*i1 + (b1>>8&16711935)*i2) & -16711936;
-    if (!b && (b0 | b1)) ++b;
+	if(LandTempDebug) {
+		var b0 = RGB(0, 0, 255), b1 = RGB(255, 0, 0);
+		var i1,i2,b; i2 = (iTemp+MaxTemp)*256/(MaxTemp*2); i1 = 256-i2;
 	
-	CreateParticle("PSpark", iX, iY, 0, 0, 100, b);
+	    b =   ((b0&16711935)*i1 + (b1&16711935)*i2)>>8 & 16711935
+	        | ((b0>>8&16711935)*i1 + (b1>>8&16711935)*i2) & -16711936;
+	    if (!b && (b0 | b1)) ++b;
+		
+		CreateParticle("PSpark", iX, iY, 0, 0, 100, b);
+	}
 }
 /*
 global func CalcBoundedGrowth(int iValue, int iLimit, int k) {

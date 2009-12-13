@@ -17,6 +17,8 @@ static const HUD_Gencode = 3;
 static const HUD_Temp = 4;
 static const HUD_ItemLog = 5; // +2
 static const HUD_Pointer = 8; // +1
+static const HUD_LandTemp = 8; // nicht für Overlays
+static const HUD_ClonkTemp = 9; // sondern für UpdateHUD()
 
 global func UpdateHUD(int iPlr, int iType, value) {
 	var HUDs;
@@ -33,6 +35,10 @@ global func UpdateHUD(int iPlr, int iType, value) {
 			HUD -> UpdateFuel(value);
 		else if(iType == HUD_Gencode)
 			HUD -> UpdateGencode(value);
+		else if(iType == HUD_LandTemp)
+			HUD -> UpdateTemperature(value);
+		else if(iType == HUD_ClonkTemp)
+			HUD -> UpdateClonkTemperature(value);
 		else if(iType == HUD_ItemLog)
 			HUD -> AddLog(value);
 	}
@@ -158,14 +164,12 @@ private func DrawLogItem(int iItem, id ID, int iEffectNumber) {
 	return 1;
 }
 
-public func UpdateTemp(int iTemp) {
-	if(iTemp % 20 || iTemp < -80 || iTemp > 80) {
-		DebugLog("ERROR: HUD: ungültige Temperatur übergeben");
-		return;
-	}
-	SetGraphics(0, this, GetID(), HUD_Temp, GFXOV_MODE_Action, Format("%d", iTemp));
-	SetObjDrawTransform(1000, 0, -8000, 0, 1000, -18000, this, HUD_Temp);
-	return 1;
+public func UpdateTemperature(int iTemp) {
+	return DrawPointer(0, iTemp);
+}
+
+public func UpdateClonkTemperature(int iTemp) {
+	return DrawPointer(1, iTemp);
 }
 
 private func DrawPointer(int iPointer, int iValue) {
