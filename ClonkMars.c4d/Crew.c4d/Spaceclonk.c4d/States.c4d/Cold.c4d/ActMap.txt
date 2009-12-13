@@ -1,8 +1,0 @@
-[Action]
-Name=WarnCold
-Procedure=ATTACH
-Length=2
-Delay=15
-Facet=0,0,7,7
-FacetBase=0
-NextAction=WarnCold

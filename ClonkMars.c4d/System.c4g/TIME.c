@@ -44,13 +44,13 @@ private func CalcTemperature(int iTime) {
 public func SetTime() {
 	inherited(...);
 	SetTemperature(CalcTemperature(Local(1)));
-	UpdateHUD(NO_OWNER, HUD_Temp, Round(GetTemperature()));
+	//UpdateHUD(NO_OWNER, HUD_Temp, Round(GetTemperature()));
 }
 
 private func Timing() {
 	inherited(...);
 	SetTemperature(CalcTemperature(Local(1)));
-	UpdateHUD(NO_OWNER, HUD_Temp, Round(GetTemperature()));
+	//UpdateHUD(NO_OWNER, HUD_Temp, Round(GetTemperature()));
 }
 
 private func Round(int iValue) {

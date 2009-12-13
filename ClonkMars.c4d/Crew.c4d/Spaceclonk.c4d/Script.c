@@ -2,7 +2,6 @@
 
 #strict 2
 #include CLNK
-#include STAI
 #include JB4K
 #include L_LP //Line pickup
 
