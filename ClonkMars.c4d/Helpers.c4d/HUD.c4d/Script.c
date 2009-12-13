@@ -2,12 +2,16 @@
 
 #strict 2
 
+local Pointer;
+
 func Initialize() {
   SetPosition(150,90);
   SetVisibility(VIS_Owner);
   
   SetStillOverlayAction("Temperatur", HUD_Temp);
   SetStillOverlayAction("ItemLog", HUD_ItemLog);
+  
+  Pointer = CreateArray(2);
   return(1);
 }
 
@@ -165,11 +169,38 @@ private func DrawLogItem(int iItem, id ID, int iEffectNumber) {
 }
 
 public func UpdateTemperature(int iTemp) {
-	return DrawPointer(0, iTemp);
+	return MovePointer(0, iTemp);
 }
 
 public func UpdateClonkTemperature(int iTemp) {
-	return DrawPointer(1, iTemp);
+	return MovePointer(1, iTemp);
+}
+
+private func MovePointer(int iPointer, int iValue) {
+	return AddEffect("MovePointer", this, 10, 1, this, 0, iPointer, iValue);
+}
+
+protected func FxMovePointerStart(object pTarget, int iEffectNumber, bool fTemp, int iPointer, int iValue) {
+	if(!fTemp) {
+		EffectVar(0, pTarget, iEffectNumber) = iPointer;
+		EffectVar(1, pTarget, iEffectNumber) = iValue;
+	}
+}
+
+protected func FxMovePointerTimer(object pTarget, int iEffectNumber) {
+	var iPointer = EffectVar(0, pTarget, iEffectNumber), iValue = EffectVar(1, pTarget, iEffectNumber);
+	DrawPointer(iPointer, Pointer[iPointer] + 1 - 2 * (iValue < Pointer[iPointer]));
+	if(iValue == Pointer[iPointer])
+		return -1;
+}
+
+protected func FxMovePointerEffect(string szEffectName, object pTarget, int iEffectNumber, int iNewEffectNumber, int iPointer) {
+	if(szEffectName == "MovePointer" && iPointer == EffectVar(0, pTarget, iEffectNumber))
+		return -2;
+}
+
+protected func FxMovePointerAdd(object pTarget, int iEffectNumber, string szNewEffectName, int iNewEffectTimer, int iPointer, int iValue) {
+	EffectVar(1, pTarget, iEffectNumber) = iValue;
 }
 
 private func DrawPointer(int iPointer, int iValue) {
@@ -195,6 +226,8 @@ private func DrawPointer(int iPointer, int iValue) {
 	SetGraphics("Pointer", this, GetID(), HUD_Pointer + iPointer, GFXOV_MODE_Action, "Pointer");
 	// an die richtige Stelle verschieben
 	SetObjDrawTransform(1000, 0, x, 0, 1000, y, this, HUD_Pointer + iPointer);
+	
+	Pointer[iPointer] = iValue;
 	
 	return 1;
 }
