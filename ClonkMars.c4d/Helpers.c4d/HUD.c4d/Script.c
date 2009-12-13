@@ -16,6 +16,7 @@ static const HUD_Fuel = 2;
 static const HUD_Gencode = 3;
 static const HUD_Temp = 4;
 static const HUD_ItemLog = 5; // +2
+static const HUD_Pointer = 8; // +1
 
 global func UpdateHUD(int iPlr, int iType, value) {
 	var HUDs;
@@ -164,5 +165,32 @@ public func UpdateTemp(int iTemp) {
 	}
 	SetGraphics(0, this, GetID(), HUD_Temp, GFXOV_MODE_Action, Format("%d", iTemp));
 	SetObjDrawTransform(1000, 0, -8000, 0, 1000, -18000, this, HUD_Temp);
+	return 1;
+}
+
+private func DrawPointer(int iPointer, int iValue) {
+	if(iValue < -133 || iValue > 27) {
+		DebugLog("ERROR: HUD: falscher Wert für Pointer");
+		return;
+	}
+	SetStillOverlayAction("Temperatur", HUD_Temp);
+	var x, y;
+	x = (13 + iPointer * 23) * 1000; // richtige Spalte
+	y = 24000; // Position für 0
+	
+	var hgt = 27000; // Abstand zwischen 0 und 27 bzw. -133
+	
+	if(iValue > 0) {
+		y -= iValue * hgt / 27;
+	}
+	else if(iValue < 0) {
+		y += iValue * hgt / -133;
+	}
+	
+	// Grafik setzen
+	SetGraphics("Pointer", this, GetID(), HUD_Pointer + iPointer, GFXOV_MODE_Action, "Pointer");
+	// an die richtige Stelle verschieben
+	SetObjDrawTransform(1000, 0, x, 0, 1000, y, this, HUD_Pointer + iPointer);
+	
 	return 1;
 }
