@@ -5,9 +5,6 @@
 # Handelssystem
 - unabhängig machen vom Standard
 
-# Materiallab
-- Abbruch auf Knopfdruck --> Ressourcen sind dann aber verloren
-
 # Terraformer
 - Wärme produzieren im Radius
 - Pflanzen wachsen mehr in der Erde, Offset kontrollieren oder sowas!?
@@ -28,9 +25,3 @@
 # Forschungslabor
 - Updatesystem - komplett bauen
 - forschen: kostet Clunker
-
-# Crew
-- Globale O2 Warning für Clonks (nicht nur der angewählte)
-
-# Transmitter
-- Bei Ankunft in Zielstation auch Sparks bei Clonk-Rematerialisierung
