@@ -16,7 +16,7 @@ Components=METL=2;PSTC=2;
 Picture=95,0,95,34
 Entrance=-28,-8,20,24
 Exclusive=1
-LineConnect=4
+LineConnect=C4D_PowerOutput
 Construction=1
 ContainBlast=1
 ColorByOwner=1

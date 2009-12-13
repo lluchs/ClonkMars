@@ -19,7 +19,7 @@ TopFace=0,111,95,55,0,0
 Exclusive=1
 Construction=1
 ContainBlast=1
-LineConnect=C4D_PowerInput|C4D_PowerOutput|C4D_PowerConsumer
+LineConnect=C4D_PowerOutput
 ColorByOwner=1
 
 [Physical]

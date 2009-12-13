@@ -19,7 +19,7 @@ Entrance=-20,12,20,24
 Exclusive=1
 Construction=1
 ContainBlast=1
-LineConnect=C4D_PowerInput|C4D_PowerOutput|C4D_PowerConsumer
+LineConnect=C4D_PowerOutput
 
 [Physical]
 Energy=1500000
