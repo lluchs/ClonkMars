@@ -105,7 +105,8 @@ global func FxLandTempStart(object pTarget, int iEffectNumber, bool fTemp, int x
 		return;
 	EffectVar(0, 0, iEffectNumber) = x;
 	EffectVar(1, 0, iEffectNumber) = y;
-	CreateParticle("PSpark", x*LandTempDist, y*LandTempDist, 0, 0, 50, RGB(0, 255));
+	if(LandTempDebug)
+		CreateParticle("PSpark", x*LandTempDist, y*LandTempDist, 0, 0, 50, RGB(0, 255));
 }
 
 global func FxLandTempTimer(object pTarget, int iEffectNumber) {
