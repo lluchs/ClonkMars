@@ -1,4 +1,12 @@
 [Action]
+Name=Construct
+Procedure=NONE
+Length=15
+Delay=6
+Facet=0,40,40,40
+NextAction=Idle
+
+[Action]
 Name=Panel
 Procedure=NONE
 Length=50
