@@ -7,6 +7,8 @@
 #include PWRC
 #include DACT //Damagecontrol
 
+public func GetTemp() { return 800;}
+
 protected func Initialize() {
 	AddBuildingLight();
 	return _inherited(...);
