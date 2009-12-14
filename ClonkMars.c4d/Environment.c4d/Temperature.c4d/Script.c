@@ -40,7 +40,7 @@ protected func FxTemperatureTimer(object pTarget, int iEffectNumber) {
 	// Energieverlust bei zu niedrigen/hohen Werten
 	
 	var iLimit = MaxTemp * 3 / 4;
-	if(Abs(iTemp) > iLimit) {
+	if(iTemp < -iLimit) {
 		// max. 10 Energieverlust
 		pTarget -> DoEnergy(-ChangeRange(Abs(iTemp) - iLimit, 0, MaxTemp - iLimit, 1, 10));
 	}
