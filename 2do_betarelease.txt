@@ -11,7 +11,6 @@
 
 # Rückbau
 - bestätigen Knopf
---> dafür Symbole (NF)
 - auch Baustellen erfassen
 
 # Waffenlabor
