@@ -6,6 +6,7 @@
 #include OVDR
 #include PWRC
 #include DACT //Damagecontrol
+#include L_CA
 
 public func GetTemp() { return 800;}
 
