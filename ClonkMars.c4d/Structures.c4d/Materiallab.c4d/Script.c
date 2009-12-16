@@ -44,7 +44,7 @@ protected func ProduceMenu(object pClonk, fShowAll) {
 		CreateMenu(GetID(), pClonk, this);
 		if(fContinue)
 			AddMenuItem("Abbruch", "fContinue = false;", RSR2, pClonk, 0, 0, "Abbruch der Dauerproduktion");
-		AddMenuItem("Sofortbbruch", "Cancel", RSR2, pClonk, 0, 0, "Abbruch der aktuellen Produktion. Achtung: die Baumaterialien gehen dabei verloren!");
+		AddMenuItem("Sofortabbruch", "Cancel", RSR2, pClonk, 0, 0, "Abbruch der aktuellen Produktion. Achtung: die Baumaterialien gehen dabei verloren!");
 		return 1;
 	}
 	

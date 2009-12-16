@@ -5,6 +5,7 @@
 #include PWRG // Ist ein Energieerzeuger
 #include B_40
 #include DACT //Damagecontrol
+#include L_CA
 
 public func GetCapacity() {
 	return 150;
