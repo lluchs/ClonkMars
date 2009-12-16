@@ -30,3 +30,7 @@ Mehr oder weniger langfristige todos, bis zum Release.
 
 #System.c4g
 - AllKnowledge.c vervollständigen (NF)
+
+# Forschungslabor
+- Updatesystem - komplett bauen
+- forschen: kostet Clunker

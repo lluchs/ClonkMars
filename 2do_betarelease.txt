@@ -19,8 +19,3 @@
 --> benötigt Upgrade: Forschungssatellit
 --> dann bauen (nach components)
 --> Bunker öffnen lassen und start
-- Licht in Grafik einbauen (für Launch) (NF)
-
-# Forschungslabor
-- Updatesystem - komplett bauen
-- forschen: kostet Clunker
