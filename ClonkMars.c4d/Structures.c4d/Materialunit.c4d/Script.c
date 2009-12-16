@@ -208,21 +208,15 @@ protected func Cancel() {
 
 protected func Smoking() {
 	if(!Random(2))
-		Smoke(-10, Random(3) - 23, Random(9) + 4);
+		Smoke(17, Random(3) - 23, Random(9) + 20);
 	if(!Random(4))
-		Smoke(+5, Random(3) - 19, Random(5) + 3);
+		Smoke(17, Random(3) - 19, Random(5) + 20);
 	if(GetActTime() >= 550)
 		SetAction("Wait");
 }
 
 public func PipelineConnect() {
 	return 1;
-}
-
-/* Wärme */
-
-public func GetWarmth() {
-  return(30);
 }
 
 public func MaxDamage() { return 50; } //Maximaler Schaden
