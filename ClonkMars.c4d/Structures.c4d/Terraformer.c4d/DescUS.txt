@@ -1,1 +1,3 @@
-This facility makes the earth biocompatible for some botanical, ecites oxygen and convert flyashes to rain.
+The Terraforming unit produces heat and lets rain fall. 
+
+As an effect of that, plants will grow, which produce within a certain radius oxygen on the surface of the planet. 

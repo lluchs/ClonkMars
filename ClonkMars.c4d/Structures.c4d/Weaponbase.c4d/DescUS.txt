@@ -1,1 +1,1 @@
-Military HQ.
+Command base for all military actions.

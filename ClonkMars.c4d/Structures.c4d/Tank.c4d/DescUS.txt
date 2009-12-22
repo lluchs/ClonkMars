@@ -1,1 +1,3 @@
-Saves some oil. 
+Stores/Saves oil and emits it when necessary
+
+Should be connected with drill tower and material lab by means of a pipe construction kit.
