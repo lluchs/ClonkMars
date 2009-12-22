@@ -5,6 +5,9 @@
 //Ob es wirklich dunkel ist, seht ihr wenn das licht ausgeht.
 local darkness;
 
+// Ursprüngliche Himmelsfarben
+static DarknessSkyAdjustOrig;
+
 // Kann mittels des Spielzielauswählers ausgewählt werden
 //public func IsChooseable() { return(true); }
 // Das war einmal. Der Regelwähler behandelt Dunkelheit jetzt gesondert.
@@ -110,15 +113,36 @@ global func SetDarkness(int iGrade) {
     return(false);
 
   iGrade = BoundBy(iGrade,0,100);
+  
+  if(GetType(DarknessSkyAdjustOrig) != C4V_Array)
+  	DarknessSkyAdjustOrig = [GetSkyAdjust(), GetSkyAdjust(true)];
 
   obj->LocalN("darkness") = iGrade*10;
   var g = BoundBy(128-iGrade,0,128);
   SetGamma(RGB(0,0,0),RGB(g,g,g),RGB(255,255,255),2);
-  SetSkyAdjust(RGB(127+g,127+g,127+g),RGB(100+g,100+g,100+g));
+  //SetSkyAdjust(RGB(127+g,127+g,127+g),RGB(100+g,100+g,100+g));
+  
+  DARK -> SetSkyAdjust(RGBa(
+    (127+g) * GetRGBValue(DarknessSkyAdjustOrig[0],1) / 255,
+    (127+g) * GetRGBValue(DarknessSkyAdjustOrig[0],2) / 255,
+    (127+g) * GetRGBValue(DarknessSkyAdjustOrig[0],3) / 255,
+    (127+g) * GetRGBValue(DarknessSkyAdjustOrig[0],0) / 255  ),
+    RGB(
+    (100+g) * GetRGBValue(DarknessSkyAdjustOrig[1],1) / 255,
+    (100+g) * GetRGBValue(DarknessSkyAdjustOrig[1],2) / 255,
+    (100+g) * GetRGBValue(DarknessSkyAdjustOrig[1],3) / 255)
+  );
   
   obj->UpdateLights();
   
   return(true);
+}
+
+global func SetSkyAdjust(int clr, int backclr) {
+	if(GetID() != DARK) {
+		DarknessSkyAdjustOrig = [clr, backclr];
+	}
+	return inherited(clr, backclr, ...);
 }
 
 // iStep: wie viel Änderung der Dunkelheit pro 10 Frames
@@ -185,7 +209,18 @@ func FxFadingTimer(object pTarget, int iEffectNumber, int iEffectTime) {
     var g = BoundBy(128-grade*100/1000,0,128);
   
     SetGamma(RGB(0,0,0),RGB(g,g,g),RGB(255,255,255),2);
-    SetSkyAdjust(RGB(127+g,127+g,127+g),RGB(100+g,100+g,100+g));
+    //SetSkyAdjust(RGB(127+g,127+g,127+g),RGB(100+g,100+g,100+g));
+    
+    DARK -> SetSkyAdjust(RGBa(
+    (127+g) * GetRGBValue(DarknessSkyAdjustOrig[0],1) / 255,
+    (127+g) * GetRGBValue(DarknessSkyAdjustOrig[0],2) / 255,
+    (127+g) * GetRGBValue(DarknessSkyAdjustOrig[0],3) / 255,
+    (127+g) * GetRGBValue(DarknessSkyAdjustOrig[0],0) / 255  ),
+    RGB(
+    (100+g) * GetRGBValue(DarknessSkyAdjustOrig[1],1) / 255,
+    (100+g) * GetRGBValue(DarknessSkyAdjustOrig[1],2) / 255,
+    (100+g) * GetRGBValue(DarknessSkyAdjustOrig[1],3) / 255)
+    );
 
     pTarget->LocalN("darkness") = grade;
     
