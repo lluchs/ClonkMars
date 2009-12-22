@@ -1,2 +1,2 @@
-DE:Materiallabor
-US:Materiallabratory
+DE:Materialeinheit
+US:Materialunit

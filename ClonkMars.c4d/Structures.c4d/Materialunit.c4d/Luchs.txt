@@ -1,0 +1,9 @@
+##Tür:
+Facet=0,55,20,22,67,33
+Lenth=10
+Delay=2
+
+##Produktion:
+Facet=0,110,95,55,0,0
+Lenth=10
+Delay=2
