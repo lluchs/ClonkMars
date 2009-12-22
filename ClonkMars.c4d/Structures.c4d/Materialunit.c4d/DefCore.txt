@@ -14,6 +14,7 @@ Vertices=6
 VertexX=-48,47,47,-2,-15,-48
 VertexY=27,27,-2,-22,-28,7
 VertexFriction=100,50,50,100,50,100
+Entrance=19,5,20,22
 Exclusive=1
 Construction=1
 ContainBlast=1
