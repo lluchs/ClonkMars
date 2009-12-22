@@ -140,12 +140,12 @@ public func InitHUD() {
 	if(!FindObject2(Find_Owner(GetOwner()), Find_ID(MHUD)))
 		CreateObject(MHUD,-120,60, GetOwner());
 	if(GetType(HUD) != C4V_Array)
-		HUD = CreateArray();
+		HUD = CreateHash();
 	return 1;
 }
 
 public func UpdateHUDValue(int iType, int iValue) {
-	HUD[iType] = iValue;
+	HashPut(HUD, iType, iValue);
 	if(GetCursor(GetOwner()) == this)
 		UpdateHUD(GetOwner(), iType, iValue);
 	return 1;
@@ -153,8 +153,10 @@ public func UpdateHUDValue(int iType, int iValue) {
 
 protected func CrewSelection(bool fDeselect) {
 	if(!fDeselect) {
-		for(var i = 0; i < GetLength(HUD); i++) {
-			UpdateHUD(GetOwner(), i, HUD[i]);
+		var iter = HashIter(HUD);
+		var node;
+		while(node = HashIterNext(iter)) {
+			UpdateHUD(GetOwner(), node[0], node[1]);
 		}
 	}
 }
