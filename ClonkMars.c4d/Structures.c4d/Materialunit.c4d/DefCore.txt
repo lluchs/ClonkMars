@@ -11,8 +11,8 @@ Mass=1000
 Components=METL=3;PSTC=6;
 Picture=0,0,80,70
 Vertices=6
-VertexX=-40,40,31,20,-10,-37
-VertexY=35,35,-21,-35,-25,-28
+VertexX=-48,47,47,-2,-15,-48
+VertexY=27,27,-2,-22,-28,7
 VertexFriction=100,50,50,100,50,100
 Exclusive=1
 Construction=1
@@ -21,8 +21,6 @@ LineConnect=C4D_PowerOutput
 ColorByOwner=1
 Grab=2
 GrabPutGet=1
-TimerCall=Overburn
-Timer=3
 
 [Physical]
 Energy=1500000
