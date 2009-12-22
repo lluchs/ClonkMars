@@ -1,0 +1,15 @@
+/* Eos */
+
+map Valley {
+    //Krater
+    overlay{mat=Earth;algo=sin;a=50; zoomX=90;oy=50;loosebounds=1;
+    //aushub (Meteor!)
+    overlay{mat=Tunnel;algo=mandel;ox=10;zoomX=60;zoomY=30;turbulence=500;
+      overlay{mat=Oil;y=66;loosebounds=1;
+      };
+    };
+  };
+ overlay{mat=Sulphur;algo=lines;a=13; b=40;oy=75;loosebounds=1;turbulence=500;rotate=-25;};
+ overlay{mat=Sulphur;algo=lines;a=13; b=40;oy=125;loosebounds=1;turbulence=500;rotate=25;};
+};
+  

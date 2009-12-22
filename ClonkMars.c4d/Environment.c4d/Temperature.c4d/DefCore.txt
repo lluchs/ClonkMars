@@ -10,7 +10,7 @@ Offset=-1,-1
 Value=1
 Mass=11
 Components=TEMP=1;
-Picture=2,0,64,64
+Picture=0,0,64,64
 Vertices=1
 VertexY=1
 VertexFriction=100
