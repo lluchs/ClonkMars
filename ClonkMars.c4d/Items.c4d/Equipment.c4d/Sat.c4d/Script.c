@@ -21,6 +21,10 @@ protected func Entrance(object pContainer) {
 	}
 }
 
+protected func RejectEntrance() {
+	return GetAction() == "FlyBase";
+}
+
 local pCapsule;
 
 public func GetCapsule() {

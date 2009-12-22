@@ -36,6 +36,11 @@ private func CanOpen() {
 
 /* Steuerung */
 
+protected func ContextRemoveSat() {
+	[Sat abmontieren|Image=SATD|Condition=HasSat]
+	HasSat() -> SetAction("Idle");
+}
+
 protected func ContainedUp(object pClonk) {
 	if(CapsuleCheck(pClonk))
 		return;
