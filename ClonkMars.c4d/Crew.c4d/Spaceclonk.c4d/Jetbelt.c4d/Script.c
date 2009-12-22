@@ -196,7 +196,8 @@ public func IsReady()
   if(!GetFuel() || GetCommand()) return;
 
   if(GetAction() == "Jump"
-  || GetAction() == "Tumble")
+  || GetAction() == "Tumble"
+  || GetAction() == "Dive")
     return(1);
 }
 
