@@ -15,7 +15,7 @@ public func IsPowerLine()
 	return GetAction() == "Connect";
 }
 
-public func IsConnectedWith(object pObject)
+public func IsConnectedTo(object pObject)
 {
 	return GetActionTarget(0) == pObject || GetActionTarget(1) == pObject;
 }
