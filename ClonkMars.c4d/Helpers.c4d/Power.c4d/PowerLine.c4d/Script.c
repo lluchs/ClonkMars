@@ -43,7 +43,7 @@ private func BreakMessage()
 {
   
   var line = GetActionTarget(0);
-  if(GetID(line) != LNKT) line = GetActionTarget(1);
+  if(GetID(line) != LineKitID()) line = GetActionTarget(1);
 
   Message("$TxtLinebroke$", line);
 }
