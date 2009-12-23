@@ -145,7 +145,7 @@ global func FxLandTempTimer(object pTarget, int iEffectNumber) {
 	// Erwärmung der Erde
 	if(GBackSolid(iX, iY)) {
 		if(!y || (!GBackSolid(iX, iY - LandTempDist) && GBackSky(iX, iY - LandTempDist))) {
-			iOther = Min(iOther + GetLightIntensity(), MaxTemp);
+			iOther = Min(iOther + GetLightIntensity() * 2, MaxTemp);
 		}
 	}
 	
