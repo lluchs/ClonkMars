@@ -240,3 +240,7 @@ private func IsComplete()
 public func MarsResearch() {
 	return true;
 }
+
+private func ClonkCapacity() {
+	return 2;
+}
