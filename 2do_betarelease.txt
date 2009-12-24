@@ -19,4 +19,7 @@
 --> Bunker öffnen lassen und start
 
 # Loader
-- haben noch alle Alpha Status
+- haben noch alle Alpha Status (NF)
+
+# Temperature.c4d
+- Titelbild (NF)
