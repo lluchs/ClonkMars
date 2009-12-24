@@ -65,7 +65,7 @@ private func ControlElevatorStop(string szCommand, object pObject)
 
 /* Füllmengenkontrolle */
 
-private func MaxContents() { return(50); }
+private func MaxContents() { return(21); }
 
 protected func RejectCollect(id idObj,object pObj)
 {
