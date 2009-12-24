@@ -34,3 +34,5 @@ Mehr oder weniger langfristige todos, bis zum Release.
 # Forschungslabor
 - Updatesystem - komplett bauen
 - forschen: kostet Clunker
+
+# Düsternnissystem
