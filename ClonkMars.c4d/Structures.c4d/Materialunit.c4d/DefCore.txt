@@ -20,8 +20,6 @@ Construction=1
 ContainBlast=1
 LineConnect=C4D_PowerOutput
 ColorByOwner=1
-Grab=2
-GrabPutGet=1
 
 [Physical]
 Energy=1500000
