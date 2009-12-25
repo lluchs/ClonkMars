@@ -107,7 +107,7 @@ protected func FxLogTimer(object pTarget, int iEffectNumber) {
 	alpha[1]--;
 	
 	if(!alpha[0]) {
-		if(alpha[1] <= 0)
+		if(!waiting[0])
 			return -1;
 		else {
 			DrawLogItem(1, waiting[0], iEffectNumber);
@@ -137,7 +137,10 @@ protected func FxLogEffect(string szEffectName) {
 
 protected func FxLogAdd(object pTarget, int iEffectNumber, string szNewEffectName, int iNewEffectTimer, id ID) {
 	var alpha = EffectVar(0, pTarget, iEffectNumber);
-	EffectVar(1, pTarget, iEffectNumber)[GetLength(EffectVar(1, pTarget, iEffectNumber))] = ID;
+	var item = GetLength(EffectVar(1, pTarget, iEffectNumber));
+	if(item == 1)
+		item--;
+	EffectVar(1, pTarget, iEffectNumber)[item] = ID;
 	if(alpha[1] <= 0) {
 		DrawLogItem(2, ID, iEffectNumber);
 		EffectVar(0, pTarget, iEffectNumber)[1] = 255;
