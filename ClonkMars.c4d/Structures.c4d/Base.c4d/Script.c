@@ -61,6 +61,24 @@ protected func ContextRemoveSat() {
 	HasSat() -> SetAction("Idle");
 }
 
+protected func ContextStartReproduction(object pClonk) {
+	[Reproduktion|Image=SCNK|Condition=IsNotReproducing]
+	pClonk -> StartReproduction();
+}
+
+protected func ContextStopReproduction(object pClonk) {
+	[Reproduktion stoppen|Image=SCNK|Condition=IsReproducing]
+	pClonk -> StopReproduction();
+}
+
+private func IsReproducing(object pClonk) {
+	return pClonk -> ~IsReproducing();
+}
+
+private func IsNotReproducing() {
+	return !IsReproducing(...);
+}
+
 protected func ContainedUp(object pClonk) {
 	if(CapsuleCheck(pClonk))
 		return;

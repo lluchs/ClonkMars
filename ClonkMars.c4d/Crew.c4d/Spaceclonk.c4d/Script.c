@@ -38,6 +38,18 @@ public func Birth() {
   Sound("Clonk_Birth");
 }
 
+public func IsReproducing() {
+	return GetEffect("Reproduction", this);
+}
+
+public func StartReproduction() {
+	return AddEffect("Reproduction", this, 1, 40, this);
+}
+
+public func StopReproduction() {
+	return RemoveEffect("Reproduction", this);
+}
+
 protected func FxReproductionTimer(object pTarget, int iEffectNumber, int iEffectTime) {
 	if(!(Contained() -> CheckPower(2, false, true))) {
 		EffectVar(0, pTarget, iEffectNumber) = 0;
@@ -121,9 +133,6 @@ protected func Entrance(object pContainer) {
 		if(!O2)
 			Sound("Breath");
 	}
-	
-	if(pContainer -> ~Reproduction())
-		AddEffect("Reproduction", this, 1, 40, this);
 	return _inherited(pContainer, ...);
 }
 
