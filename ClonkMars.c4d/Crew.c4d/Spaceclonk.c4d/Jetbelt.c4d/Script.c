@@ -158,7 +158,7 @@ protected func FxJetbeltTimer()
   if(!GetFuel()) RefillFuel();
   DoFuel(-Consumption());
   
-  this -> UpdateHUDValue(HUD_Fuel, GetFuel() * 100 / MaxFuel());
+  UpdateFuelHUD();
 
     
   r-=180;
@@ -180,6 +180,10 @@ protected func FxJetbeltTimer()
     CreateParticle("Thrust",x,y,GetXDir()/2,GetYDir()/2,RandomX(50,70),RGBa(200,200,255),this,true);
     CreateParticle("Smoke2",x,y,xdir,ydir,RandomX(40,60),RGBa(220,200,180),this,true);
   }
+}
+
+public func UpdateFuelHUD() {
+	return this -> UpdateHUDValue(HUD_Fuel, GetFuel() * 100 / MaxFuel());
 }
 
 // Clonk stirbt
