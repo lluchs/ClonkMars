@@ -112,7 +112,7 @@ protected func ProducePlastic(idItem, iParameter, fRight) {
 		if(pTank -> GetLiquidStorage() >= MTLB_plastic_cost) {
 			CheckPower(100);
 			pTank -> DoLiquidStorage(-MTLB_plastic_cost);
-			SetAction("Produce");
+			SetAction("Produce2");
 			idProduce = PSTC;
 			if(fRight)
 				fContinue = true;
