@@ -56,6 +56,12 @@ protected func FxReproductionTimer(object pTarget, int iEffectNumber, int iEffec
 		UpdateHUDValue(HUD_Gencode, 0);
 		return;
 	}
+	
+	// Während geforscht ist, teilen sich die Zellen nicht so gut
+	// Der bisherige Teilungsstand wird jedoch unter Aufwendung von Energie behalten!
+	if(Contained() -> IsResearching())
+		return;
+	
 	UpdateHUDValue(HUD_Gencode, Min(++EffectVar(0, pTarget, iEffectNumber), 100));
 	if(EffectVar(0, pTarget, iEffectNumber) >= 100 && !(Contained() -> ~IsFull())) {
 	 var pClonk = CreateObject(SCNK, 0, 0, GetOwner());
