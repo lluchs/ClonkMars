@@ -5,7 +5,7 @@
 local Pointer;
 
 func Initialize() {
-  SetPosition(150,90);
+  SetPosition(150, 105);
   SetVisibility(VIS_Owner);
   
   SetStillOverlayAction("Temperatur", HUD_Temp);
