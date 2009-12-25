@@ -36,3 +36,5 @@ Mehr oder weniger langfristige todos, bis zum Release.
 - forschen: kostet Clunker
 
 # Düsternnissystem
+
+# improvd O2System (verteilung und Mengeregelung)
