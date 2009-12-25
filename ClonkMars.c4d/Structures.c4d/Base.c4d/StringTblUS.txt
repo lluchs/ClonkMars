@@ -1,3 +1,6 @@
+TxtSell=Only Sell
+TxtBuy=Buy
+TxtOrder=Order
 TxtAlreadyCapsule=Only one capsule for|each player allowed!
 TxtResearchs=Research: %s
 Txtsdeveloped=%s developed!

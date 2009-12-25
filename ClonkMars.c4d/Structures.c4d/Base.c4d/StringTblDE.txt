@@ -1,3 +1,6 @@
+TxtSell=Nur verkaufen
+TxtBuy=Kaufen
+TxtOrder=Bestellen
 TxtAlreadyCapsule=Du hast schon eine Kapsel!
 TxtResearchs=Erforschen: %s
 Txtsdeveloped=%s erforscht!

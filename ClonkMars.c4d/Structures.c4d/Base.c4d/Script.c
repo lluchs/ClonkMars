@@ -66,9 +66,9 @@ protected func ContainedUp(object pClonk) {
 		return;
 	var menu = CreateMenuTemplate(CPSL, "Kapsel rufen...");
 	AddEnumChoice(menu, 0, "Sell");
-		AddEnumChoiceItem(menu, 0, "Sell", "SellOnly", "Nur verkaufen", 0, "SellOnly");
-		AddEnumChoiceItem(menu, 0, "Sell", "Buy", "Kaufen", 0, "Buy", true);
-	AddSubmenu(menu, 0, "Buy", MenuCond_Chosen(0, "Sell", "Buy"), "Objekte bestellen");
+		AddEnumChoiceItem(menu, 0, "Sell", "SellOnly", "$TxtSell$", 0, "SellOnly");
+		AddEnumChoiceItem(menu, 0, "Sell", "Buy", "$TxtBuy$", 0, "Buy", true);
+	AddSubmenu(menu, 0, "Buy", MenuCond_Chosen(0, "Sell", "Buy"), "$TxtOrder$");
 		var i = 0, ID;
 		while(ID = GetHomebaseMaterial(pClonk -> GetOwner(), 0, i++, C4D_Object)) {
 			AddRangeChoice(menu, ["Buy"], ID, 0, GetName(0, ID), ID, 0, GetHomebaseMaterial(pClonk -> GetOwner(), ID), 1, 0);
