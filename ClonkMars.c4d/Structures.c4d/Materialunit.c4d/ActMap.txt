@@ -1,7 +1,7 @@
 [Action]
 Name=Produce
-Delay=6
-Length=35
+Delay=3
+Length=61
 FacetBase=1
 Facet=0,77,58,55,0,0
 PhaseCall=Smoking
@@ -11,8 +11,8 @@ Sound=Melt_Working
 
 [Action]
 Name=Produce2
-Delay=2
-Length=100
+Delay=3
+Length=61
 FacetBase=1
 PhaseCall=Smoking
 NextAction=Idle
