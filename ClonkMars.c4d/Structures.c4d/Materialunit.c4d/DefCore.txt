@@ -9,7 +9,7 @@ Offset=-48,-28
 Value=700
 Mass=1000
 Components=METL=3;PSTC=6;
-Picture=0,0,95,55
+Picture=95,0,95,55
 Vertices=6
 VertexX=-48,47,47,-2,-15,-48
 VertexY=27,27,-2,-22,-28,7
