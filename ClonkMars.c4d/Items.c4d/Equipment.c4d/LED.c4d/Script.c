@@ -96,3 +96,5 @@ private func InEntrance(gbaeude)
         GetY(gbaeude)+GetDefCoreVal("Entrance", "DefCore",GetID(gbaeude),3)+GetDefCoreVal("Entrance", "DefCore",GetID(gbaeude),1) ))
           return(1);
 }
+
+public func MarsResearch() { return true; }

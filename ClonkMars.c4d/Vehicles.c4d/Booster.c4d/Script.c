@@ -67,3 +67,8 @@ protected func FxEffectsDustTimer() {
 		}
 	}
 }
+
+public func MarsResearch() {
+	return true;
+}
+

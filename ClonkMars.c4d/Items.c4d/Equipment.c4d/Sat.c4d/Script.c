@@ -35,3 +35,5 @@ public func GetCapsule() {
 public func SetCapsule(object pObj) {
 	pCapsule = pObj;
 }
+
+public func MarsResearch() { return true; }

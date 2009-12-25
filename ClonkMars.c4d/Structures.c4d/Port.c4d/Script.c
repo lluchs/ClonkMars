@@ -28,3 +28,7 @@ public func IsFree(){
 	if(pCaps) return false;
 	return true;
 }
+
+public func MarsResearch() {
+	return true;
+}

@@ -74,3 +74,8 @@ public func MaxDamage() { return 18; } //Maximaler Schaden
 public func PipelineConnect() {
 	return 1;
 }
+
+public func MarsResearch() {
+	return true;
+}
+

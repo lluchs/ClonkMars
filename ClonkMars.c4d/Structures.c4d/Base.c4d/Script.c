@@ -155,16 +155,6 @@ public func GetWarmth() {
   return(100);
 }
 
-/* Erforschbar */
-
-public func MarsResearch() {
-	return true;
-}
-
-private func ClonkCapacity() {
-	return 3;
-}
-
 public func Reproduction() {
 	return GetAction() == "Green";
 }
@@ -355,4 +345,14 @@ protected func FxResearchStop(object pTarget, int iEffectNumber, int iReason, bo
 	SetPlrKnowledge(GetOwner(), EffectVar(1, pTarget, iEffectNumber));
 	// Nachricht ausgeben
 	Message("$Txtsdeveloped$", this, GetName(0, EffectVar(1, pTarget, iEffectNumber)));
+}
+
+/* Erforschbar */
+
+public func MarsResearch() {
+	return true;
+}
+
+private func ClonkCapacity() {
+	return 3;
 }

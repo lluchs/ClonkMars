@@ -15,3 +15,5 @@ protected func Activate(object pClonk) {
 	}
 	return 1;
 }
+
+public func MarsResearch() { return true; }

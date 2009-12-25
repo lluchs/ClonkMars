@@ -12,3 +12,5 @@ func Incineration()
 {
   SetClrModulation (RGB(48, 32, 32));
 }
+
+public func MarsResearch() { return true; }

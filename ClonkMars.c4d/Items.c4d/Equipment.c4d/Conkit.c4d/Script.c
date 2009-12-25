@@ -47,4 +47,4 @@ protected func Hit()
 
 /* Produkteigenschaften */
 
-public func IsAnvilProduct() { return(1); }
+public func MarsResearch() { return true; }

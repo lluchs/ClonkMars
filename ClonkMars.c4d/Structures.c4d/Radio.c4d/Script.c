@@ -6,3 +6,6 @@
 
 public func MaxDamage() { return 20; } //Maximaler Schaden
 protected func Initialize(){SetAction("Wait");}
+public func MarsResearch() {
+	return true;
+}
