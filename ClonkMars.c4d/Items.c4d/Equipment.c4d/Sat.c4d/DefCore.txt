@@ -11,9 +11,9 @@ Vertices=2
 VertexX=-1,-1
 VertexY=5,-6
 VertexFriction=50,50
-Value=100
+Value=20
 Mass=2
-Components=SATD=1
+Components=PSTC=3;METL=1
 Picture=0,18,64,64
 Rebuy=1
 Collectible=1
