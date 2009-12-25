@@ -50,8 +50,8 @@ protected func ProduceMenu(object pClonk, fShowAll) {
 	if(GetAction() != "Idle") {
 		CreateMenu(GetID(), pClonk, this);
 		if(fContinue)
-			AddMenuItem("Abbruch", "fContinue = false;", RSR2, pClonk, 0, 0, "Abbruch der Dauerproduktion");
-		AddMenuItem("Sofortabbruch", "Cancel", RSR2, pClonk, 0, 0, "Abbruch der aktuellen Produktion. Achtung: die Baumaterialien gehen dabei verloren!");
+			AddMenuItem("$TxtCancel$", "fContinue = false;", RSR2, pClonk, 0, 0, "$TxtCancelFull$");
+		AddMenuItem("$TxtCancelNow$", "Cancel", RSR2, pClonk, 0, 0, "$TxtCancelNow$");
 		return 1;
 	}
 	
