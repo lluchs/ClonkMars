@@ -71,7 +71,7 @@ protected func ControlUp(){
 
 protected func ControlDig(object pClonk) {
 	var iChange = pClonk -> ~DoFuel(GetLiquidStorage() * 100);
-	iChange /= 100;
+	iChange = ChangeRange(iChange, 0, pClonk -> ~MaxFuel(), 0, 100);
 	Message("+%d", pClonk, iChange);
 	DoLiquidStorage(-iChange);
 	return 1;
