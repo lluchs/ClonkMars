@@ -12,6 +12,8 @@ Icewing: Pipesystem, Baugrafiksystem
 
 JCaesar: Kapsellandesystem, Bugfixing
 
+Joshi: gelegentliches Betatesting
+
 cgtextures.com: einige Bildertexturen
 
 freesound.org: einige Sounds
