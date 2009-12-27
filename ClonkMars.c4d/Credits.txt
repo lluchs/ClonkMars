@@ -8,6 +8,10 @@ Maikel: Power.c4d
 
 Randrian: Raumfahrerclonk
 
+Icewing: Pipesystem, Baugrafiksystem
+
+JCaesar: Kapsellandesystem, Bugfixing
+
 cgtextures.com: einige Bildertexturen
 
 freesound.org: einige Sounds
