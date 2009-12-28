@@ -5,7 +5,7 @@ Name=Basement
 Category=C4D_Structure
 Width=16
 Height=8
-Offset=-8,-4
+Offset=-8,-8
 Vertices=2
 VertexX=-8,8
 VertexY=-4,-4
@@ -15,3 +15,5 @@ Mass=10
 Components=METL=1;
 SolidMask=0,0,16,8,0,0
 Construction=1
+Rotate=1
+RotatedSolidmasks=1

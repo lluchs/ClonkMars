@@ -51,3 +51,27 @@ public func GetWarmth() {
 }
 
 public func MaxDamage() { return 5; } //Maximaler Schaden
+
+/* Splitter-Fundament */
+
+protected func Construction() {
+	if(GetID() == BasementID())
+		return;
+	// Nur wenn noch kein Fundament vorhanden: Damit bei Überladung von
+	// Fundamentobjekten nicht Fundamente mehrfach erstellt werden.
+	basement = true;
+	ScheduleCall(this, "CreateBasement", 1);
+	return _inherited(...);
+}
+
+protected func CreateBasement() {
+	var x = 0, y = 8 + GetDefHeight(SPTR) / 2;
+	if(GetR()) {
+		var radius = 4 + GetDefHeight(SPTR) / 2;//GetDefCoreVal("Offset", "DefCore", SPTR, 1);
+		x = -Sin(GetR(), radius);
+		y = Cos(GetR(), radius);
+	}
+	
+	basement = CreateObject(BasementID(), x, y, GetOwner());
+	basement -> SetR(GetR());
+}

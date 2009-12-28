@@ -10,15 +10,16 @@ Value=700
 Mass=300
 Components=METL=2;
 Picture=0,0,16,23
-Vertices=5
-VertexX=0,-8,8,-4,4
-VertexY=-11,11,11,2,2
+Vertices=6
+VertexX=0,-8,0,8,-4,4
+VertexY=-11,11,13,11,2,2
 VertexFriction=100,50,50,100
 Exclusive=1
 Construction=1
 ContainBlast=1
 Grab=2
 ColorByOwner=1
+Rotate=1
 
 [Physical]
 Energy=1500000
