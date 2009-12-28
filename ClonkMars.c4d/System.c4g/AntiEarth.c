@@ -8,7 +8,7 @@ global func DigBuildingsFree() {
 
 global func FxDigBuildingsFreeTimer() {
 	var ID;
-	for(var pObj in FindObjects(Find_Category(C4D_Structure), Find_OCF(OCF_Fullcon))) {
+	for(var pObj in FindObjects(Find_Category(C4D_Structure), Find_OCF(OCF_Fullcon), Find_Not(Find_Func("NoDigFree")))) {
 		ID = pObj -> GetID();
 		DigFreeRect(pObj -> GetX() + GetDefCoreVal("Offset", "DefCore", ID, 0), 
 		            pObj -> GetY() + GetDefCoreVal("Offset", "DefCore", ID, 1), 

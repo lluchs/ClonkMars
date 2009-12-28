@@ -52,6 +52,9 @@ public func GetWarmth() {
 
 public func MaxDamage() { return 5; } //Maximaler Schaden
 
+// nicht freigraben
+public func NoDigFree() { return true; }
+
 /* Splitter-Fundament */
 
 protected func Construction() {
