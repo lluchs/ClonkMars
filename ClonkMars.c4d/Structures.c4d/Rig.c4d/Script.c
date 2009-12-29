@@ -32,7 +32,7 @@ public func Deconstruction() {
 private func EnergyCheck(int iEnergy, object pObj) {
 	if(!pObj)
 		pObj = this;
-	return pObj -> CheckPower(iEnergy / 200);
+	return pObj -> CheckPower(iEnergy / 150);
 }
 
 protected func Pumping() {
