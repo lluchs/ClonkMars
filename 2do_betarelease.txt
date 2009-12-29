@@ -1,23 +1,5 @@
 # RADO Funktionalität (Meteoritendisruptor)
 
-# Handelssystem
-- unabhängig machen vom Standard
-
-# Terraformer
-- Wärme produzieren im Radius
-- Pflanzen wachsen mehr in der Erde, Offset kontrollieren oder sowas!?
-
-# Rückbau
-- bestätigen Knopf
-- auch Baustellen erfassen
-
-# Waffenlabor
-- Trägerraketen ins All schießen Funktionalität
---> benötigt Upgrade: Booster
---> benötigt Upgrade: Forschungssatellit
---> dann bauen (nach components)
---> Bunker öffnen lassen und start
-
 # Loader
 - haben noch alle Alpha Status (NF)
 

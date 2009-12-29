@@ -2,10 +2,6 @@
 
 - Gravitationsmaschine, die Clonk Planet Gravitation macht
 
-- Trümmer aus Gebäude zum recyceln
-
-- HUD Forecast
-
 - Einstiegspunkt für Kapsel am Spielstart selbst wählen
 
 - customoverlay System
