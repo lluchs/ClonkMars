@@ -145,6 +145,14 @@ global func Test()
  Log("%d",integer);
 }*/
 
+//blame JCaesar if this function sucks:
+global func PopElements(array &aArray, int iStart, int iCount) {
+	if(iCount < 1) iCount = 1;
+	for(iStart+iCount; iStart<GetLength(aArray); iStart++) {
+		aArray[iStart-iCount] = aArray[iStart];
+	}
+	SetLength(aArray, GetLength(aArray)-iCount);
+}
 
 
 

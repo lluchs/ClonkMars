@@ -3,6 +3,7 @@
 #strict 2
 
 #include DACT
+#include SRMO
 
 local port, attachvertex;
 
@@ -21,7 +22,7 @@ protected func Initialize() {
 	SetAction("FreeFall");
 	SetComDir(COMD_Down);
 	SetYDir();
-	return 1;
+	return _inherited();
 }
 
 public func SetDstPort(object pPort) {
@@ -181,6 +182,7 @@ protected func FxEffectsDustTimer() {
 }
 
 public func MaxDamage() { return 20; }
+public func WindEffect() { return 200;}
 
 private func GetRLaunchTime(int dst, int iter, int start) {
 	if(GetGravity() < 1) return -1;

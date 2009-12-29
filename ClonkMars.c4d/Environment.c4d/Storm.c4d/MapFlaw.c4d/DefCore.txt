@@ -1,0 +1,5 @@
+[DefCore]
+id=SRMP
+Name=Storm Map Profiling and Execution Object
+Category=C4D_MouseIgnore|C4D_Vehicle
+Vertices=1

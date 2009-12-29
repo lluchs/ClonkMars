@@ -1,0 +1,5 @@
+[DefCore]
+id=SRMO
+Name=Storm Appliance Object
+Category=C4D_StaticBack
+Vertices=1
