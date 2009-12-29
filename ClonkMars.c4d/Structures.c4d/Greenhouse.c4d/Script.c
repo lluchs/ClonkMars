@@ -7,11 +7,28 @@
 #include PWRC // ist ein Energieverbraucher
 #include DACT //Damagecontrol
 
-public func GetTemp() { return 1000;}
+public func GetTemp() { return 600;}
 
 func Initialize() {
   return(1);
 }
+
+/* Los Funktionos*/
+
+protected func ContainedUp(object pClonk) {
+	return ProduceMenu(pClonk);
+}
+
+protected func ProduceMenu(object pClonk, fShowAll) {
+	if(GetAction() != "Idle") {
+		CreateMenu(GetID(), pClonk, this);
+		if(fContinue)
+			AddMenuItem("$TxtCancel$", "fContinue = false;", RSR2, pClonk, 0, 0, "$TxtCancelFull$");
+		AddMenuItem("$TxtCancelNow$", "Cancel", RSR2, pClonk, 0, 0, "$TxtCancelNow$");
+		return 1;
+	}
+
+/* End */
 
 private func CanOpen() {
 	return GetAction() == "Idle";
@@ -28,13 +45,6 @@ private func SoundCloseDoor() {
 private func EnergyNeedOverlay() {
 	return 3; // Overlay 1 und 2: Türsteuerung
 }
-
-/*protected func Overburn(){
-  CreateParticle("Fire2", 20, -40, RandomX(-5,5), -10-Random(10), 75 + Random(75), RGBa(255, 230, 230, 50), this());
-  CreateParticle("Fire2", 23, -40, RandomX(-5,5), -10-Random(10), 75 + Random(75), RGBa(255, 230, 230, 50), this());
-  if(!Random(3))
-    CreateParticle("Fire", 23, -40, RandomX(-5,5), -10-Random(10), 55, RGBa(255, 230, 230, 50), this());
-    }*/
 
 public func PipelineConnect() {
 	return 1;
