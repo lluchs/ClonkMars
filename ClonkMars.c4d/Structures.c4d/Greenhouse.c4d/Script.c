@@ -27,7 +27,7 @@ protected func ProduceMenu(object pClonk, fShowAll) {
 		AddMenuItem("$TxtCancelNow$", "Cancel", RSR2, pClonk, 0, 0, "$TxtCancelNow$");
 		return 1;
 	}
-
+}
 /* End */
 
 private func CanOpen() {

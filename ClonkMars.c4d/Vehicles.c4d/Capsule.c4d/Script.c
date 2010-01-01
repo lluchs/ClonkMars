@@ -26,11 +26,40 @@ protected func Initialize() {
 }
 
 public func SetDstPort(object pPort) {
+	if(GetGravity() < 1) { Log("Can't land without gravity."); Explode(3000); return; }
 	if(pPort) pPort->Occupy(this);
 	port = pPort;
 	var dst = Abs(GetY()-GetY(pPort))-30;
 	if(!pPort) dst = Abs(GetY()-GetHorizon(GetX())) - 150;
-	var t = GetRLaunchTime(dst); //This is a dumb and slow solution: Look for Revs around 1400 if you'd like to fix something intelligent but broken
+	var iter = 300000/GetGravity()/dst;
+	var t;
+	while(true){
+		t+= iter;
+		var i=t,d=0,s=0,tges=t;
+		while(i--) {
+			s += GetGravity();
+			d += s;
+		}
+		while(s > iCapsLandSpeed) {
+			s -= iCapsAcceleration;
+			d += s;
+			++tges;
+		}
+		if(d/500 > dst) {
+			if(iter == 1) break;
+			else {
+				t -= 2*iter;
+				iter /= 2;
+			}
+		}
+	}
+	var dir,pos=100;
+	for(var i;i<tges;++i) { //FIXME: Use forecast. And fix that whole thingy
+		dir += (dir-GetWind(0,0,true))**2*WindEffect()/1000;
+		pos += dir;
+	}
+	if(GetWind(0,0,true)<0) pos *= -1;
+	SetPosition(GetX()-pos/100, GetY());
 	ScheduleCall(this, "StartLanding", t);
 	if(port)
 		ScheduleCall(port, "PortActive", 50);
@@ -181,27 +210,7 @@ protected func FxEffectsDustTimer() {
 	}
 }
 
+public func Flying() { return !GetContact(this, -1);}
+
 public func MaxDamage() { return 20; }
 public func WindEffect() { return 200;}
-
-private func GetRLaunchTime(int dst, int iter, int start) {
-	if(GetGravity() < 1) return -1;
-	if(iter == 0) iter = 300000/GetGravity()/dst;
-	var t=start;
-	while(true){
-		t+= iter;
-		var i=t,d=0,s=0;
-		while(i--) {
-			s += GetGravity();
-			d += s;
-		}
-		while(s > iCapsLandSpeed) {
-			s -= iCapsAcceleration;
-			d += s;
-		}
-		if(d/500 > dst) {
-			if(iter == 1) return t-iter;
-			else return GetRLaunchTime(dst, iter/2, t-2*iter);
-		}
-	}	
-}

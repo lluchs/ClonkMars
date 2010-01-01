@@ -3,13 +3,8 @@
 static const ReflectIterAngle = 30;
 static const ReflectIterRade = 3;
 
-protected func Initialize() {
-	++iWindProfilingObjects;
-}
-
 protected func Hit(int iXDir, int iYDir){
 	//CreateParticle("Blast", 0,0, 0,0, 100, RGBa(128,128,255,0));
-	--iWindProfilingObjects;
 	var ang1 = -1, ang2 = -1, angc, sld = GBackSolid(0, -ReflectIterRade), ang;
 	for(var i=ReflectIterAngle; i<360; i += ReflectIterAngle){
 		if(GBackSolid(Sin(i, ReflectIterRade), -Cos(i, ReflectIterRade)) != sld) {
@@ -25,15 +20,15 @@ protected func Hit(int iXDir, int iYDir){
 	} else {
 		if(Random(90)+90<ang) action = (GetWind()<0)*2-1;
 	}
-	if(!action) { RemoveObject(); return;}
+	if(!action) { RePlaceWindProfiler(this); return;}
 	if(action > 0) {
 		InsertMaterial(Material("Earth"), 0, 0, 3, -10);
 		InsertMaterial(Material("Earth"), 0, 0, 0, -10);
 		InsertMaterial(Material("Earth"), 0, 0, -3, -10);
 	} else {
-		DigFree(GetX(), GetY(), 1);
+		DigFree(GetX(), GetY(), 2);
 	}
-	RemoveObject();
+	RePlaceWindProfiler(this);
 	return;
 	/*ang = 2 * ang - Angle(0, 0, iXDir, iYDir); //Damit berechnet man den Reflexionswinkel. Und ich bin so selbstverliebt, dass ich das nicht löschen will.
 	var spd = Distance(iXDir, iYDir);

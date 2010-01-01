@@ -73,20 +73,8 @@ global func DeleteArrayItem2(iNumber,&aArray)
 }
 
 //Sucht ein Item im array
-global func GetArrayItemPosition(value,aArray)
-{
- var number=-1;
- for(var cnt=0;cnt<GetLength(aArray);cnt++)
- {
-  if(aArray[cnt] == value)
-  {
-   number=cnt;
-   break;
-  }
-  else continue;
- }
- 
- return number;
+global func GetArrayItemPosition(&value,&aArray) { //2do: remove that 
+	return GetIndexOf(value, aArray);
 }
 
 //Fügt ein Item am Ende eines Array ein

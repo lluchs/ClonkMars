@@ -9,3 +9,4 @@ TxtResearch=Forschen
 TxtContinuedevelopement=Forschung an %s fortsetzen
 TxtCancelresearch=Forschung abbrechen
 TxtAlreadyDeveloped=%s wurde|bereits erforscht!
+TxtTooStormy=Bei Sturm können keine Kapseln landen.

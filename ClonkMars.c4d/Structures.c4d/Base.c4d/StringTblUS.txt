@@ -9,3 +9,4 @@ TxtResearch=Research
 TxtContinuedevelopement=Continue developement of %s
 TxtCancelresearch=Cancel research
 TxtAlreadyDeveloped=%s already developed!
+TxtTooStormy=Capsules can't land while it's stormy.

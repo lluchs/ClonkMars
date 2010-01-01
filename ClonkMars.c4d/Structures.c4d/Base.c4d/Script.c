@@ -79,8 +79,13 @@ private func IsNotReproducing() {
 	return !IsReproducing(...);
 }
 
+protected func ContextBuy(object pClonk) {
+	[Objekte kaufen|Image=SATD|Condition=CapsuleCheck]
+	pClonk->ContainedCall("ContainedUp", this());
+}
+
 protected func ContainedUp(object pClonk) {
-	if(CapsuleCheck(pClonk))
+	if(!CapsuleCheck(pClonk,true))
 		return;
 	var menu = CreateMenuTemplate(CPSL, "Kapsel rufen...");
 	AddEnumChoice(menu, 0, "Sell");
@@ -98,7 +103,7 @@ protected func ContainedUp(object pClonk) {
 }
 
 public func OrderCapsule(hash, object pClonk, bool fCanceled) {
-	if(fCanceled || CapsuleCheck(pClonk))
+	if(fCanceled || !CapsuleCheck(pClonk))
 		return;
 	if(HashGet(hash, "Sell") == "SellOnly") {
 		return !!CreateCapsule();
@@ -121,15 +126,25 @@ public func OrderCapsule(hash, object pClonk, bool fCanceled) {
 	return true;
 }
 
-private func CapsuleCheck(object pClonk) {
+private func CapsuleCheck(object pClonk, bool announce) {
 	var pSat = HasSat();
 	if(!pSat)
-		return 1;
+		return false;
 	if(pSat -> GetCapsule()) {
-		Sound("Error");
-		Message("$TxtAlreadyCapsule$", pClonk);
-		return 1;
+		if(announce) {
+			Sound("Error");
+			Message("$TxtAlreadyCapsule$", pClonk);
+		}
+		return false;
 	}
+	if(IsStormy()) {
+		if(announce) {
+			Sound("Error");
+			Message("$TxtTooStormy$"); 
+		}
+		return false;	
+	}
+	return true;
 }
 
 private func CreateCapsule() {

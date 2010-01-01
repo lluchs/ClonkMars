@@ -29,6 +29,10 @@ public func IsFree(){
 	return true;
 }
 
+protected func CheckCapsule() {
+	if(!pCaps || !pCaps->Flying()) SetAction("Wait");
+}
+
 public func MarsResearch() {
 	return true;
 }

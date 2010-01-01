@@ -10,12 +10,14 @@ static iWindProfilingObjects;
 static aBorderHeights;
 static pWindControl;
 
-//2do: Intelligent SRMP-Placing
+//2do: Intelligent SRMP-Placing, proper SRMP-Counting
 //Think about: 
 //	Don't ignore the global horizon, go down in wind speed a bit when coming closer.
 //	Check GetScenLeft/RightOpen() in Initialize
+//	Rotate flying objects
 
 global func GetWind(int iX, int iY, bool fGlobal) {
+	if(!pWindControl) return inherited(...);
 	iX += GetX(); iY += GetY(); //Make stuff global
 	if(fGlobal) return iGlobalWind;
 	var iAng, iDst = (((iGlobalWind < 0) && LandscapeWidth()) - iX);
@@ -31,17 +33,17 @@ global func GetWind(int iX, int iY, bool fGlobal) {
 }
 
 global func SetWind(int iWind, int iHold) {
+	if(!pWindControl) return inherited(...);
 	iHold += FrameCounter();
-	if(iWind > 250) iWind = 250;
-	else if(iWind < -250) iWind = -250;
+	iWind = BoundBy(iWind,-250,250);
 	var i;
-	while(i<GetLength() && aWindForecast[i][0] < iHold) ++i;
-	PopElements(aWindForecast, 1, i-1);
-	aWindForecast[0] = [FrameCounter(), iWind];
+	/*while(i<GetLength() && aWindForecast[i][0] < iHold) ++i;
+	PopElements(aWindForecast, 1, i-1);*/
+	aWindForecast = [[FrameCounter(), iWind], [iHold, iWind]];
 }
 
 global func IsStormy() {
-	return Abs(iGlobalWind) > 100;
+	return Abs(iGlobalWind) > 25;
 }
 
 protected func Initialize() {
@@ -63,14 +65,14 @@ protected func Initialize() {
 global func FxIntWindExecTimer() {
 		// Update Forecast
 		if(aWindForecast[GetLength(aWindForecast)-1][0] - FrameCounter() < 10000)
-			var frm = aWindForecast[GetLength(aWindForecast)-1][0]+Random(101)+Random(101); //Hack to avoid funny engine bug
-			var dir = BoundBy(aWindForecast[GetLength(aWindForecast)-1][1]+Random(121)-60, -250, 250); //If you put it directly into the array, it fails.
-			aWindForecast[GetLength(aWindForecast)] = [frm,dir];
+			var frm = aWindForecast[GetLength(aWindForecast)-1][0]+Random(101)+Random(101); //Hack to avoid funny engine 'bug'
+			var dir = BoundBy(aWindForecast[GetLength(aWindForecast)-1][1]+Random(121)-60, -250, 250); //If you put it directly into the array, it fails. That's because the array's extended, before the expression is evaluated.
+			aWindForecast[GetLength(aWindForecast)] = [frm,dir]; 
 		// Calc speed
 		if(aWindForecast[0][0] < FrameCounter()) {
 			if(aWindForecast[0][1] != iGlobalWind) {
-				if(iGlobalWind < aWindForecast[0][1]) iGlobalWind += 2;
-				else iGlobalWind -= 2;
+				if(iGlobalWind < aWindForecast[0][1]) iGlobalWind += 1;
+				else iGlobalWind -= 1;
 				if(Abs(aWindForecast[0][1] - iGlobalWind) < 3) iGlobalWind = aWindForecast[0][1]; //Correctness jump, I don't want it to hang
 			} else {
 				PopElements(aWindForecast, 0);
@@ -81,25 +83,30 @@ global func FxIntWindExecTimer() {
 		while(i--) {
 			if(!aWindEffectedObjects[i]) {
 				aWindEffectedObjects[i] == aWindEffectedObjects[--iWindEffectedCount]; 
-				if(GetLength(aWindEffectedObjects) - iWindEffectedCount > 20) SetLength(aWindEffectedObjects,iWindEffectedCount+15);
+				if(GetLength(aWindEffectedObjects) - iWindEffectedCount > 20) SetLength(aWindEffectedObjects,iWindEffectedCount+12);
 				continue;
 			}
-			Log("%v, %v, %v, %v, %v, %v", 
-				(GetXDir(aWindEffectedObjects[i],10)-iGlobalWind>0)-(GetXDir(aWindEffectedObjects[i],10)-iGlobalWind<0), 
-				iGlobalWind, 
-				GetXDir(aWindEffectedObjects[i],100), 
-				(GetXDir(aWindEffectedObjects[i],100)-iGlobalWind*10)**2, 
-				aWindEffectedObjects[i]->WindEffect(), 
-				GetXDir(aWindEffectedObjects[i],100));
-			SetXDir((GetXDir(aWindEffectedObjects[i],10)-iGlobalWind>0)-(GetXDir(aWindEffectedObjects[i],10)-iGlobalWind<0) * //Vorzeichen
-			        (GetXDir(aWindEffectedObjects[i],100)-iGlobalWind*10)**2*
-			        aWindEffectedObjects[i]->WindEffect()/1000+
-			        GetXDir(aWindEffectedObjects[i],100),aWindEffectedObjects[i],200);
+			var iDir = aWindEffectedObjects[i]->GetWind(), iDiff = iDir*10-GetXDir(aWindEffectedObjects[i],100);
+			SetXDir((iDiff>0)-(iDiff<0) /*vorzeichen*/ * (iDiff)**2 * aWindEffectedObjects[i]->WindEffect() / 10000 +
+				GetXDir(aWindEffectedObjects[i],100),aWindEffectedObjects[i],100);
+				//Formular Dependencies: Capsule::SetDstPort()
 		}
 		// Effect Landscape
 		while(iWindProfilingObjects < (Max(Abs(iGlobalWind)-30, 0)**2 / 250)) {
-			CreateObject(SRMP, Random(LandscapeWidth()), 1, NO_OWNER)->SetYDir(100);
+			RePlaceWindProfiler(CreateObject(SRMP, 0, 0, NO_OWNER));
+			++iWindProfilingObjects;
 		}
+		if(!(FrameCounter()%30)) iWindProfilingObjects = ObjectCount(SRMP); //Something is eating them. 2do FIXME
+}
+
+global func RePlaceWindProfiler(object pProf) {
+	if(iWindProfilingObjects > (Max(Abs(iGlobalWind)-30, 0)**3 / 25)) {
+		--iWindProfilingObjects;
+		RemoveObject(pProf);
+		return;
+	}
+	SetPosition(Random(LandscapeWidth()), 1, pProf);
+	pProf->SetYDir(100);
 }
 
 global func AddObjectForWind(object pObj) {
@@ -107,6 +114,18 @@ global func AddObjectForWind(object pObj) {
 	if(!pObj) if(!(pObj=this)) return;
 	if(GetLength(aWindEffectedObjects) >= iWindEffectedCount) SetLength(aWindEffectedObjects,iWindEffectedCount+15);
 	aWindEffectedObjects[iWindEffectedCount++] = pObj;
+}
+
+global func RemoveObjectFromWind(object pObj) {
+	if(!pWindControl) return;
+	if(!pObj) if(!(pObj=this)) return;
+	var pos;
+	if(pos=GetIndexOf(pObj, aWindEffectedObjects)) {
+		aWindEffectedObjects[pos] = aWindEffectedObjects[--iWindEffectedCount];
+		if(GetLength(aWindEffectedObjects) - iWindEffectedCount > 20) SetLength(aWindEffectedObjects,iWindEffectedCount+12);
+		return true;
+	}
+	return false;
 }
 
 /*global func GetHorizon() {

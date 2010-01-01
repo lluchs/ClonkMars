@@ -9,4 +9,4 @@ protected func Initialize() {
 	return _inherited();
 }
 
-public func WindEffect() { return GetCon(); } //Overloadable callback. Default is 100. 2do: What about GetDefHeight and GetMass?
+public func WindEffect() { return GetCon(); } //Callback. Default is 100. 2do: What about GetDefHeight and GetMass?
