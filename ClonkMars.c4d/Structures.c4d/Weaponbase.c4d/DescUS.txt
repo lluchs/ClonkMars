@@ -1,1 +1,0 @@
-Command base for all military actions.
