@@ -11,3 +11,7 @@ public func TimeOverload(&evening, &morning) {
 	morning = TimeResolution() * 2 / 3;
 	return 1;
 }
+
+protected func Activate(iPlr) {
+  MessageWindow(GetDesc(),iPlr);
+}

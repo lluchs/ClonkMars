@@ -33,3 +33,7 @@ protected func FxMeteoritestormTimer(object pTarget, int iEffectNumber) {
 	var pObj = CreateObject(METO, Random(LandscapeWidth()), 0, NO_OWNER);
 	pObj -> SetSpeed(RandomX(-50, 50), Random(30));
 }
+
+protected func Activate(iPlr) {
+  MessageWindow(GetDesc(),iPlr);
+}
