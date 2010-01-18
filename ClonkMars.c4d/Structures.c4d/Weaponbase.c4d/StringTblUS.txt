@@ -1,0 +1,4 @@
+BuySat_Res=buy research satelliten
+BuySat_AntiSat=buy anti satellite roket
+BuySat_Nuke=buy nuke roket
+NotenoughMoney=Nicht genügend Clunker!

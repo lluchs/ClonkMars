@@ -1,0 +1,2 @@
+DE:Radioteleskop
+US:Radiotelescope

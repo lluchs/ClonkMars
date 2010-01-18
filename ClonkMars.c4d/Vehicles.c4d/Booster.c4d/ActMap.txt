@@ -1,0 +1,6 @@
+[Action]
+Name=Rotate
+Procedure=NONE
+Delay=10
+FacetBase=1
+NextAction=Rotate
