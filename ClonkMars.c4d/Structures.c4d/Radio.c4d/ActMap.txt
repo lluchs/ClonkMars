@@ -30,3 +30,10 @@ FacetBase=0
 Facet=0,0,40,40,0,0
 NextAction=Wait
 Reverse=1
+
+[Action]
+Name=Panel
+Length=30
+FacetBase=0
+Facet=0,0,40,40,0,0
+NextAction=Hold

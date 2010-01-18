@@ -18,6 +18,7 @@ Exclusive=1
 Construction=1
 ContainBlast=1
 LineConnect=C4D_PowerOutput
+Grab=2
 
 [Physical]
 Energy=1500000
