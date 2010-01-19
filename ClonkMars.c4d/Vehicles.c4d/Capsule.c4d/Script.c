@@ -53,6 +53,8 @@ public func SetDstPort(object pPort) {
 			}
 		}
 	}
+	// Cäsar baut kaputtes Zeugs ein :(
+	/*
 	var dir,pos=100;
 	for(var i;i<tges;++i) { //FIXME: Use forecast. And fix that whole thingy
 		dir += (dir-GetWind(0,0,true))**2*WindEffect()/1000;
@@ -60,6 +62,7 @@ public func SetDstPort(object pPort) {
 	}
 	if(GetWind(0,0,true)<0) pos *= -1;
 	SetPosition(GetX()-pos/100, GetY());
+	*/
 	ScheduleCall(this, "StartLanding", t);
 	if(port)
 		ScheduleCall(port, "PortActive", 50);
