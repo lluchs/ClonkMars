@@ -80,8 +80,12 @@ private func IsNotReproducing() {
 }
 
 protected func ContextBuy(object pClonk) {
-	[Objekte kaufen|Image=SATD|Condition=CapsuleCheck]
+	[Objekte kaufen|Image=SATD|Condition=CapsuleCheck2]
 	pClonk->ContainedCall("ContainedUp", this());
+}
+
+protected func CapsuleCheck2() {
+	return CapsuleCheck();
 }
 
 protected func ContainedUp(object pClonk) {
@@ -152,7 +156,9 @@ private func CreateCapsule() {
 	if(pPort = FindObject2(Find_ID(PORT), Find_OCF(OCF_Fullcon), Find_Allied(GetOwner()), Find_Distance(700), Find_Func("IsFree"), Sort_Distance())) {
 		pCaps = CreateObject(CPSL, AbsX(GetX(pPort)), AbsY(-100), GetOwner());
 	} else {
-		pCaps = CreateObject(CPSL, RandomX(-200, 200), AbsY(-30), GetOwner());
+		var iX;
+		while((iX = RandomX(-200, 200) + GetX()) < 0 || iX > LandscapeWidth());
+		pCaps = CreateObject(CPSL, AbsX(iX), AbsY(-30), GetOwner());
 	}
 	pCaps->SetDstPort(pPort);
 	
