@@ -22,6 +22,6 @@ protected func InitializePlayer(int iPlr) {
 protected func Script5(){
   //place Dust
   for(var i;i<40;++i) 
-  CreateParticle("Dust2",Random(LandscapeWidth()),Random(LandscapeHeight()*2/3),RandomX(3,9),0,RandomX(1000,1500));
+  CreateParticle("Dust",Random(LandscapeWidth()),Random(LandscapeHeight()*2/3),RandomX(3,9),0,RandomX(1000,1500));
   return(goto(0));
   }
