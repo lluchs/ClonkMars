@@ -1,7 +1,5 @@
 Mehr oder weniger langfristige todos, bis zum Release.
 
-
-
 # Handelssystem
 - unabhängig machen vom Standard
 
