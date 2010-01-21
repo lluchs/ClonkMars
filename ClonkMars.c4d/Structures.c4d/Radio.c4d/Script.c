@@ -40,7 +40,7 @@ protected func FxDestroyMeteoritesTimer() {
 	//AngleFree(iAngle) + AngleFree(iAngle - 20) + AngleFree(iAngle + 20);
 	
 	for(var pObj in FindObjects(Find_ID(METO), Find_Distance(250), Find_Angle(iAngle + 20, iAngle - 20), Find_PathFree())) {
-		if(CheckPower(20))
+		if(CheckPower(50))
 			pObj -> Hit();
 	}
 }
