@@ -6,10 +6,35 @@
 #include SRMO
 
 local port, attachvertex;
+local mode, blowout, aimblowout; //mode: 1 for automatic; blowout: 0 for no emission, 1 for low emission, 2 for high, 3 for left and 4 for right.
 
 static const iCapsMaxSpeed  = 2500; //iPrecision = 500
 static const iCapsLandSpeed = 100;
 static const iCapsAcceleration = 50;
+
+public func SetBlowout(int bo) {
+	if((bo&1<<31) && ((bo^1<<31) != aimblowout)) {return;}
+	else if(bo&1<<31) {blowout = bo^1<<31; aimblowout = -1; return;}
+	aimblowout = bo;
+	if(blowout && !(blowout == 1 && bo == 2 || blowout == 2 && bo == 1)) bo = 0;
+	ScheduleCall(this, "SetBlowout", 15, 1, bo^1<<31);
+	if(!bo) {
+		//if(GetIndexOf(GetAction(),["Idle","PortLand","FreeFall"])!=-1) {}
+		if(GetAction() == "Blowout") {SetAction("FreeFall");}
+		else if(GetAction() == "Blowout") SetAction("BlowoutEnd");
+		else if(GetAction() == "RightBoostTurnUp") {var phas = GetPhase(); SetAction("RightBoostTurnDown"); SetPhase(4-phas);}
+		else if(GetAction() == "RightBoostMax") {SetAction("RightBoostTurnDown");}
+		else if(GetAction() == "LeftBoostTurnUp") {var phas = GetPhase(); SetAction("LeftBoostTurnDown"); SetPhase(4-phas);}
+		else if(GetAction() == "LeftBoostMax") {SetAction("LeftBoostTurnDown");}
+	} else if((bo == 1 || bo == 2) && !(GetAction() == "Blowout")) {
+		SetAction("Blowout");
+	} else if(bo == 3 && !WildcardMatch(GetAction(), "LeftBoost*")) {
+		SetAction("LeftBoostTurnUp");
+	} else if(bo == 4 && !WildcardMatch(GetAction(), "RightBoost*")) {
+		SetAction("RightBoostTurnUp");
+	}
+	if(bo && !GetEffect("Blowout")) {AddEffect("Blowout", this,1,1,this);}
+}
 
 protected func RejectEntrance(object pObj) 
 {
@@ -18,6 +43,7 @@ protected func RejectEntrance(object pObj)
 }
 
 protected func Initialize() {
+	aimblowout = -1;
 	attachvertex = -1;
 	SetAction("FreeFall");
 	SetComDir(COMD_Down);
@@ -26,6 +52,7 @@ protected func Initialize() {
 }
 
 public func SetDstPort(object pPort) {
+	mode = 1;
 	if(GetGravity() < 1) { Log("Can't land without gravity."); Explode(3000); return; }
 	if(pPort) pPort->Occupy(this);
 	port = pPort;
@@ -53,16 +80,15 @@ public func SetDstPort(object pPort) {
 			}
 		}
 	}
-	// Cäsar baut kaputtes Zeugs ein :(
-	/*
-	var dir,pos=100;
-	for(var i;i<tges;++i) { //FIXME: Use forecast. And fix that whole thingy
-		dir += (dir-GetWind(0,0,true))**2*WindEffect()/1000;
-		pos += dir;
+	if(AdvancedWindCalculations()) {
+		var dir,pos=100;
+		for(var i;i<tges;++i) { //FIXME: Use forecast. And fix that whole thingy
+			dir += (dir-GetWind(0,0,true))**2*WindEffect()/1000;
+			pos += dir;
+		}
+		if(GetWind(0,0,true)<0) pos *= -1;
+		SetPosition(GetX()-pos/100, GetY());
 	}
-	if(GetWind(0,0,true)<0) pos *= -1;
-	SetPosition(GetX()-pos/100, GetY());
-	*/
 	ScheduleCall(this, "StartLanding", t);
 	if(port)
 		ScheduleCall(port, "PortActive", 50);
@@ -75,8 +101,6 @@ global func GetHorizon(int iX) { var iY; while(!GBackSemiSolid(iX,AbsY(iY++))); 
 public func IsO2Producer() {
 	return 1;
 }
-
-protected func ContactBottom() { if(GetEffect("Landing",this) || GetAction() == "FreeFall") {RemoveEffect("Landing", this); Fertig();}}
 
 protected func Hit(int iXDir, int iYDir) {
 	var hit = Distance(iXDir, iYDir)/3 - 70;
@@ -94,33 +118,56 @@ protected func ContainedDigDouble() {
 
 private func StartLanding() {
 	if(port) port->PortActive(); //Port wird beim laden zweimal aktiviert, falls die Landung früh anfängt...
-	SetAction("BlowoutStart");
-	AddEffect("Landing",this,1,1,this);
-	AddEffect("EffectsDust", this, 1, 3, this);
+	SetBlowout(1);
 	return 1;
 }
 
-protected func FxLandingTimer(pObj) {
-	SetYDir(Max(GetYDir(pObj,500)-GetGravity()-iCapsAcceleration,iCapsLandSpeed),pObj,500);
+protected func FxBlowoutTimer(object pObj, int iEffectNumber, int iEffectTime) {
+	if(GetR()) {
+		if(GetR() < 0) SetRDir(+1, 0, 25);
+		else SetRDir(-1, 0, 25);
+	}
+	if(blowout == 1) {
+		if(GetYDir(pObj,500) > iCapsLandSpeed) SetYDir(Max(GetYDir(pObj,500)-GetGravity()-iCapsAcceleration,iCapsLandSpeed),pObj,500);
+	} else if(blowout == 2) {
+		var accspeed = Min(iCapsMaxSpeed - Cos(GetR()-Angle(0,0,GetXDir(this, 500),GetYDir(this, 500)),Distance(GetYDir(this, 500), GetXDir(this, 500))), iCapsAcceleration/5+GetGravity());
+		SetXDir(GetXDir(this, 500)+Sin(GetR(),accspeed), this, 500);
+		SetYDir(GetYDir(this, 500)-Cos(GetR(),accspeed), this, 500);
+		if(mode && GetY() <= -20) {
+			for(var pObj in FindObjects(Find_Container(this)))
+				pObj -> Sell(GetOwner());
+			if(port) port->PortWait();
+			RemoveObject();
+		}
+		if(mode && iEffectTime > (LandscapeHeight() + 300)) DoDamage(1); //Falls die Kapsel nicht richtig startet
+	} else if(blowout == 3) {
+		SetXDir(Max(GetXDir(0,100)-7,-70),0, 100);
+	} else if(blowout == 4) {
+		SetXDir(Min(GetXDir(0,100)+7,+70),0, 100);
+	} else {
+		if(aimblowout == -1) {return -1;}
+	}
+	EffectDust();
 }
 
-private func Fertig() {
-	if(port && port==FindObject2(Find_ID(PORT),Find_AtPoint())) {
-		attachvertex = GetVertexNum();
-		AddVertex();
-		SetVertex(attachvertex, 2, CNAT_NoCollision, this, 1);
-		AddVertex();
-		SetVertex(attachvertex, 0, GetVertex(0, 0, port)+GetX(port)-GetX(), this, 2);
-		SetVertex(attachvertex, 1, GetVertex(0, 1, port)+GetY(port)-GetY(), this, 2);
-		SetAction("PortLand", port);
-		SetActionData(256*attachvertex, this);
-		//FIXME: Do that less hacky...
-	} else  SetAction("Idle");
-	if(ObjectCount2(Find_Container(this), Find_OCF(OCF_CrewMember)))
-		ScheduleCall(this, "Eject", 30);
-	RemoveEffect("Landing", this);
-	RemoveEffect("EffectsDust", this);
-	if(port) ScheduleCall(port, "PortWait", 50);
+protected func ContactBottom() { 
+	if(blowout) {
+		SetBlowout(0);
+		if(port && port==FindObject2(Find_ID(PORT),Find_AtPoint())) {
+			attachvertex = GetVertexNum();
+			AddVertex();
+			SetVertex(attachvertex, 2, CNAT_NoCollision, this, 1);
+			AddVertex();
+			SetVertex(attachvertex, 0, GetVertex(0, 0, port)+GetX(port)-GetX(), this, 2);
+			SetVertex(attachvertex, 1, GetVertex(0, 1, port)+GetY(port)-GetY(), this, 2);
+			SetAction("PortLand", port);
+			SetActionData(256*attachvertex, this);
+			//FIXME: Do that less hacky...
+		} 
+		if(ObjectCount2(Find_Container(this), Find_OCF(OCF_CrewMember)))
+			ScheduleCall(this, "Eject", 30);
+		if(port) ScheduleCall(port, "PortWait", 50);
+	}
 	return 1;
 }
 
@@ -137,30 +184,11 @@ protected func ControlUpDouble() {
 private func Launch() {
 	RemoveVertex(attachvertex);
 	attachvertex = -1;
-	SetAction("BlowoutStart");
-	AddEffect("EffectsDust", this, 1, 3, this);
-	AddEffect("Launching", this, 1, 1, this);
-}
-
-protected func FxLaunchingTimer(object pTarget, int iEffectNumber, int iEffectTime) {
-	var accspeed = Min(iCapsMaxSpeed - Cos(GetR()-Angle(0,0,GetXDir(this, 500),GetYDir(this, 500)),Distance(GetYDir(this, 500), GetXDir(this, 500))), iCapsAcceleration/5+GetGravity());
-	SetXDir(GetXDir(this, 500)+Sin(GetR(),accspeed), this, 500);
-	SetYDir(GetYDir(this, 500)-Cos(GetR(),accspeed), this, 500);
-	if(GetY() <= 0) {
-		for(var pObj in FindObjects(Find_Container(this)))
-			pObj -> Sell(GetOwner());
-		if(port) port->PortWait();
-		RemoveObject();
-	}
-	if(GetR()) {
-		if(GetR() < 0) SetRDir(+1, 0, 25);
-		else SetRDir(-1, 0, 25);
-	}
-	if(iEffectTime > (LandscapeHeight() + 300)) DoDamage(1); //Falls die Kapsel nicht richtig startet
+	SetBlowout(2);
 }
 
 // geklaut von Hazard
-protected func FxEffectsDustTimer() {
+protected func EffectDust() {
 
 	// Dust effect
 	var mat,i;
@@ -217,3 +245,36 @@ public func Flying() { return !GetContact(this, -1);}
 
 public func MaxDamage() { return 20; }
 public func WindEffect() { return 200;}
+
+//
+public func ContainedUp(pControl) {
+	if(GetPlrCoreJumpAndRunControl(GetOwner(pControl))) {
+		SetBlowout(1);
+	} else {
+		if(blowout == 2 || blowout == 1) SetBlowout(blowout-1);
+	}
+}
+
+public func ContainedDown(pControl) {
+	if(GetPlrCoreJumpAndRunControl(GetOwner(pControl))) {
+		SetBlowout(2);
+	} else {
+		if(blowout < 2) SetBlowout(blowout+1);
+		else SetBlowout(1);
+	}
+	return 1;
+}
+
+public func ContainedLeft() {
+	SetBlowout(3);
+}
+
+public func ContainedRight() {
+	SetBlowout(4);
+}
+
+public func ContainedUpReleased() { SetBlowout(0); }
+public func ContainedDownReleased() { SetBlowout(0); }
+public func ContainedLeftReleased() { SetBlowout(0); }
+public func ContainedRightReleased() { SetBlowout(0); }
+public func ContainedDig() { SetBlowout(0); }

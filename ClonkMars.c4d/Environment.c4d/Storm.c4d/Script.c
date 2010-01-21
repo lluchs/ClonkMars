@@ -16,6 +16,8 @@ static pWindControl;
 //	Check GetScenLeft/RightOpen() in Initialize
 //	Rotate flying objects
 
+global func AdvancedWindCalculations() {return ObjectCount(STRM);}
+
 global func GetWind(int iX, int iY, bool fGlobal) {
 	if(!pWindControl) return inherited(...);
 	iX += GetX(); iY += GetY(); //Make stuff global
@@ -82,7 +84,7 @@ global func FxIntWindExecTimer() {
 		var i = iWindEffectedCount;
 		while(i--) {
 			if(!aWindEffectedObjects[i]) {
-				aWindEffectedObjects[i] == aWindEffectedObjects[--iWindEffectedCount]; 
+				aWindEffectedObjects[i] = aWindEffectedObjects[--iWindEffectedCount]; 
 				if(GetLength(aWindEffectedObjects) - iWindEffectedCount > 20) SetLength(aWindEffectedObjects,iWindEffectedCount+12);
 				continue;
 			}

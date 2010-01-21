@@ -11,16 +11,6 @@ Procedure=ATTACH
 Delay=10
 FacetBase=1
 NextAction=PortLand
- 
-[Action]
-Name=BlowoutStart
-Procedure=None
-Delay=3
-FacetBase=1
-Facet=0,0,60,45
-Length=21
-NextAction=Blowout
-Sound=Jetbelt
 
 [Action]
 Name=Blowout
