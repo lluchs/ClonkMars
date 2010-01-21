@@ -1,0 +1,11 @@
+[FolderMap]
+MinResX=800
+MinResY=600
+ScenInfoArea=20,85,220,339
+FullscreenBG=1
+
+	[Scenario]
+	File=Fossae.c4s
+	BaseImage=Fossae.png
+	OverlayImage=Fossae_Highlight.png
+	Area=545,176,82,54
