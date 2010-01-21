@@ -1,7 +1,0 @@
-# RADO Funktionalität (Meteoritendisruptor)
-
-# Loader
-- haben noch alle Alpha Status (NF)
-
-# Temperature.c4d
-- Titelbild (NF)

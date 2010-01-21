@@ -5,38 +5,15 @@ Mehr oder weniger langfristige todos, bis zum Release.
 # Handelssystem
 - unabhängig machen vom Standard
 
-# Terraformer
-- Wärme produzieren im Radius
-- Pflanzen wachsen mehr in der Erde, Offset kontrollieren oder sowas!?
-
-# Greenhouse
-- volle Funktionalität
-
 # Clonk
 - JetpackclonkClonk sollte keine Jump Action haben, lieber Walk oder sowas.
 - wer unter einer Kapsel ist wird gleich verbrannt und stirbt sofort(?)
 - Jetpack ohne Öltank ist komisch (NF)
 
-# Upgrades.rtf, Weaponz.rtf
-
-# Baugrafiksystem (@work)
-
 # Transmitter
 - Bennung mit Namen (Fluglotstenalphabet)
 
-# Gebäuderrepair
-
 # erweitertes Handelssystem (für Spieler untereinander)
-
-# Basis
-- gut wäre eine Einstellung des Reproduktionsverfahrens
---> neuen Clonk reproduzieren
---> toten Clonk neu klonen (vor allem um Flooding der Spieler.c4p Datei zu vermeiden)
-
-# Gebäudeschadenanzeige
-
-# Rules
-- Strahlung (s. Strahlung.rtf, Grafik vorhanden)
 
 #System.c4g
 - AllKnowledge.c vervollständigen (NF)

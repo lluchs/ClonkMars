@@ -1,0 +1,22 @@
+# Temperature.c4d
+- Titelbild (NF)
+
+# Terraformer
+- Wärme produzieren im Radius
+- Pflanzen wachsen mehr in der Erde, Offset kontrollieren oder sowas!?
+
+# Baugrafiksystem (@work)
+
+# Basis
+- gut wäre eine Einstellung des Reproduktionsverfahrens
+--> neuen Clonk reproduzieren
+--> toten Clonk neu klonen (vor allem um Flooding der Spieler.c4p Datei zu vermeiden)
+
+# Gebäudeschadenanzeige
+
+# Rules
+- Strahlung (s. Strahlung.rtf, Grafik vorhanden)
+
+# Gebäuderrepair
+
+- Einstiegspunkt für Kapsel am Spielstart selbst wählen (steuerbare Kapsel)

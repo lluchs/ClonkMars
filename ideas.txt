@@ -2,6 +2,4 @@
 
 - Gravitationsmaschine, die Clonk Planet Gravitation macht
 
-- Einstiegspunkt für Kapsel am Spielstart selbst wählen
-
 - customoverlay System
