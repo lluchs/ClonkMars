@@ -3,3 +3,23 @@
 - Gravitationsmaschine, die Clonk Planet Gravitation macht
 
 - customoverlay System
+
+# Handelssystem
+- unabhängig machen vom Standard
+
+# Clonk
+- JetpackclonkClonk sollte keine Jump Action haben, lieber Walk oder sowas.
+- wer unter einer Kapsel ist wird gleich verbrannt und stirbt sofort(?)
+- Jetpack ohne Öltank ist komisch (NF)
+
+# Transmitter
+- Bennung mit Namen (Fluglotstenalphabet)
+
+# erweitertes Handelssystem (für Spieler untereinander)
+
+#System.c4g
+- AllKnowledge.c vervollständigen (NF)
+
+# Düsternnissystem
+
+# improvd O2System (verteilung und Mengeregelung)
