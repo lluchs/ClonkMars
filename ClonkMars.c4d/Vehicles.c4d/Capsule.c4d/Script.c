@@ -9,15 +9,20 @@ local port, attachvertex;
 local mode, blowout, aimblowout; //mode: 1 for automatic; blowout: 0 for no emission, 1 for low emission, 2 for high, 3 for left and 4 for right.
 
 static const iCapsMaxSpeed  = 2500; //iPrecision = 500
-static const iCapsLandSpeed = 100;
-static const iCapsAcceleration = 50;
+static const iCapsLandSpeed = 120;
+static const iCapsAcceleration = 20;
 
 public func SetBlowout(int bo) {
-	if((bo&1<<31) && ((bo^1<<31) != aimblowout)) {return;}
-	else if(bo&1<<31) {blowout = bo^1<<31; aimblowout = -1; return;}
-	aimblowout = bo;
-	if(blowout && !(blowout == 1 && bo == 2 || blowout == 2 && bo == 1)) bo = 0;
-	ScheduleCall(this, "SetBlowout", 15, 1, bo^1<<31);
+	if((bo&1<<31) && ((bo^1<<31) != aimblowout)) {return;} //True for a schedule call for an earlier change
+	if(bo&1<<31) { //Called by Schedule
+		blowout = bo^1<<31;
+		bo = blowout;
+		aimblowout = -1; 
+	} else {
+		ScheduleCall(this, "SetBlowout", 10, 1, bo^1<<31); //iTime: ScheduleCall in SetDstPort depends on 10
+		aimblowout = bo;
+		if(!(blowout == 1 && bo == 2 || blowout == 2 && bo == 1)) bo = 0; //If there is an action on a different dir
+	}	
 	if(!bo) {
 		//if(GetIndexOf(GetAction(),["Idle","PortLand","FreeFall"])!=-1) {}
 		if(GetAction() == "Blowout") {SetAction("FreeFall");}
@@ -89,7 +94,7 @@ public func SetDstPort(object pPort) {
 		if(GetWind(0,0,true)<0) pos *= -1;
 		SetPosition(GetX()-pos/100, GetY());
 	}
-	ScheduleCall(this, "StartLanding", t);
+	ScheduleCall(this, "StartLanding", Max(t-10,1));
 	if(port)
 		ScheduleCall(port, "PortActive", 50);
 	return 1;
@@ -130,7 +135,7 @@ protected func FxBlowoutTimer(object pObj, int iEffectNumber, int iEffectTime) {
 	if(blowout == 1) {
 		if(GetYDir(pObj,500) > iCapsLandSpeed) SetYDir(Max(GetYDir(pObj,500)-GetGravity()-iCapsAcceleration,iCapsLandSpeed),pObj,500);
 	} else if(blowout == 2) {
-		var accspeed = Min(iCapsMaxSpeed - Cos(GetR()-Angle(0,0,GetXDir(this, 500),GetYDir(this, 500)),Distance(GetYDir(this, 500), GetXDir(this, 500))), iCapsAcceleration/5+GetGravity());
+		var accspeed = Min(iCapsMaxSpeed - Cos(GetR()-Angle(0,0,GetXDir(this, 500),GetYDir(this, 500)),Distance(GetYDir(this, 500), GetXDir(this, 500))), iCapsAcceleration+GetGravity());
 		SetXDir(GetXDir(this, 500)+Sin(GetR(),accspeed), this, 500);
 		SetYDir(GetYDir(this, 500)-Cos(GetR(),accspeed), this, 500);
 		if(mode && GetY() <= -20) {
@@ -139,19 +144,19 @@ protected func FxBlowoutTimer(object pObj, int iEffectNumber, int iEffectTime) {
 			if(port) port->PortWait();
 			RemoveObject();
 		}
-		if(mode && iEffectTime > (LandscapeHeight() + 300)) DoDamage(1); //Falls die Kapsel nicht richtig startet
-	} else if(blowout == 3) {
-		SetXDir(Max(GetXDir(0,100)-7,-70),0, 100);
+		if(mode && (iEffectTime > (LandscapeHeight() + 300))) DoDamage(1); //Falls die Kapsel nicht richtig startet
 	} else if(blowout == 4) {
-		SetXDir(Min(GetXDir(0,100)+7,+70),0, 100);
+		SetXDir(Max(GetXDir(0,100)-1,-100),0, 100);
+	} else if(blowout == 3) {
+		SetXDir(Min(GetXDir(0,100)+1,+100),0, 100);
 	} else {
 		if(aimblowout == -1) {return -1;}
 	}
-	EffectDust();
+	if(!(iEffectTime%3)) EffectDust();
 }
 
 protected func ContactBottom() { 
-	if(blowout) {
+	if(blowout && blowout != 2) {
 		SetBlowout(0);
 		if(port && port==FindObject2(Find_ID(PORT),Find_AtPoint())) {
 			attachvertex = GetVertexNum();
@@ -251,16 +256,25 @@ public func ContainedUp(pControl) {
 	if(GetPlrCoreJumpAndRunControl(GetOwner(pControl))) {
 		SetBlowout(1);
 	} else {
-		if(blowout == 2 || blowout == 1) SetBlowout(blowout-1);
+		if(aimblowout != -1) { 
+			if(aimblowout == 2) SetBlowout(1);
+			else SetBlowout(0);
+		} else if(blowout == 2 || blowout == 1) SetBlowout(blowout-1);
 	}
 }
 
+public func ContainedDownDouble(pControl) {return ContainedDown(pControl);}
 public func ContainedDown(pControl) {
 	if(GetPlrCoreJumpAndRunControl(GetOwner(pControl))) {
 		SetBlowout(2);
 	} else {
-		if(blowout < 2) SetBlowout(blowout+1);
-		else SetBlowout(1);
+		if(aimblowout != -1) {
+			if(aimblowout == 1) SetBlowout(2);
+			else SetBlowout(1);
+		} else {
+			if(blowout < 2) SetBlowout(blowout+1);
+			else if(blowout != 2) SetBlowout(1);
+		}
 	}
 	return 1;
 }

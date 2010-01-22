@@ -40,6 +40,7 @@ Delay=3
 Length=1
 FacetBase=0
 Facet=0,90,60,45
+Sound=Jetbelt
 
 [Action]
 Name=RightBoostTurnDown
@@ -70,6 +71,7 @@ Delay=3
 Length=1
 FacetBase=0
 Facet=0,180,60,45
+Sound=Jetbelt
 
 [Action]
 Name=LeftBoostTurnDown
