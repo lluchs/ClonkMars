@@ -10,23 +10,26 @@ local mode, blowout, aimblowout; //mode: 1 for automatic; blowout: 0 for no emis
 
 static const iCapsMaxSpeed  = 2500; //iPrecision = 500
 static const iCapsLandSpeed = 120;
-static const iCapsAcceleration = 20;
+static const iCapsAcceleration = 40;
 
 public func SetBlowout(int bo) {
+	Log("%v %v %v", blowout, aimblowout, bo);
 	if((bo&1<<31) && ((bo^1<<31) != aimblowout)) {return;} //True for a schedule call for an earlier change
 	if(bo&1<<31) { //Called by Schedule
 		blowout = bo^1<<31;
 		bo = blowout;
 		aimblowout = -1; 
 	} else {
-		ScheduleCall(this, "SetBlowout", 10, 1, bo^1<<31); //iTime: ScheduleCall in SetDstPort depends on 10
-		aimblowout = bo;
-		if(!(blowout == 1 && bo == 2 || blowout == 2 && bo == 1)) bo = 0; //If there is an action on a different dir
-	}	
+		if(blowout && !(blowout == 1 && bo == 2 || blowout == 2 && bo == 1)) { //If there is an action on a different dir
+			ScheduleCall(this, "SetBlowout", 10, 1, bo^1<<31);
+			aimblowout = bo;
+			bo = 0;
+			Log("foo");
+		} else blowout = bo;
+	}
 	if(!bo) {
 		//if(GetIndexOf(GetAction(),["Idle","PortLand","FreeFall"])!=-1) {}
 		if(GetAction() == "Blowout") {SetAction("FreeFall");}
-		else if(GetAction() == "Blowout") SetAction("BlowoutEnd");
 		else if(GetAction() == "RightBoostTurnUp") {var phas = GetPhase(); SetAction("RightBoostTurnDown"); SetPhase(4-phas);}
 		else if(GetAction() == "RightBoostMax") {SetAction("RightBoostTurnDown");}
 		else if(GetAction() == "LeftBoostTurnUp") {var phas = GetPhase(); SetAction("LeftBoostTurnDown"); SetPhase(4-phas);}
@@ -38,7 +41,7 @@ public func SetBlowout(int bo) {
 	} else if(bo == 4 && !WildcardMatch(GetAction(), "RightBoost*")) {
 		SetAction("RightBoostTurnUp");
 	}
-	if(bo && !GetEffect("Blowout")) {AddEffect("Blowout", this,1,1,this);}
+	if(bo && !GetEffect("Blowout", this)) {AddEffect("Blowout", this,1,1,this);}
 }
 
 protected func RejectEntrance(object pObj) 
@@ -94,7 +97,7 @@ public func SetDstPort(object pPort) {
 		if(GetWind(0,0,true)<0) pos *= -1;
 		SetPosition(GetX()-pos/100, GetY());
 	}
-	ScheduleCall(this, "StartLanding", Max(t-10,1));
+	ScheduleCall(this, "StartLanding", t);
 	if(port)
 		ScheduleCall(port, "PortActive", 50);
 	return 1;
@@ -146,9 +149,9 @@ protected func FxBlowoutTimer(object pObj, int iEffectNumber, int iEffectTime) {
 		}
 		if(mode && (iEffectTime > (LandscapeHeight() + 300))) DoDamage(1); //Falls die Kapsel nicht richtig startet
 	} else if(blowout == 4) {
-		SetXDir(Max(GetXDir(0,100)-1,-100),0, 100);
+		SetXDir(Max(GetXDir(0,70)-1,-100),0, 70);
 	} else if(blowout == 3) {
-		SetXDir(Min(GetXDir(0,100)+1,+100),0, 100);
+		SetXDir(Min(GetXDir(0,70)+1,+100),0, 70);
 	} else {
 		if(aimblowout == -1) {return -1;}
 	}
