@@ -7,7 +7,7 @@
 #include PWRC // ist ein Energieverbraucher
 #include DACT //Damagecontrol
 
-static const MTLB_metal_earth_cost = 3;
+static const MTLB_metal_earth_cost = 2;
 static const MTLB_plastic_cost = 350;
 public func GetTemp() { return 1000;}
 
