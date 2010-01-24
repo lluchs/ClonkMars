@@ -1,0 +1,7 @@
+Hier werden Raketen gebaut und gestartet. 
+
+Steuerung:
+
+Doppelt Graben: Rakete bauen
+Dopppelt Springen: Rakete starten
+Anfassen Werfen: Baumaterialien einlagern
