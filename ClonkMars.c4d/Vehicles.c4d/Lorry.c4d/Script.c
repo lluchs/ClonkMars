@@ -122,3 +122,16 @@ protected func ContextLoadUp(object pClonk)
   for (var i = 0; i < Min(pClonk->ContentsCount(), iMaxLoad); i++)
     AddCommand(pClonk, "Put", this(), 0,0, pClonk->Contents(i));
 }
+
+/*Recyceln*/
+
+protected func ContextRecycle(object pClonk) {
+	[$TxtRecycle$|Image=LRY2]
+	RecycleLorry();
+	return 1;
+}
+
+protected func RecycleLorry(){
+  Split2Components();
+  }
+  

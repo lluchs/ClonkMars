@@ -1,3 +1,4 @@
 TxtControl=Control
 TxtLorryisfull=Lorry is full!
 TxtLoadUp=Load up
+TxtRecycle=Recycle Lorry
