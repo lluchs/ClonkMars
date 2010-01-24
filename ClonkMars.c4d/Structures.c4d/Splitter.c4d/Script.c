@@ -78,3 +78,9 @@ protected func CreateBasement() {
 	basement = CreateObject(BasementID(), x, y, GetOwner());
 	basement -> SetR(GetR());
 }
+
+/* Wir brauchen keinen Loreninhalt */
+
+public func NoLorryEjection() {
+	return true;
+}
