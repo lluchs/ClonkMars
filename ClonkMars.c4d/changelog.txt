@@ -1,0 +1,32 @@
++ hinzugefügt | - entfernt | * verändert |! Bugfix
+
+### Demo ###
++ zuviele changes, keine detailierte Logdatei
+
+### Beta 0.65 ###
+unter anderem
++ Port
++ AngleSystem
++ Reproduktion
++ neues HUD
++ und vieles mehr
+! viele Bugfixes
+
+### Beta 0.80 ###
++ Radioteleskop
++ FolderMap
++ Temperature.c4d hat nun Grafik
+* Materialeinheit stellt 1 Metall nun aus 2 Erde her (vorher 3)
+* Lore ist jetzt recycelbar
+* Öltank verliert entsprechend Füllstand Öl bei Explosion
+* Metall inkludiert
+* Kapsel ist manövrierfähig
+* Clonk kann in Flüssigkeiten laufen
+! Loreninhalte werden nichtmehr in Zielsplitter ausgeleert
+! Beschreibungen der Regeln machen keine Errors mehr
+! Ordner Titelbilder werden wieder richtig skaliert
+! Splitter Components entfernt (Rückbau Hack)
+! Jetpackflug startet nun nichtmehr mit Doppelstop Command
+! Clonk Beschreibung gefixt
+! Kapsel landet wieder richtig auf Port (Kapselportfix.c4u)
+! Fehlermeldung im Kontextmenü der Basis bei gerufener Kapsel entfernt
