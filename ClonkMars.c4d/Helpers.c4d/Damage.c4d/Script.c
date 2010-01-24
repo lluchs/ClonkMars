@@ -70,10 +70,11 @@ public func Damage (int iChange)
 	iDamDiff -= iCompDiff;
 	
 	// Components zufällig entfernen
-	for(var i = 0; i < iDamDiff; i++) {
+	for(var i = 0; iNum && i < iDamDiff; i++) {
 		var c = Random(GetLength(aIDs));
 		if(aNum[c]) {
 			SetComponent(aIDs[c], --aNum[c]);
+			iNum--;
 			//Log("Removed: %i", aIDs[c]);
 		}
 		else
