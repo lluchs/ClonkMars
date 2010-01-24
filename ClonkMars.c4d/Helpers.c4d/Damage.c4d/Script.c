@@ -8,7 +8,7 @@
 public func Damage (int iChange)
 {
 	if (GetDamage() > MaxDamage())
-		AddEffect("MaxDamageExplosion", this, 1, 20, 0, DACT);
+		AddEffect("MaxDamageExplosion", this, 1, 20, this, DACT);
 	var ox, oy, wdt, hgt;
 	GetRect(GetID(), ox, oy, wdt, hgt);
 	var glascount = iChange + Random(4);

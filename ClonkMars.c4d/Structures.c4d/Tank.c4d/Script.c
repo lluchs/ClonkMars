@@ -86,3 +86,10 @@ public func MarsResearch() {
 
 public func MaxDamage() { return 15; } //Maximaler Schaden
 
+private func DestroyBlast(object pTarget) {
+	if(!pTarget) if(!(pTarget=this)) return;
+	var iAmount = pTarget -> GetLiquidStorage();
+	pTarget -> CastPXS("Oil", RandomX(iAmount / 2, iAmount), 50);
+	return inherited(...);
+}
+
