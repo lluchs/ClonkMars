@@ -82,6 +82,11 @@ public func Damage (int iChange)
 	}
 }
 
+public func FxMaxDamageExplosionStart(object pTarget, int iEffectNumber, bool fTemp) {
+	if(!fTemp)
+		Sound("Warning_blowup", 0, this, 0, 0, 1);
+}
+
 public func FxMaxDamageExplosionTimer(object pTarget, int iEffectNumber, int iEffectTime)
 {
 	if (!pTarget) return -1; //Wir sind nicht Global!
