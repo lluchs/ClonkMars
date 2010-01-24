@@ -34,7 +34,7 @@ public func IsActive()
 
 /* Steuerung */
 public func ControlUpDouble(){_inherited(...); return(Switch(COMD_Up));}
-public func ControlDownDouble(){_inherited(...); return(Switch(COMD_Down));}
+//public func ControlDownDouble(){_inherited(...); return(Switch(COMD_Down));}
 public func ControlLeftDouble(){_inherited(...); return(Switch(COMD_Left));}
 public func ControlRightDouble(){_inherited(...); return(Switch(COMD_Right));}
 
