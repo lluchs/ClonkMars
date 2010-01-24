@@ -1,0 +1,3 @@
+40px Breit
+30px Hoch
+20 Bilder
