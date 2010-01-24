@@ -4,6 +4,31 @@
 
 /* Dieses Objekt stellt die Grundfunktionalität für Gebäudeexplosionen
    zur Verfügung. */
+   
+static StructComp;
+
+protected func Construction() {
+	if(GetType(StructComp) != C4V_Array)
+		StructComp = CreateHash();
+	if(!HashContains(StructComp, GetID())) {
+		var ID = GetID();
+		var aIDs, aNum, iNum = 0;
+		//IDs finden, aus denen das Gebäude zusammengesetzt ist
+		aIDs = CreateArray();
+		for (var i = 0, component; component = GetComponent(0, i, 0, ID); ++i) {
+			aIDs[i] = component; 
+		}
+		aNum = CreateArray(GetLength(aIDs));
+		//Componenten vor der Änderung finden
+		for (var i = 0; i < GetLength(aIDs); ++i) {
+			aNum[i] = GetComponent(aIDs[i], 0, 0, ID);
+			iNum += aNum[i];
+		}
+		
+		HashPut(StructComp, ID, [aIDs, aNum, iNum]);
+	}
+	return _inherited(...);
+}
 
 public func Damage (int iChange)
 {
@@ -19,11 +44,46 @@ public func Damage (int iChange)
 	for (var i = 0; i < frazzlecount; ++i) {
 		CastParticles("Fragment1", 1, RandomX(30,50), ox+Random(wdt), oy+Random(hgt), 20, 20);		
 	}
+	
+	/* Components verlieren */
+	
+	// erstmal alles durchzählen
+	var aIDs, aNum, iNum = 0;
+	//IDs finden, aus denen das Gebäude zusammengesetzt ist
+	aIDs = CreateArray();
+	for (var i = 0, component; component = GetComponent(0, i); ++i) {
+		aIDs[i] = component; 
+	}
+	aNum = CreateArray(GetLength(aIDs));
+	//Componenten vor der Änderung finden
+	for (var i = 0; i < GetLength(aIDs); ++i) {
+		aNum[i] = GetComponent(aIDs[i]);
+		iNum += aNum[i];
+	}
+	
+	var aNormal = HashGet(StructComp, GetID());
+	
+	// wie viele Components müssen entfernt werden?
+	var iCompDiff = aNormal[2] - iNum;
+	var iDamDiff = ChangeRange(GetDamage(), 0, MaxDamage(), 0, aNormal[2]);
+	//Log("CompDiff: %d; DamDiff: %d; MaxDamage: %d; Normal: %d", iCompDiff, iDamDiff, MaxDamage(), aNormal[2]);
+	iDamDiff -= iCompDiff;
+	
+	// Components zufällig entfernen
+	for(var i = 0; i < iDamDiff; i++) {
+		var c = Random(GetLength(aIDs));
+		if(aNum[c]) {
+			SetComponent(aIDs[c], --aNum[c]);
+			//Log("Removed: %i", aIDs[c]);
+		}
+		else
+			i--; // nochmal versuchen
+	}
 }
 
 public func FxMaxDamageExplosionTimer(object pTarget, int iEffectNumber, int iEffectTime)
 {
-	if (!pTarget) return; //Wir sind nicht Global!
+	if (!pTarget) return -1; //Wir sind nicht Global!
 	var ox, oy, wdt, hgt;
 	GetRect(pTarget->GetID(), ox, oy, wdt, hgt);
 	for (var i = 0; i < 10; ++i) {
@@ -45,7 +105,7 @@ private func DestroyBlast(object pTarget) {
 	if(!pTarget) if(!(pTarget=this)) return;
 	var ox, oy, wdt, hgt;
 	GetRect(pTarget->GetID(), ox, oy, wdt, hgt);
-	var metlcount = pTarget->GetComponent(METL);
+	var metlcount = GetComponent(METL, 0, 0, pTarget -> GetID());
 	var power = Sqrt(wdt ** 2 + hgt ** 2);
 	pTarget->CastObjects(ORE1,metlcount/2,power);
 	for(var pObj in FindObjects(Find_Container(pTarget), Find_Not(Find_Func("IsLight"))))
