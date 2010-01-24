@@ -7,13 +7,25 @@
 
 local DoorActive, DoorClonk;
 
-private func DoorOverlay() { // zum Überladen!
+/* Die folgenden Funktionen nach Bedarf überladen */
+
+private func ClonkOverlay() {
+	return 1;
+}
+
+private func DoorOverlay() {
+	return 2;
+}
+
+private func EnergyNeedOverlay() { // Overlay des Energiepfeils
+	return 3;
+}
+
+private func ClonkCapacity() {
 	return;
 }
 
-private func ClonkCapacity() { // zum Überladen!
-	return;
-}
+/* Ende der zu überladenden Funktionen */
 
 protected func ActivateEntrance(object pObj) {
   if(CanOpen(pObj) && !DoorActive) {
@@ -107,14 +119,6 @@ func Collection2(object pObj) {
 
 public func IsFull(object pObj) {
 	return ClonkCapacity() && ClonkCapacity() <= ObjectCount2(Find_Container(this), Find_Exclude(pObj), Find_Func("IsClonk"));
-}
-
-private func DoorOverlay() {
-	return 2;
-}
-
-private func ClonkOverlay() {
-	return 1;
 }
 
 private func SetDoorClonk(object pObj) {
