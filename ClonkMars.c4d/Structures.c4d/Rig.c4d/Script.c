@@ -69,7 +69,7 @@ public func Transfer(int iAmount, bool fNoChange) {
 	return;
 }
 
-public func MaxDamage() { return 18; } //Maximaler Schaden
+public func MaxDamage() { return 25; } //Maximaler Schaden
 
 public func PipelineConnect() {
 	return 1;
