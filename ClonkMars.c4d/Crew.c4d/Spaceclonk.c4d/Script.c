@@ -397,3 +397,10 @@ public func ContextHome(pCaller)
   SetCommand(this, "Enter", FindBase(GetOwner(this)));
   return(1);
 }
+
+/* Unterwasserlaufen */
+
+protected func ContactBottom() {
+	if(GetAction() == "Swim")
+		SetAction("Walk");
+}

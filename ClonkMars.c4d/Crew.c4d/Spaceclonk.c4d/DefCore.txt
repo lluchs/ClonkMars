@@ -27,6 +27,7 @@ NoBurnDecay=1
 IncompleteActivity=1
 NoBreath=1
 ContactIncinerate=1
+ContactCalls=1
 
 [Physical]
 Energy=50000
