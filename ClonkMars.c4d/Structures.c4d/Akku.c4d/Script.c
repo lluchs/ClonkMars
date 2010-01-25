@@ -4,7 +4,8 @@
 #include B_40
 #include PWRG // Ist Energie"produzent"
 #include PWRC // ...und Energie"verbraucher"
-#include DACT //Damagecontrol
+#include DACT // Damagecontrol
+#include L_CA // Baugrafik
 
 // Es mangelt uns nicht an Energie
 private func FxEnergyNeedStart() {
