@@ -38,3 +38,4 @@ Delay=3
 Facet=270,65,27,65,23,0
 FacetBase=1
 NextAction=Pump
+Sound=Rig_Working
