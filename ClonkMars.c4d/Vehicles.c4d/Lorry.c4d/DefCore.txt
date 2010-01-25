@@ -16,7 +16,7 @@ VertexFriction=80,80,10,10
 Value=20
 Mass=75
 Components=METL=2
-Picture=24,0,50,40
+Picture=24,0,64,64
 Collection=-12,-10,24,12
 CollectionLimit=16
 Rebuy=1

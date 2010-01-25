@@ -19,7 +19,7 @@ unter anderem
 + FolderMap
 + Temperature.c4d hat nun Grafik
 + Warnsound bei Gebäudezerstörung
-+ Arbeitssound für Rig
++ neue Grafik für Lore (jetzt marsiger)
 * Gebäude verlieren an Components bei Schaden
 * Rig hält mehr Hits aus
 * Materialeinheit stellt 1 Metall nun aus 2 Erde her (vorher 3)
