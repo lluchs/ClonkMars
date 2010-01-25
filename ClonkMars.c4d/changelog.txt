@@ -14,8 +14,14 @@ unter anderem
 
 ### Beta 0.80 ###
 + Radioteleskop
++ Launchpad
++ Booster
 + FolderMap
 + Temperature.c4d hat nun Grafik
++ Warnsound bei Gebäudezerstörung
++ Arbeitssound für Rig
+* Gebäude verlieren an Components bei Schaden
+* Rig hält mehr Hits aus
 * Materialeinheit stellt 1 Metall nun aus 2 Erde her (vorher 3)
 * Lore ist jetzt recycelbar
 * Öltank verliert entsprechend Füllstand Öl bei Explosion
