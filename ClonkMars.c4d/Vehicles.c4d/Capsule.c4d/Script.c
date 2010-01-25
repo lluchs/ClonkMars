@@ -13,7 +13,6 @@ static const iCapsLandSpeed = 120;
 static const iCapsAcceleration = 40;
 
 public func SetBlowout(int bo) {
-	Log("%v %v %v", blowout, aimblowout, bo);
 	if((bo&1<<31) && ((bo^1<<31) != aimblowout)) {return;} //True for a schedule call for an earlier change
 	if(bo&1<<31) { //Called by Schedule
 		blowout = bo^1<<31;
@@ -24,7 +23,6 @@ public func SetBlowout(int bo) {
 			ScheduleCall(this, "SetBlowout", 10, 1, bo^1<<31);
 			aimblowout = bo;
 			bo = 0;
-			Log("foo");
 		} else blowout = bo;
 	}
 	if(!bo) {
@@ -143,7 +141,7 @@ protected func FxBlowoutTimer(object pObj, int iEffectNumber, int iEffectTime) {
 		SetYDir(GetYDir(this, 500)-Cos(GetR(),accspeed), this, 500);
 		if(mode && GetY() <= -20) {
 			for(var pObj in FindObjects(Find_Container(this)))
-				pObj -> Sell(GetOwner());
+				if(pObj) pObj -> Sell(GetOwner());
 			if(port) port->PortWait();
 			RemoveObject();
 		}
@@ -193,6 +191,7 @@ private func Launch() {
 	RemoveVertex(attachvertex);
 	attachvertex = -1;
 	SetBlowout(2);
+	mode = 1;
 }
 
 // geklaut von Hazard
