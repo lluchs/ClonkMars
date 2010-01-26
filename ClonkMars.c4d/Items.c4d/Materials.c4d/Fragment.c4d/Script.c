@@ -9,9 +9,18 @@ func Initialize() {
 }
 
 protected func Activate(){
-  Split2Components(this());
-  Sound("Connect");
+  var i = Random(5);
+  while(i--) {
+  	CastObject([METL, PSTC][Random(2)]);
   }
+  Sound("Connect");
+}
+
+private func CastObject(id ID) {
+	var pObj = CreateObject(ID, 0, 0, GetOwner());
+	pObj -> SetSpeed(RandomX(-10, 10), RandomX(-10, 10));
+	return 1;
+}
 
 protected func Hit() {
   Sound("MetalHit*");
