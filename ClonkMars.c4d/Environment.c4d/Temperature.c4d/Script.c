@@ -151,12 +151,12 @@ global func FxLandTempTimer(object pTarget, int iEffectNumber) {
 	
 	// Abkühlung ganz unten
 	if(y == LandscapeHeight() / LandTempDist) {
-		iOther = Max(iOther - 90, -MaxTemp);
+		iOther = Max(iOther - 100, -MaxTemp);
 	}
 	
 	// Abkühlung ganz oben, abhängig von Tageszeit
 	if(!y) {
-		iOther = Max(iOther - 100 + GetLightIntensity() / 3, -MaxTemp);
+		iOther = Max(iOther - 110 + GetLightIntensity() / 3, -MaxTemp);
 	}
 	
 	var k = 1; // Wachstumstgeschwindigkeit * 10
