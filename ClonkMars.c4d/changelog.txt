@@ -20,6 +20,8 @@ unter anderem
 + Temperature.c4d hat nun Grafik
 + Warnsound bei Gebäudezerstörung
 + neue Grafik für Lore (jetzt marsiger)
++ neuer Warnsound bei Sauerstoffknappheit
++ Baugrafik für Akku
 * Gebäude verlieren an Components bei Schaden
 * Rig hält mehr Hits aus
 * Materialeinheit stellt 1 Metall nun aus 2 Erde her (vorher 3)
