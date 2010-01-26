@@ -156,7 +156,7 @@ global func FxLandTempTimer(object pTarget, int iEffectNumber) {
 	
 	// Abkühlung ganz oben, abhängig von Tageszeit
 	if(!y) {
-		iOther = Max(iOther - 100 + GetLightIntensity() * 2 / 3, -MaxTemp);
+		iOther = Max(iOther - 100 + GetLightIntensity() / 3, -MaxTemp);
 	}
 	
 	var k = 1; // Wachstumstgeschwindigkeit * 10
