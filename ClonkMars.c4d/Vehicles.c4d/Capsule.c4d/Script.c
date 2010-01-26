@@ -278,7 +278,7 @@ public func ContainedDown(pControl) {
 			else if(blowout != 2) SetBlowout(1);
 		}
 	}
-	return 1;
+	SetCommand(pControl, "None");
 }
 
 public func ContainedLeft() {
