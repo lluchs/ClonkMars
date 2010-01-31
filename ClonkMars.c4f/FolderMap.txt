@@ -7,20 +7,17 @@ FullscreenBG=1
 	[Scenario]
 	File=Fossae.c4s
 	BaseImage=Fossae.png
-	OverlayImage=Fossae_Highlight.png
-	Area=545,176,82,54
+	OverlayImage=Fossae_Hl.png
+	Area=565,210,78,45
 
 	[Scenario]
-	File=1_Sinus.c4s
-	BaseImage=Base_Medium.png
-	Area=645,276,82,54
+	File=2_Sinus.c4s
+	BaseImage=Sinus.png
+	OverlayImage=Sinus_Hl.png
+	Area=595,305,58,46
 
 	[Scenario]
 	File=Chaos.c4s
-	BaseImage=Base_Medium.png
-	Area=445,326,82,54
-
-	[Scenario]
-	File=Test.c4s
-	BaseImage=Base_Medium.png
-	Area=345,226,82,54
+	BaseImage=Chaos.png
+	OverlayImage=Chaos_Hl.png
+	Area=892,307,59,45
