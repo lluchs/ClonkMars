@@ -14,14 +14,13 @@ unter anderem
 
 ### Beta 0.80 ###
 + Radioteleskop
-+ Launchpad
-+ Booster
 + FolderMap
 + Temperature.c4d hat nun Grafik
 + Warnsound bei Gebäudezerstörung
 + neue Grafik für Lore (jetzt marsiger)
 + neuer Warnsound bei Sauerstoffknappheit
 + Baugrafik für Akku
++ relativ vollständige Anleitung
 * Gebäude verlieren an Components bei Schaden
 * Rig hält mehr Hits aus
 * Materialeinheit stellt 1 Metall nun aus 2 Erde her (vorher 3)
@@ -38,3 +37,4 @@ unter anderem
 ! Clonk Beschreibung gefixt
 ! Kapsel landet wieder richtig auf Port (Kapselportfix.c4u)
 ! Fehlermeldung im Kontextmenü der Basis bei gerufener Kapsel entfernt
+! fehlerhafte Beschreibung Akku und Jetpack (ist nur im Öltank aufladbar)
