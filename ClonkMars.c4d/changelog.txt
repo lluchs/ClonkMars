@@ -12,7 +12,7 @@ unter anderem
 + und vieles mehr
 ! viele Bugfixes
 
-### Beta 0.75 ###
+### Beta2 0.75 ###
 + Radioteleskop
 + FolderMap
 + Temperature.c4d hat nun Grafik
@@ -37,6 +37,6 @@ unter anderem
 ! Splitter Components entfernt (Rückbau Hack)
 ! Jetpackflug startet nun nichtmehr mit Doppelstop Command
 ! Clonk Beschreibung gefixt (3 Materialien tragbar anstatt 5)
-! Kapsel landet wieder richtig auf Port (Kapselportfix.c4u)
+! Kapsel landet wieder richtig auf Port
 ! Fehlermeldung im Kontextmenü der Basis bei gerufener Kapsel entfernt
 ! fehlerhafte Beschreibung Akku und Jetpack (ist nur im Öltank aufladbar)
