@@ -14,6 +14,7 @@ protected func Activate(){
   	CastObject([METL, PSTC][Random(2)]);
   }
   Sound("Connect");
+  RemoveObject();
 }
 
 private func CastObject(id ID) {
