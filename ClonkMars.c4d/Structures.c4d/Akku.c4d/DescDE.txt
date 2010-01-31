@@ -4,5 +4,4 @@ Speichert Energie und gibt sie bei Bedarf ab.
 Steuerung:
 
 Springen --> Abruf der Energiemenge
-Graben   --> Aufladen des Jetbelts
 Werfen   --> Energiezelle aufladen (sofern im Inventar)
