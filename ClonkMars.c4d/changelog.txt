@@ -21,6 +21,7 @@ unter anderem
 + neuer Warnsound bei Sauerstoffknappheit
 + Baugrafik für Akku
 + relativ vollständige Anleitung
+* Overlay für Basis nun komplett korrekt
 * Gebäude verlieren an Components bei Schaden
 * Rig hält mehr Hits aus
 * Materialeinheit stellt 1 Metall nun aus 2 Erde her (vorher 3)
@@ -29,6 +30,7 @@ unter anderem
 * Metall inkludiert
 * Kapsel ist manövrierfähig
 * Clonk kann in Flüssigkeiten laufen
+! alle Baugrafiken nun ohne Framefehler
 ! Loreninhalte werden nichtmehr in Zielsplitter ausgeleert
 ! Beschreibungen der Regeln machen keine Errors mehr
 ! Ordner Titelbilder werden wieder richtig skaliert
