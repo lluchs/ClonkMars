@@ -58,7 +58,6 @@ protected func Initialize() {
 }
 
 public func SetDstPort(object pPort) {
-	mode = 1;
 	if(GetGravity() < 1) { Log("Can't land without gravity."); Explode(3000); return; }
 	if(pPort) pPort->Occupy(this);
 	port = pPort;
@@ -178,8 +177,9 @@ protected func ContactBottom() {
 }
 
 protected func Eject() {
-  for(var pObj in FindObjects(Find_Container(this), Find_OCF(OCF_CrewMember)))
-  	pObj -> Exit();
+	if(blowout || aimblowout != -1) return;
+	for(var pObj in FindObjects(Find_Container(this), Find_OCF(OCF_CrewMember)))
+		pObj -> Exit();
 }
 
 protected func ControlUpDouble() {
