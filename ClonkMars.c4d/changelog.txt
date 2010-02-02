@@ -40,3 +40,9 @@ unter anderem
 ! Kapsel landet wieder richtig auf Port
 ! Fehlermeldung im Kontextmenü der Basis bei gerufener Kapsel entfernt
 ! fehlerhafte Beschreibung Akku und Jetpack (ist nur im Öltank aufladbar)
+
+### Beta3 0.85 ###
++ neuer Musiktrack: Death of Spirit
+* wieder der alte O²-Warnsound
+* Kapseln zünden Bremsraketen bei Spielstart automagisch
+! Kapsel wirft Inhalt nur aus, wenn Booster deaktiviert sind
