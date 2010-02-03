@@ -11,7 +11,7 @@ Vertices=3
 VertexX=-4,3
 VertexY=3,-3
 VertexFriction=50,50,50
-Value=8
+Value=4
 Mass=15
 Components=ERTH=2;
 Picture=8,0,64,64
