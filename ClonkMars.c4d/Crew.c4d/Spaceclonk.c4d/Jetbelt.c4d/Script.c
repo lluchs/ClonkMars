@@ -3,6 +3,7 @@
 #strict 2
 
 local fuel, slow, cdir, effectnum;
+local jGrab;
 
 protected func Initialize() {
 	effectnum = AddEffect("Jetbelt", this, 100, 0, this);
@@ -26,6 +27,7 @@ private func MaxSpeed(){return(20);}
 private func MaxAccel(){return(100);}//iPrec = 100
 private func MaxFuel() {return 6666;}//iPrec = 100
 private func Consumption(){return 5;}//iPrec = 100
+private func PushConsumption(){return 1;}//iPrec = 1000
 
 public func IsActive()
 {
@@ -42,6 +44,25 @@ public func ControlUp(){_inherited(...); if(IsActive())return(Start(COMD_Up));}
 public func ControlDown(){_inherited(...); if(IsActive())return(Start(COMD_Down));}
 public func ControlLeft(){_inherited(...); if(IsActive())return(Start(COMD_Left));}
 public func ControlRight(){_inherited(...); if(IsActive())return(Start(COMD_Right));}
+
+global func GrabPush() {
+	return GetDefGrab(GetID()) == 1;
+}
+
+protected func ControlDig() {
+	if(IsActive()) {
+		if(jGrab) {
+			jGrab = 0;
+		}
+		else {
+			var pObj = FindObject2(Find_AtPoint(), Find_OCF(OCF_Grab), Find_Func("GrabPush"));
+			if(pObj) {
+				jGrab = pObj;
+			}
+		}
+	}
+	return _inherited(...);
+}
 
 public func Slow(){if(IsActive())return(Start(COMD_Stop));}
 
@@ -72,7 +93,7 @@ private func Stop()
   StandBy();
   cdir = COMD_None;
   
-  Message("", this); // Treibstoffanzeige entfernen
+  jGrab = 0;
   
   return;
 }
@@ -133,6 +154,9 @@ protected func FxJetbeltTimer()
   
   //UpdateTimer();
   
+  if(!GetFuel()) RefillFuel();
+  DoFuel(-Consumption());
+  
   var r = ComDir2Angle(cdir);
   
   var xmax = MaxSpeed();
@@ -150,13 +174,22 @@ protected func FxJetbeltTimer()
   SetXDir(xdir,0,1000);
   SetYDir(ydir-GetGravityAccel4K(1000),0,1000);//4K-Lib sorgt für Pseudo-Schwerelosigkeit. ;D
   
+  if(jGrab) {
+  	if(ObjectDistance(jGrab) > Distance(GetDefWidth(jGrab -> GetID()), GetDefHeight(jGrab -> GetID()))) {
+  		Message("%s verloren!", this, jGrab -> GetName());
+  		jGrab = 0;
+  	}
+  	else {
+	  	DoFuel(-PushConsumption() * jGrab -> GetMass() / 10);
+	  	jGrab -> SetXDir(xdir,0,1000);
+	  	jGrab -> SetYDir(ydir-GetGravityAccel4K(1000),0,1000);
+  	}
+  }
+  
   if(xdir < 0)
   	SetDir(DIR_Left);
   else if(xdir > 0)
   	SetDir(DIR_Right);
-  
-  if(!GetFuel()) RefillFuel();
-  DoFuel(-Consumption());
   
   UpdateFuelHUD();
 
