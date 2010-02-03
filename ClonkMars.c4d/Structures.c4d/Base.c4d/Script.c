@@ -134,6 +134,13 @@ private func CapsuleCheck(object pClonk, bool announce) {
 	var pSat = HasSat();
 	if(!pSat)
 		return false;
+	if(pSat -> GetCapsule() == -1) {
+		if(announce) {
+			Sound("Error");
+			Message("Kapsel zerstört!", pClonk);
+		}
+		return false;
+	}
 	if(pSat -> GetCapsule()) {
 		if(announce) {
 			Sound("Error");
@@ -163,6 +170,7 @@ private func CreateCapsule() {
 	pCaps->SetDstPort(pPort);
 	
 	HasSat() -> SetCapsule(pCaps);
+	pCaps -> SetSat(HasSat());
 	return pCaps;
 }
 

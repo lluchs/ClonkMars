@@ -7,6 +7,7 @@
 
 local port, attachvertex;
 local mode, blowout, aimblowout; //mode: 1 for automatic; blowout: 0 for no emission, 1 for low emission, 2 for high, 3 for left and 4 for right.
+local sat;
 
 static const iCapsMaxSpeed  = 2500; //iPrecision = 500
 static const iCapsLandSpeed = 120;
@@ -98,6 +99,15 @@ public func SetDstPort(object pPort) {
 	if(port)
 		ScheduleCall(port, "PortActive", 50);
 	return 1;
+}
+
+public func SetSat(pSat) {
+	sat = pSat;
+}
+
+private func DestroyBlast() {
+	sat -> CapsuleDestroyed();
+	return _inherited(...);
 }
 
 global func GetHorizon(int iX) { var iY; while(!GBackSemiSolid(iX,AbsY(iY++))); return iY; }

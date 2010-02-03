@@ -36,4 +36,15 @@ public func SetCapsule(object pObj) {
 	pCapsule = pObj;
 }
 
+public func CapsuleDestroyed() {
+	pCapsule = -1;
+	ScheduleCall(this, "CapsuleRecovered", 5*60*36);
+	return 1;
+}
+
+public func CapsuleRecovered() {
+	if(pCapsule == -1)
+		pCapsule = 0;
+}
+
 public func MarsResearch() { return true; }
