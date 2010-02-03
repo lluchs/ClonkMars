@@ -45,4 +45,5 @@ unter anderem
 + neuer Musiktrack: Death of Spirit
 * wieder der alte O²-Warnsound
 * Kapseln zünden Bremsraketen bei Spielstart automagisch
+* zerstört ein Spieler eine Kapsel, muss er einige Zeit auf eine neue warten
 ! Kapsel wirft Inhalt nur aus, wenn Booster deaktiviert sind
