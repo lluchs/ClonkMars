@@ -1,7 +1,7 @@
 /*-- Rig --*/
 
 #strict 2
-#include DRCK
+#include DRCK //Original Clonk-Derrick. Be carefull with callbacks...
 #include B_50
 #include PWRC
 #include DACT //Damagecontrol
@@ -78,4 +78,6 @@ public func PipelineConnect() {
 public func MarsResearch() {
 	return true;
 }
+
+public func GetResearchBase() { return; }
 
