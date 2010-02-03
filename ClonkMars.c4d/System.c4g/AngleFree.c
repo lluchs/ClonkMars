@@ -17,7 +17,7 @@ global func AngleFree(int iAngle, int ox, int oy) {
 		
 		//CreateParticle("PSpark", AbsX(iX), AbsY(iY), 0, 0, 70, RGB(255));
 		
-		if(PathFree(iX, iY, ox, oy)) {
+		if(PathFree(iX, iY, ox, oy) && !GBackLiquid(iX, iY)) {
 			if(iX < 0 || iX > LandscapeWidth() || iY < 0)
 				return 1;
 		}
