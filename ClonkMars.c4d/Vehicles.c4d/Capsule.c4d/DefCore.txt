@@ -19,6 +19,6 @@ VertexCNAT=      9, 8,10, 2,  6,  5,  1
 ContactCalls=1
 BorderBound=1
 Rotate=1
-Grab=2
+Grab=1
 GrabPutGet=3
 ColorByOwner=1

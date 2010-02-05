@@ -106,7 +106,7 @@ public func SetSat(pSat) {
 }
 
 private func DestroyBlast() {
-	sat -> CapsuleDestroyed();
+	if(sat) sat -> CapsuleDestroyed();
 	return _inherited(...);
 }
 
@@ -132,22 +132,24 @@ protected func ContainedDigDouble() {
 }
 
 private func StartLanding() {
+	if(blowout || aimblowout != -1) return;
 	if(port) port->PortActive(); //Port wird beim laden zweimal aktiviert, falls die Landung früh anfängt...
 	SetBlowout(1);
 	return 1;
 }
 
 protected func FxBlowoutTimer(object pObj, int iEffectNumber, int iEffectTime) {
-	if(GetR()) {
-		if(GetR() < 0) SetRDir(+1, 0, 25);
-		else SetRDir(-1, 0, 25);
-	}
-	if(blowout == 1) {
-		if(GetYDir(pObj,500) > iCapsLandSpeed) SetYDir(Max(GetYDir(pObj,500)-GetGravity()-iCapsAcceleration,iCapsLandSpeed),pObj,500);
-	} else if(blowout == 2) {
+	if(Inside(blowout, 1, 2)) {
+		if(!(iEffectTime%3)) EffectDust(); //Staub
+		//Gegenrotation
+		if(GetR() < -1 && GetRDir() < 1) SetRDir(GetRDir(0, 50)+1, 0, 50);
+		else if(GetR() > 1 && GetRDir() > -1) SetRDir(GetRDir(0, 50)-1, 0, 50);
+		//Beschleunigung
 		var accspeed = Min(iCapsMaxSpeed - Cos(GetR()-Angle(0,0,GetXDir(this, 500),GetYDir(this, 500)),Distance(GetYDir(this, 500), GetXDir(this, 500))), iCapsAcceleration+GetGravity());
-		SetXDir(GetXDir(this, 500)+Sin(GetR(),accspeed), this, 500);
-		SetYDir(GetYDir(this, 500)-Cos(GetR(),accspeed), this, 500);
+		if(blowout != 1 || GetYDir(pObj,500) > iCapsLandSpeed) {
+			SetXDir(GetXDir(this, 500)+Sin(GetR(),accspeed), this, 500);
+			SetYDir(GetYDir(this, 500)-Cos(GetR(),accspeed), this, 500);
+		}
 		if(mode && GetY() <= -20) {
 			for(var pObj in FindObjects(Find_Container(this)))
 				if(pObj) pObj -> Sell(GetOwner());
@@ -156,13 +158,14 @@ protected func FxBlowoutTimer(object pObj, int iEffectNumber, int iEffectTime) {
 		}
 		if(mode && (iEffectTime > (LandscapeHeight() + 300))) DoDamage(1); //Falls die Kapsel nicht richtig startet
 	} else if(blowout == 4) {
-		SetXDir(Max(GetXDir(0,70)-1,-100),0, 70);
+		SetXDir(Max(GetXDir(0,70)-1,-100),0, 70);		
+		SetRDir(GetRDir(0, 100)-1, 0, 100);
 	} else if(blowout == 3) {
 		SetXDir(Min(GetXDir(0,70)+1,+100),0, 70);
+		SetRDir(GetRDir(0, 100)+1, 0, 100);
 	} else {
 		if(aimblowout == -1) {return -1;}
 	}
-	if(!(iEffectTime%3)) EffectDust();
 }
 
 protected func ContactBottom() { 
@@ -304,3 +307,5 @@ public func ContainedDownReleased() { SetBlowout(0); }
 public func ContainedLeftReleased() { SetBlowout(0); }
 public func ContainedRightReleased() { SetBlowout(0); }
 public func ContainedDig() { SetBlowout(0); }
+
+protected func RejectEntrance() {return 1;}
