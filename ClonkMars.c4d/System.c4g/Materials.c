@@ -19,7 +19,7 @@ global func GetMaterialObjectColor(int iMat) { //Overload in Scenario if you lik
 	var clr = CreateArray(3);
 	for(var i=0; i<3; i++) {
 		for(var j=0; j<3; j++) {
-			clr[i] += GetMaterialColor(Material("Earth"),j,i);
+			clr[i] += GetMaterialColor(iMat,j,i);
 		}
 		clr[i] /= 3;
 	}
