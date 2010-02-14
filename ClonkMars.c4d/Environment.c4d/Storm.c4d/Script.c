@@ -45,7 +45,7 @@ global func SetWind(int iWind, int iHold) {
 }
 
 global func IsStormy() {
-	return Abs(iGlobalWind) > 25;
+	return Abs(iGlobalWind) > 200;
 }
 
 protected func Initialize() {

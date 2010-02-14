@@ -5,40 +5,34 @@
 #include DACT
 #include SRMO
 
-local port, attachvertex;
-local mode, blowout, aimblowout; //mode: 1 for automatic; blowout: 0 for no emission, 1 for low emission, 2 for high, 3 for left and 4 for right.
+local port, portvertex, origx;
+local mode, horrblow, vertblow; //mode: 1 for automatic; blowout: 0 for no emission, 3 for left and 4 for right.
 local sat;
+local mainboostoverlay;
 
 static const iCapsMaxSpeed  = 2500; //iPrecision = 500
 static const iCapsLandSpeed = 120;
 static const iCapsAcceleration = 40;
 
-public func SetBlowout(int bo) {
-	if((bo&1<<31) && ((bo^1<<31) != aimblowout)) {return;} //True for a schedule call for an earlier change
-	if(bo&1<<31) { //Called by Schedule
-		blowout = bo^1<<31;
-		bo = blowout;
-		aimblowout = -1; 
-	} else {
-		if(blowout && !(blowout == 1 && bo == 2 || blowout == 2 && bo == 1)) { //If there is an action on a different dir
-			ScheduleCall(this, "SetBlowout", 10, 1, bo^1<<31);
-			aimblowout = bo;
-			bo = 0;
-		} else blowout = bo;
+public func SetHorrBlowout(int bo) {
+	if(horrblow != bo) {
+		horrblow = bo;
+		if(bo == -1) SetAction("LeftBoostTurnUp");
+		else if(bo == 1) SetAction("RightBoostTurnUp");
+		else if(WildcardMatch(GetAction(), "RightBoost*")) SetAction("RightBoostTurnDown");
+		else SetAction("LeftBoostTurnDown");
 	}
-	if(!bo) {
-		//if(GetIndexOf(GetAction(),["Idle","PortLand","FreeFall"])!=-1) {}
-		if(GetAction() == "Blowout") {SetAction("FreeFall");}
-		else if(GetAction() == "RightBoostTurnUp") {var phas = GetPhase(); SetAction("RightBoostTurnDown"); SetPhase(4-phas);}
-		else if(GetAction() == "RightBoostMax") {SetAction("RightBoostTurnDown");}
-		else if(GetAction() == "LeftBoostTurnUp") {var phas = GetPhase(); SetAction("LeftBoostTurnDown"); SetPhase(4-phas);}
-		else if(GetAction() == "LeftBoostMax") {SetAction("LeftBoostTurnDown");}
-	} else if((bo == 1 || bo == 2) && !(GetAction() == "Blowout")) {
-		SetAction("Blowout");
-	} else if(bo == 3 && !WildcardMatch(GetAction(), "LeftBoost*")) {
-		SetAction("LeftBoostTurnUp");
-	} else if(bo == 4 && !WildcardMatch(GetAction(), "RightBoost*")) {
-		SetAction("RightBoostTurnUp");
+	if(bo && !GetEffect("Blowout", this)) {AddEffect("Blowout", this,1,1,this);}
+}
+
+public func SetVertBlowout(int bo) {
+	if(vertblow != bo) {
+		if(vertblow == 0) {
+			mainboostoverlay = SetOverlayAction("Blowout", mainboostoverlay);
+		} else if(bo==0){
+			mainboostoverlay = SetOverlayAction("Idle", mainboostoverlay);
+		}
+		vertblow = bo;
 	}
 	if(bo && !GetEffect("Blowout", this)) {AddEffect("Blowout", this,1,1,this);}
 }
@@ -50,15 +44,15 @@ protected func RejectEntrance(object pObj)
 }
 
 protected func Initialize() {
-	aimblowout = -1;
-	attachvertex = -1;
+	portvertex = -1;
 	SetAction("FreeFall");
 	SetComDir(COMD_Down);
 	SetYDir();
+	origx = GetX();
 	return _inherited();
 }
 
-public func SetDstPort(object pPort) {
+public func SetDstPort(object pPort, bool noauto) {
 	if(GetGravity() < 1) { Log("Can't land without gravity."); Explode(3000); return; }
 	if(pPort) pPort->Occupy(this);
 	port = pPort;
@@ -68,7 +62,7 @@ public func SetDstPort(object pPort) {
 	var t;
 	while(true){
 		t+= iter;
-		var i=t,d=0,s=0,tges=t;
+		var i=t,d=0,s=0;
 		while(i--) {
 			s += GetGravity();
 			d += s;
@@ -76,7 +70,6 @@ public func SetDstPort(object pPort) {
 		while(s > iCapsLandSpeed) {
 			s -= iCapsAcceleration;
 			d += s;
-			++tges;
 		}
 		if(d/500 > dst) {
 			if(iter == 1) break;
@@ -87,8 +80,8 @@ public func SetDstPort(object pPort) {
 		}
 	}
 	if(AdvancedWindCalculations()) {
-		var dir,pos=100;
-		for(var i;i<tges;++i) { //FIXME: Use forecast. And fix that whole thingy
+		var dir,pos=0;
+		for(var i;i<t;++i) { //FIXME: Use forecast. And fix that whole thingy
 			dir += (dir-GetWind(0,0,true))**2*WindEffect()/1000;
 			pos += dir;
 		}
@@ -98,6 +91,8 @@ public func SetDstPort(object pPort) {
 	ScheduleCall(this, "StartLanding", t);
 	if(port)
 		ScheduleCall(port, "PortActive", 50);
+	if(!noauto) mode = 1;
+	origx = GetX(pPort);
 	return 1;
 }
 
@@ -132,21 +127,21 @@ protected func ContainedDigDouble() {
 }
 
 private func StartLanding() {
-	if(blowout || aimblowout != -1) return;
+	if(GetAction() != "FreeFall" || GetOverlayAction(mainboostoverlay) != "Idle") return;
 	if(port) port->PortActive(); //Port wird beim laden zweimal aktiviert, falls die Landung früh anfängt...
-	SetBlowout(1);
+	SetVertBlowout(1);
 	return 1;
 }
 
 protected func FxBlowoutTimer(object pObj, int iEffectNumber, int iEffectTime) {
-	if(Inside(blowout, 1, 2)) {
+	if(vertblow) {
 		if(!(iEffectTime%3)) EffectDust(); //Staub
 		//Gegenrotation
 		if(GetR() < -1 && GetRDir() < 1) SetRDir(GetRDir(0, 50)+1, 0, 50);
 		else if(GetR() > 1 && GetRDir() > -1) SetRDir(GetRDir(0, 50)-1, 0, 50);
 		//Beschleunigung
 		var accspeed = Min(iCapsMaxSpeed - Cos(GetR()-Angle(0,0,GetXDir(this, 500),GetYDir(this, 500)),Distance(GetYDir(this, 500), GetXDir(this, 500))), iCapsAcceleration+GetGravity());
-		if(blowout != 1 || GetYDir(pObj,500) > iCapsLandSpeed) {
+		if(vertblow != 1 || GetYDir(pObj,500) > iCapsLandSpeed) {
 			SetXDir(GetXDir(this, 500)+Sin(GetR(),accspeed), this, 500);
 			SetYDir(GetYDir(this, 500)-Cos(GetR(),accspeed), this, 500);
 		}
@@ -156,30 +151,39 @@ protected func FxBlowoutTimer(object pObj, int iEffectNumber, int iEffectTime) {
 			if(port) port->PortWait();
 			RemoveObject();
 		}
-		if(mode && (iEffectTime > (LandscapeHeight() + 300))) DoDamage(1); //Falls die Kapsel nicht richtig startet
-	} else if(blowout == 4) {
-		SetXDir(Max(GetXDir(0,70)-1,-100),0, 70);		
+		if(mode && (iEffectTime > (LandscapeHeight()*4/3 + 300)) && !Random(10)) DoDamage(1); //Falls die Kapsel nicht richtig startet
+	}
+	var acc = 1;
+	if(mode) acc = 5; //That's cheating
+	if(horrblow == 1) {
+		SetXDir(Max(GetXDir(0,70)-acc,-100),0, 70);		
 		SetRDir(GetRDir(0, 100)-1, 0, 100);
-	} else if(blowout == 3) {
-		SetXDir(Min(GetXDir(0,70)+1,+100),0, 70);
+	} else if(horrblow == -1) {
+		SetXDir(Min(GetXDir(0,70)+acc,+100),0, 70);
 		SetRDir(GetRDir(0, 100)+1, 0, 100);
-	} else {
-		if(aimblowout == -1) {return -1;}
+	} else if(vertblow == 0 && !mode) { //This means that both are 0 and the capsule is handcontrolled
+		return -1;
+	}
+	if(mode && AdvancedWindCalculations()) {
+		Message("%v %v %v", this, GetXDir(), GetX() - origx, GetWind());
+		if(GetXDir() >= -17 && GetX() > origx) SetHorrBlowout(1);
+		else if(GetXDir() <= 17 && GetX() < origx) SetHorrBlowout(-1);
+		else SetHorrBlowout(0);
 	}
 }
 
 protected func ContactBottom() { 
-	if(blowout && blowout != 2) {
-		SetBlowout(0);
+	if(vertblow == 1) {
+		SetHorrBlowout(0); SetVertBlowout(0); 
 		if(port && port==FindObject2(Find_ID(PORT),Find_AtPoint())) {
-			attachvertex = GetVertexNum();
+			portvertex = GetVertexNum();
 			AddVertex();
-			SetVertex(attachvertex, 2, CNAT_NoCollision, this, 1);
+			SetVertex(portvertex, 2, CNAT_NoCollision, this, 1);
 			AddVertex();
-			SetVertex(attachvertex, 0, GetVertex(0, 0, port)+GetX(port)-GetX(), this, 2);
-			SetVertex(attachvertex, 1, GetVertex(0, 1, port)+GetY(port)-GetY(), this, 2);
+			SetVertex(portvertex, 0, GetVertex(0, 0, port)+GetX(port)-GetX(), this, 2);
+			SetVertex(portvertex, 1, GetVertex(0, 1, port)+GetY(port)-GetY(), this, 2);
 			SetAction("PortLand", port);
-			SetActionData(256*attachvertex, this);
+			SetActionData(256*portvertex, this);
 			//FIXME: Do that less hacky...
 		} 
 		if(ObjectCount2(Find_Container(this), Find_OCF(OCF_CrewMember)))
@@ -190,7 +194,7 @@ protected func ContactBottom() {
 }
 
 protected func Eject() {
-	if(blowout || aimblowout != -1) return;
+	if(vertblow == 2) return;
 	for(var pObj in FindObjects(Find_Container(this), Find_OCF(OCF_CrewMember)))
 		pObj -> Exit();
 }
@@ -201,9 +205,9 @@ protected func ControlUpDouble() {
 }
 
 private func Launch() {
-	RemoveVertex(attachvertex);
-	attachvertex = -1;
-	SetBlowout(2);
+	RemoveVertex(portvertex);
+	portvertex = -1;
+	SetVertBlowout(2);
 	mode = 1;
 }
 
@@ -264,48 +268,51 @@ protected func EffectDust() {
 public func Flying() { return !GetContact(this, -1);}
 
 public func MaxDamage() { return 20; }
-public func WindEffect() { return 200;}
+public func WindEffect() { return 100;}
 
 //
 public func ContainedUp(pControl) {
 	if(GetPlrCoreJumpAndRunControl(GetOwner(pControl))) {
-		SetBlowout(1);
+		SetVertBlowout(1);
 	} else {
-		if(aimblowout != -1) { 
-			if(aimblowout == 2) SetBlowout(1);
-			else SetBlowout(0);
-		} else if(blowout == 2 || blowout == 1) SetBlowout(blowout-1);
+		SetVertBlowout(BoundBy(vertblow-1,0,2));
+		SetHorrBlowout(0);
 	}
 }
 
 public func ContainedDownDouble(pControl) {return ContainedDown(pControl);}
 public func ContainedDown(pControl) {
 	if(GetPlrCoreJumpAndRunControl(GetOwner(pControl))) {
-		SetBlowout(2);
+		SetVertBlowout(2);
 	} else {
-		if(aimblowout != -1) {
-			if(aimblowout == 1) SetBlowout(2);
-			else SetBlowout(1);
-		} else {
-			if(blowout < 2) SetBlowout(blowout+1);
-			else if(blowout != 2) SetBlowout(1);
-		}
+		SetVertBlowout(BoundBy(vertblow+1,0,2));
+		SetHorrBlowout(0);
 	}
 	SetCommand(pControl, "None");
 }
 
-public func ContainedLeft() {
-	SetBlowout(3);
+public func ContainedLeft(pControl) {
+	if(GetPlrCoreJumpAndRunControl(GetOwner(pControl))) {
+		SetHorrBlowout(-1);
+	} else {
+		if(horrblow == 1) SetHorrBlowout(0);
+		else SetHorrBlowout(-1);
+	}
 }
 
-public func ContainedRight() {
-	SetBlowout(4);
+public func ContainedRight(pControl) {
+	if(GetPlrCoreJumpAndRunControl(GetOwner(pControl))) {
+		SetHorrBlowout(1);
+	} else {
+		if(horrblow == -1) SetHorrBlowout(0);
+		else SetHorrBlowout(1);
+	}
 }
 
-public func ContainedUpReleased() { SetBlowout(0); }
-public func ContainedDownReleased() { SetBlowout(0); }
-public func ContainedLeftReleased() { SetBlowout(0); }
-public func ContainedRightReleased() { SetBlowout(0); }
-public func ContainedDig() { SetBlowout(0); }
+public func ContainedUpReleased() { SetVertBlowout(0); }
+public func ContainedDownReleased() { SetVertBlowout(0); }
+public func ContainedLeftReleased() { SetHorrBlowout(0); }
+public func ContainedRightReleased() { SetHorrBlowout(0); }
+public func ContainedDig() { SetHorrBlowout(0); SetVertBlowout(0); }
 
 protected func RejectEntrance() {return 1;}
