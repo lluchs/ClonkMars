@@ -43,7 +43,13 @@ unter anderem
 
 ### Beta3 0.85 ###
 + neuer Musiktrack: Death of Spirit
-* wieder der alte O²-Warnsound
+* Lore per Jetpack transportierbar
+* wieder der alte O2-Warnsound
 * Kapseln zünden Bremsraketen bei Spielstart automagisch
+* Trümmerteile haben RandomContent beim entpacken
 * zerstört ein Spieler eine Kapsel, muss er einige Zeit auf eine neue warten
+* Kapsel ist nun schiebbar
+! Panel und Basis erhalten keine Sonnenstrahlen mehr in Flüssigkeit
+! Bohrturm wieder erforschbar
 ! Kapsel wirft Inhalt nur aus, wenn Booster deaktiviert sind
+! METL kostet wieder 4 statt 8 Clunker
