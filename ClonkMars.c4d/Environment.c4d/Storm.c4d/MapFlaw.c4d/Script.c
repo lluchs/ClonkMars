@@ -1,13 +1,9 @@
 #strict 2
 
-static const ReflectIterAngle = 30;
-static const ReflectIterRade = 3;
-
 protected func Hit(int iXDir, int iYDir){
-	//CreateParticle("Blast", 0,0, 0,0, 100, RGBa(128,128,255,0));
-	var ang1 = -1, ang2 = -1, angc, sld = GBackSolid(0, -ReflectIterRade), ang;
-	for(var i=ReflectIterAngle; i<360; i += ReflectIterAngle){
-		if(GBackSolid(Sin(i, ReflectIterRade), -Cos(i, ReflectIterRade)) != sld) {
+	var ang1 = -1, ang2 = -1, angc, sld = GBackSolid(0, -3), ang;
+	for(var i=30; i<360; i += 30){
+		if(GBackSolid(Sin(i, 3), -Cos(i, 3)) != sld) {
 			sld = !sld;
 			if(!angc) { ang1 = i; angc=1; }
 			else { ang2 = i;  break; }

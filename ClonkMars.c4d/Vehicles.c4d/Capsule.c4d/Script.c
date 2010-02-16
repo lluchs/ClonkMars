@@ -6,9 +6,8 @@
 #include SRMO
 
 local port, portvertex, origx;
-local mode, horrblow, vertblow; //mode: 1 for automatic; blowout: 0 for no emission, 3 for left and 4 for right.
+local mode, horrblow, vertblow; //mode: 1 for automatic; 
 local sat;
-local mainboostoverlay;
 
 static const iCapsMaxSpeed  = 2500; //iPrecision = 500
 static const iCapsLandSpeed = 120;
@@ -27,14 +26,11 @@ public func SetHorrBlowout(int bo) {
 
 public func SetVertBlowout(int bo) {
 	if(vertblow != bo) {
-		if(vertblow == 0) {
-			mainboostoverlay = SetOverlayAction("Blowout", mainboostoverlay);
-		} else if(bo==0){
-			mainboostoverlay = SetOverlayAction("Idle", mainboostoverlay);
-		}
+		if(bo && !vertblow) Sound("Blowout", 0, this, 0, 0, 1);
+		else if(!bo) Sound("Blowout", 0, this, 0, 0, -1);
 		vertblow = bo;
+		if(bo && !GetEffect("Blowout", this)) {AddEffect("Blowout", this,1,1,this);}
 	}
-	if(bo && !GetEffect("Blowout", this)) {AddEffect("Blowout", this,1,1,this);}
 }
 
 protected func RejectEntrance(object pObj) 
@@ -54,10 +50,16 @@ protected func Initialize() {
 
 public func SetDstPort(object pPort, bool noauto) {
 	if(GetGravity() < 1) { Log("Can't land without gravity."); Explode(3000); return; }
-	if(pPort) pPort->Occupy(this);
 	port = pPort;
-	var dst = Abs(GetY()-GetY(pPort))-30;
-	if(!pPort) dst = Abs(GetY()-GetHorizon(GetX())) - 150;
+	var dst;
+	if(pPort) {
+		dst = Abs(GetY()-GetY(pPort))-30;
+		pPort->Occupy(this);
+		origx = GetX(pPort);
+	} else {
+		dst = Abs(GetY()-GetHorizon(GetX())) - 150;
+		origx += RandomX(-400,400);
+	}
 	var iter = 300000/GetGravity()/dst;
 	var t;
 	while(true){
@@ -87,12 +89,12 @@ public func SetDstPort(object pPort, bool noauto) {
 		}
 		if(GetWind(0,0,true)<0) pos *= -1;
 		SetPosition(GetX()-pos/100, GetY());
+		AddEffect("Blowout", this,1,1,this);
 	}
 	ScheduleCall(this, "StartLanding", t);
 	if(port)
 		ScheduleCall(port, "PortActive", 50);
 	if(!noauto) mode = 1;
-	origx = GetX(pPort);
 	return 1;
 }
 
@@ -127,7 +129,7 @@ protected func ContainedDigDouble() {
 }
 
 private func StartLanding() {
-	if(GetAction() != "FreeFall" || GetOverlayAction(mainboostoverlay) != "Idle") return;
+	if(vertblow) return;
 	if(port) port->PortActive(); //Port wird beim laden zweimal aktiviert, falls die Landung früh anfängt...
 	SetVertBlowout(1);
 	return 1;
@@ -135,6 +137,12 @@ private func StartLanding() {
 
 protected func FxBlowoutTimer(object pObj, int iEffectNumber, int iEffectTime) {
 	if(vertblow) {
+		var clr = RGBa(200,200,255);
+		for(var i = Random(3)+5; i; --i) {
+			CreateParticle("Thrust", -Sin(GetR(),8)+Cos(GetR(),-10), Cos(GetR(),8)-Sin(GetR(),11),  -Sin(GetR(),15)+RandomX(-1,1)+GetXDir(), Cos(GetR(),15+Random(10))+GetYDir()/2, 45, clr, this);
+			CreateParticle("Thrust", -Sin(GetR(),11),                Cos(GetR(),11),                -Sin(GetR(),15)+RandomX(-1,1)+GetXDir(), Cos(GetR(),15+Random(10))+GetYDir()/2, 45, clr, this);
+			CreateParticle("Thrust", -Sin(GetR(),8)+Cos(GetR(),11),  Cos(GetR(),8)-Sin(GetR(),-11), -Sin(GetR(),15)+RandomX(-1,1)+GetXDir(), Cos(GetR(),15+Random(10))+GetYDir()/2, 45, clr, this);
+		}
 		if(!(iEffectTime%3)) EffectDust(); //Staub
 		//Gegenrotation
 		if(GetR() < -1 && GetRDir() < 1) SetRDir(GetRDir(0, 50)+1, 0, 50);
@@ -145,13 +153,14 @@ protected func FxBlowoutTimer(object pObj, int iEffectNumber, int iEffectTime) {
 			SetXDir(GetXDir(this, 500)+Sin(GetR(),accspeed), this, 500);
 			SetYDir(GetYDir(this, 500)-Cos(GetR(),accspeed), this, 500);
 		}
-		if(mode && GetY() <= -20) {
+		if(mode && GetY() <= -20 && GetYDir() < 0) {
 			for(var pObj in FindObjects(Find_Container(this)))
 				if(pObj) pObj -> Sell(GetOwner());
 			if(port) port->PortWait();
 			RemoveObject();
 		}
 		if(mode && (iEffectTime > (LandscapeHeight()*4/3 + 300)) && !Random(10)) DoDamage(1); //Falls die Kapsel nicht richtig startet
+		
 	}
 	var acc = 1;
 	if(mode) acc = 5; //That's cheating
@@ -165,15 +174,24 @@ protected func FxBlowoutTimer(object pObj, int iEffectNumber, int iEffectTime) {
 		return -1;
 	}
 	if(mode && AdvancedWindCalculations()) {
+		var nbo;
 		Message("%v %v %v", this, GetXDir(), GetX() - origx, GetWind());
-		if(GetXDir() >= -17 && GetX() > origx) SetHorrBlowout(1);
-		else if(GetXDir() <= 17 && GetX() < origx) SetHorrBlowout(-1);
-		else SetHorrBlowout(0);
+		if(     GetXDir() >= -17 && GetX() > origx) nbo = 1;
+		else if(GetXDir() <=  17 && GetX() < origx) nbo = -1;
+		if(Abs(GetR()) > 8) {
+			if(GetRDir() > 0) SetRDir(GetRDir(0, 100)-1, 0, 100);
+			else SetRDir(GetRDir(0, 100)+1, 0, 100);
+			nbo = 0;
+		}
+		if(nbo != horrblow) SetHorrBlowout(nbo);
 	}
 }
 
 protected func ContactBottom() { 
 	if(vertblow == 1) {
+		if(mode) {
+			RemoveEffect("Blowout", this);
+		}
 		SetHorrBlowout(0); SetVertBlowout(0); 
 		if(port && port==FindObject2(Find_ID(PORT),Find_AtPoint())) {
 			portvertex = GetVertexNum();
