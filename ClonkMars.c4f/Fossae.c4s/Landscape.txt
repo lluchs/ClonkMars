@@ -38,5 +38,6 @@ map Fossae {
        x=10;y=70;oy=50;hgt=20;
        algo=lines; a=10; b=50;turbulence=910;};
        overlay{mat=Earth;tex=Rough;algo=rndchecker;turbulence=500;};
+       overlay{mat=Crystal;tex=Ridge;algo=bozo;a=20;b=10;y=80;turbulence=500;};
      };
   };

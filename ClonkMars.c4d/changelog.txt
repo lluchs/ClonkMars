@@ -46,6 +46,8 @@ unter anderem
 ### Beta3 0.85 ###
 + neuer Musiktrack: Death of Spirit
 + OverlayActions unterstützten Rotation, NextAction und Sound
++ Kristall implementiert als (Bau)Material
++ Baugrafik Port
 * Lore per Jetpack transportierbar
 * wieder der alte O2-Warnsound
 * Kapseln zünden Bremsraketen bei Spielstart automagisch

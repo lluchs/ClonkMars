@@ -12,7 +12,7 @@ map Valley {
     };
   };
 
- overlay{mat=Sulphur;algo=lines;a=13; b=40;oy=75;loosebounds=1;turbulence=500;rotate=-25;};
- overlay{mat=Sulphur;algo=lines;a=13; b=40;oy=125;loosebounds=1;turbulence=500;rotate=25;};
+ overlay{mat=Crystal;algo=lines;a=13; b=40;oy=75;loosebounds=1;turbulence=500;rotate=-25;};
+ overlay{mat=Crystal;algo=lines;a=13; b=40;oy=125;loosebounds=1;turbulence=500;rotate=25;};
 };
   
