@@ -33,12 +33,6 @@ public func SetVertBlowout(int bo) {
 	}
 }
 
-protected func RejectEntrance(object pObj) 
-{
-  if(pObj->GetID() == BASE) 
-    return true;
-}
-
 protected func Initialize() {
 	portvertex = -1;
 	SetAction("FreeFall");
@@ -332,5 +326,3 @@ public func ContainedDownReleased() { SetVertBlowout(0); }
 public func ContainedLeftReleased() { SetHorrBlowout(0); }
 public func ContainedRightReleased() { SetHorrBlowout(0); }
 public func ContainedDig() { SetHorrBlowout(0); SetVertBlowout(0); }
-
-protected func RejectEntrance() {return 1;}

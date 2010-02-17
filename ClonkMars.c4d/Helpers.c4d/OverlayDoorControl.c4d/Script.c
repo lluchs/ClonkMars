@@ -28,7 +28,7 @@ private func ClonkCapacity() {
 /* Ende der zu überladenden Funktionen */
 
 protected func ActivateEntrance(object pObj) {
-  if(CanOpen(pObj) && !DoorActive) {
+  if(CanOpen(pObj) && !DoorActive && !GetDefNoPushEnter(GetID(pObj))) {
   	SetOverlayAction("Door", DoorOverlay(), false, true, 0, "OpenEntrance");
   	SoundOpenDoor();
   	DoorActive = true;
