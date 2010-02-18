@@ -1,2 +1,2 @@
-DE:Baum
-US:Tree
+DE:Wompfbeerenbaum
+US:Wompfberrytree

@@ -1,4 +1,4 @@
-/*-- Baum --*/
+/*-- Beerenbaum --*/
 
 #strict
 
