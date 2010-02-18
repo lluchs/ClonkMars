@@ -7,6 +7,8 @@ MaxPlayerLeague=12
 [Definitions]
 Definition1=Objects.c4d
 Definition2=ClonkMars\ClonkMars.c4d
+Definition2=Extra.c4g\ClonkMars.c4d
+SkipDefs=LNKT=20600048
 
 [Game]
 StructNeedEnergy=0
