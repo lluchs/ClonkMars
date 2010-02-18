@@ -89,7 +89,7 @@ public func IsTerraforming() {
 }
 
 private func RandomTreeID() {
-	var aTrees = [TRE5, TRE6];
+	var aTrees = [TRE5, TRE6, TRE7, GRAS];
 	return aTrees[Random(GetLength(aTrees))];
 }
 

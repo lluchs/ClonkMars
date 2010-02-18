@@ -54,8 +54,12 @@ unter anderem
 * Trümmerteile haben RandomContent beim entpacken
 * zerstört ein Spieler eine Kapsel, muss er einige Zeit auf eine neue warten
 * Kapsel ist nun schiebbar
+* Kapsel stößt Boosterpartikel aus (vorher statische Grafik)
 * Kapsel kann mehrere Booster gleichzeitig zünden (verbessertes Handling)
 ! Panel und Basis erhalten keine Sonnenstrahlen mehr in Flüssigkeit
 ! Bohrturm wieder erforschbar
 ! Kapsel wirft Inhalt nur aus, wenn Booster deaktiviert sind
 ! METL kostet wieder 4 statt 8 Clunker
+! Tür öffnet sich nichtmehr, wenn man Kapsel in ein Gebäude hineinschieben will
+! Wenn ein Spieler eliminiert ist, piept nichtmehr die O2 Warnung weiter
+! zweite Triebwerkszündung bei Landekapseln ist nun unkaputt
