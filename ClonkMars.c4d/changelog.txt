@@ -48,6 +48,7 @@ unter anderem
 + OverlayActions unterstützten Rotation, NextAction und Sound
 + Kristall implementiert als (Bau)Material
 + Baugrafik Port
++ Wompfbeerenbaum (+Wompfbeere)
 * Lore per Jetpack transportierbar
 * wieder der alte O2-Warnsound
 * Kapseln zünden Bremsraketen bei Spielstart automagisch
@@ -56,6 +57,8 @@ unter anderem
 * Kapsel ist nun schiebbar
 * Kapsel stößt Boosterpartikel aus (vorher statische Grafik)
 * Kapsel kann mehrere Booster gleichzeitig zünden (verbessertes Handling)
+* Loader, Musik und div. Grafiken nach Extra.c4g ausgelagert
+* Terraformer erzeugt nun auch Gras und Wompfbeerenbaum
 ! Panel und Basis erhalten keine Sonnenstrahlen mehr in Flüssigkeit
 ! Bohrturm wieder erforschbar
 ! Kapsel wirft Inhalt nur aus, wenn Booster deaktiviert sind

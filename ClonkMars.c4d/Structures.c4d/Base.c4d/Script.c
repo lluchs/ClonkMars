@@ -91,7 +91,7 @@ protected func CapsuleCheck2() {
 protected func ContainedUp(object pClonk) {
 	if(!CapsuleCheck(pClonk,true))
 		return;
-	var menu = CreateMenuTemplate(CPSL, "Kapsel rufen...");
+	var menu = CreateMenuTemplate(CPSL, "$TxtCallCapsule$");
 	AddEnumChoice(menu, 0, "Sell");
 		AddEnumChoiceItem(menu, 0, "Sell", "SellOnly", "$TxtSell$", 0, "SellOnly");
 		AddEnumChoiceItem(menu, 0, "Sell", "Buy", "$TxtBuy$", 0, "Buy", true);
@@ -137,7 +137,7 @@ private func CapsuleCheck(object pClonk, bool announce) {
 	if(pSat -> GetCapsule() == -1) {
 		if(announce) {
 			Sound("Error");
-			Message("Kapsel zerstört!", pClonk);
+			Message("$TxtCapsuleDestroyed$", pClonk);
 		}
 		return false;
 	}
