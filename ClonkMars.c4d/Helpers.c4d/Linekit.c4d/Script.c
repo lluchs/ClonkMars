@@ -11,7 +11,7 @@ protected func Activate(clonk)
 {
   [$TxtConnectLine$]
   // 
-  var obj = FindObject2(Find_AtPoint(), ConnectionCondition());
+  var obj = FindObject2(Find_AtPoint(), Find_OCF(OCF_Fullcon), ConnectionCondition());
   // 
   if(!obj) return Message("$TxtNoNewLine$", clonk, GetLineName());
   // 
