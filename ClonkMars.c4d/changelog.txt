@@ -59,6 +59,7 @@ unter anderem
 * Kapsel kann mehrere Booster gleichzeitig zünden (verbessertes Handling)
 * Loader, Musik und div. Grafiken nach Extra.c4g ausgelagert
 * Terraformer erzeugt nun auch Gras und Wompfbeerenbaum
+* Satschüssel ist zum erforschen freigegeben
 ! Panel und Basis erhalten keine Sonnenstrahlen mehr in Flüssigkeit
 ! Bohrturm wieder erforschbar
 ! Kapsel wirft Inhalt nur aus, wenn Booster deaktiviert sind
