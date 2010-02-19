@@ -3,6 +3,7 @@
 #strict 2
 #include B_60
 #include DACT //Damagecontrol
+#include L_CA
 
 local pCaps;
 
