@@ -64,6 +64,7 @@ unter anderem
 ! Bohrturm wieder erforschbar
 ! Kapsel wirft Inhalt nur aus, wenn Booster deaktiviert sind
 ! METL kostet wieder 4 statt 8 Clunker
+! Baugrafik-Effekt wird nicht mehr bei fertigen Gebäuden erstellt
 ! Tür öffnet sich nichtmehr, wenn man Kapsel in ein Gebäude hineinschieben will
 ! Wenn ein Spieler eliminiert ist, piept nichtmehr die O2 Warnung weiter
 ! zweite Triebwerkszündung bei Landekapseln ist nun unkaputt
