@@ -17,9 +17,11 @@ public func Construction () {
 
 public func FxConstructGraphicTimer (object pTarget, int iEffectNumber, int iEffectTime) {
 	if (!pTarget) return -1;
-	if (GetCon(pTarget) >= 100) {
+	if (GetCon(pTarget) >= 100 && !EffectVar(0, pTarget, iEffectNumber)) {
 		SetGraphics(0, pTarget);
 		SetGraphics(0, pTarget, 0, ConstructOverlay());
+		
+		EffectVar(0, pTarget, iEffectNumber) = true;
 	}
 	else {
 		var state = GetCon(pTarget) * pTarget->ConstructActionLength() / 100 - 1;
@@ -28,5 +30,7 @@ public func FxConstructGraphicTimer (object pTarget, int iEffectNumber, int iEff
 		var offy = GetDefCoreVal("Offset", "DefCore", GetID(pTarget), 1);
 		var YAdjust = (1000 - GetCon(pTarget) * 10) * offy;
 		SetObjDrawTransform(1000, 0, 0, 0, 1000, YAdjust, pTarget, ConstructOverlay());
+		
+		EffectVar(0, pTarget, iEffectNumber) = false;
 	}
 }
