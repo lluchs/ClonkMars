@@ -17,6 +17,7 @@ FacetBase=1
 PhaseCall=Smoking
 NextAction=Idle
 EndCall=Finish
+Sound=Melt_Working
 
 [Action]
 Name=Door
