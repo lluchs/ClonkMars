@@ -11,7 +11,8 @@ public func ConstructActionLength() {
 public func ConstructOverlay() { return 3; }
 
 public func Construction () {
-	AddEffect("ConstructGraphic", this, 1, 1, 0, L_CA);
+	if(GetCon() < 100)
+		AddEffect("ConstructGraphic", this, 1, 1, 0, L_CA);
 	return _inherited(...);
 }
 
