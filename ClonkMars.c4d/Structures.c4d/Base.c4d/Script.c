@@ -351,6 +351,13 @@ protected func FxResearchStart(object pTarget, int iEffectNumber, int iTemp, id 
 	EffectVar(4, pTarget, iEffectNumber) = true;
 }
 
+protected func FxResearchEffect(string szNewEffectName, object pTarget, int iEffectNumber, int iNewEffectNumber, id idDef, object pClonk) {
+	if(szNewEffectName == "Research" && idDef == EffectVar(1, pTarget, iEffectNumber)) {
+		ContinueResearch(iEffectNumber);
+		return -1;
+	}
+}
+
 protected func FxResearchTimer(object pTarget, int iEffectNumber, int iEffectTime) {
 	if(!CheckPower(10)) {
 		Sound("Lab_Research", 0, 0, 0, 0, -1);
