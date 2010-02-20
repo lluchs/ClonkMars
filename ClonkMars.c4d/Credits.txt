@@ -10,7 +10,9 @@ Randrian: Raumfahrerclonk
 
 Icewing: Pipesystem, Baugrafiksystem
 
-JCaesar: Kapsellandesystem, Bugfixing
+JCaesar: Kapsellandesystem
+
+Killerwipf: Kristallabbau-Regel
 
 Joshi: gelegentliches Betatesting
 
