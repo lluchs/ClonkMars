@@ -44,11 +44,12 @@ unter anderem
 ! fehlerhafte Beschreibung Akku und Jetpack (ist nur im Öltank aufladbar)
 
 ### Beta3 0.85 ###
-+ neuer Musiktrack: Death of Spirit
++ neuer Musiktrack: Echoes
 + OverlayActions unterstützten Rotation, NextAction und Sound
 + Kristall implementiert als (Bau)Material
 + Baugrafik Port
 + Wompfbeerenbaum (+Wompfbeere)
+* zufällige Forschungszeit für alle Elemente
 * Lore per Jetpack transportierbar
 * wieder der alte O2-Warnsound
 * Kapseln zünden Bremsraketen bei Spielstart automagisch
@@ -64,8 +65,12 @@ unter anderem
 ! Bohrturm wieder erforschbar
 ! Kapsel wirft Inhalt nur aus, wenn Booster deaktiviert sind
 ! METL kostet wieder 4 statt 8 Clunker
-! Baugrafik-Effekt wird nicht mehr bei fertigen Gebäuden erstellt
 ! Tür öffnet sich nichtmehr, wenn man Kapsel in ein Gebäude hineinschieben will
 ! Wenn ein Spieler eliminiert ist, piept nichtmehr die O2 Warnung weiter
 ! zweite Triebwerkszündung bei Landekapseln ist nun unkaputt
 ! fehlende Strings in der Basis hinzugefügt
+! Satellitenschüssel kann nichtmehr rückgebaut werden
+! Leitungen lassen sich nich mehr an unfertigen Gebäuden anschließen
+! Tote Clonks in Gebäuden werden nicht mehr mitgezählt und belegen so keinen Crew-Platz
+! Materiallabor macht jetzt bei allen Produktionen Sound
+! Forschungen werden zusammengefasst, wenn man mehrmals dasselbe auswählt
