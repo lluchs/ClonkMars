@@ -43,4 +43,9 @@ protected func FxDestroyMeteoritesTimer() {
 		if(CheckPower(50))
 			pObj -> Hit();
 	}
+	
+	for(var i=0; i < 5; i++) {
+		var angle = RandomX(iAngle - 20, iAngle + 20);
+		CreateParticle("PSpark", 0, 0, Sin(angle, 50), -Cos(angle, 50), 50, GetPlrColorDw(GetOwner()), this, true);
+	}
 }
