@@ -345,7 +345,7 @@ protected func FxResearchStart(object pTarget, int iEffectNumber, int iTemp, id 
 	EffectVar(1, pTarget, iEffectNumber) = idDef;
 	var iTime = idDef -> ~GetResearchTime(this, pClonk);
 	if(!iTime)
-		iTime = 100;
+		iTime = RandomX(50, 200);
 	EffectVar(2, pTarget, iEffectNumber) = iTime;
 	Sound("Lab_Research", 0, 0, 0, 0, +1);
 	EffectVar(4, pTarget, iEffectNumber) = true;
