@@ -17,11 +17,13 @@ public func Construction () {
 
 public func FxConstructGraphicTimer (object pTarget, int iEffectNumber, int iEffectTime) {
 	if (!pTarget) return -1;
-	if (GetCon(pTarget) >= 100 && !EffectVar(0, pTarget, iEffectNumber)) {
-		SetGraphics(0, pTarget);
-		SetGraphics(0, pTarget, 0, ConstructOverlay());
-		
-		EffectVar(0, pTarget, iEffectNumber) = true;
+	if (GetCon(pTarget) >= 100) {
+		if(!EffectVar(0, pTarget, iEffectNumber)) {
+			SetGraphics(0, pTarget);
+			SetGraphics(0, pTarget, 0, ConstructOverlay());
+			
+			EffectVar(0, pTarget, iEffectNumber) = true;
+		}
 	}
 	else {
 		var state = GetCon(pTarget) * pTarget->ConstructActionLength() / 100 - 1;
