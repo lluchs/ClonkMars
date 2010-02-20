@@ -198,7 +198,7 @@ protected func ControlRightDouble() {
 
 protected func ContextDeconstruct(object clonk) {
 	[$CtxDeconstructDesc$|Image=CXCN|Condition=AtBuildingToDeconstruct]
-	var struct = FindObject2(Find_AtObject(), Find_Category(C4D_Structure), Find_Allied(GetOwner()));
+	var struct = FindObject2(Find_AtObject(), Find_Category(C4D_Structure), Find_Allied(GetOwner()), Find_Not(Find_Func("NoDeconstruction")));
 	if (!struct) {
 		Message("$DeconstructNotFound$", this);
 		return false;

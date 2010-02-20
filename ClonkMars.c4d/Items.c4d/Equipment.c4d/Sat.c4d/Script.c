@@ -48,3 +48,5 @@ public func CapsuleRecovered() {
 }
 
 public func MarsResearch() { return true; }
+
+public func NoDeconstruction() { return true; } // Sat könnte sonst rückgebaut werden, während es hängt
