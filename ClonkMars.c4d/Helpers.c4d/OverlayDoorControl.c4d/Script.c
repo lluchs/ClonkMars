@@ -118,7 +118,7 @@ func Collection2(object pObj) {
 }
 
 public func IsFull(object pObj) {
-	return ClonkCapacity() && ClonkCapacity() <= ObjectCount2(Find_Container(this), Find_Exclude(pObj), Find_Func("IsClonk"));
+	return ClonkCapacity() && ClonkCapacity() <= ObjectCount2(Find_Container(this), Find_Exclude(pObj), Find_OCF(OCF_Alive), Find_Func("IsClonk"));
 }
 
 private func SetDoorClonk(object pObj) {
