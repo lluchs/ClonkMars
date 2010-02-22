@@ -51,6 +51,7 @@ unter anderem
 + Kristall implementiert als (Bau)Material
 + Baugrafik Port
 + Wompfbeerenbaum (+Wompfbeere)
+* alle Flints sind nun erforschbar
 * zufällige Forschungszeit für alle Elemente
 * Lore per Jetpack transportierbar
 * wieder der alte O2-Warnsound
