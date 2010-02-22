@@ -46,7 +46,7 @@ unter anderem
 ### Beta3 0.85 ###
 + neuer Musiktrack: Echoes
 + neues Ziel: Kristallabbau
-+ neues Szenario: Kristallberg
++ neues Szenario: Kasei Vallis
 + OverlayActions unterstützten Rotation, NextAction und Sound
 + Kristall implementiert als (Bau)Material
 + Baugrafik Port
