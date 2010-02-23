@@ -1,3 +1,3 @@
-Zum Verlegen von Energieleitungen und Rohren. 
+Zum Verlegen von Rohren, die Sauerstoff transportieren können.
 
 Anwendung: vor einem Versorgergebäude 'Leitung anschließen' wählen, dann vor das Zielgebäude laufen und wieder 'Leitung anschließen' wählen. Die erste an eine Pumpe angeschlossene Leitung wird immer ein Zuflussrohr, die zweite ein Abflussrohr.

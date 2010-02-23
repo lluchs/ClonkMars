@@ -69,6 +69,8 @@ unter anderem
 ! Kapsel wirft Inhalt nur aus, wenn Booster deaktiviert sind
 ! METL kostet wieder 4 statt 8 Clunker
 ! Tür öffnet sich nichtmehr, wenn man Kapsel in ein Gebäude hineinschieben will
+! Rohrbausatz hatte zum Teil nichtmehr aktuelle Beschreibung
+! Kapsel nichtmehr in Materialeinheit schiebbar
 ! Wenn ein Spieler eliminiert ist, piept nichtmehr die O2 Warnung weiter
 ! zweite Triebwerkszündung bei Landekapseln ist nun unkaputt
 ! fehlende Strings in der Basis hinzugefügt
