@@ -40,9 +40,9 @@ protected func ControlUp(object pClonk, bool fFast, object pObj2Beam){
 	
 	var Stations = FindStations();
 	// Menü erstellen
-	CreateMenu(GetID(), pClonk, this, 0, "$notarget$");
+	CreateMenu(GetID(), pClonk, this, 0, "$TxtNoTarget$");
 	for(var pStation in Stations) {
-		AddMenuItem(Format("Station #%d", ObjectNumber(pStation)), Format("Beam(%d, %d, %d)", ObjectNumber(pObj2Beam), ObjectNumber(pStation), fFast), GetID(), pClonk, 0, 0, "$beamstation$");
+		AddMenuItem(Format("Station #%d", ObjectNumber(pStation)), Format("Beam(%d, %d, %d)", ObjectNumber(pObj2Beam), ObjectNumber(pStation), fFast), GetID(), pClonk, 0, 0, "$TxtBeamstation$");
 	}
 	if(GetLength(Stations)) // nur, wenn das Menü auch Einträge hat
 		MenuCheck(pClonk, Stations);
@@ -96,7 +96,7 @@ protected func Beam(int iClonk, int iStation, bool fFast) {
 		}
 		pObj = pNode;
 	}
-	Message("Benötigte Energie: %d", this, iEnergy);
+	Message("$TxtNeededEnergy$ %d", this, iEnergy);
 	
 	if(!CheckPower(iEnergy)) {
 		Sound("Error");
