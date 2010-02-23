@@ -49,7 +49,7 @@ unter anderem
 + neues Szenario: Kasei Vallis
 + OverlayActions unterstützten Rotation, NextAction und Sound
 + Kristall implementiert als (Bau)Material
-+ Baugrafik Port
++ Baugrafik Port, Materialeinheit
 + Wompfbeerenbaum (+Wompfbeere)
 * alle Flints sind nun erforschbar
 * zufällige Forschungszeit für alle Elemente
@@ -64,6 +64,7 @@ unter anderem
 * Kapsel kann mehrere Booster gleichzeitig zünden (verbessertes Handling)
 * Loader, Musik und div. Grafiken nach Extra.c4g ausgelagert
 * Terraformer erzeugt nun auch Gras und Wompfbeerenbaum
+* Akku verträgt etwas mehr Damage
 * Satschüssel ist zum erforschen freigegeben
 * Satschüssel hat nun korrekte Beschreibung
 ! Panel und Basis erhalten keine Sonnenstrahlen mehr in Flüssigkeit
