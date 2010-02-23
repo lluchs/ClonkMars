@@ -59,7 +59,7 @@ unter anderem
 * Trümmerteile haben RandomContent beim entpacken
 * zerstört ein Spieler eine Kapsel, muss er einige Zeit auf eine neue warten
 * Kapsel ist nun schiebbar
-* Transmitter hat nun vollständige Strings
+* Transmitter und Basis haben nun vollständige Strings
 * Kapsel stößt Boosterpartikel aus (vorher statische Grafik)
 * Kapsel kann mehrere Booster gleichzeitig zünden (verbessertes Handling)
 * Loader, Musik und div. Grafiken nach Extra.c4g ausgelagert
