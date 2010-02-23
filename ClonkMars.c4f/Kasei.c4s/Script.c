@@ -3,9 +3,8 @@
 #strict
 
 func Initialize() {
-  SetSkyAdjust(RGBa(255,255,255,220), RGB(50,30,50));
+  SetSkyAdjust(RGBa(255,255,255,180), RGB(120,80,40));
   SetGamma(RGB(50,0,0), RGB(140,100,100), RGB(255,220,220));
-  SetSkyParallax(0,10,0,3,0);
   return(1);
 }
 

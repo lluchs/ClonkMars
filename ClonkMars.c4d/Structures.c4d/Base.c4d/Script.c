@@ -202,8 +202,6 @@ public func IsBase() {
 	return true;
 }
 
-public func MaxDamage() { return 50; } //Maximaler Schaden
-
 global func FindBase(int iPlr) {
 	return FindObject2(Find_Owner(iPlr), Find_Func("IsBase"), Sort_Distance()); // FIXME-performance: Use ID for speed optimisation
 }
@@ -388,6 +386,8 @@ protected func FxResearchStop(object pTarget, int iEffectNumber, int iReason, bo
 public func MarsResearch() {
 	return true;
 }
+
+public func MaxDamage() { return 50; } //Maximaler Schaden
 
 private func ClonkCapacity() {
 	return 3;
