@@ -1,1 +1,5 @@
-The satellite dish marks your home base in which you can buy or sell material and reload energy.
+Rotate the dish on a building, consisting of the following:
+
+- Clonks reproduce (requires electricity)
+- Do research (requires electricity)
+- Capsules call, or buy supplies per capsule
