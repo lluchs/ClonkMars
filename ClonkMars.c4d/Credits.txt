@@ -1,20 +1,22 @@
 Mirosh (EKE Pack): Schweiss-Sound
 
-Hazard Team: Dunkelheit- und Lasersystem, Effekte
+Hazard Team: Dunkelheit- und Lasersystem, div. Effekte
 
 Henry: Jetbelt, Explosion.c4d
 
 Maikel: Power.c4d
 
-Randrian: Raumfahrerclonk
+Randrian: Raumfahrerclonk+Portrait Grafiken
 
 Icewing: Pipesystem, Baugrafiksystem
 
-JCaesar: Kapsellandesystem
+JCaesar: Kapsellandesystem, div. Bugfixes
 
 Killerwipf: Kristallabbau-Regel
 
 Joshi: gelegentliches Betatesting
+
+Team StarEmpires: Lavablasen-Effekt
 
 cgtextures.com: einige Bildertexturen
 
