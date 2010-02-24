@@ -1,6 +1,6 @@
 map Lavapits{
 
-  overlay{mat=Tunnel;tex=Ridge;algo=sin;
+  overlay{mat=Tunnel;tex=Smooth;algo=sin;
   zoomX=25;oy=55;turbulence=30;
   };
   

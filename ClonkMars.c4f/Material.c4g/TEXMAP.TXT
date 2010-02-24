@@ -1,14 +1,15 @@
 # Static Map Material/Texture Table 
 # Index +128 for underground materials
 
+
+03=Tunnel-Smooth
+02=Tunnel-Rough
 04=DuroLava-Smooth
 05=Lava-Smooth
 06=Water-Liquid
 07=Oil-Smooth
 08=DuroLava-Liquid
 09=Oil-Liquid
-10=Tunnel-Smooth
-11=Tunnel-Rough
 22=Acid-Liquid
 23=Lava-Liquid
 25=Water-Smooth

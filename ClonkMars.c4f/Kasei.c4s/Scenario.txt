@@ -46,7 +46,7 @@ Magic=MWP2=0;MFFA=0;MVLC=0;MWND=0;MQKE=0;CMFG=0;RMMG=0;MBRG=0;EXTG=0;ETFL=0;MGHL
 VegetationLevel=100,0,0,100
 InEarth=FLNT=5;ROCK=4
 InEarthLevel=65,0,0,100
-Sky=Sky_Clouds
+Sky=Sky_Bluehour
 MapWidth=149,0,64,250
 MapHeight=93,0,40,250
 MapZoom=9,0,5,15
