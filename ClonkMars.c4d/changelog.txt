@@ -49,6 +49,7 @@ unter anderem
 + neues Szenario: Kasei Vallis
 + OverlayActions unterstützten Rotation, NextAction und Sound
 + Kristall implementiert als (Bau)Material
++ Sauerstoffflasche
 + Baugrafik Port, Materialeinheit
 + Wompfbeerenbaum (+Wompfbeere)
 * alle Flints sind nun erforschbar
