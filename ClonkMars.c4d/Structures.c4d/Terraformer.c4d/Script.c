@@ -8,6 +8,7 @@
 static const TRFM_RADIUS = 200; // Radius in Pixeln
 
 protected func Initialize() {
+  ScheduleCall(this(),"BlowAtmosphere",5,2147483647);
 	CreateDigger();
 	fOn = true;
 }
@@ -140,6 +141,14 @@ public func ShowDigger() {
 		CreateParticle("PSpark", EffectVar(0, this, iNum), EffectVar(1, this, iNum), 0, 0, 30, GetPlrColorDw(GetOwner()));
 	}
 }
+
+protected func BlowAtmosphere(){
+  //CO²
+  CreateParticle("Smoke",0,-18,0,-20,150, RGBa(255,255,255,0));
+  CreateParticle("Smoke",0,-18,0,-20,50);
+  /*PushParticles(CO2, 0, -50);*/
+  }
+  
 
 /* Steuerung */
 

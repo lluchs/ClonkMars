@@ -66,6 +66,7 @@ unter anderem
 * Loader, Musik und div. Grafiken nach Extra.c4g ausgelagert
 * Terraformer erzeugt nun auch Gras und Wompfbeerenbaum
 * Akku verträgt etwas mehr Damage
+* bei Aktivität stößt Terraformer Wasserdampf/CO2 aus
 * Satschüssel ist zum erforschen freigegeben
 * Satschüssel hat nun korrekte Beschreibung
 ! Panel und Basis erhalten keine Sonnenstrahlen mehr in Flüssigkeit
