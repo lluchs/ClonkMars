@@ -50,7 +50,7 @@ unter anderem
 + OverlayActions unterstützten Rotation, NextAction und Sound
 + Kristall implementiert als (Bau)Material
 + Sauerstoffflasche
-+ Baugrafik Port, Materialeinheit
++ Baugrafik Port, Materialeinheit, Terraformer
 + Wompfbeerenbaum (+Wompfbeere)
 * alle Flints sind nun erforschbar
 * zufällige Forschungszeit für alle Elemente
