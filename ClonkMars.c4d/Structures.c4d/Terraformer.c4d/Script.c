@@ -4,6 +4,7 @@
 #include B_40
 #include PWRC
 #include DACT //Damagecontrol
+#include L_CA // Baugrafik
 
 static const TRFM_RADIUS = 200; // Radius in Pixeln
 
