@@ -10,7 +10,7 @@ private func ReproductionRate()     { return(1000); }
 private func MaxTreeCount()         { return(15); }
 private func TreeStrength()  { return(40); }
 private func FruitRate()     { return(15); }
-private func FruitID()       { return(WOPF); }
+private func FruitID()       { return(WMPF); }
 private func MaxFruitCount() { return(4); }
 
 private func Seed()		// alle 350 Frames
