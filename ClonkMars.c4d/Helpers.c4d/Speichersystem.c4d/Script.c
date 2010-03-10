@@ -25,7 +25,7 @@ private func TypeCheck() {
 public func & GetAmount(Key) { TypeCheck(); return HashGet(hFillLevel, Key); }
 
 // Maximale Füllung
-public func MaxFill(Key) {
+public func GetMaxFill(Key) {
 	var szFunc = "MaxFill", szFunc2, iFill;
 	if(Key) {
 		if(GetType(Key) == C4V_String)
@@ -42,7 +42,7 @@ public func MaxFill(Key) {
 // Füllung erhöhen/verringern
 public func DoFill(int iChange, Key, bool fNoSound)
 {
-  var iNewFill = BoundBy(GetAmount(Key) + iChange, 0, MaxFill(Key));
+  var iNewFill = BoundBy(GetAmount(Key) + iChange, 0, GetMaxFill(Key));
   if (iNewFill == GetAmount(Key)) return;
   iChange = iNewFill - GetAmount(Key);
   OnFillChange(Key, iChange);
@@ -57,7 +57,7 @@ public func DoFill(int iChange, Key, bool fNoSound)
 // Voll?
 public func IsFull(Key) 
 { 
-  return GetAmount(Key) == MaxFill(Key);
+  return GetAmount(Key) == GetMaxFill(Key);
 }
 
 /* Grafik anpassen */
