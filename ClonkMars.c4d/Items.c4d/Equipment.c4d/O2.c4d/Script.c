@@ -28,3 +28,5 @@ protected func Activate(object pClonk) {
 	DoFill(-pClonk -> ~DoO2(GetAmount()));
 	return 1;
 }
+
+public func MarsResearch() { return true; }

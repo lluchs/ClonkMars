@@ -1,6 +1,6 @@
 [DefCore]
 id=O2BL
-Name=New Object
+Name=O2-Flasche
 Version=4,9,5
 Category=18960
 MaxUserSelect=10
@@ -17,3 +17,4 @@ VertexY=-6,6,-6,6
 VertexFriction=50,50,50,50
 Collectible=1
 ColorByOwner=1
+Rotate=1
