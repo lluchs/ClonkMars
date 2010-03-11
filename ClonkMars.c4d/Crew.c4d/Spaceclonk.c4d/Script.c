@@ -84,6 +84,16 @@ public func MaxContentsCount() { return 3; }
 
 /* Sauerstoff */
 
+protected func DoO2(int iChange) {
+	var iPre = O2;
+	O2 = BoundBy(O2 + iChange, 0, 100);
+	return O2 - iPre;
+}
+
+global func HasO2() {
+	return this -> ~IsO2Producer() || FindObject2(Find_Func("IsO2Producer"), Find_Func("PipelineConnectedWith", this));
+}
+
 public func LowO2() {
 	return O2Warning;
 }
@@ -98,7 +108,7 @@ protected func FxO2Start(object pTarget, int iEffectNumber, bool fTemp) {
 // der Timerintervall ist so gewählt, dass immer pro Zeiteinheit ein Prozentpunkt abgezogen wird
 protected func FxO2Timer() {
 	// nicht, während man in einem Gebäude ist, das Sauerstoff produziert oder ein Baum in der Nähe ist
-	if(Contained() && (Contained() -> ~IsO2Producer() || FindObject2(Find_Func("IsO2Producer"), Find_Func("PipelineConnectedWith", Contained()))) || ObjectCount2(Find_Distance(50), Find_Func("IsTree"), Find_Not(Find_Func("IsDeadTree")))) {
+	if(Contained() && Contained() -> HasO2() || ObjectCount2(Find_Distance(50), Find_Func("IsTree"), Find_Not(Find_Func("IsDeadTree")))) {
 		// Sauerstoff nachladen
 		O2 += 10;
 		if(O2 > 100)
