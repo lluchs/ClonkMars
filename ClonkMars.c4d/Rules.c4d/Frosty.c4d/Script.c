@@ -12,3 +12,5 @@ protected func Initialize() {
 protected func Activate(iPlr) {
   MessageWindow(GetDesc(),iPlr);
 }
+
+public func IsChoosable() { return true; } // Regelwähler
