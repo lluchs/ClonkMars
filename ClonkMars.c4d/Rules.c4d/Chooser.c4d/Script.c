@@ -43,8 +43,6 @@ public func Choose(array rules) {
 	for(var ID in choosable) {
 		RemoveAll(ID);
 	}
-	//Global() = or;
-	//Global(1) = rules;
 	
 	var iter = HashIter(rules), node;
 	while(node = HashIterNext(iter)) {
