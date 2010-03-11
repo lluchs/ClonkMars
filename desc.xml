@@ -1,0 +1,445 @@
+<div id="rn">
+	[Release Notes]
+	<br />
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Rev</th>
+			<th>
+				<img src="projects/project1125/Releases/zip.png" title="Zip" alt="Zip" />
+			</th>
+			<th>
+				<img src="projects/project1125/Releases/update.png" title="Update" alt="Update" />
+			</th>
+		</tr>
+		<tr class="green">
+			<td>
+				<a href="http://white30.de/Clonk/CM/Archive/bohrturmfix.zip">Bohrturm Hotfix</a>
+			</td>
+			<td>682</td>
+			<td>
+				<img src="projects/project1125/Releases/No.png" title="Nein" alt="Nein" />
+			</td>
+			<td>
+				<img src="projects/project1125/Releases/Jo.png" title="Ja" alt="Ja" />
+			</td>
+		</tr>
+		<tr class="green">
+			<td>
+				<a href="http://white30.de/Clonk/CM/Archive/CM_Manual.zip">Anleitung</a>
+			</td>
+			<td>663</td>
+			<td>
+				<img src="projects/project1125/Releases/Jo.png" title="Ja" alt="Ja" />
+			</td>
+			<td>
+				<img src="projects/project1125/Releases/No.png" title="Nein" alt="Nein" />
+			</td>
+		</tr>
+		<tr class="green">
+			<td>
+				<a href="http://www.cc.striver.net/download.php?act=get&amp;dl=566">Beta2</a>
+			</td>
+			<td>663</td>
+			<td>
+				<img src="projects/project1125/Releases/Jo.png" title="Ja" alt="Ja" />
+			</td>
+			<td>
+				<img src="projects/project1125/Releases/No.png" title="Nein" alt="Nein" />
+			</td>
+		</tr>
+		<tr class="red">
+			<td>
+				<a href="http://white30.de/Clonk/CM/CMv0.65b.zip">0.65b</a>
+			</td>
+			<td>600</td>
+			<td>
+				<img src="projects/project1125/Releases/No.png" title="Nein" alt="Nein" />
+			</td>
+			<td>
+				<img src="projects/project1125/Releases/Jo.png" title="Ja" alt="Ja" />
+			</td>
+		</tr>
+		<tr class="red">
+			<td>
+				<a href="http://cc.striver.net/download.php?act=getinfo&amp;dl=566">Beta</a>
+			</td>
+			<td>593</td>
+			<td>
+				<img src="projects/project1125/Releases/Jo.png" title="Ja" alt="Ja" />
+			</td>
+			<td>
+				<img src="projects/project1125/Releases/No.png" title="Nein" alt="Nein" />
+			</td>
+		</tr>
+		<tr class="red">
+			<td>
+				<a href="http://white30.de/Clonk/CM/Archive/CM_Demo.zip">Alpha</a>
+			</td>
+			<td>316</td>
+			<td>
+				<img src="projects/project1125/Releases/Jo.png" title="Ja" alt="Ja" />
+			</td>
+			<td>
+				<img src="projects/project1125/Releases/No.png" title="Nein" alt="Nein" />
+			</td>
+		</tr>
+	</table>
+</div>
+<div style="text-align: center;">
+	<img src="http://white30.de/Clonk/CM/rotator.php" title="" alt="Titelbild" />
+</div>
+<br />
+<br />
+<br />
+<br />
+<i>"aber ich versage da so, was den Sauerstoff angeht :&lt;"</i>
+<br />
+<br />
+<h2>Neues</h2>
+<div id="Neues">
+	<img src="projects/project1125/Portrait2.jpg" title="" align="right" alt="Raumfahrerclonk" />
+	<ul>
+		<li>
+			<u>31.01.10:</u>
+			<i>rev663</i>: Januar ist ein fleissiger Monat, somit w&#228;re
+			
+			<b>Beta2</b> fertig! Wir haben so gut wie alle Bugs, die
+			gemeldet wurden ausgeb&#252;gelt, sowie auch einige Features
+			eingebaut. Einen vollst&#228;ndigen Changelog gibt es 
+			<a href="http://white30.de/Clonk/CM/Archive/changelog_beta2.txt">
+			hier</a>. Der Bugtracker ist f&#252;r das weitere melden von
+			gew&#252;nschten Features und unerw&#252;nschten Bugs
+			ge&#246;ffnet.
+		</li>
+		
+		<li>
+			<u>25.01.10:</u>
+			<i>rev643</i>: Ein kurzer Zwischenstand: Bisher sind viele Bugs
+			aus der Beta eingetroffen und auch bearbeitet/behoben. Zwar
+			gibt es immer wieder einige, die "geht nicht" sagen, doch der
+			Gro&#223;teil h&#228;lt sich daran uns auch genauere
+			Informationen dazu zu geben. Somit werden wir versuchen Beta2
+			anzusteuern, aber einen konkreten Zeitplan daf&#252;r gibt es
+			noch nicht. Bis dahin bleibt daf&#252;r der Bugtracker weiter
+			&#246;ffentlich. Auch habe ich die Projektseite mal wieder
+			geupdatet: Der geplante Meleepart wird ganz entfernt, sodass
+			wir uns voll auf das Siedeln konzentrieren k&#246;nnen. Melees
+			machen andere Projekte genug, wir bleiben erstmal auf unserer
+			bisherigen Schiene. So long.
+		</li>
+		
+		<li>
+		<u>20.01.10:</u>
+			<i>rev600</i>: Der Kapselport funktionierte bisher leider nicht
+			richtig, aufgrund eines Features, das aber noch nicht in der
+			Demo enthalten war. Dazu gibt es jetzt einen Hotfix unter den
+			Release Logs. Einfach die c4u in das Clonk Verzeichnis
+			entpacken und per Doppelklick starten, der Rest erfolgt
+			automatisch. Beachtet, dass von nun an wom&#246;glich eure
+			Pakete abweichen werden von denen anderer Spieler. Macht alle
+			die ihr kennt und mit denen ihr ClonkMars spielen wollt
+			unbedingt auf diesen Fix aufmerksam! Update vom 21.01.2010:
+			Leider unterlief mir ein Fehler bei der Updatedatei. Luchs hat
+			das nun behoben und ihr solltet den Fix nun korrekt
+			ausf&#252;hren k&#246;nnen! Das Update ist wie immer unter den
+			ReleaseLogs zu finden
+		</li>
+		
+		<li>
+			<u>16.01.10:</u>
+			<i>rev593</i>: CM startet durch, die 
+			<b>Beta</b> ist erh&#228;ltlich! Download &#252;ber den Link bei
+			Release Logs, oder direkt &#252;ber das Clonk-Center. Bugs
+			bitte wie gehabt in den wieder &#246;ffentlichen 
+			<a href="bugtrack.php?prj=1125">Bugtracker</a>.
+		</li>
+		<li>
+			<h3>Archiv</h3>
+			<div id="Archiv">
+				<ul>
+					<li>
+						<u>16.12.09:</u>
+						<i>rev526</i>: Es gibt mittlerweile viel zu berichten.
+						Wir haben sehr gute Fortschritte gemacht und sind nun
+						auch in der 
+						<b>Betaphase</b> angelangt. Allerdings gibt es noch keine
+						public Beta. Warum? Wir wollen, dass es euch auch
+						Spa&#223; macht und deshalb m&#246;chten wir gerne noch
+						ein bisschen Hand anlegen. Der Bugtracker ist zwar (bis
+						auf eine Unsch&#246;nheit) Bugfrei, aber das ist ja nicht
+						alles. Wir k&#246;nnen auch kein genaues Datum daf&#252;r
+						geben, wir haben uns Ende Dezember oder Januar als grobes
+						Ziel gesteckt. Allerdings gibts gleich vier neue
+						Screenshots vom neuen Baugrafiksystem und auch der neuen
+						Materialeinheit (ehemals Schmelze, bzw. Materiallabor),
+						sowie dem komplett neuem HUD und letzlich dem
+						Terraformer. Auch gibt es eine neue Rubrik namens
+						"Artikel". Ebenfalls neu hinzugekommen ist das
+						Temperatursystem. Nun wird der Mars nicht global
+						k&#228;lter, wenn die Nacht hereinbricht, sondern je nach
+						H&#246;he gibt es verschiedene Schichten. In
+						Bodenn&#228;he w&#228;rmt sich alles schneller auf, in
+						gro&#223;en H&#246;hen und Tiefen ist es hingegen eher
+						k&#228;lter. Das verleiht dem Spiel eine unglaubliche
+						Dynamik und somit ist die Temperatur (wie in der Demo)
+						nichtmehr einfach eine Art Chronometer, sondern ein
+						wirklich echter Spielfaktor. Gerade wird auch an einem
+						Sturmsystem gearbeitet...aber nun Schluss. Thats all
+						folks!
+					</li>
+					
+					<li>
+						<u>03.11.09:</u>
+						<i>rev400</i>: Wie ihr bemerkt habt ist der Bugtracker
+						erstmal dicht. Viele Bugs sind eingetroffen aus der
+						Demoversion und wir haben ~alle gefixt. Hierzu einen
+						herzlichen Dank an die Community f&#252;r das fleissige
+						Testen und gute Feedback! Wir haben nichtnur gefixt,
+						sondern gewisse Dinge auch sehr optimiert. Als Beispiel:
+						Sonnenkollektoren und Basis checken nun den Winkel. Das
+						bedeutet wenn Erde dar&#252;ber ist, gibts auch keinen
+						Sauerstoff/Energie. Auch wenn zB links ein h&#246;herer
+						H&#252;gel als die H&#246;he des Panels ist, gibt es
+						keinen oder kaum Strom. Das bringt noch einiges an
+						Realismus in das ganze und zwingt den Spieler auf die
+						Berggipfel hinauf, wenn er wirklich viel Strom effektiv
+						haben will. Auch einige neue Features sind uns
+						eingefallen und einige sind auch unmgesetzt. Es geht
+						gerade nicht soo schnell voran wie in den letzten Wochen,
+						aber daf&#252;r kontinuierlich. Fazit: Wir leben noch,
+						bzw. mehr denn je!
+					</li>
+					
+					<li>
+						<u>11.10.09:</u>
+						<i>rev316</i>: Wir freuen uns heute ein erstes Alpha
+						Release in Form einer 
+						<b>Demoversion</b> rauszubringen. Downloadbar ist es
+						inzwischen unter den ReleaseLogs.
+					</li>
+					
+					<li>
+						<u>07.10.09:</u>
+						<i>rev235</i>: Heute war erster Multiplayertest. Nach dem
+						vierten Anlauf sogar mit Erfolg! Teilnehmer waren Joshi,
+						Icewing, Luchs und Nachtfalter. Die letzten beiden haben
+						dann auch eher weitergesiedelt, da die anderen ins Bett
+						mussten. Insgesamt ging die Runde &#252;ber zwei Stunden
+						und es hat schon richtig viel Spa&#223; gemacht. Auch
+						wurden eine Menge kleinerer Bugs sowie Balancingfragen
+						gekl&#228;rt, die nun m&#246;glichst bald umgesetzt
+						werden. Unten gibt es zwei neue Screenshots aus der
+						Runde.
+					</li>
+					
+					<li>
+						<u>02.10.09:</u>
+						<i>rev193</i>: Relaunch der Projektseite, mit vielen
+						neuen Sachen die ich hier gar nicht nennen kann. Wir
+						haben jedenfalls viele neue Konzepte erstellt und zum
+						Teil auch schon umgesetzt. Dadurch hat sich allerdings
+						einiges an Terminen und Zeitpl&#228;nen nach hinten
+						verschoben, aber das ist denke ich mal nicht so
+						schlimm.
+					</li>
+					
+					<li>
+						<u>14.09.09:</u>
+						<i>rev123</i>: CM ist 
+						<b>Alpha</b>! So viele Revisionen schon. Und ein Monat
+						ist vergangen...was haben wir vorzuweisen? Eine Menge!
+						Wir arbeiten sehr fleissig an dem Pack und es geht prima
+						voran. Zwar wird der Bugtracker im voller und die Bugs
+						immer weirder, dennoch sind wir frohen Mutes. Das
+						Transmittersystem ist soweit fast fertig, die HUD Basics
+						stehen auch und viele &#196;nderung an Geb&#228;uden und
+						anderem wurden vorgenommen. Auch gibts einen neuen Clonk,
+						den uns Randrian gebaut hat.
+						<br />
+						<br />
+						Desweiteren habe ich bisher auch drei Musiktracks
+						gemacht, die f&#252;r noch mehr marsige Stimmung sorgen
+						sollten. Zur Zeit arbeiten wir auch parallel an zwei
+						Szenarios (und auch zwei Loader), um so wie wir hoffen
+						m&#246;glichst bald eine public Alpha mit den
+						prim&#228;ren Objekten zum Download anzubieten...
+						<br />
+						<br />
+						Leider k&#246;nnen wir auch nicht &#252;berall
+						gleichzeitig arbeiten und mangels Priorit&#228;t kann ich
+						heute doch nicht (wie eigentlich versprochen) etwas
+						n&#228;her auf die Vegetation eingehen.
+						M&#246;glicherweise beim n&#228;chsten Push. Achso,
+						genau: In der aktuellen Ausgabe des CMags gibt es auch
+						einen recht ausf&#252;hrlichen Artikel zum Projekt --&gt;
+						
+						<a href="http://cmag.bplaced.net/magazine/online/0909/ClonkMagazin0909.html#CCF-news">
+						Klick</a>
+					</li>
+					
+					<li>
+						<u>15.08.09:</u>
+						<i>rev44</i>: Erzschmelze, Akkumulator, Terraformer (zum
+						Teil) und eine neue Vegetationsart komplett fertig!
+					</li>
+					<li>
+						<u>14.08.09:</u>
+						<i>rev13</i>: CM erreicht 
+						<b>Prealpha</b>-Status! Basis und Solarpaneele komplett
+						fertig, Clonk hat Sauerstoffsystem
+					</li>
+					<li>
+						<u>12.08.09:</u> Projektseite er&#246;ffnet
+					</li>
+				</ul>
+			</div>
+		</li>
+	</ul>
+</div>
+<br />
+<h2>Die Mars Geschichte</h2>
+<div id="history">
+	Alles fing mit Markus
+	L&#252;tkemeyers Colonize Mars im Jahr 2002 an. Das wurde noch
+	f&#252;r Clonk Planet programmiert. 2007/2008 habe ich versucht
+	davon ein Remake zu machen, was aber letztendes an zu linearen
+	Spielablauf (-Spa&#223;) scheiterte. 2009 war nun die Idee einfach
+	das Thema zu verwenden, aber mit eigenen Konzepten. Eine
+	Bildergallerie zum Thema Mars-Geschichte in Clonk ist 
+	<a href="projects/project1125/History_big.jpg">
+	hier</a>verf&#252;gbar.
+</div>
+<br />
+<h2>Konzepte</h2>
+<div id="concept">
+	<div class="kbox">
+		<div class="sprite clunker"></div>
+		<div class="konzept">
+			<b>Clunker verdienen</b>
+			<br />
+			Clunker braucht man immer und allgegenw&#228;rtig.
+			Diverse Einnahmequellen w&#228;ren zB der Verkauf von
+			Energiezellen. Die Energie bekommt man durch die Sonne gratis,
+			es muss nur gen&#252;gend produziert werden, um die Siedlung zu
+			versorgen, sowie auch Energiezellen auff&#252;llen zu
+			k&#246;nnen.
+		</div>
+	</div>
+	<div class="kbox">
+		<div class="sprite materialien"></div>
+		<div class="konzept">
+			<b>Materialien verarbeiten</b>
+			<br />
+			Die Grundbausteine werden vermutlich (&#196;nderungen
+			vorbehalten) Plastik und Metall sein. Metall stellt man aus
+			Erde her, die vom Himmel stets herabregnet (staubform). Die
+			Erde ist sehr eisenhaltig, von daher ist das kein Problem
+			f&#252;r die Clonks. Plastik stellt man wiederum aus &#214;l
+			her, dass es durch &#214;lquellen nahezu unbegrenzt gibt.
+			&#214;l wird somit zu einem sehr wichtigen taktischen Element.
+			Durch die Quellen und den Regen wird gew&#228;hrleistet, dass
+			kein Material zur Neige geht. Es gilt nur den Hunger nach
+			selbigen zu stillen in dem man sein Gebiet ausweitet und immer
+			mehr ankn&#252;pft. Wer zB 80% der Karte hat, hat gute Chancen
+			f&#252;r viele &#214;lquellen, sowie den Marsstaubregen.
+		</div>
+	</div>
+	<div class="kbox">
+		<div class="sprite forschen"></div>
+		<div class="konzept">
+			<b>Forschen</b>
+			<br />
+			Es wird eine vielzahl von Upgrades geben, die es erst
+			erm&#246;glichen wirklich effektiv seine Ressourcen
+			auszunutzen. Es kann von Erweiterungen der
+			Speicherkapazit&#228;ten, bis hin zu moderner Waffentechnik
+			gehen, die es erm&#246;glicht den Spieler noch wegzubomben eh
+			er selbst Waffen hat - insofern dieser zu faul/vergessen hat
+			auch div. Techniken zu erforschen.
+		</div>
+	</div>
+	<div class="kbox">
+		<div class="sprite jetbelt"></div>
+		<div class="konzept">
+			<b>Unwirtliche Gegenden</b>
+			<br />
+			Desweiteren wird der Clonk extremen Bedingungen
+			ausgesetzt. Erstens hat er stetigen Sauerstoffbedarf, der ohne
+			Upgrades nur aus der Hauptbasis zu beziehen ist. Nachts, bzw.
+			in Polgegenden kann er schneller frieren als sonst und muss
+			sich so in div. Geb&#228;uden wieder aufw&#228;rmen gehen,
+			ansonsten nimmt er auch schaden. Die Gravitation ist hier zwar
+			ein Freund, da so besser h&#246;here Spr&#252;nge m&#246;glich
+			sind, aber daf&#252;r mag der Clonk ganz und gar nicht tief
+			fallen. Aus diesem Grund gibts per Upgrade ein Jetpack
+			mitgeliefert, womit er noch h&#246;here Punkte einfach
+			erreichen kann, oder seinen gr&#246;&#223;eren Spr&#252;ngen
+			den Schwung nehmen kann.
+		</div>
+	</div>
+</div>
+<br />
+<h2>Screenshots</h2>
+<div id="screens">
+	Es gibt viel zu entdecken bei uns hier! Schaut euch in Ruhe
+	um. Die Screenshots sind chronologisch (von links oben nach rechts
+	unten aufsteigend) geordnet, deshalb k&#246;nnen ggf. einige
+	Unterschiede bei denselben Objekten auftauchen.
+	<br />
+	<br />
+	<a href="projects/project1125/Settle.jpg" title="Clonks bauen Tank zusammen">
+	  <img alt="Siedlung" border="0" src="projects/project1125/Settle_prev.jpg"></a>
+	<a href="projects/project1125/Lobby.jpg" title="Lobbyansicht">
+	  <img alt="Lobby" border="0" src="projects/project1125/Lobby_prev.jpg"></a>
+	<a href="projects/project1125/Abendtransmit.jpg" title="Beamen in der Abenddämmerung - wunderschön!">
+	  <img alt="Transmitter" border="0" src="projects/project1125/Abendtransmit_prev.jpg"></a>
+	<a href="projects/project1125/transmitter3.jpg" title="Öllager Bravo">
+	  <img alt="Öllager" border="0" src="projects/project1125/transmitter3_prev.jpg"></a>
+	<a href="projects/project1125/bigsettlement.jpg" title="Zentrum der Kolonie">
+	  <img alt="Kolonie" border="0" src="projects/project1125/bigsettlement_prev.jpg"></a>
+	<a href="projects/project1125/terraformer2.jpg" title="Ein Terraformer bei der Arbeit">
+	  <img alt="Terraformer" border="0" src="projects/project1125/terraformer2_prev.jpg"></a>
+	<a href="projects/project1125/HUD_new.jpg" title="Das neue HUD mit vielen nützlichen Infos">
+	  <img alt="HUD" border="0" src="projects/project1125/HUD_new_prev.jpg"></a>
+	<a href="projects/project1125/Phobosmars.jpg" title="ein Außenposten auf Phobos. Im Hintergrund ist der gewaltige Mars zu sehen">
+	  <img alt="Phobos" border="0" src="projects/project1125/Phobosmars_prev.jpg"></a>
+	<a href="projects/project1125/Baugrafik.jpg" title="Alle Gebäude bekommen Stück für Stück Baugrafiken">
+	  <img alt="Baugrafiken" border="0" src="projects/project1125/Baugrafik_prev.jpg"></a>
+	<a href="projects/project1125/Eos.jpg" title="Eine ziemlich gut funktionierende Siedlung">
+	  <img alt="Eos" border="0" src="projects/project1125/Eos_prev.jpg"></a>
+	<a href="projects/project1125/Sinus.jpg" title="Kanibal, B_E und _Chris siedeln eine Runde">
+	  <img alt="Sinus" border="0" src="projects/project1125/Sinus_thumb.jpg"></a>
+</div>
+<br />
+<div>
+	<br />Es gibt bereits einiges au&#223;erhalb dieser Projektseite
+	&#252;ber Clonk Mars. Und das wollen wir nat&#252;rlich nicht
+	vorenthalten.
+	<br />
+	<br />
+	Ein Forenpost, der Werbung f&#252;r Clonk macht, unter
+	anderem f&#252;r Modern Combat und ClonkMars! 
+	<a href="http://www.neogaf.com/forum/showthread.php?t=377494">Klick mich!</a>
+	<br />
+	Hier ein kleiner Blogpost in Markus L&#252;tkemeyers (der Vater von Colonize Mars) Blog. 
+	<a href="http://home.arcor.de/m6/m6/markusl/archiv/2009/10/entry_157.htm">Klick mich!</a>
+</div>
+<br />
+<h2>Projektinfos</h2>
+<div id="projektinfos">
+	Die Grafiken wurden alle mit Cinema4D R11 erstellt, und mit
+	Photoshop nachbearbeitet. Clonkgrafiken wurden von Randrian mit
+	Blender erstellt. Das Pack ist ausschlie&#223;lich f&#252;r
+	ClonkRage gebaut und gew&#228;hrleistet keinerlei
+	Abw&#228;rtskompatibilit&#228;t. Die Musik wurde mit MusicMaker
+	erstellt, aus einigen, auch nachbearbeiteten Soundpool-Presets,
+	sowie einigen zusammengeschnittenen Sounds, entweder selbst
+	erstellt, oder &#252;ber freie Soundbibliotheken.
+	<br />
+	<br />
+	Die derzeitige Projektgr&#246;&#223;e aller Arbeitsdateien
+	liegt bei 2086MB, die sich aus insgesamt 2914 Dateien, sowie 1419
+	Ordnern zusammensetzen. Das Projekt selbst befindet sich zur Zeit
+	in der Beta Phase und ist gesch&#228;tzt bei ca. 68%.
+</div>

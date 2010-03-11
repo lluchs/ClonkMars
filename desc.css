@@ -1,0 +1,76 @@
+/*--Allgemeines Aussehen--*/
+
+body {
+
+}
+
+#Description {
+	font-size: 110%;
+}
+
+h1 {
+	font-family: Arial;
+	font-size: 120%;
+	margin-top: 0px;
+}
+
+h2 {
+	font-family: Arial;
+	font-size: 110%;
+	margin-top: 0px;
+}
+
+hr {
+	width:60%;
+	height:1px;
+	border:1px solid #999999;
+}
+
+/* Infobox links vom Header */
+
+#infobox {
+	float: left;
+	border: none;
+}
+
+/* Release Notes */
+
+#rn {
+	float: right;
+}
+
+#rn .red {
+	background-color: #efc1c1;
+}
+
+#rn .green {
+	background-color: #dbf0c1;
+}
+
+/* Konzepte */
+
+.kbox {
+	margin-bottom: 1em;
+	width: 100%;
+	min-height: 140px;
+}
+
+.konzept {
+	margin-right: 200px;
+}
+
+/* Sprite für Bilder */
+
+.sprite {
+	background: url('http://clonkforge.net/projects/project1125/Konzepte.jpg');
+	width: 176px;
+	height: 135px;
+	margin-right: 5px;
+	float: right;
+}
+
+	.clunker         { background-position: 0px 0px; }
+	.materialien { background-position: 0px -136px; }
+	.siedeln         { background-position: 0px -273px; }
+	.forschen       { background-position: 0px -411px; }
+	.jetbelt         { background-position: 0px -550px; }
