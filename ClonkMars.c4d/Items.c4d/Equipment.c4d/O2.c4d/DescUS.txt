@@ -1,1 +1,3 @@
-Fills up your Oxygen.
+Fills up your Oxygen with 40 units.
+
+Hit DigDouble to feel the breeze!

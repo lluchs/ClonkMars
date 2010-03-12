@@ -1,1 +1,3 @@
 Eine kleine Auffüllung für den Raumfahrerclonk.
+
+Enthält 40 Sauerstoffeinheiten, können per Doppelgraben (auch schrittweise) benutzt werden.
