@@ -74,6 +74,7 @@ Gebäude:
   + Baugrafik Port, Materialeinheit, Terraformer
   + Terraformer erzeugt nun auch Gras und Wompfbeerenbaum
   + Radioteleskop erzeugt bei Aktivität Strahlen
+  + Clonks können sich in der Basis löschen lassen
   * Transmitter und Basis haben nun vollständige Strings
   * Akku verträgt etwas mehr Damage
   * alle Flints sind nun erforschbar

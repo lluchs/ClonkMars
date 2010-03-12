@@ -9,7 +9,7 @@ private func MaxFill() { return 40; }
 private func FillPicture() { return 0; }
 
 protected func Hit() {
-  Sound("MetalHit*");
+  Sound("O2_hit");
   return(1);
 }
 
@@ -25,6 +25,7 @@ protected func FxRefillTimer() {
 }
 
 protected func Activate(object pClonk) {
+  Sound("O2_fillup");
 	DoFill(-pClonk -> ~DoO2(GetAmount()));
 	return 1;
 }
