@@ -149,6 +149,11 @@ global func FxLandTempTimer(object pTarget, int iEffectNumber) {
 		}
 	}
 	
+	// Erwärmung bei heißem Material
+	if(GetMaterialVal("Incindiary", "Material", GetMaterial(iX, iY))) {
+		iOther = Min(iOther + 200, MaxTemp);
+	}
+	
 	// Abkühlung ganz unten
 	if(y == LandscapeHeight() / LandTempDist) {
 		iOther = Max(iOther - 150, -MaxTemp);
