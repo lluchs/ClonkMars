@@ -40,7 +40,11 @@ private func OpenMenu() {
 	CreateMenuByTemplate(GetCursor(), this, "Choose", menu);
 }
 
-public func Choose(array rules) {
+public func Choose(array rules, ExtraData, bool canceled) {
+	// bei Schlieﬂen durch Graben nichts tun
+	if(canceled)
+		return;
+	
 	// alle w‰hlbaren Regeln entfernen
 	for(var ID in choosable) {
 		RemoveAll(ID);
