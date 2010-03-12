@@ -27,3 +27,6 @@ protected func InitializePlayer(int iPlr) {
 	}
 	pCapsule->SetDstPort(0, true);
 }
+
+  //Regelwähler
+  func NotChoosableRules() { return [ENRG,CNMT]; }

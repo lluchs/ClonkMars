@@ -1,1 +1,1 @@
-The first player may choose the rules at the beginning and configures the goal if activated.
+When activated can be set for the game on the global menu, usually all the rules.

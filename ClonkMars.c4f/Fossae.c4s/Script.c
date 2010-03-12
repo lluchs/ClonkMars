@@ -26,3 +26,6 @@ protected func Script5(){
   CreateParticle("Dust",Random(LandscapeWidth()),Random(LandscapeHeight()*2/3),RandomX(3,9),0,RandomX(1000,1500));
   return(goto(0));
   }
+  
+  //Regelwähler
+  func NotChoosableRules() { return [LNGT,LDAY,ENRG,CNMT]; }

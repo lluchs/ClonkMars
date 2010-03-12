@@ -16,3 +16,6 @@ protected func InitializePlayer(iPlr){
   CreateContents(PSTC,GetCrew(iPlr,0),2);
   return(1);
   }
+
+  //Regelwähler
+  func NotChoosableRules() { return [LNGT,ENRG,CNMT]; }

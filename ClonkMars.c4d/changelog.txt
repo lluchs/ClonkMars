@@ -50,6 +50,7 @@ unter anderem
 Rundenordner:
   + neuer Musiktrack: Echoes
   + neues Szenario: Kasei Vallis
+  + alle Szenarien haben Regelwähler bekommen (mit Ausschluss für div. Regeln)
   * Loader, Musik und div. Grafiken nach Extra.c4g ausgelagert
 
 Objekte:
@@ -59,7 +60,7 @@ Objekte:
   + Sauerstoffflasche
   + Wompfbeerenbaum (+Wompfbeere)
   + Speichersystem aus Luftherrschaft implementiert
-  + Regelwähler für Spielstart
+  + Regelwähler (Aufrufbar über globales Regelmenü)
   * wieder der alte O2-Warnsound
   * Trümmerteile haben RandomContent beim entpacken
   * Satschüssel ist zum erforschen freigegeben

@@ -7,3 +7,6 @@ func Initialize() {
   SetGamma(RGB(50,0,0), RGB(140,100,100), RGB(255,220,220));
   return(1);
 }
+
+  //Regelwähler
+  func NotChoosableRules() { return [ENRG,CNMT]; }
