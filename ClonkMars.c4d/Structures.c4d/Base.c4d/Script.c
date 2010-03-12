@@ -38,6 +38,11 @@ private func CanOpen() {
 	return !IsResearching();
 }
 
+protected func Collection2(object pObj) {
+	if(pObj -> OnFire())
+		pObj -> Extinguish();
+}
+
 /* Steuerung */
 
 protected func ContextResearch(object pClonk) {
