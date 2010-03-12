@@ -9,7 +9,7 @@
 static const TRFM_RADIUS = 200; // Radius in Pixeln
 
 protected func Initialize() {
-  ScheduleCall(this(),"BlowAtmosphere",5,2147483647);
+	AddEffect("BlowAtmosphere", this, 1, 5, this);
 	CreateDigger();
 	fOn = true;
 }
@@ -67,19 +67,16 @@ protected func Terraforming() { // TimerCall
 	}
 		
 	//play Animation
-  SetAction("WindTurn");
-  
-  // Regen
-  Rain();
-  
-  if(iEnergy)
-  	iEnergy--;
+	SetAction("WindTurn");
   	
-  fTerraforming = true;
-  
-  if(!Random(10) && ObjectCount2(Find_Distance(TRFM_RADIUS), Find_Func("IsTree")) < Random(10)) { // neue Bäume
-  	PlaceVegetation(RandomTreeID(), TRFM_RADIUS / -2, TRFM_RADIUS / -2, TRFM_RADIUS, TRFM_RADIUS, 10);
-  }
+	if(iEnergy)
+		iEnergy--;
+	  	
+	fTerraforming = true;
+	
+	if(!Random(10) && ObjectCount2(Find_Distance(TRFM_RADIUS), Find_Func("IsTree")) < Random(10)) { // neue Bäume
+		PlaceVegetation(RandomTreeID(), TRFM_RADIUS / -2, TRFM_RADIUS / -2, TRFM_RADIUS, TRFM_RADIUS, 10);
+	}
 }
 
 public func NoEnergy() {
@@ -93,19 +90,6 @@ public func IsTerraforming() {
 private func RandomTreeID() {
 	var aTrees = [TRE5, TRE6, TRE7, GRAS];
 	return aTrees[Random(GetLength(aTrees))];
-}
-
-private func Rain() {
-	for(var i = RandomX(10, 20); i; i--) {
-		var iX = 0, iY = 0;
-		while(!iX || Distance(iX, iY) > TRFM_RADIUS) {
-			iX = Random(TRFM_RADIUS) - TRFM_RADIUS / 2;
-			iY = RandomX(-TRFM_RADIUS, -TRFM_RADIUS / 2);
-		}
-		if(GBackSolid(iX, iY))
-			continue;
-		CreateParticle("Raindrop", iX, iY, RandomX(GetWind(), GetWind()*3), RandomX(100, 200), 5*64 + Random(32));
-	}
 }
 
 protected func FxDigEarthStart(object pTarget, int iEffectNumber, bool fTemp, int iX, int iY) {
@@ -143,12 +127,26 @@ public func ShowDigger() {
 	}
 }
 
-protected func BlowAtmosphere(){
-  //CO²
-  CreateParticle("Smoke",0,-18,0,-20,150, RGBa(255,255,255,0));
-  CreateParticle("Smoke",0,-18,0,-20,50);
-  /*PushParticles(CO2, 0, -50);*/
-  }
+protected func FxBlowAtmosphereTimer() {
+	if(!IsTerraforming())
+		return;
+	
+	// CO2
+	CreateParticle("Smoke", 0, -18, 0, -20, 150, RGBa(255, 255, 255, 0));
+	CreateParticle("Smoke", 0, -18, 0, -20, 50);
+	
+	// Regen
+	for(var i = RandomX(2, 5); i; i--) {
+		var iX = 0, iY = 0;
+		while(!iX || Distance(iX, iY) > TRFM_RADIUS) {
+			iX = Random(TRFM_RADIUS) - TRFM_RADIUS / 2;
+			iY = RandomX(-TRFM_RADIUS, -TRFM_RADIUS / 2);
+		}
+		if(GBackSolid(iX, iY))
+			continue;
+		CreateParticle("Raindrop", iX, iY, RandomX(GetWind(), GetWind()*3), RandomX(100, 200), 5*64 + Random(32));
+	}
+}
   
 
 /* Steuerung */
