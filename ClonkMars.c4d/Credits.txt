@@ -1,3 +1,5 @@
+// CREDITZ!
+
 Mirosh (EKE Pack): Schweiss-Sound
 
 Hazard Team: Dunkelheit- und Lasersystem, div. Effekte
@@ -15,6 +17,10 @@ JCaesar: Kapsellandesystem, div. Bugfixes
 Killerwipf: Kristallabbau-Regel
 
 Joshi: gelegentliches Betatesting
+
+ala, mcGreen: Betatesting
+
+Community: Bugs finden, tolles Feedback
 
 Team StarEmpires: Lavablasen-Effekt
 
