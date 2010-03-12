@@ -32,7 +32,9 @@ private func OpenMenu() {
 		if(GetIndexOf(ID, antirules) != -1)
 			continue;
 		PushBack(ID, choosable);
-		AddBoolChoice(menu, 0, ID, 0, GetName(0, ID), ID, ObjectCount2(Find_ID(ID)));
+		
+		var condition = ID -> ~ChoosingCondition();
+		AddBoolChoice(menu, 0, ID, condition, GetName(0, ID), ID, ObjectCount2(Find_ID(ID)));
 	}
 	
 	CreateMenuByTemplate(GetCursor(), this, "Choose", menu);
