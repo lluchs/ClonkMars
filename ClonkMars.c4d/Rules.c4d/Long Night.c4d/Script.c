@@ -17,3 +17,5 @@ protected func Activate(iPlr) {
 }
 
 public func IsChoosable() { return true; } // Regelwähler
+
+public func ChoosingCondition() { return MenuCond_Not(MenuCond_Activated(0, LDAY)); }
