@@ -50,6 +50,8 @@ unter anderem
 Rundenordner:
   + neuer Musiktrack: Echoes
   + neues Szenario: Kasei Vallis
+  + neue Materialien: Schwefel, Kristall
+  + neue Materialtexturen für: Erde, Stein
   + alle Szenarien haben Regelwähler bekommen (mit Ausschluss für div. Regeln)
   * Loader, Musik und div. Grafiken nach Extra.c4g ausgelagert
 
