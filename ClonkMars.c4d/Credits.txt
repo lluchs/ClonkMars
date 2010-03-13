@@ -20,6 +20,8 @@ Joshi: gelegentliches Betatesting
 
 ala, mcGreen: Betatesting
 
+OpenClonk: Rock, Earth Textur (leichte Veränderungen)
+
 Community: Bugs finden, tolles Feedback
 
 Team StarEmpires: Lavablasen-Effekt
