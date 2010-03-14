@@ -45,6 +45,9 @@ public func Choose(array rules, ExtraData, bool canceled) {
 	if(canceled)
 		return;
 	
+	// Sound!
+	Sound("Special_Bip", true);
+	
 	// alle wählbaren Regeln entfernen
 	for(var ID in choosable) {
 		RemoveAll(ID);
