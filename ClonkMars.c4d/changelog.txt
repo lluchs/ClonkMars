@@ -57,6 +57,7 @@ Rundenordner:
 
 Objekte:
   + neues Ziel: Kristallabbau
+  + Viewporteffekte für Blut und Frieren
   + OverlayActions unterstützten Rotation, NextAction und Sound
   + Kristall implementiert als (Bau)Material
   + Sauerstoffflasche
@@ -73,7 +74,7 @@ Objekte:
   ! Satellitenschüssel kann nichtmehr rückgebaut werden
 
 Gebäude: 
-  + Baugrafik Port, Materialeinheit, Terraformer
+  + Baugrafik für Port, Materialeinheit und Terraformer
   + Terraformer erzeugt nun auch Gras und Wompfbeerenbaum
   + Radioteleskop erzeugt bei Aktivität Strahlen
   + Clonks können sich in der Basis löschen lassen
