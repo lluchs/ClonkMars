@@ -28,6 +28,11 @@ protected func Initialize() {
 	pLamp -> ChangeSizeXY(500, 1000);
 	pLamp -> LocalN("bAmbience") = true;
 	AddEffect("Headlamp", pLamp, 100, 1, this);
+	
+	// Viewport
+	if(!FindObject2(Find_ID(VWPT), Find_Owner(GetOwner()))) {
+		CreateObject(VWPT, 0, 0, GetOwner());
+	}
 
 	return inherited(...);
 }
@@ -390,6 +395,12 @@ protected func Hit(int iXDir, int iYDir) {
 	return 1;
 }
 
+protected func Damage() {
+	if(GetCursor() == this)
+		DoViewportBlood(GetOwner());
+	return _inherited(...);
+}
+
 protected func Death() {
 	for(var pObj in FindObjects(Find_ActionTarget(this), Find_Func("IsLight")))
 		pObj -> RemoveObject();
@@ -406,6 +417,12 @@ public func ContextHome(pCaller)
   [$CtxHomeDesc$|Image=CXHM|Condition=HasBase]
   SetCommand(this, "Enter", FindBase(GetOwner(this)));
   return(1);
+}
+
+protected func ContextSizeSelection(object pClonk) {
+	[Auflösung einstellen|Image=VWPT]
+	var iPlr = pClonk -> GetOwner();
+	return FindObject2(Find_ID(VWPT), Find_Owner(iPlr)) -> SizeSelection();
 }
 
 /* Unterwasserlaufen */
