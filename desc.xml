@@ -96,9 +96,10 @@
 <i>"aber ich versage da so, was den Sauerstoff angeht :&lt;"</i>
 <br />
 <br />
-<h2>Neues</h2>
-<div id="Neues">
-	<img src="projects/project1125/Portrait3.png" title="" align="right" alt="Raumfahrerclonk" />
+<!--<h2>Neues</h2>
+<div id="News">-->
+[region name="News" title="<h2>Neues</h2>"]
+	<img src="projects/project1125/Portrait3.png" title="" id="Portrait" alt="Raumfahrerclonk" />
 	<ul>
 		<li>
 			<u>31.01.10:</u>
@@ -155,8 +156,9 @@
 			<a href="bugtrack.php?prj=1125">Bugtracker</a>.
 		</li>
 		<li>
-			<h3>Archiv</h3>
-			<div id="Archiv">
+			<!--<h3>Archiv</h3>
+			<div id="Archiv">-->
+			[region name="Archiv" title="<h3>Archiv</h3>"]
 				<ul>
 					<li>
 						<u>16.12.09:</u>
@@ -293,13 +295,16 @@
 						<u>12.08.09:</u> Projektseite er&#246;ffnet
 					</li>
 				</ul>
-			</div>
+			<!--</div>-->
+			[/region]
 		</li>
 	</ul>
-</div>
+<!--</div>-->
+[/region]
 <br />
-<h2>Die Mars Geschichte</h2>
-<div id="history">
+<!--<h2>Die Mars Geschichte</h2>
+<div id="history">-->
+[region name="history" title="<h2>Die Mars Geschichte</h2>"]
 	Alles fing mit Markus
 	L&#252;tkemeyers Colonize Mars im Jahr 2002 an. Das wurde noch
 	f&#252;r Clonk Planet programmiert. 2007/2008 habe ich versucht
@@ -309,10 +314,12 @@
 	Bildergallerie zum Thema Mars-Geschichte in Clonk ist 
 	<a href="projects/project1125/History_big.jpg">
 	hier</a>verf&#252;gbar.
-</div>
+<!--</div>-->
+[/region]
 <br />
-<h2>Konzepte</h2>
-<div id="concept">
+<!--<h2>Konzepte</h2>
+<div id="concept">-->
+[region name="concept" title="<h2>Konzepte</h2>"]
 	<div class="kbox">
 		<div class="sprite clunker"></div>
 		<div class="konzept">
@@ -378,10 +385,12 @@
 			den Schwung nehmen kann.
 		</div>
 	</div>
-</div>
+<!--</div>-->
+[/region]
 <br />
-<h2>Screenshots</h2>
-<div id="screens">
+<!--<h2>Screenshots</h2>
+<div id="screens">-->
+[region name="screens" title="<h2>Screenshots</h2>"]
 	Es gibt viel zu entdecken bei uns hier! Schaut euch in Ruhe
 	um. Die Screenshots sind chronologisch (von links oben nach rechts
 	unten aufsteigend) geordnet, deshalb k&#246;nnen ggf. einige
@@ -410,7 +419,8 @@
 	  <img alt="Eos" border="0" src="projects/project1125/Eos_prev.jpg"></a>
 	<a href="projects/project1125/Sinus.jpg" title="Kanibal, B_E und _Chris siedeln eine Runde">
 	  <img alt="Sinus" border="0" src="projects/project1125/Sinus_thumb.jpg"></a>
-</div>
+<!--</div>-->
+[/region]
 <br />
 <div>
 	<br />Es gibt bereits einiges au&#223;erhalb dieser Projektseite
@@ -426,8 +436,9 @@
 	<a href="http://home.arcor.de/m6/m6/markusl/archiv/2009/10/entry_157.htm">Klick mich!</a>
 </div>
 <br />
-<h2>Projektinfos</h2>
-<div id="projektinfos">
+<!--<h2>Projektinfos</h2>
+<div id="projektinfos">-->
+[region name="projektinfos" title="<h2>Projektinfos</h2>"]
 	Die Grafiken wurden alle mit Cinema4D R11 erstellt, und mit
 	Photoshop nachbearbeitet. Clonkgrafiken wurden von Randrian mit
 	Blender erstellt. Das Pack ist ausschlie&#223;lich f&#252;r
@@ -442,4 +453,5 @@
 	liegt bei 2086MB, die sich aus insgesamt 2914 Dateien, sowie 1419
 	Ordnern zusammensetzen. Das Projekt selbst befindet sich zur Zeit
 	in der Beta Phase und ist gesch&#228;tzt bei ca. 68%.
-</div>
+<!--</div>-->
+[/region]
