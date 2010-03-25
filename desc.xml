@@ -98,13 +98,32 @@
 <br />
 <!--<h2>Neues</h2>
 <div id="News">-->
-[region name="News" title="<h2>Neues</h2>"]
+[region name="News" title="<h2>Neues</h2>" expanded="true"]
 	<img src="projects/project1125/Portrait3.png" title="" id="Portrait" alt="Raumfahrerclonk" />
 	<ul>
 		<li>
+			<u>24.03.10:</u>
+			<i>rev771</i>: Nach einiger Zeit nun wieder ein Statusbericht, 
+			leider keine Betaversion. Wir kommen ganz passabel voran, im 
+			Bugtracker sind noch einige Bugs, die es zu fixen gibt, in der 
+			Todoliste stehen noch vier recht kleine Sachen. Wenn die Sachen 
+			alle erledigt sind, releasen wir Beta3, das wohl größte öffentluche 
+			Update bisher in der CM-History. Danach werden wir eine Pre-Release 
+			Version ansteuern, die sich mehr auf Perfektionieren als auf neue 
+			Features konzentrieren wird, sprich wir werden Feinheiten und 
+			Schönheitskorrekturen einbauen. Diese wird dann nochmal von euch 
+			auf Herz und Nieren geprüft und dann steht einem Finalrelease 
+			nichts mehr im Wege. Wie es weitergeht...wir werden sehen. 
+			<br />
+			Aber damit ihr nicht leer ausgeht, haben wir uns die Mühe gemacht
+			und die komplette Seite neu überarbeitet. Neues CSS, neue 
+			Beschreibungen und im Bereich Konzepte gibts eine komplett 
+			neue Grafik zum Thema Gebäude-Interaktion.
+		</li>
+		
+		<li>
 			<u>31.01.10:</u>
 			<i>rev663</i>: Januar ist ein fleissiger Monat, somit w&#228;re
-			
 			<b>Beta2</b> fertig! Wir haben so gut wie alle Bugs, die
 			gemeldet wurden ausgeb&#252;gelt, sowie auch einige Features
 			eingebaut. Einen vollst&#228;ndigen Changelog gibt es 
@@ -115,51 +134,52 @@
 		</li>
 		
 		<li>
-			<u>25.01.10:</u>
-			<i>rev643</i>: Ein kurzer Zwischenstand: Bisher sind viele Bugs
-			aus der Beta eingetroffen und auch bearbeitet/behoben. Zwar
-			gibt es immer wieder einige, die "geht nicht" sagen, doch der
-			Gro&#223;teil h&#228;lt sich daran uns auch genauere
-			Informationen dazu zu geben. Somit werden wir versuchen Beta2
-			anzusteuern, aber einen konkreten Zeitplan daf&#252;r gibt es
-			noch nicht. Bis dahin bleibt daf&#252;r der Bugtracker weiter
-			&#246;ffentlich. Auch habe ich die Projektseite mal wieder
-			geupdatet: Der geplante Meleepart wird ganz entfernt, sodass
-			wir uns voll auf das Siedeln konzentrieren k&#246;nnen. Melees
-			machen andere Projekte genug, wir bleiben erstmal auf unserer
-			bisherigen Schiene. So long.
-		</li>
-		
-		<li>
-		<u>20.01.10:</u>
-			<i>rev600</i>: Der Kapselport funktionierte bisher leider nicht
-			richtig, aufgrund eines Features, das aber noch nicht in der
-			Demo enthalten war. Dazu gibt es jetzt einen Hotfix unter den
-			Release Logs. Einfach die c4u in das Clonk Verzeichnis
-			entpacken und per Doppelklick starten, der Rest erfolgt
-			automatisch. Beachtet, dass von nun an wom&#246;glich eure
-			Pakete abweichen werden von denen anderer Spieler. Macht alle
-			die ihr kennt und mit denen ihr ClonkMars spielen wollt
-			unbedingt auf diesen Fix aufmerksam! Update vom 21.01.2010:
-			Leider unterlief mir ein Fehler bei der Updatedatei. Luchs hat
-			das nun behoben und ihr solltet den Fix nun korrekt
-			ausf&#252;hren k&#246;nnen! Das Update ist wie immer unter den
-			ReleaseLogs zu finden
-		</li>
-		
-		<li>
-			<u>16.01.10:</u>
-			<i>rev593</i>: CM startet durch, die 
-			<b>Beta</b> ist erh&#228;ltlich! Download &#252;ber den Link bei
-			Release Logs, oder direkt &#252;ber das Clonk-Center. Bugs
-			bitte wie gehabt in den wieder &#246;ffentlichen 
-			<a href="bugtrack.php?prj=1125">Bugtracker</a>.
-		</li>
-		<li>
 			<!--<h3>Archiv</h3>
 			<div id="Archiv">-->
 			[region name="Archiv" title="<h3>Archiv</h3>"]
 				<ul>
+					<li>
+						<u>25.01.10:</u>
+						<i>rev643</i>: Ein kurzer Zwischenstand: Bisher sind viele Bugs
+						aus der Beta eingetroffen und auch bearbeitet/behoben. Zwar
+						gibt es immer wieder einige, die "geht nicht" sagen, doch der
+						Gro&#223;teil h&#228;lt sich daran uns auch genauere
+						Informationen dazu zu geben. Somit werden wir versuchen Beta2
+						anzusteuern, aber einen konkreten Zeitplan daf&#252;r gibt es
+						noch nicht. Bis dahin bleibt daf&#252;r der Bugtracker weiter
+						&#246;ffentlich. Auch habe ich die Projektseite mal wieder
+						geupdatet: Der geplante Meleepart wird ganz entfernt, sodass
+						wir uns voll auf das Siedeln konzentrieren k&#246;nnen. Melees
+						machen andere Projekte genug, wir bleiben erstmal auf unserer
+						bisherigen Schiene. So long.
+					</li>
+					
+					<li>
+					<u>20.01.10:</u>
+						<i>rev600</i>: Der Kapselport funktionierte bisher leider nicht
+						richtig, aufgrund eines Features, das aber noch nicht in der
+						Demo enthalten war. Dazu gibt es jetzt einen Hotfix unter den
+						Release Logs. Einfach die c4u in das Clonk Verzeichnis
+						entpacken und per Doppelklick starten, der Rest erfolgt
+						automatisch. Beachtet, dass von nun an wom&#246;glich eure
+						Pakete abweichen werden von denen anderer Spieler. Macht alle
+						die ihr kennt und mit denen ihr ClonkMars spielen wollt
+						unbedingt auf diesen Fix aufmerksam! Update vom 21.01.2010:
+						Leider unterlief mir ein Fehler bei der Updatedatei. Luchs hat
+						das nun behoben und ihr solltet den Fix nun korrekt
+						ausf&#252;hren k&#246;nnen! Das Update ist wie immer unter den
+						ReleaseLogs zu finden
+					</li>
+					
+					<li>
+						<u>16.01.10:</u>
+						<i>rev593</i>: CM startet durch, die 
+						<b>Beta</b> ist erh&#228;ltlich! Download &#252;ber den Link bei
+						Release Logs, oder direkt &#252;ber das Clonk-Center. Bugs
+						bitte wie gehabt in den wieder &#246;ffentlichen 
+						<a href="bugtrack.php?prj=1125">Bugtracker</a>.
+					</li>
+					
 					<li>
 						<u>16.12.09:</u>
 						<i>rev526</i>: Es gibt mittlerweile viel zu berichten.
@@ -305,124 +325,57 @@
 <!--<h2>Die Mars Geschichte</h2>
 <div id="history">-->
 [region name="history" title="<h2>Die Mars Geschichte</h2>"]
-	Alles fing mit Markus
-	L&#252;tkemeyers Colonize Mars im Jahr 2002 an. Das wurde noch
-	f&#252;r Clonk Planet programmiert. 2007/2008 habe ich versucht
-	davon ein Remake zu machen, was aber letztendes an zu linearen
-	Spielablauf (-Spa&#223;) scheiterte. 2009 war nun die Idee einfach
-	das Thema zu verwenden, aber mit eigenen Konzepten. Eine
+	Alles fing mit Markus 
+	L&#252;tkemeyers Colonize Mars im Jahr 2002 an. Das wurde noch 
+	f&#252;r Clonk Planet programmiert. 2007/2008 habe ich versucht 
+	davon ein Remake zu machen, was aber letztendes an zu linearen 
+	Spielablauf (-Spa&#223;) scheiterte. 2009 war nun die Idee einfach 
+	das Thema zu verwenden, aber mit eigenen Konzepten. Eine 
 	Bildergallerie zum Thema Mars-Geschichte in Clonk ist 
-	<a href="projects/project1125/History_big.jpg">
-	hier</a>verf&#252;gbar.
+	<b><a href="projects/project1125/History_big.jpg">hier</a></b> verf&#252;gbar.
 <!--</div>-->
 [/region]
 <br />
 <!--<h2>Konzepte</h2>
 <div id="concept">-->
 [region name="concept" title="<h2>Konzepte</h2>"]
-	<div class="kbox">
-		<div class="sprite clunker"></div>
-		<div class="konzept">
-			<b>Clunker verdienen</b>
-			<br />
-			Clunker braucht man immer und allgegenw&#228;rtig.
-			Diverse Einnahmequellen w&#228;ren zB der Verkauf von
-			Energiezellen. Die Energie bekommt man durch die Sonne gratis,
-			es muss nur gen&#252;gend produziert werden, um die Siedlung zu
-			versorgen, sowie auch Energiezellen auff&#252;llen zu
-			k&#246;nnen.
-		</div>
-	</div>
-	<div class="kbox">
-		<div class="sprite materialien"></div>
-		<div class="konzept">
-			<b>Materialien verarbeiten</b>
-			<br />
-			Die Grundbausteine werden vermutlich (&#196;nderungen
-			vorbehalten) Plastik und Metall sein. Metall stellt man aus
-			Erde her, die vom Himmel stets herabregnet (staubform). Die
-			Erde ist sehr eisenhaltig, von daher ist das kein Problem
-			f&#252;r die Clonks. Plastik stellt man wiederum aus &#214;l
-			her, dass es durch &#214;lquellen nahezu unbegrenzt gibt.
-			&#214;l wird somit zu einem sehr wichtigen taktischen Element.
-			Durch die Quellen und den Regen wird gew&#228;hrleistet, dass
-			kein Material zur Neige geht. Es gilt nur den Hunger nach
-			selbigen zu stillen in dem man sein Gebiet ausweitet und immer
-			mehr ankn&#252;pft. Wer zB 80% der Karte hat, hat gute Chancen
-			f&#252;r viele &#214;lquellen, sowie den Marsstaubregen.
-		</div>
-	</div>
-	<div class="kbox">
-		<div class="sprite forschen"></div>
-		<div class="konzept">
-			<b>Forschen</b>
-			<br />
-			Es wird eine vielzahl von Upgrades geben, die es erst
-			erm&#246;glichen wirklich effektiv seine Ressourcen
-			auszunutzen. Es kann von Erweiterungen der
-			Speicherkapazit&#228;ten, bis hin zu moderner Waffentechnik
-			gehen, die es erm&#246;glicht den Spieler noch wegzubomben eh
-			er selbst Waffen hat - insofern dieser zu faul/vergessen hat
-			auch div. Techniken zu erforschen.
-		</div>
-	</div>
-	<div class="kbox">
-		<div class="sprite jetbelt"></div>
-		<div class="konzept">
-			<b>Unwirtliche Gegenden</b>
-			<br />
-			Desweiteren wird der Clonk extremen Bedingungen
-			ausgesetzt. Erstens hat er stetigen Sauerstoffbedarf, der ohne
-			Upgrades nur aus der Hauptbasis zu beziehen ist. Nachts, bzw.
-			in Polgegenden kann er schneller frieren als sonst und muss
-			sich so in div. Geb&#228;uden wieder aufw&#228;rmen gehen,
-			ansonsten nimmt er auch schaden. Die Gravitation ist hier zwar
-			ein Freund, da so besser h&#246;here Spr&#252;nge m&#246;glich
-			sind, aber daf&#252;r mag der Clonk ganz und gar nicht tief
-			fallen. Aus diesem Grund gibts per Upgrade ein Jetpack
-			mitgeliefert, womit er noch h&#246;here Punkte einfach
-			erreichen kann, oder seinen gr&#246;&#223;eren Spr&#252;ngen
-			den Schwung nehmen kann.
-		</div>
-	</div>
+	<img alt="Tech" title="" src="projects/project1125/tech.jpg" />
 <!--</div>-->
 [/region]
 <br />
 <!--<h2>Screenshots</h2>
 <div id="screens">-->
-[region name="screens" title="<h2>Screenshots</h2>"]
+[region name="screens" title="<h2>Screenshots</h2>" expanded="true"]
 	Es gibt viel zu entdecken bei uns hier! Schaut euch in Ruhe
 	um. Die Screenshots sind chronologisch (von links oben nach rechts
 	unten aufsteigend) geordnet, deshalb k&#246;nnen ggf. einige
 	Unterschiede bei denselben Objekten auftauchen.
 	<br />
 	<br />
-	<a href="projects/project1125/Settle.jpg" title="Clonks bauen Tank zusammen">
-	  <img alt="Siedlung" border="0" src="projects/project1125/Settle_prev.jpg"></a>
-	<a href="projects/project1125/Lobby.jpg" title="Lobbyansicht">
-	  <img alt="Lobby" border="0" src="projects/project1125/Lobby_prev.jpg"></a>
 	<a href="projects/project1125/Abendtransmit.jpg" title="Beamen in der Abenddämmerung - wunderschön!">
-	  <img alt="Transmitter" border="0" src="projects/project1125/Abendtransmit_prev.jpg"></a>
+	  <img alt="Transmitter" src="projects/project1125/Abendtransmit_prev.jpg" /></a>
 	<a href="projects/project1125/transmitter3.jpg" title="Öllager Bravo">
-	  <img alt="Öllager" border="0" src="projects/project1125/transmitter3_prev.jpg"></a>
+	  <img alt="Öllager" src="projects/project1125/transmitter3_prev.jpg" /></a>
 	<a href="projects/project1125/bigsettlement.jpg" title="Zentrum der Kolonie">
-	  <img alt="Kolonie" border="0" src="projects/project1125/bigsettlement_prev.jpg"></a>
+	  <img alt="Kolonie" src="projects/project1125/bigsettlement_prev.jpg" /></a>
 	<a href="projects/project1125/terraformer2.jpg" title="Ein Terraformer bei der Arbeit">
-	  <img alt="Terraformer" border="0" src="projects/project1125/terraformer2_prev.jpg"></a>
+	  <img alt="Terraformer" src="projects/project1125/terraformer2_prev.jpg" /></a>
 	<a href="projects/project1125/HUD_new.jpg" title="Das neue HUD mit vielen nützlichen Infos">
-	  <img alt="HUD" border="0" src="projects/project1125/HUD_new_prev.jpg"></a>
-	<a href="projects/project1125/Phobosmars.jpg" title="ein Außenposten auf Phobos. Im Hintergrund ist der gewaltige Mars zu sehen">
-	  <img alt="Phobos" border="0" src="projects/project1125/Phobosmars_prev.jpg"></a>
+	  <img alt="HUD" src="projects/project1125/HUD_new_prev.jpg" /></a>
 	<a href="projects/project1125/Baugrafik.jpg" title="Alle Gebäude bekommen Stück für Stück Baugrafiken">
-	  <img alt="Baugrafiken" border="0" src="projects/project1125/Baugrafik_prev.jpg"></a>
+	  <img alt="Baugrafiken" src="projects/project1125/Baugrafik_prev.jpg" /></a>
 	<a href="projects/project1125/Eos.jpg" title="Eine ziemlich gut funktionierende Siedlung">
-	  <img alt="Eos" border="0" src="projects/project1125/Eos_prev.jpg"></a>
+	  <img alt="Eos" src="projects/project1125/Eos_prev.jpg" /></a>
 	<a href="projects/project1125/Sinus.jpg" title="Kanibal, B_E und _Chris siedeln eine Runde">
-	  <img alt="Sinus" border="0" src="projects/project1125/Sinus_thumb.jpg"></a>
+	  <img alt="Sinus" src="projects/project1125/Sinus_thumb.jpg" /></a>
+	<a href="projects/project1125/Kasei.jpg" title="Lustige Siedlerei zwischen heißer Lava mit ala">
+	  <img alt="Kasei" src="projects/project1125/Kasei_prev.jpg" /></a>
 <!--</div>-->
 [/region]
 <br />
-<div>
+<!--<h2>Artikel</h2>
+<div id="Artikel">-->
+[region name="Artikel" title="<h2>Artikel</h2>"]
 	<br />Es gibt bereits einiges au&#223;erhalb dieser Projektseite
 	&#252;ber Clonk Mars. Und das wollen wir nat&#252;rlich nicht
 	vorenthalten.
@@ -434,24 +387,5 @@
 	<br />
 	Hier ein kleiner Blogpost in Markus L&#252;tkemeyers (der Vater von Colonize Mars) Blog. 
 	<a href="http://home.arcor.de/m6/m6/markusl/archiv/2009/10/entry_157.htm">Klick mich!</a>
-</div>
-<br />
-<!--<h2>Projektinfos</h2>
-<div id="projektinfos">-->
-[region name="projektinfos" title="<h2>Projektinfos</h2>"]
-	Die Grafiken wurden alle mit Cinema4D R11 erstellt, und mit
-	Photoshop nachbearbeitet. Clonkgrafiken wurden von Randrian mit
-	Blender erstellt. Das Pack ist ausschlie&#223;lich f&#252;r
-	ClonkRage gebaut und gew&#228;hrleistet keinerlei
-	Abw&#228;rtskompatibilit&#228;t. Die Musik wurde mit MusicMaker
-	erstellt, aus einigen, auch nachbearbeiteten Soundpool-Presets,
-	sowie einigen zusammengeschnittenen Sounds, entweder selbst
-	erstellt, oder &#252;ber freie Soundbibliotheken.
-	<br />
-	<br />
-	Die derzeitige Projektgr&#246;&#223;e aller Arbeitsdateien
-	liegt bei 2086MB, die sich aus insgesamt 2914 Dateien, sowie 1419
-	Ordnern zusammensetzen. Das Projekt selbst befindet sich zur Zeit
-	in der Beta Phase und ist gesch&#228;tzt bei ca. 68%.
 <!--</div>-->
 [/region]
