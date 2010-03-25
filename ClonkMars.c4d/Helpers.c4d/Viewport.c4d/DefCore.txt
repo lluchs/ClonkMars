@@ -5,3 +5,4 @@ Name=Viewport
 Category=C4D_StaticBack|C4D_Parallax|C4D_Foreground|C4D_IgnoreFoW|C4D_MouseIgnore
 Width=32
 Height=32
+Picture=0,0,32,32

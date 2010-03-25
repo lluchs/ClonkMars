@@ -57,7 +57,7 @@ Rundenordner:
 
 Objekte:
   + neues Ziel: Kristallabbau
-  + Viewporteffekte für Blut und Frieren
+  + Viewporteffekte für Schmerz (leider bisher nur bei Hit)
   + OverlayActions unterstützten Rotation, NextAction und Sound
   + Kristall implementiert als (Bau)Material
   + Sauerstoffflasche
