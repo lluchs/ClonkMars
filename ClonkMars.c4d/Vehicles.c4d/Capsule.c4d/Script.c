@@ -51,7 +51,7 @@ public func SetDstPort(object pPort, bool noauto) {
 		pPort->Occupy(this);
 		origx = GetX(pPort);
 	} else {
-		dst = Abs(GetY()-GetHorizon(GetX())) - 150;
+		dst = Abs(GetY()-GetHorizon()) - 150;
 		origx += RandomX(-400,400);
 	}
 	var iter = 300000/GetGravity()/dst;
