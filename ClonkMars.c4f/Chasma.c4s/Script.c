@@ -5,6 +5,7 @@
 func Initialize() {
   SetSkyAdjust(RGBa(255,255,255,160), RGB(70,30,15));
   SetGamma(RGB(50,0,0), RGB(140,100,100), RGB(255,220,220));
+  ScriptGo(1);
   return(1);
 }
 
@@ -19,3 +20,8 @@ protected func InitializePlayer(iPlr){
 
   //Regelwähler
   func NotChoosableRules() { return [LNGT,ENRG,CNMT]; }
+
+  func Script2() {
+  for(var i;i<1;i++) PlaceInMaterial(_BUB,Material("DuroLava"));
+  goto(1);
+  }
