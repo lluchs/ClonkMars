@@ -76,6 +76,7 @@ Objekte:
 Gebäude: 
   + Baugrafik für Port, Materialeinheit und Terraformer
   + Terraformer erzeugt nun auch Gras und Wompfbeerenbaum
+  + Terraformer Regen Ambiente
   + Radioteleskop erzeugt bei Aktivität Strahlen
   + Clonks können sich in der Basis löschen lassen
   * Transmitter und Basis haben nun vollständige Strings

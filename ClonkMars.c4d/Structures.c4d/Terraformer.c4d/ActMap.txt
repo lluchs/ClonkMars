@@ -16,6 +16,7 @@ Directions=1
 Delay=4
 Facet=0,0,40,25,0,0
 NextAction=Wait
+Sound=Env_Rain
 
 [Action]
 Name=Construct
