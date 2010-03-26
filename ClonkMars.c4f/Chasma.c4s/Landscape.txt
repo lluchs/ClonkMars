@@ -23,7 +23,7 @@ overlay earthtex { mat=earth; tex=smooth;
     overlay { mat=crystal; tex=rock2; algo=rndchecker; a=5; hgt=60; loosebounds=1; zoomX=-100; zoomY=-100; turbulence=100; };
   
     //Schwefel
-    overlay { mat=sulphur; tex=crystal3; algo=rndchecker; a=5; y=80; loosebounds=1; zoomX=20; zoomY=-80; turbulence=100; };    
+    overlay { mat=sulphur; tex=crystal3; algo=rndchecker; a=4; y=50; loosebounds=1; zoomX=-100; zoomY=-70; turbulence=100; };    
     
     //Stein+Textur
     overlay { mat=rock; tex=structure; algo=rndchecker; a=5; zoomX=-80; zoomY=20; turbulence=1000;
@@ -55,7 +55,7 @@ map TithoniumChasma {
 
   //Materialien (Tiefe)
   overlay { mat=oil; tex=liquid; algo=sin; oy=85; zoomX=100; zoomY=40; turbulence=10000;
-    earthtex { algo=lines; a=4; b=35; turbulence=1000; };
+    earthtex { algo=lines; a=4; b=45; turbulence=1000; };
     };
   overlay { mat=Ashes; tex=Structure; algo=lines; a=8; b=210; turbulence=1000; seed=5; ox=85; };   
   };

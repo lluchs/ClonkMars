@@ -21,7 +21,7 @@ protected func InitializePlayer(iPlr){
   //Regelwähler
   func NotChoosableRules() { return [LNGT,ENRG,CNMT]; }
 
-  func Script2() {
+  func Script5() {
   for(var i;i<1;i++) PlaceInMaterial(_BUB,Material("DuroLava"));
   goto(1);
   }
