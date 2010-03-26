@@ -20,7 +20,7 @@ overlay earthtex { mat=earth; tex=smooth;
   //Materialien
 
     //Kristall
-    overlay { mat=crystal; tex=rock2; algo=rndchecker; a=5; hgt=60; loosebounds=1; zoomX=-100; zoomY=-100; turbulence=100; };
+    overlay { mat=crystal; tex=crystal2; algo=rndchecker; a=5; hgt=60; loosebounds=1; zoomX=-100; zoomY=-100; turbulence=100; };
   
     //Stein+Textur
     overlay { mat=rock; tex=structure; algo=rndchecker; a=5; zoomX=-80; zoomY=20; turbulence=1000;
