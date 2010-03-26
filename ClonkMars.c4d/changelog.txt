@@ -54,6 +54,7 @@ Rundenordner:
   + neue Materialtexturen für: Erde, Stein
   + alle Szenarien haben Regelwähler bekommen (mit Ausschluss für div. Regeln)
   * Loader, Musik und div. Grafiken nach Extra.c4g ausgelagert
+  * Eis schmilzt nicht mehr
 
 Objekte:
   + neues Ziel: Kristallabbau
