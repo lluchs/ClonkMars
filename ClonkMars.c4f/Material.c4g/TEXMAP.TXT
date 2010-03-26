@@ -1,6 +1,8 @@
 # Static Map Material/Texture Table 
 # Index +128 for underground materials
 
+OverloadMaterials
+OverloadTextures
 
 03=Tunnel-Smooth
 02=Tunnel-Rough
