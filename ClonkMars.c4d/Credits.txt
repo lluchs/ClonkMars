@@ -18,7 +18,7 @@ Killerwipf: Kristallabbau-Regel
 
 Joshi: gelegentliches Betatesting
 
-ala, mcGreen: Betatesting
+ala, mcGreen: Betatesting, Map: Tithonium Chasma
 
 OpenClonk: Rock, Earth Textur (leichte Veränderungen)
 

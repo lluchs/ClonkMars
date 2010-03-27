@@ -80,6 +80,7 @@ Gebäude:
   + Terraformer Regen Ambiente
   + Radioteleskop erzeugt bei Aktivität Strahlen
   + Clonks können sich in der Basis löschen lassen
+  + Basis, Solarpaneel und Labor haben Zerstört-Grafiken (Deko)
   * Transmitter und Basis haben nun vollständige Strings
   * Akku verträgt etwas mehr Damage
   * alle Flints sind nun erforschbar
