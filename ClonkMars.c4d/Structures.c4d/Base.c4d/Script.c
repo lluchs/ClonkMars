@@ -115,10 +115,10 @@ public func OrderCapsule(hash, object pClonk, bool fCanceled) {
 	if(fCanceled || !CapsuleCheck(pClonk))
 		return;
 	if(HashGet(hash, "Sell") == "SellOnly") {
-		return !!CreateCapsule();
+		return !!CreateCapsule(pClonk -> GetOwner());
 	}
 	else {
-		var pCapsule = CreateCapsule();
+		var pCapsule = CreateCapsule(pClonk -> GetOwner());
 		if(!pCapsule) return;
 		var objs = HashGet(hash, "Buy");
 		var iter = HashIter(objs); // Iterator erzeugen
@@ -163,14 +163,14 @@ private func CapsuleCheck(object pClonk, bool announce) {
 	return true;
 }
 
-private func CreateCapsule() {
+private func CreateCapsule(int iOwner) {
 	var pPort, pCaps;
-	if(pPort = FindObject2(Find_ID(PORT), Find_OCF(OCF_Fullcon), Find_Allied(GetOwner()), Find_Distance(700), Find_Func("IsFree"), Sort_Distance())) {
-		pCaps = CreateObject(CPSL, AbsX(GetX(pPort)), AbsY(-100), GetOwner());
+	if(pPort = FindObject2(Find_ID(PORT), Find_OCF(OCF_Fullcon), Find_Allied(iOwner), Find_Distance(700), Find_Func("IsFree"), Sort_Distance())) {
+		pCaps = CreateObject(CPSL, AbsX(GetX(pPort)), AbsY(-100), iOwner);
 	} else {
 		var iX;
 		while((iX = RandomX(-200, 200) + GetX()) < 0 || iX > LandscapeWidth());
-		pCaps = CreateObject(CPSL, AbsX(iX), AbsY(-30), GetOwner());
+		pCaps = CreateObject(CPSL, AbsX(iX), AbsY(-30), iOwner);
 	}
 	pCaps->SetDstPort(pPort);
 	
