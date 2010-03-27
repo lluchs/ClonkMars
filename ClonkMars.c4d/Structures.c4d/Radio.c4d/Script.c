@@ -35,7 +35,6 @@ protected func ControlRight() {
 
 protected func ControlDig() {
 	DoBlast(true);
-	Sound("RADO_Shoot");
 }
 
 private func GetAngle() {
@@ -70,10 +69,11 @@ private func DoBlast(bool power) {
 	for(var pObj in FindObjects(Find_Or(Find_ID(METO), Find_OCF(OCF_Alive), Find_OCF(OCF_Collectible)), Find_NoContainer(), AngleCriteria())) {
 		pObj -> Hit();
 		Fling(pObj, Sin(iAngle, 10), -Cos(iAngle, 10));
-		Sound("RADO_Shoot");
 	}
 	
 	var pObj = CreateObject(RADE, 0, 0, GetOwner());
 	pObj -> SetR(iAngle);
 	pObj -> SetAction("Effect", this);
+	
+	Sound("RADO_Shoot");
 }
