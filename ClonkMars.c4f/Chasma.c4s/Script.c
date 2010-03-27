@@ -32,6 +32,9 @@ protected func InitializePlayer(iPlr){
   
 //Regelwähler
 func NotChoosableRules() { return [LNGT,ENRG,CNMT,RSNB]; }
+
+// 1px-Wand ignorieren
+func RightClosed() { return true; }
   
 func Script8() {
   for(var i;i<1;i++) PlaceInMaterial(_BUB,Material("DuroLava"));
