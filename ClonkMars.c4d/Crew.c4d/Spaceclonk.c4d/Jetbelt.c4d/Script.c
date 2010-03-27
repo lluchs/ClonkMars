@@ -180,7 +180,9 @@ protected func FxJetbeltTimer()
   		jGrab = 0;
   	}
   	else {
-	  	DoFuel(-PushConsumption() * jGrab -> GetMass() / 10);
+	  	// kostenlos, wenn die Triebwerke des Ziels aktiv sind (-> Kapsel)
+	  	if(!jGrab -> ~IsBlowingOut())
+	  		DoFuel(-PushConsumption() * jGrab -> GetMass() / 10);
 	  	jGrab -> SetXDir(xdir,0,1000);
 	  	jGrab -> SetYDir(ydir-GetGravityAccel4K(1000),0,1000);
   	}

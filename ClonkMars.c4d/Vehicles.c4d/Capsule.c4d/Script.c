@@ -277,6 +277,8 @@ protected func EffectDust() {
 	}
 }
 
+public func IsBlowingOut() { return GetEffect("Blowout", this); }
+
 public func Flying() { return !GetContact(this, -1);}
 
 public func MaxDamage() { return 20; }
