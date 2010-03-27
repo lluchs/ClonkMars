@@ -35,7 +35,7 @@ overlay earthtex { mat=earth; tex=smooth;
 map TithoniumChasma {
 
  //Steilhang auf einem Flieﬂbett
- overlay { mat=durolava; tex=smooth; y=74;
+ overlay { mat=durolava; tex=Smooth; y=74;
    overlay { mat=ashes; tex=Structure3; algo=sin; oy=62; ox=40; zoomX=90; zoomY=45; turbulence=100; };
    };
  
