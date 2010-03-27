@@ -53,11 +53,29 @@ public func Choose(array rules, ExtraData, bool canceled) {
 		RemoveAll(ID);
 	}
 	
+	var result = CreateArray();
+	
 	var iter = HashIter(rules), node;
 	while(node = HashIterNext(iter)) {
-		if(node[1])
+		if(node[1]) {
 			CreateObject(node[0], 0, 0, NO_OWNER);
+			PushBack(node[0], result);
+		}
 	}
+	
+	var lastItem = result[GetLength(result) - 1];
+	SetLength(result, GetLength(result) - 1);
+	
+	var output = "Regeln: ";
+	
+	for(var ID in result) {
+		output = Format("%s%s, ", output, GetName(0, ID));
+	}
+	
+	output = Format("%s%s", output, GetName(0, lastItem));
+	
+	Log(output);
+	Message(output);
 	
 	RemoveObject();
 }
