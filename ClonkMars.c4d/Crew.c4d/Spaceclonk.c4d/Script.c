@@ -34,6 +34,7 @@ protected func Initialize() {
 	if(!FindObject2(Find_ID(VWPT), Find_Owner(GetOwner()))) {
 		CreateObject(VWPT, 0, 0, GetOwner());
 	}
+	AddEffect("ViewportCheck", this, 1, 0, this);
 
 	return inherited(...);
 }
@@ -411,10 +412,11 @@ protected func Hit(int iXDir, int iYDir) {
 	return 1;
 }
 
-protected func Damage() {
-	if(GetCursor() == this)
+protected func FxViewportCheckDamage(object pTarget, int iEffectNumber, int iDmgEngy, int iCause) {
+	Message("%d", this, iDmgEngy);
+	if(iDmgEngy < 0 && GetCursor() == this)
 		DoViewportBlood(GetOwner());
-	return _inherited(...);
+	return iDmgEngy;
 }
 
 protected func Death() {
