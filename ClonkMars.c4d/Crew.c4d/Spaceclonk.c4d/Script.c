@@ -413,7 +413,7 @@ protected func Hit(int iXDir, int iYDir) {
 }
 
 protected func FxViewportCheckDamage(object pTarget, int iEffectNumber, int iDmgEngy, int iCause) {
-	if(iDmgEngy < 0 && GetCursor() == this)
+	if(iDmgEngy < 0 && GetCursor(GetOwner()) == this)
 		DoViewportBlood(GetOwner());
 	return iDmgEngy;
 }
