@@ -100,7 +100,7 @@ global func FxIntOverlayActionStart(object pTarget, int iEffectNumber, int iTemp
 	}
 	EffectVar(7, pTarget, iEffectNumber) = aPars[3];
 	Sound(GetActMapVal("Sound", szAction, GetID(pTarget)), 0, pTarget, 0, 0, +1);
-	UpdateActionOverlayTransform(pTarget, iOverlay, szAction);
+	UpdateActionOverlayTransform(pTarget, iOverlay, szAction, EffectVar(3, pTarget, iEffectNumber));
 }
 
 global func FxIntOverlayActionTimer(object pTarget, int iEffectNumber, int iEffectTime) {
