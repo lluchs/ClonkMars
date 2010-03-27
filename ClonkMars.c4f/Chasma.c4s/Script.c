@@ -11,11 +11,15 @@ func Initialize() {
   ScriptGo(1);
   
   //Forschungsstation
-  //Koordinaten  
-  //1135,1106
-  //1025,1299
-  //1246,1318
-  //996,1305
+  PlaceObjects(DBSE,1,"Durolava",950,1200,150,150);
+  PlaceObjects(DLAB,1,"Durolava",950,1200,150,150);
+  PlaceObjects(BONE,9,"Durolava",950,1200,150,150);
+  PlaceObjects(SKUL,3,"Durolava",950,1200,150,150);    
+  PlaceObjects(DSOL,3,"Durolava",950,1200,150,150);   
+  PlaceObjects(METL,2,"Durolava",950,1200,150,150);   
+  PlaceObjects(CELL,1,"Durolava",950,1200,150,150);   
+  PlaceObjects(SATD,1,"Durolava",950,1200,150,150);
+  PlaceObjects(ORE1,8,"Durolava",950,1200,150,150);    
   
   return(1);
   }
