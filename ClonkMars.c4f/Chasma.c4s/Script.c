@@ -31,7 +31,7 @@ protected func InitializePlayer(iPlr){
   }
   
 //Regelwähler
-func NotChoosableRules() { return [LNGT,ENRG,CNMT]; }
+func NotChoosableRules() { return [LNGT,ENRG,CNMT,RSNB]; }
   
 func Script8() {
   for(var i;i<1;i++) PlaceInMaterial(_BUB,Material("DuroLava"));

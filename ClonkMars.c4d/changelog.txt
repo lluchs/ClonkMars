@@ -51,11 +51,10 @@ Rundenordner:
   + neuer Musiktrack: Echoes
   + neues Szenario: Kasei Vallis, Tithonium Chasma
   + neue Materialien: Schwefel, Kristall
-  + neue Materialtexturen für: Erde, Stein
   + alle Szenarien haben Regelwähler bekommen (mit Ausschluss für div. Regeln)
   * Loader, Musik und div. Grafiken nach Extra.c4g ausgelagert
   * Eis schmilzt nicht mehr
-  * Lava, Kristall, Erde, Schwefel: Materialfarben und Texturen zum Teil angepasst
+  * Lava, Kristall, Erde, Schwefel, Stein: Materialfarben und Texturen zum Teil angepasst
 
 Objekte:
   + neues Ziel: Kristallabbau
