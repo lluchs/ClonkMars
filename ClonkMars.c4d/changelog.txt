@@ -49,12 +49,13 @@ unter anderem
 ### Beta3 0.85 ###
 Rundenordner:
   + neuer Musiktrack: Echoes
-  + neues Szenario: Kasei Vallis
+  + neues Szenario: Kasei Vallis, Tithonium Chasma
   + neue Materialien: Schwefel, Kristall
   + neue Materialtexturen für: Erde, Stein
   + alle Szenarien haben Regelwähler bekommen (mit Ausschluss für div. Regeln)
   * Loader, Musik und div. Grafiken nach Extra.c4g ausgelagert
   * Eis schmilzt nicht mehr
+  * Lava, Kristall, Erde, Schwefel: Materialfarben und Texturen zum Teil angepasst
 
 Objekte:
   + neues Ziel: Kristallabbau
@@ -66,6 +67,7 @@ Objekte:
   + Speichersystem aus Luftherrschaft implementiert
   + Regelwähler (Aufrufbar über globales Regelmenü)
   * wieder der alte O2-Warnsound
+  * Kapsel lässt sich per Jetpack kostenlos transportieren
   * Trümmerteile haben RandomContent beim entpacken
   * Satschüssel ist zum erforschen freigegeben
   * Satschüssel hat nun korrekte Beschreibung
@@ -84,15 +86,18 @@ Gebäude:
   * Transmitter und Basis haben nun vollständige Strings
   * Akku verträgt etwas mehr Damage
   * alle Flints sind nun erforschbar
+  * alle Flints sind auch baubar (Materialeinheit)
   * bei Aktivität stößt Terraformer Wasserdampf/CO2 aus
   * zufällige Forschungszeit für alle Elemente
   ! Panel und Basis erhalten keine Sonnenstrahlen mehr in Flüssigkeit
+  ! Kein Türflackern mehr (Matunit)
   ! Bohrturm wieder erforschbar
   ! Leitungen lassen sich nich mehr an unfertigen Gebäuden anschließen
   ! Materiallabor macht jetzt bei allen Produktionen Sound
   ! fehlende Strings in der Basis hinzugefügt
   ! Tote Clonks in Gebäuden werden nicht mehr mitgezählt und belegen so keinen Crew-Platz
   ! Forschungen werden zusammengefasst, wenn man mehrmals dasselbe auswählt
+  ! Forschung wird pausiert, falls kein forschender Clonk mehr da ist (zB durch Tod)
 
 Fahrzeuge:
   * Kapsel ist nun schiebbar
@@ -105,4 +110,5 @@ Fahrzeuge:
   ! Tür öffnet sich nichtmehr, wenn man Kapsel in ein Gebäude hineinschieben will
   ! Kapsel nichtmehr in Materialeinheit schiebbar
   ! zweite Triebwerkszündung bei Landekapseln ist nun unkaputt
+  ! Kapsel-Landevektoring Bug behoben
 
