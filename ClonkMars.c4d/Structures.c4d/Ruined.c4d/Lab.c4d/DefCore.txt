@@ -17,6 +17,7 @@ VertexFriction=20,20,20,20,20
 VertexCNAT=0,0,0,0,0
 Entrance=-20,12,20,24
 Exclusive=1
+Rotate=1
 
 [Physical]
 Energy=1500000
