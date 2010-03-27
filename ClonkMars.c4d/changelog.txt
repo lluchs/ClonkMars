@@ -66,6 +66,7 @@ Objekte:
   + Speichersystem aus Luftherrschaft implementiert
   + Regelwähler (Aufrufbar über globales Regelmenü)
   * wieder der alte O2-Warnsound
+  * kein Klettern&Hangeln mehr während Jetpackflug
   * Kapsel lässt sich per Jetpack kostenlos transportieren
   * Trümmerteile haben RandomContent beim entpacken
   * Satschüssel ist zum erforschen freigegeben
@@ -84,6 +85,7 @@ Gebäude:
   + Basis, Solarpaneel und Labor haben Zerstört-Grafiken (Deko)
   * Transmitter und Basis haben nun vollständige Strings
   * Akku verträgt etwas mehr Damage
+  * verstorbene Clonks können erneut reproduziert werden
   * alle Flints sind nun erforschbar
   * alle Flints sind auch baubar (Materialeinheit)
   * bei Aktivität stößt Terraformer Wasserdampf/CO2 aus
@@ -108,6 +110,7 @@ Fahrzeuge:
   ! Kapsel wirft Inhalt nur aus, wenn Booster deaktiviert sind
   ! Tür öffnet sich nichtmehr, wenn man Kapsel in ein Gebäude hineinschieben will
   ! Kapsel nichtmehr in Materialeinheit schiebbar
+  ! gekaufte Kapsel hat den kaufenden Clonk als Owner (vorher Basisowner)
   ! zweite Triebwerkszündung bei Landekapseln ist nun unkaputt
   ! Kapsel-Landevektoring Bug behoben
 
