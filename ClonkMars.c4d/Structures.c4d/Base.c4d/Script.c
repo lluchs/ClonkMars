@@ -362,6 +362,8 @@ protected func FxResearchEffect(string szNewEffectName, object pTarget, int iEff
 }
 
 protected func FxResearchTimer(object pTarget, int iEffectNumber, int iEffectTime) {
+	if(!ObjectCount2(Find_Container(this), Find_OCF(OCF_CrewMember)))
+		return PauseAllResearch();
 	if(!CheckPower(10)) {
 		Sound("Lab_Research", 0, 0, 0, 0, -1);
 		EffectVar(4, pTarget, iEffectNumber) = false;
