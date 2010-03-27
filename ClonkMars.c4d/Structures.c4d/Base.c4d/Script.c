@@ -41,6 +41,8 @@ private func CanOpen() {
 protected func Collection2(object pObj) {
 	if(pObj -> OnFire())
 		pObj -> Extinguish();
+	
+	return _inherited(pObj, ...);
 }
 
 /* Steuerung */
