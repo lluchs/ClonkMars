@@ -1,0 +1,23 @@
+[DefCore]
+id=DSOL
+Name=zerstörtes Solarpanel
+Category=1154
+MaxUserSelect=5
+Width=40
+Height=40
+Offset=-20,-20
+Value=1
+Mass=1000
+Components=METL=1;PSTC=2;
+Picture=0,0,40,40
+Vertices=3
+VertexX=0,-8,9
+VertexY=-2,20,20
+VertexFriction=100,50,50,100
+Exclusive=1
+Construction=1
+
+
+[Physical]
+Energy=5000
+ 
