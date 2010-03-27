@@ -10,6 +10,7 @@ private func ReproductionTime() { return(300); }
 
 local O2, O2Warning; // Sauerstoff in Prozent, akustische Warnung
 local initialized;
+local fReproduced; // ob der Clonk schon reproduziert wurde, nachdem er starb
 
 protected func Initialize() {
 	if(!initialized)
@@ -47,6 +48,14 @@ public func IsReproducing() {
 	return GetEffect("Reproduction", this);
 }
 
+public func IsReproduced() {
+	return fReproduced;
+}
+
+public func Reproduced() {
+	return fReproduced = true;
+}
+
 public func StartReproduction() {
 	return AddEffect("Reproduction", this, 1, 40, this);
 }
@@ -74,7 +83,14 @@ protected func FxReproductionTimer(object pTarget, int iEffectNumber, int iEffec
 	 pClonk -> DoCon(-40);
 	 pClonk -> Schedule("DoCon(1)", 50, 40);
 	 pClonk -> Birth();
-	 MakeCrewMember(pClonk, GetOwner());
+	 
+	 var pDeath = FindObject2(Find_ID(SCNK), Find_Owner(GetOwner()), Find_Not(Find_OCF(OCF_Alive)), Find_Not(Find_Func("IsReproduced")), Sort_Random());
+	 if(pDeath) {
+	 	pDeath -> Reproduced();
+	 	pClonk -> GrabObjectInfo(pDeath);
+	 }
+	 else
+	 	MakeCrewMember(pClonk, GetOwner());
 	 EffectVar(0, pTarget, iEffectNumber) = -1;
 	}
 }
