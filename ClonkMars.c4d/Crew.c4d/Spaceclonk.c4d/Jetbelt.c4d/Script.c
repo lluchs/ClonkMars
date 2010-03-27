@@ -88,6 +88,9 @@ private func Stop()
   {
     Sound("Jetbelt",0,this,0,0,-1);
     Sound("JetbeltStop");
+    
+    SetPhysical("CanScale", 1, PHYS_Temporary);
+    SetPhysical("CanHangle", 1, PHYS_Temporary);
   }
     
   StandBy();
@@ -127,6 +130,9 @@ private func Start(int iDir)
     Sound("Jetbelt",0,this,0,0,+1);
     SetUserAction();
     Active();
+    
+    SetPhysical("CanScale", 0, PHYS_Temporary);
+    SetPhysical("CanHangle", 0, PHYS_Temporary);
   }
 }
 
@@ -226,7 +232,8 @@ protected func FxJetbeltStop(object pTarget, int iEffectNumber) {
 	if(GetEffect(0, pTarget, iEffectNumber, 3)) {
 		Sound("Jetbelt",0,this,0,0,-1);
 		Sound("JetbeltStop");
-		Message("", this);
+		SetPhysical("CanScale", 1, PHYS_Temporary);
+		SetPhysical("CanHangle", 1, PHYS_Temporary);
 	}
 }
 
