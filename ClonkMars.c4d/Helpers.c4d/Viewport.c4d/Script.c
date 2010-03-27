@@ -11,6 +11,8 @@ static const VWPT_Freeze = 2;
 
 protected func Initialize() {
 	SetPosition(0, 0);
+	SetVisibility(VIS_Owner);
+	SetAction("Invisible");
 	
 	freeze = 255;
 	blood = 255;
