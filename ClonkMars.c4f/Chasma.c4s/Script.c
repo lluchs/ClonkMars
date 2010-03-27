@@ -6,8 +6,16 @@ func Initialize() {
   SetSkyAdjust(RGBa(255,255,255,160), RGB(70,30,15));
   SetGamma(RGB(50,0,0), RGB(140,100,100), RGB(255,220,220));
   ScriptGo(1);
+  
+  //Forschungsstation
+  //Koordinaten  
+  //1135,1106
+  //1025,1299
+  //1246,1318
+  //996,1305
+  
   return(1);
-}
+  }
 
 protected func InitializePlayer(iPlr){
   //ersten Clonk alles in die Hand geben
