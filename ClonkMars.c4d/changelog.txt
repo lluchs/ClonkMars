@@ -65,6 +65,7 @@ Objekte:
   + Wompfbeerenbaum (+Wompfbeere)
   + Speichersystem aus Luftherrschaft implementiert
   + Regelwähler (Aufrufbar über globales Regelmenü)
+  * Gebäudegrafik im Hintergrund beim Leitungsaufnehmen
   * wieder der alte O2-Warnsound
   * kein Klettern&Hangeln mehr während Jetpackflug
   * Kapsel lässt sich per Jetpack kostenlos transportieren
