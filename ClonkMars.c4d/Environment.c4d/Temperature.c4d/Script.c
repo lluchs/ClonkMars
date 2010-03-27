@@ -105,6 +105,12 @@ global func FxLandTempStart(object pTarget, int iEffectNumber, bool fTemp, int x
 		return;
 	EffectVar(0, 0, iEffectNumber) = x;
 	EffectVar(1, 0, iEffectNumber) = y;
+	
+	// Starttemperatur bei heiﬂem Material
+	if(GetMaterialVal("Incindiary", "Material", GetMaterial(x*LandTempDist, y*LandTempDist))) {
+		EffectVar(2, 0, iEffectNumber) = MaxTemp / 2;
+	}
+	
 	if(LandTempDebug)
 		CreateParticle("PSpark", x*LandTempDist, y*LandTempDist, 0, 0, 50, RGB(0, 255));
 }
