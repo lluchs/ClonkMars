@@ -219,6 +219,8 @@ protected func ControlUpDouble() {
 private func Launch() {
 	RemoveVertex(portvertex);
 	portvertex = -1;
+	SetAction("FreeFall");
+	SetActionData();
 	SetVertBlowout(2);
 	mode = 1;
 }
