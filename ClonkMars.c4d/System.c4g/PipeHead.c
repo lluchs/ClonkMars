@@ -18,7 +18,7 @@ protected func Transfer() {
 	if(!(pTarget -> Transfer(3, true) && GetMaterial() == Material("Oil")))
 		return StopTransfer(pTarget);
 	
-	if(!(HasEnergy && GetActTime() % 10)) {
+	if(!HasEnergy || GetActTime() % 10) {
 		if(pTarget -> EnergyCheck(5))
 			HasEnergy = true;
 		else {
