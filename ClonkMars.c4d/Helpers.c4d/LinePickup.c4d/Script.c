@@ -59,14 +59,25 @@ private func CreateLinePickupMenu()
 		if (line->GetActionTarget(1) == struct) { //From me to other
 			var other = line->GetActionTarget(0);
 			var msg = Format("$TxtPickupLineTo$", GetName(line), GetName(other));
-			AddMenuItem(msg, "LinePickup", GetID(line), this, 0, line, msg);
+			var dummy = CreateGraphicsDummy(other -> GetID(), line -> GetID());
+			AddMenuItem(msg, "LinePickup", 0, this, 0, line, msg, 4, dummy);
+			dummy -> RemoveObject();
 		}
 		else { //From other to me
 			var other = line->GetActionTarget(1);
 			var msg = Format("$TxtPickupLineFrom$", GetName(line), GetName(other));
-			AddMenuItem(msg, "LinePickup", GetID(line), this, 0, line, msg);		
+			var dummy = CreateGraphicsDummy(other -> GetID(), line -> GetID());
+			AddMenuItem(msg, "LinePickup", 0, this, 0, line, msg, 4, dummy);
+			dummy -> RemoveObject();
 		}
 	}
+}
+
+private func CreateGraphicsDummy(id obj, id line) {
+	var dummy = CreateObject(TIM1);
+	SetGraphics(0, dummy, obj, 1, GFXOV_MODE_Picture);
+	SetGraphics(0, dummy, line, 2, GFXOV_MODE_Picture);
+	return dummy;
 }
 
 protected func ContextLinePickup(pCaller)
