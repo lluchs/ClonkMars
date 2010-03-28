@@ -81,7 +81,7 @@ Gebäude:
   + Baugrafik für Port, Materialeinheit und Terraformer
   + Terraformer erzeugt nun auch Gras und Wompfbeerenbaum
   + Terraformer Regen Ambiente
-  + Radioteleskop erzeugt bei Aktivität Strahlen
+  + Radioteleskop erzeugt bei Aktivität Strahlen und hat Testmodus (für Radiuserkennung)
   + Clonks können sich in der Basis löschen lassen
   + Basis, Solarpaneel und Labor haben Zerstört-Grafiken (Deko)
   * Transmitter und Basis haben nun vollständige Strings
