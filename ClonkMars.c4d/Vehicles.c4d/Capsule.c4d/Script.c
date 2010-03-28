@@ -47,27 +47,28 @@ public func SetDstPort(object pPort, bool noauto) {
 	port = pPort;
 	var dst;
 	if(pPort) {
-		dst = Abs(GetY()-GetY(pPort))-30;
+		dst = Abs(GetY()-GetY(pPort));
 		pPort->Occupy(this);
 		origx = GetX(pPort);
 	} else {
-		dst = Abs(GetY()-GetHorizon()) - 150;
+		dst = Min(Abs(GetY()-GetHorizon(-24)) - 150, Abs(GetY()-GetHorizon(24)) - 150);
 		origx += RandomX(-400,400);
 	}
-	var iter = 300000/GetGravity()/dst;
-	var t;
+	var iter = dst / GetGravity(), t;
+	Log("iter: %v", iter);
+	var capsacc = iCapsAcceleration/20, gravacc = GetGravity()/20, landspd = iCapsLandSpeed/20;
 	while(true){
 		t+= iter;
 		var i=t,d=0,s=0;
 		while(i--) {
-			s += GetGravity();
+			s += gravacc;
 			d += s;
 		}
-		while(s > iCapsLandSpeed) {
-			s -= iCapsAcceleration;
+		while(s > landspd) {
+			s -= capsacc;
 			d += s;
 		}
-		if(d/500 > dst) {
+		if(d/20 > dst) {
 			if(iter == 1) break;
 			else {
 				t -= 2*iter;
