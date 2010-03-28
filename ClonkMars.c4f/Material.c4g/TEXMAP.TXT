@@ -4,8 +4,8 @@
 OverloadMaterials
 OverloadTextures
 
-03=Tunnel-Smooth
 02=Tunnel-Rough
+03=Tunnel-Smooth
 04=DuroLava-Smooth
 05=Lava-Smooth
 06=Water-Liquid
