@@ -22,21 +22,22 @@ map Fossae {
 map Fossae {
   overlay{
   mat=Earth;tex=Earth;algo=sin;
-  zoomX=45; zoomY=-900; oy=50; turbulence=500;
+  zoomX=45; zoomY=-900; oy=50; turbulence=50;
     overlay{
     
     algo=rndchecker; turbulence=300;}&
     overlay{mat=Rock;tex=Rock2;x=-30; wdt=120;hgt=80;
     loosebounds=1;turbulence=1000;
     
-     overlay{algo=rndchecker; turbulence=1000;}&
-     overlay{mat=Oil;tex=Liquid; y=89;
-          loosebounds=1; turbulence=1000; 
-          };
+     overlay{algo=rndchecker; turbulence=500;}&
+     overlay{mat=Oil;tex=Liquid;y=90;wdt=1200;hgt=1200;
+          loosebounds=1; turbulence=500;
+          };  
   };
-       overlay{mat=Crystal;tex=Ridge;algo=bozo;a=20;b=10;y=80;turbulence=500;};
-       overlay{mat=Oil;tex=Liquid; x=10;y=70;oy=10; hgt=20;
-       algo=lines; a=10; b=50;turbulence=1000; loosebounds=1; };
+       overlay{mat=Oil;tex=Liquid;
+       x=10;y=70;oy=50;hgt=20;
+       algo=lines; a=10; b=50;turbulence=910;};
        overlay{mat=Earth;tex=Earth;algo=rndchecker;turbulence=500;};
+       overlay{mat=Crystal;tex=Ridge;algo=bozo;a=20;b=10;y=80;turbulence=500;};
      };
   };
