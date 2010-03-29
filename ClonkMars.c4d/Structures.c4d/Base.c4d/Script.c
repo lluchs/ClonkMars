@@ -102,7 +102,7 @@ protected func ContainedUp(object pClonk) {
 	AddEnumChoice(menu, 0, "Sell");
 		AddEnumChoiceItem(menu, 0, "Sell", "SellOnly", "$TxtSell$", 0, "SellOnly");
 		AddEnumChoiceItem(menu, 0, "Sell", "Buy", "$TxtBuy$", 0, "Buy", true);
-	AddSubmenu(menu, 0, "Buy", MenuCond_Chosen(0, "Sell", "Buy"), "$TxtOrder$");
+	AddSubmenu(menu, 0, "Buy", MenuCond_Chosen(0, "Sell", "Buy"), "$TxtOrder$",IC_O);
 		var i = 0, ID;
 		while(ID = GetHomebaseMaterial(pClonk -> GetOwner(), 0, i++, C4D_Object)) {
 			AddRangeChoice(menu, ["Buy"], ID, 0, GetName(0, ID), ID, 0, GetHomebaseMaterial(pClonk -> GetOwner(), ID), 1, 0);
