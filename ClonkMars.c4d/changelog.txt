@@ -50,9 +50,10 @@ unter anderem
 Rundenordner:
   + neuer Musiktrack: Echoes
   + neues Szenario: Kasei Vallis, Tithonium Chasma
-  + neue Materialien: Schwefel, Kristall
+  + neue Material-Vorkommen: Schwefel, Kristall
   + alle Szenarien haben Regelwähler bekommen (mit Ausschluss für div. Regeln)
   * Loader, Musik und div. Grafiken nach Extra.c4g ausgelagert
+  * Fossae Landschaft wurde überarbeitet
   * Eis schmilzt nicht mehr
   * Lava, Kristall, Erde, Schwefel, Stein: Materialfarben und Texturen zum Teil angepasst
 
@@ -84,6 +85,7 @@ Gebäude:
   + Radioteleskop erzeugt bei Aktivität Strahlen und hat Testmodus (für Radiuserkennung)
   + Clonks können sich in der Basis löschen lassen
   + Basis, Solarpaneel und Labor haben Zerstört-Grafiken (Deko)
+  * fehlendes Kaufmenü Icon ergänzt
   * Transmitter und Basis haben nun vollständige Strings
   * Akku verträgt etwas mehr Damage
   * verstorbene Clonks können erneut reproduziert werden
