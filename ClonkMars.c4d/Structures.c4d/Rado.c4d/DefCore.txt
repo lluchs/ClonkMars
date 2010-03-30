@@ -1,6 +1,6 @@
 [DefCore]
 id=RADO
-Name=Radioteleskop
+Name=Rotating Anti Doom Operator™
 Category=1154
 MaxUserSelect=1
 Width=40
