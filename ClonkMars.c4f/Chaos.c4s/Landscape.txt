@@ -1,18 +1,47 @@
+//Rock //Volcanic
+overlay earthtex { mat=earth; tex=smooth;
+  overlay { mat=earth; tex=earth; algo=rndchecker; a=1; zoomX=-40; zoomY=-40; turbulence=1000; };
+  overlay { mat=earth; tex=Rock; algo=rndchecker; a=2; zoomX=-60; zoomY=-60; turbulence=1000; };
+  overlay { mat=earth; tex=ridge; algo=rndchecker; a=3; zoomX=-80; zoomY=-80; turbulence=1000; };
+  overlay { mat=earth; tex=smooth2; algo=rndchecker; a=4; zoomX=-100; zoomY=-100; turbulence=100; };
+  overlay { mat=earth; tex=spots; algo=rndchecker; a=6; zoomX=-100; zoomY=-100; turbulence=100; };
+  overlay { mat=earth; tex=Flare3; algo=rndchecker; a=6; zoomX=-100; zoomY=-100; turbulence=100; };  
+  overlay { mat=earth; tex=sponge; algo=rndchecker; a=6; zoomX=-100; zoomY=-100; turbulence=100; };             
+  };
+//Flare, Rock
+overlay ashestex { mat=flyashes; tex=spots;
+  overlay { mat=ashes; tex=Structure3; a=1; algo=rndchecker; turbulence=100; };
+  overlay { mat=ashes; tex=crystal3; a=2; algo=rndchecker; turbulence=1000; };  
+  };
+
+
 /* Eos */
 
 map Valley {
     //Krater
-    overlay{mat=Earth;algo=sin;a=50; zoomX=90;oy=50;loosebounds=1;
-           overlay{mat=Rock;algo=bozo;turbulence=600;zoomX=50;loosebounds=1;};
-                      overlay{mat=Earth;algo=bozo;turbulence=600;zoomY=50;loosebounds=1;};
+    ashestex { algo=sin; a=10; zoomX=70; zoomY=10; oy=49; ox=25;
+      overlay { mat=earth; tex=rock; algo=bozo; a=7; turbulence=100; zoomX=-40; zoomY=-100;
+        //Texturen        
+        overlay { mat=earth; tex=smooth; algo=rndchecker; turbulence=100; };
+        overlay { mat=earth; tex=earth; algo=rndchecker; a=2; turbulence=1000; };                
+        //Steinablagerungen
+        overlay { mat=rock; tex=Structure; algo=rndchecker; a=1; turbulence=100; };
+        };
+      overlay { mat=sulphur; tex=crystal3; algo=rndchecker; a=6; zoomX=-80; zoomY=-100; turbulence=1000; };
+                        
     //aushub (Meteor!)
-    overlay{mat=Tunnel; tex=smooth; algo=mandel;ox=10;zoomX=60;zoomY=30;turbulence=500;
-      overlay{mat=Oil;y=66;loosebounds=1;
+    overlay{ algo=mandel;ox=12;zoomX=60;zoomY=30;turbulence=100; loosebounds=1; 
+      overlay{ mat=tunnel; tex=smooth; algo=sin; zoomX=80; zoomY=20; oy=53; ox=30; };
+      overlay{mat=Oil;y=68;
       };
     };
-  };
 
- overlay{mat=Crystal;algo=lines;a=13; b=40;oy=75;loosebounds=1;turbulence=500;rotate=-25;};
- overlay{mat=Crystal;algo=lines;a=13; b=40;oy=125;loosebounds=1;turbulence=500;rotate=25;};
+    overlay { mat=sand; algo=sin; a=10; zoomX=70; zoomY=10; oy=75; ox=30; turbulence=100;
+      //Kristall 
+      //Stein
+      //Durolava
+      };   
+     
+  };
 };
   
