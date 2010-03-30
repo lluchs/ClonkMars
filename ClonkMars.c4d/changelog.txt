@@ -47,13 +47,14 @@ unter anderem
 
 
 ### Beta3 0.85 ###
-Rundenordner:
+Rundenordner/Extra.c4g:
   + neuer Musiktrack: Echoes
   + neues Szenario: Kasei Vallis, Tithonium Chasma
   + neue Material-Vorkommen: Schwefel, Kristall
   + Neuer Hintergrund für Eos Chaos
   + alle Szenarien haben Regelwähler bekommen (mit Ausschluss für div. Regeln)
   * Loader, Musik und div. Grafiken nach Extra.c4g ausgelagert
+  * neues Title für Chaos
   * Sinnvolle MaxPlayer Werte für alle Szenarien
   * Cerberus Fossae und Eos Chaos Landschaft wurden überarbeitet
   * Eis schmilzt nicht mehr
