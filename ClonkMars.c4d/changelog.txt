@@ -53,9 +53,9 @@ Rundenordner:
   + neue Material-Vorkommen: Schwefel, Kristall
   + alle Szenarien haben Regelwähler bekommen (mit Ausschluss für div. Regeln)
   * Loader, Musik und div. Grafiken nach Extra.c4g ausgelagert
-  * Fossae Landschaft wurde überarbeitet
+  * Cerberus Fossae und Eos Chaos Landschaft wurden überarbeitet
   * Eis schmilzt nicht mehr
-  * Lava, Kristall, Erde, Schwefel, Stein: Materialfarben und Texturen zum Teil angepasst
+  * Neue Texturen für viele Materialien
 
 Objekte:
   + neues Ziel: Kristallabbau
@@ -85,6 +85,7 @@ Gebäude:
   + Radioteleskop erzeugt bei Aktivität Strahlen und hat Testmodus (für Radiuserkennung)
   + Clonks können sich in der Basis löschen lassen
   + Basis, Solarpaneel und Labor haben Zerstört-Grafiken (Deko)
+  + Gebäude-Reperatursystem
   * fehlendes Kaufmenü Icon ergänzt
   * Transmitter und Basis haben nun vollständige Strings
   * Akku verträgt etwas mehr Damage
@@ -98,6 +99,7 @@ Gebäude:
   ! Bohrturm wieder erforschbar
   ! Leitungen lassen sich nich mehr an unfertigen Gebäuden anschließen
   ! Materiallabor macht jetzt bei allen Produktionen Sound
+  ! _inherited(...)-Aufruf in Deconstruction von Akku/Tank
   ! fehlende Strings in der Basis hinzugefügt
   ! Tote Clonks in Gebäuden werden nicht mehr mitgezählt und belegen so keinen Crew-Platz
   ! Forschungen werden zusammengefasst, wenn man mehrmals dasselbe auswählt
@@ -110,6 +112,7 @@ Fahrzeuge:
   * zerstört ein Spieler eine Kapsel, muss er einige Zeit auf eine neue warten
   * Kapsel stößt Boosterpartikel aus (vorher statische Grafik)
   * Kapsel kann mehrere Booster gleichzeitig zünden (verbessertes Handling)
+  * wenn eine Lore recycelt wird, schweißt nun der Clonk einige Zeit daran
   ! Kapsel wirft Inhalt nur aus, wenn Booster deaktiviert sind
   ! Tür öffnet sich nichtmehr, wenn man Kapsel in ein Gebäude hineinschieben will
   ! Kapsel nichtmehr in Materialeinheit schiebbar
