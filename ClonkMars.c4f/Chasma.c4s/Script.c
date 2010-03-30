@@ -25,14 +25,17 @@ func Initialize() {
   }
 
 protected func InitializePlayer(iPlr){
-  //ersten Clonk alles in die Hand geben
-  CreateContents(CNKT,GetCrew(iPlr,0),2);
-  CreateContents(METL,GetCrew(iPlr,0),2);
-  CreateContents(SATD,GetCrew(iPlr,0),1);
-  CreateContents(PSTC,GetCrew(iPlr,0),2);
-  return(1);
-  
-  }
+	var pCapsule = CreateObject(CPSL, RandomX(LandscapeWidth() / 2, LandscapeWidth() - 50), 70, iPlr);
+	for(var pObj in FindObjects(Find_Owner(iPlr), Find_Or(Find_Category(C4D_Object), Find_OCF(OCF_CrewMember)))) {
+		pObj -> Enter(pCapsule);
+	}
+	pCapsule->SetDstPort(0, true);
+	// Startmaterial in der Kapsel
+	CreateContents(CNKT, pCapsule, 2);
+	CreateContents(METL, pCapsule, 2);
+	CreateContents(SATD, pCapsule, 1);
+	CreateContents(PSTC, pCapsule, 2);
+}
   
 //Regelwähler
 func NotChoosableRules() { return [LNGT,ENRG,CNMT,RSNB]; }
