@@ -440,6 +440,17 @@ protected func Repairing() {
 	WeldingFX(20 * GetDir() - 10, 8);
 }
 
+protected func Recycling() {
+	if(GetActTime() > 20) {
+		GetActionTarget() -> Recycle();
+		SetAction("Walk");
+		return;
+	}
+	
+	// Funken und bläuliches Licht
+	WeldingFX(20 * GetDir() - 10, 8);
+}
+
 private func WeldingFX(xPos, yPos)
 {
   CreateParticle("MSpark", xPos, yPos, RandomX(-15, 15), Random(15) * -1, 15, RGB(255, 255, 200));

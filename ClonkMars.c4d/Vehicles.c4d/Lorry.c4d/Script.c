@@ -127,11 +127,11 @@ protected func ContextLoadUp(object pClonk)
 
 protected func ContextRecycle(object pClonk) {
 	[$TxtRecycle$|Image=LRY2]
-	RecycleLorry();
+	pClonk -> SetAction("Recycle", this);
 	return 1;
 }
 
-protected func RecycleLorry(){
+protected func Recycle(){
   Split2Components();
   }
   
