@@ -7,19 +7,21 @@
    
 static StructComp;
 
+local RepairComp;
+
 protected func Construction() {
 	if(GetType(StructComp) != C4V_Array)
 		StructComp = CreateHash();
 	if(!HashContains(StructComp, GetID())) {
 		var ID = GetID();
 		var aIDs, aNum, iNum = 0;
-		//IDs finden, aus denen das Gebäude zusammengesetzt ist
+		// IDs finden, aus denen das Gebäude zusammengesetzt ist
 		aIDs = CreateArray();
 		for (var i = 0, component; component = GetComponent(0, i, 0, ID); ++i) {
 			aIDs[i] = component; 
 		}
 		aNum = CreateArray(GetLength(aIDs));
-		//Componenten vor der Änderung finden
+		// Anzahl
 		for (var i = 0; i < GetLength(aIDs); ++i) {
 			aNum[i] = GetComponent(aIDs[i], 0, 0, ID);
 			iNum += aNum[i];
@@ -27,11 +29,17 @@ protected func Construction() {
 		
 		HashPut(StructComp, ID, [aIDs, aNum, iNum]);
 	}
+	
+	RepairComp = CreateHash();
+	
 	return _inherited(...);
 }
 
 public func Damage (int iChange)
 {
+	if(iChange <= 0)
+		return;
+	
 	if (GetDamage() > MaxDamage())
 		AddEffect("MaxDamageExplosion", this, 1, 20, this, DACT);
 	var ox, oy, wdt, hgt;
@@ -47,19 +55,8 @@ public func Damage (int iChange)
 	
 	/* Components verlieren */
 	
-	// erstmal alles durchzählen
-	var aIDs, aNum, iNum = 0;
-	//IDs finden, aus denen das Gebäude zusammengesetzt ist
-	aIDs = CreateArray();
-	for (var i = 0, component; component = GetComponent(0, i); ++i) {
-		aIDs[i] = component; 
-	}
-	aNum = CreateArray(GetLength(aIDs));
-	//Componenten vor der Änderung finden
-	for (var i = 0; i < GetLength(aIDs); ++i) {
-		aNum[i] = GetComponent(aIDs[i]);
-		iNum += aNum[i];
-	}
+	var aComponents = GetComponents();
+	var aIDs = aComponents[0], aNum = aComponents[1], iNum = aComponents[2];
 	
 	var aNormal = HashGet(StructComp, GetID());
 	
@@ -121,3 +118,93 @@ private func DestroyBlast(object pTarget) {
 }
 
 public func MaxDamage () { return 1; } //Überlade mich!
+
+
+/* Gebäudereparatur */
+
+public func GetMissingComponents() {
+	// IDs + Anzahl finden, aus denen das Gebäude momentan zusammengesetzt ist
+	var aComponents = GetComponents();
+	var aIDs = aComponents[0], aNum = aComponents[1], iNum = aComponents[2];
+	
+	var aNormal = HashGet(StructComp, GetID());
+	var aNormalIDs = aNormal[0], aNormalNum = aNormal[1];
+	
+	// Unterschiede feststellen
+	var aDiffIDs = CreateArray(), aDiffNum = CreateArray();
+	for(var i = 0; i < GetLength(aNormalIDs); i++) {
+		var ID = aNormalIDs[i];
+		var index = GetIndexOf(ID, aIDs);
+		var iDiff = 0;
+		if(index == -1)
+			iDiff = aNormalNum[i];
+		else
+			iDiff = aNormalNum[i] - aNum[index];
+		
+		iDiff -= HashGet(RepairComp, ID);
+		
+		if(iDiff) {
+			PushBack(ID, aDiffIDs);
+			PushBack(iDiff, aDiffNum);
+		}
+	}
+	
+	// Unterschiede (IDs), (Menge), Anzahl der fehlenden Components (insgesamt)
+	return [aDiffIDs, aDiffNum, aNormal[2] - iNum];
+}
+
+public func DoRepairComponent(id ID) {
+	return HashPut(RepairComp, ID, HashGet(RepairComp, ID) + 1);
+}
+
+public func Repair(int percent) {
+	var iChange = ChangeRange(percent, 0, 100, 0, MaxDamage());
+	if(GetDamage() - iChange < 0)
+		iChange = GetDamage();
+	
+	// Werden zusätzlich Components gebraucht?
+	
+	// aktuelle Components
+	var aComponents = GetComponents();
+	var aIDs = aComponents[0], aNum = aComponents[1], iNum = aComponents[2];
+	
+	// ursprünglich
+	var aNormal = HashGet(StructComp, GetID());
+	
+	var iCompDiff = aNormal[2] - iNum;
+	var iDamDiff = ChangeRange(GetDamage() - iChange, 0, MaxDamage(), 0, aNormal[2]);
+	//Log("CompDiff: %d; DamDiff: %d; MaxDamage: %d; Normal: %d", iCompDiff, iDamDiff, MaxDamage(), aNormal[2]);
+	iDamDiff -= iCompDiff;
+	
+	// fehlt ein Component für die Änderung?
+	if(iDamDiff < 0) {
+		// mal sehen was wir so alles da haben!
+		var iter = HashIter(RepairComp);
+		var node = HashIterNext(iter);
+		// nichts da? Dann keine Reparatur.
+		if(!node)
+			return;
+		
+		if(!--node[1])
+			HashErase(RepairComp, node[0]);
+		else
+			HashPut(RepairComp, node[0], node[1]);
+		
+		SetComponent(node[0], GetComponent(node[0]) + 1);
+	}
+	
+	// success!
+	DoDamage(-iChange);
+	return 1;
+}
+
+// Bei Rückbau die gespeicherten Materialien wieder ausgeben
+public func Deconstruction() {
+	var iter = HashIter(RepairComp);
+	var node;
+	while(node = HashIterNext(iter)) {
+		CastObjects(node[0], node[1], 10);
+	}
+	
+	return _inherited(...);
+}

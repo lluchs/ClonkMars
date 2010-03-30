@@ -272,6 +272,19 @@ StartCall=Deconstructing
 Sound=Clonk_Build
 
 [Action]
+Name=Repair
+Procedure=NONE
+Directions=2
+FlipDir=1
+Length=8
+Delay=2
+Attach=8
+Facet=128,220,16,20
+NextAction=Repair
+StartCall=Repairing
+Sound=Clonk_Build
+
+[Action]
 Name=RideThrow
 Procedure=ATTACH
 Directions=2

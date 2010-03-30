@@ -246,6 +246,34 @@ protected func AtBuildingToDeconstruct() {
 	return GetPhysical("CanConstruct") && FindObject2(Find_AtObject(), Find_Category(C4D_Structure), Find_Allied(GetOwner()));
 }
 
+protected func ContextRepair(object clonk) {
+	[Reparieren|Image=CXCN|Condition=AtBuildingToRepair]
+	var struct = FindObject2(Find_AtObject(), Find_Category(C4D_Structure), Find_Allied(GetOwner()), Find_Func("GetDamage"), Find_Func("MaxDamage"));
+	if (!struct) {
+		Message("Nichts reparierbares gefunden!", this);
+		return false;
+	}
+	if (GetAction() != "Walk") {
+		Message("Clonk muss zum Reparieren stehen!", this);
+		return false;
+	}
+	
+	// Materialien einsammeln
+	var needed = struct -> GetMissingComponents();
+	for(var i = 0; i < GetLength(needed[0]); i++) {
+		var ID = needed[0][i], num = needed[1][i], pObj;
+		while((pObj = FindObject2(Find_Container(this), Find_ID(ID))) && num--) {
+			struct -> DoRepairComponent(ID);
+			pObj -> RemoveObject();
+		}
+	}
+	SetAction("Repair", struct);
+}
+
+protected func AtBuildingToRepair() {
+	return GetPhysical("CanConstruct") && FindObject2(Find_AtObject(), Find_Category(C4D_Structure), Find_Allied(GetOwner()), Find_Func("GetDamage"), Find_Func("MaxDamage"));
+}
+
 /* Stirnlampe */
 
 protected func FxHeadlampTimer(object pTarget, int iEffectNumber) {
@@ -382,6 +410,34 @@ private func Deconstruct(object struct)
 			CastObjects(aIDs[i], aBefore[i] - aAfter[i], 10);
 		}
 	}
+}
+
+protected func Repairing() {
+	var pObj = GetActionTarget();
+	if(!pObj -> GetDamage())
+		return SetAction("Walk");
+	
+	var buildspeed = GetPhysical("CanConstruct");
+	if (buildspeed == 1) buildspeed = 100;
+	var mass = GetMass(0, pObj -> GetID());
+	var change = Max(buildspeed * 30 / mass, 1);
+	
+	// Mehr Material benötigt?
+	if(!pObj -> Repair(change)) {
+		// ausgeben!
+		var needed = pObj -> GetMissingComponents();
+		var output = "Benötigte Materialen:";
+		for(var i = 0; i < GetLength(needed[0]); i++) {
+			var ID = needed[0][i], num = needed[1][i];
+			output = Format("%s|%dx %s", output, num, GetName(0, ID));
+		}
+		Message(output, pObj);
+		
+		return SetAction("Walk");
+	}
+	
+	// Funken und bläuliches Licht
+	WeldingFX(20 * GetDir() - 10, 8);
 }
 
 private func WeldingFX(xPos, yPos)
