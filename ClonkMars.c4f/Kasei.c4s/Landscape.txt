@@ -14,7 +14,7 @@ map Lavapits{
     
     overlay{mat=Earth; tex=Structure2;algo=rndchecker;turbulence=500;};
         
-        overlay{mat=Sulphur; tex=Swirl;algo=bozo; turbulence=50;
+        overlay{mat=Sulphur; tex=Volcanic;algo=bozo; turbulence=50;
         a=15;};
         
         overlay{mat=Rock; tex=Rock; algo=bozo; turbulence=500;

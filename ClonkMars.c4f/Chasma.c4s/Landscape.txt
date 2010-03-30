@@ -23,7 +23,7 @@ overlay earthtex { mat=earth; tex=smooth;
     overlay { mat=crystal; tex=flare; algo=rndchecker; a=5; hgt=60; loosebounds=1; zoomX=-100; zoomY=-100; turbulence=100; };
   
     //Schwefel
-    overlay { mat=sulphur; tex=crystal3; algo=rndchecker; a=4; y=50; loosebounds=1; zoomX=-100; zoomY=-70; turbulence=100; };    
+    overlay { mat=sulphur; tex=Volcanic; algo=rndchecker; a=4; y=50; loosebounds=1; zoomX=-100; zoomY=-70; turbulence=100; };    
     
     //Stein+Textur
     overlay { mat=rock; tex=structure; algo=rndchecker; a=5; zoomX=-80; zoomY=20; turbulence=1000;
