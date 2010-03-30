@@ -30,6 +30,8 @@ func Initialize() {
 public func Deconstruction() {
 	//Overlay löschen
 	SetGraphics(0, this, 0, 1);
+	
+	return _inherited(...);
 }
 
 public func SetPower() {

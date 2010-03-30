@@ -27,6 +27,8 @@ private func UpdateDisplay() {
 public func Deconstruction() {
 	//Overlay
 	SetGraphics(0, this, 0, 1);
+	
+	return _inherited(...);
 }
 
 // Get- Funktionen
