@@ -10,7 +10,7 @@ Maikel: Power.c4d
 
 Randrian: Raumfahrerclonk+Portrait Grafiken
 
-Icewing: Pipesystem, Baugrafiksystem, Menüsystem
+Icewing: Pipesystem, Baugrafiksystem, Menüsystem, ehem. Betatesting
 
 JCaesar: Kapsellandesystem, div. Bugfixes
 
@@ -18,7 +18,9 @@ Killerwipf: Kristallabbau-Regel
 
 Joshi: gelegentliches Betatesting
 
-ala, mcGreen: Betatesting, Map: Tithonium Chasma
+ala: Betatesting, komplette Map: Tithonium Chasma + Überarbeitung sämtlicher Maps
+
+mcGreen, s_m_w: gelegentliches Betatesting
 
 OpenClonk: Rock, Earth Textur (leichte Veränderungen)
 
