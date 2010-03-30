@@ -247,14 +247,14 @@ protected func AtBuildingToDeconstruct() {
 }
 
 protected func ContextRepair(object clonk) {
-	[Reparieren|Image=CXCN|Condition=AtBuildingToRepair]
+	[$CtxRepair$|Image=CXCN|Condition=AtBuildingToRepair]
 	var struct = FindObject2(Find_AtObject(), Find_Category(C4D_Structure), Find_Allied(GetOwner()), Find_Func("GetDamage"), Find_Func("MaxDamage"));
 	if (!struct) {
-		Message("Nichts reparierbares gefunden!", this);
+		Message("$NothingtoRepair$", this);
 		return false;
 	}
 	if (GetAction() != "Walk") {
-		Message("Clonk muss zum Reparieren stehen!", this);
+		Message("$Standing$", this);
 		return false;
 	}
 	
@@ -426,7 +426,7 @@ protected func Repairing() {
 	if(!pObj -> Repair(change)) {
 		// ausgeben!
 		var needed = pObj -> GetMissingComponents();
-		var output = "Benötigte Materialen:";
+		var output = "$NeededMaterials$";
 		for(var i = 0; i < GetLength(needed[0]); i++) {
 			var ID = needed[0][i], num = needed[1][i];
 			output = Format("%s|%dx %s", output, num, GetName(0, ID));
