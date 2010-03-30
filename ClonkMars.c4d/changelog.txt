@@ -86,13 +86,14 @@ Gebäude:
   + Clonks können sich in der Basis löschen lassen
   + Basis, Solarpaneel und Labor haben Zerstört-Grafiken (Deko)
   + Gebäude-Reperatursystem
-  * fehlendes Kaufmenü Icon ergänzt
+  + Forschungen haben eigene Icons
   * Transmitter und Basis haben nun vollständige Strings
   * Akku verträgt etwas mehr Damage
   * verstorbene Clonks können erneut reproduziert werden
   * alle Flints sind nun erforschbar
   * alle Flints sind auch baubar (Materialeinheit)
   * bei Aktivität stößt Terraformer Wasserdampf/CO2 aus
+  * diverse Kontextmenüicons
   * zufällige Forschungszeit für alle Elemente
   ! Panel und Basis erhalten keine Sonnenstrahlen mehr in Flüssigkeit
   ! Kein Türflackern mehr (Matunit)
