@@ -2,7 +2,7 @@
 id=O2BL
 Name=O2-Flasche
 Version=4,9,5
-Category=C4D_Object|C4D_SelectMaterial|C4D_SelectKnowledge|C4D_SelectHomebase
+Category=C4D_Object|C4D_SelectMaterial|C4D_SelectKnowledge|C4D_SelectHomebase|C4D_SelectMaterial
 MaxUserSelect=10
 Width=5
 Height=13
