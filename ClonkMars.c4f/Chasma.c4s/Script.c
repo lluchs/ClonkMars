@@ -6,7 +6,7 @@ func Initialize() {
   SetSkyAdjust(RGBa(255,255,255,160), RGB(70,30,15));
   SetGamma(RGB(50,0,0), RGB(140,100,100), RGB(255,220,220));
   //Hintergrund
-  CreateObject(CANN,-0,0,-1);
+  CreateObject(BG_1,-0,0,-1);
   CreateObject(DUSK,0,0,-1);
   ScriptGo(1);
   
