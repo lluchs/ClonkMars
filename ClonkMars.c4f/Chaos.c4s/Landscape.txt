@@ -6,7 +6,7 @@ overlay earthtex { mat=earth; tex=rock;
   overlay { mat=earth; tex=Flare3; algo=rndchecker; a=6; zoomX=-100; zoomY=-100; turbulence=100; };  
   };
 //ToTest: Flare, Rock
-overlay ashestex { mat=flyashes; tex=structure3;
+overlay ashestex { mat=flyashes; tex=ashes2;
   overlay { mat=ashes; tex=Structure3; a=1; algo=rndchecker; turbulence=100; };
   overlay { mat=ashes; tex=Volcanic; a=2; algo=rndchecker; turbulence=1000; };  
   };
