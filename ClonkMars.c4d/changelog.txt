@@ -56,7 +56,7 @@ Rundenordner/Extra.c4g:
   * Loader, Musik und div. Grafiken nach Extra.c4g ausgelagert
   * neues Title für Chaos
   * Sinnvolle MaxPlayer Werte für alle Szenarien
-  * Cerberus Fossae und Eos Chaos Landschaft wurden überarbeitet
+  * Cerberus Fossae, Terra Sinus und Eos Chaos Landschaft wurden überarbeitet
   * Eis schmilzt nicht mehr
   * Neue Texturen für viele Materialien
 

@@ -35,6 +35,7 @@ protected func InitializePlayer(iPlr){
 	CreateContents(METL, pCapsule, 2);
 	CreateContents(SATD, pCapsule, 1);
 	CreateContents(PSTC, pCapsule, 2);
+	CreateContents(O2BL, pCapsule, 2)->DoFill(40);
 }
   
 //Regelwähler
