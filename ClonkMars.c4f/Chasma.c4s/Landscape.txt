@@ -20,7 +20,7 @@ overlay earthtex { mat=earth; tex=smooth;
   //Materialien
 
     //Kristall
-    overlay { mat=crystal; tex=rock2; algo=rndchecker; a=5; hgt=60; loosebounds=1; zoomX=-100; zoomY=-100; turbulence=100; };
+    overlay { mat=crystal; tex=flare; algo=rndchecker; a=5; hgt=60; loosebounds=1; zoomX=-100; zoomY=-100; turbulence=100; };
   
     //Schwefel
     overlay { mat=sulphur; tex=crystal3; algo=rndchecker; a=4; y=50; loosebounds=1; zoomX=-100; zoomY=-70; turbulence=100; };    
