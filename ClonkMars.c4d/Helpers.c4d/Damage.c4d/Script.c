@@ -179,8 +179,8 @@ public func Repair(int percent) {
 		//Log("CompDiff: %d; DamDiff: %d; MaxDamage: %d; Normal: %d", iCompDiff, iDamDiff, MaxDamage(), aNormal[2]);
 		iDamDiff -= iCompDiff;
 		
-		// fehlt ein Component für die Änderung?
-		if(iDamDiff < 0) {
+		// fehlen Components für die Änderung?
+		while(iDamDiff++ < 0) {
 			// mal sehen was wir so alles da haben!
 			var iter = HashIter(RepairComp);
 			var node = HashIterNext(iter);
