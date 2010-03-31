@@ -10,7 +10,7 @@ global func AngleFree(int iAngle, int ox, int oy) {
 	}
 	
 	// ist der Startpunkt verdeckt?
-	if(GBackSemiSolid())
+	if(GBackSemiSolid(AbsX(ox), AbsY(oy)))
 		return;
 	
 	var ax = Sin(iAngle, 50), ay = Cos(iAngle, 50);
