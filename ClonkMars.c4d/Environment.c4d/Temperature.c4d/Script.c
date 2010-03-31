@@ -24,16 +24,22 @@ protected func OnClonkRecruitment(object pClonk) {
 protected func FxTemperatureTimer(object pTarget, int iEffectNumber) {
 	var iTemp = EffectVar(0, pTarget, iEffectNumber);
 	
+	var k = 5+Random(5); // Wachstumsfaktor
+	
 	var iOuterTemp = pTarget -> GetLandTemp();
 	
-	if(pTarget -> Contained())
-		iOuterTemp = pTarget -> Contained() -> ~GetTemp();
-	
+	if(pTarget -> Contained()) {
+		var new = pTarget -> Contained() -> ~GetTemp();
+		if(new) {
+			iOuterTemp = new;
+			if(pTarget -> Contained() -> ~FastTempChange())
+				k = 10;
+		}
+	}
 	// ist in heißem Material?
-	if(GetMaterialVal("Incindiary", "Material", pTarget -> GetMaterial()))
+	else if(GetMaterialVal("Incindiary", "Material", pTarget -> GetMaterial()))
 		iOuterTemp = MaxTemp;
 	
-	var k = 5+Random(5); // Wachstumsfaktor
 	// schnelle Änderung in Flüssigkeiten
 	if(pTarget -> GBackLiquid())
 		k = 50;
