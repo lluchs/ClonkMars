@@ -54,8 +54,9 @@ public func SetDstPort(object pPort, bool noauto) {
 		dst = Min(Abs(GetY()-GetHorizon(-24)) - 150, Abs(GetY()-GetHorizon(24)) - 150);
 		origx += RandomX(-400,400);
 	}
+	if(dst < 1) dst = 1;
 	var iter = dst / GetGravity(), t;
-	Log("iter: %v", iter);
+	if(iter < 1) iter = 1;
 	var capsacc = iCapsAcceleration/20, gravacc = GetGravity()/20, landspd = iCapsLandSpeed/20;
 	while(true){
 		t+= iter;
@@ -102,7 +103,7 @@ private func DestroyBlast() {
 	return _inherited(...);
 }
 
-global func GetHorizon(int iX) { var iY; while(!GBackSemiSolid(iX,AbsY(iY++))); return iY; }
+global func GetHorizon(int iX) { var iY; while(!GBackSemiSolid(iX,AbsY(iY++)) && iY < LandscapeHeight()); return iY; }
 
 // hat einen Sauerstoffspeicher zum Landen
 public func IsO2Producer() {
