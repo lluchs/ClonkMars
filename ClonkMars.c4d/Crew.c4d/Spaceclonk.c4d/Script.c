@@ -373,18 +373,22 @@ protected func Deconstructing()
 private func Deconstruct(object struct)
 {
 	if (!struct) return;
-	var aIDs, aBefore, aAfter;
-	var owner = GetOwner(struct); //Jetzt, da struct entfernt werden kann
-	//IDs finden, aus denen das Gebäude zusammen gesetzt ist
-	aIDs = CreateArray();
-	for (var i = 0, component; component = GetComponent(0, i, struct); ++i) {
-		aIDs[i] = component; 
+	var cnmt = ObjectCount2(Find_ID(CNMT));
+	if(cnmt) {
+		var aIDs, aBefore, aAfter;
+		var owner = GetOwner(struct); //Jetzt, da struct entfernt werden kann
+		//IDs finden, aus denen das Geb�ude zusammen gesetzt ist
+		aIDs = CreateArray();
+		for (var i = 0, component; component = GetComponent(0, i, struct); ++i) {
+			aIDs[i] = component; 
+		}
+		aBefore = CreateArray(GetLength(aIDs));
+		//Componenten vor der Änderung finden
+		for (var i = 0; i < GetLength(aIDs); ++i) {
+			aBefore[i] = GetComponent(aIDs[i], 0, struct);
+		}
 	}
-	aBefore = CreateArray(GetLength(aIDs));
-	//Componenten vor der Änderung finden
-	for (var i = 0; i < GetLength(aIDs); ++i) {
-		aBefore[i] = GetComponent(aIDs[i], 0, struct);
-	}
+	
 	var buildspeed = GetPhysical("CanConstruct");
 	if (buildspeed == 1) buildspeed = 100;
 	var mass = GetMass(0, GetID(struct));
@@ -397,17 +401,20 @@ private func Deconstruct(object struct)
 		}
 	}
 	DoCon(-change, struct);
-	aAfter = CreateArray(GetLength(aIDs));
-	//Componenten nach der Änderung finden
-	if (struct) //aber nur, falls es das Gebäude noch gibt
-	for (var i = 0; i < GetLength(aIDs); ++i) {
-		aAfter[i] = GetComponent(aIDs[i], 0, struct);
-	}
 	
-	//Änderung ausgeben
-	for (var i = 0; i < GetLength(aIDs); ++i) {
-		if (aBefore[i] > aAfter[i]) {
-			CastObjects(aIDs[i], aBefore[i] - aAfter[i], 10);
+	if(cnmt) {
+		aAfter = CreateArray(GetLength(aIDs));
+		//Componenten nach der �nderung finden
+		if (struct) //aber nur, falls es das Gebäude noch gibt
+		for (var i = 0; i < GetLength(aIDs); ++i) {
+			aAfter[i] = GetComponent(aIDs[i], 0, struct);
+		}
+		
+		//�nderung ausgeben
+		for (var i = 0; i < GetLength(aIDs); ++i) {
+			if (aBefore[i] > aAfter[i]) {
+				CastObjects(aIDs[i], aBefore[i] - aAfter[i], 10);
+			}
 		}
 	}
 }
