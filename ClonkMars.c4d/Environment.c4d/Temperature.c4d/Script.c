@@ -30,9 +30,19 @@ protected func FxTemperatureTimer(object pTarget, int iEffectNumber) {
 		iOuterTemp = pTarget -> Contained() -> ~GetTemp();
 	
 	var k = 3+Random(2); // fixer Wachstumsfaktor, könnte je nach Situation verändert werden
+	var diff = iOuterTemp - iTemp;
 	// Beschränktes Wachstum
 	// Bestand + k * (Schranke - Bestand)
-	iTemp += k * (iOuterTemp - iTemp) / 100;
+	var iChange =  k * (diff) / 100;
+	// Änderung minimal 1
+	if(!iChange && diff != 0) {
+		if(diff < 0)
+			iChange = -1;
+		else
+			iChange = 1;
+	}
+	
+	iTemp += iChange;
 	
 	// speichern
 	EffectVar(0, pTarget, iEffectNumber) = iTemp;
