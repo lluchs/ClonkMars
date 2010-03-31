@@ -29,7 +29,15 @@ protected func FxTemperatureTimer(object pTarget, int iEffectNumber) {
 	if(pTarget -> Contained())
 		iOuterTemp = pTarget -> Contained() -> ~GetTemp();
 	
-	var k = 3+Random(2); // fixer Wachstumsfaktor, könnte je nach Situation verändert werden
+	// ist in heißem Material?
+	if(GetMaterialVal("Incindiary", "Material", pTarget -> GetMaterial()))
+		iOuterTemp = MaxTemp;
+	
+	var k = 5+Random(5); // Wachstumsfaktor
+	// schnelle Änderung in Flüssigkeiten
+	if(pTarget -> GBackLiquid())
+		k = 50;
+	
 	var diff = iOuterTemp - iTemp;
 	// Beschränktes Wachstum
 	// Bestand + k * (Schranke - Bestand)
@@ -53,6 +61,13 @@ protected func FxTemperatureTimer(object pTarget, int iEffectNumber) {
 	if(iTemp < -iLimit) {
 		// max. 10 Energieverlust
 		pTarget -> DoEnergy(-ChangeRange(Abs(iTemp) - iLimit, 0, MaxTemp - iLimit, 1, 10));
+	}
+	
+	if(iTemp > iLimit) {
+		// max. 15 Energieverlust
+		pTarget -> DoEnergy(-ChangeRange(Abs(iTemp) - iLimit, 0, MaxTemp - iLimit, 1, 15));
+		// wir brennen!
+		pTarget -> AddFireEffect(GetEffect("FireEffect", pTarget, 0, 6) + 25, 0, true);
 	}
 	
 	var iHUD = 0;
