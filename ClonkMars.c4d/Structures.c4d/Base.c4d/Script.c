@@ -47,6 +47,20 @@ protected func Collection2(object pObj) {
 
 /* Steuerung */
 
+protected func ContextTranscribe(object pClonk) {
+	[$TxtTranscribe$|Image=GOLD|Condition=MayTranscribe]
+	TranscribeMenu(pClonk);
+	return 1;
+}
+
+protected func MayTranscribe(object pClonk){
+	if(GetPlayerCount() < 2) return false;
+	var pSat = HasSat();
+	if(!pSat) return false;
+	if(GetOwner(pSat) != GetOwner(pClonk)) return false;
+	return true;
+}
+
 protected func ContextResearch(object pClonk) {
 	[$TxtResearch$|Image=RSR1|Condition=IsNotResearching]
 	ResearchMenu(pClonk);
@@ -388,6 +402,45 @@ protected func FxResearchStop(object pTarget, int iEffectNumber, int iReason, bo
 	SetPlrKnowledge(GetOwner(), EffectVar(1, pTarget, iEffectNumber));
 	// Nachricht ausgeben
 	Message("$Txtsdeveloped$", this, GetName(0, EffectVar(1, pTarget, iEffectNumber)));
+}
+
+private func TranscribeMenu(object pClonk) {
+	CreateMenu(GetID(), pClonk, this, 0, "$TxtTranscribeTo$", 0, C4MN_Style_Context);
+	for(var i = 0; i < GetPlayerCount(); ++i) {
+		var iPlr = GetPlayerByIndex(i);
+		if(iPlr == pClonk->GetOwner()) continue;
+		AddMenuItem(GetTaggedPlayerName(iPlr), Format("Object(%d)->TranscribeMenu2(Object(%d),%d,0)", ObjectNumber(this),ObjectNumber(pClonk), iPlr), 0, pClonk, 0, 0, "", 0, 0);
+	}
+}
+
+private func TranscribeMenu2(object pClonk, int iPlayerTo, int iAmount, int iLastSelection) { 
+	if(iAmount > GetWealth(pClonk->GetOwner())) iAmount = GetWealth(pClonk->GetOwner());
+	if(iAmount < 0) iAmount = 0;
+	CreateMenu(GetID(), pClonk, this, 0, Format("$TxtTranscribeAmmount$", iAmount), 0, C4MN_Style_Context);
+	AddMenuItem("1", Format("Object(%d)->TranscribeMenu2(Object(%d),%d,%d,%d)", ObjectNumber(this),ObjectNumber(pClonk), iPlayerTo, iAmount+1, 0), MS4C, pClonk, 0, 0, "", 2, 1);
+	AddMenuItem("1", Format("Object(%d)->TranscribeMenu2(Object(%d),%d,%d,%d)", ObjectNumber(this),ObjectNumber(pClonk), iPlayerTo, iAmount-1, 1), MS4C, pClonk, 0, 0, "", 2, 2);
+	AddMenuItem("15", Format("Object(%d)->TranscribeMenu2(Object(%d),%d,%d,%d)", ObjectNumber(this),ObjectNumber(pClonk), iPlayerTo, iAmount+15, 2), MS4C, pClonk, 0, 0, "", 2, 1);
+	AddMenuItem("15", Format("Object(%d)->TranscribeMenu2(Object(%d),%d,%d,%d)", ObjectNumber(this),ObjectNumber(pClonk), iPlayerTo, iAmount-15, 3), MS4C, pClonk, 0, 0, "", 2, 2);
+	AddMenuItem("OK", Format("Object(%d)->TranscribeMenu3(Object(%d),%d,%d)", ObjectNumber(this),ObjectNumber(pClonk), iPlayerTo, iAmount), MS4C, pClonk, 0, 0, "", 2, 3);
+	SelectMenuItem(iLastSelection, pClonk);
+}
+
+private func TranscribeMenu3(object pClonk, int iPlayerTo, int iAmount) {
+	if(iAmount < 1) return;
+	CreateMenu(GetID(), pClonk, this, 0, "$TxtConfirm$", 0, C4MN_Style_Context);
+	AddMenuItem("$TxtStop$", "FrameCounter()", MS4C, pClonk, 0, 0, "", 2, 4); //I'd like to have a void, but FrameCounter() does nearly nothing. ;)
+	AddMenuItem(Format("$TxtConfirmTransfer$", iAmount, GetTaggedPlayerName(iPlayerTo)), Format("Object(%d)->Transcribe(Object(%d),%d,%d,%d)", ObjectNumber(this),ObjectNumber(pClonk), iPlayerTo, GetPlayerID(iPlayerTo), iAmount), MS4C, pClonk, 0, 0, "", 2, 3);
+}
+
+private func Transcribe(object pClonk, int iPlayerTo, int iPlayerToID, int iAmount) {
+	var pSat = HasSat();
+	if(!pSat) return false;
+	if(GetOwner(pSat) != GetOwner(pClonk)) return false;
+	if(GetPlayerID(iPlayerTo) != iPlayerToID) return false; //Elemination check
+	if(iAmount > GetWealth(pClonk->GetOwner())) iAmount = GetWealth(pClonk->GetOwner());
+	DoWealth(pClonk->GetOwner(), -iAmount);
+	DoWealth(iPlayerTo, iAmount);
+	Sound("UnCash"); Sound("Cash");
 }
 
 /* Erforschbar */
