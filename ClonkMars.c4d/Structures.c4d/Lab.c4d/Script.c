@@ -201,7 +201,7 @@ public func ContainedUp(object pClonk) {
 
 /* Wärme */
 
-public func GetWarmth() {
+public func GetTemp() {
   return(150);
 }
 

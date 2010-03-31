@@ -10,7 +10,7 @@
 
 static const MTLB_metal_earth_cost = 2;
 static const MTLB_plastic_cost = 350;
-public func GetTemp() { return 1000;}
+public func GetTemp() { if(GetAction() == "Produce") return 500; return 250;}
 
 func Initialize() {
   return(1);

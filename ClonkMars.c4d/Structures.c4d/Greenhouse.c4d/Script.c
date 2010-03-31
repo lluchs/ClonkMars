@@ -7,7 +7,7 @@
 #include PWRC // ist ein Energieverbraucher
 #include DACT //Damagecontrol
 
-public func GetTemp() { return 600;}
+public func GetTemp() { return 250;}
 
 func Initialize() {
   return(1);

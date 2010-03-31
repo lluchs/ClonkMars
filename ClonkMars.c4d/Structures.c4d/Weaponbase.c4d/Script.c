@@ -74,3 +74,5 @@ public func PipelineConnect() {
 }
 
 public func MaxDamage() { return 50; } //Maximaler Schaden
+
+public func GetTemp() { return 250; }

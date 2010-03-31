@@ -8,7 +8,8 @@
 #include DACT //Damagecontrol
 #include L_CA
 
-public func GetTemp() { return 800;}
+public func GetTemp() { return 250;}
+public func FastTempChange() { return true; }
 
 private func EnergyNeedOverlay() {
 	return 3; // Overlay 1 und 2: Türsteuerung
@@ -36,13 +37,6 @@ private func SoundCloseDoor() {
 
 private func CanOpen() {
 	return !IsResearching();
-}
-
-protected func Collection2(object pObj) {
-	if(pObj -> OnFire())
-		pObj -> Extinguish();
-	
-	return _inherited(pObj, ...);
 }
 
 /* Steuerung */
@@ -197,12 +191,6 @@ private func CreateCapsule(int iOwner) {
 
 private func HasSat() {
 	return FindObject2(Find_ID(SATD), Find_Action("FlyBase"), Find_ActionTarget(this));
-}
-
-/* Wärme */
-
-public func GetWarmth() {
-  return(100);
 }
 
 public func Reproduction() {
