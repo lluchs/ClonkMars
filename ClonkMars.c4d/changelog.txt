@@ -106,6 +106,7 @@ Gebäude:
   ! _inherited(...)-Aufruf in Deconstruction von Akku/Tank
   ! fehlende Strings in der Basis hinzugefügt
   ! Tote Clonks in Gebäuden werden nicht mehr mitgezählt und belegen so keinen Crew-Platz
+  ! Reparieren ist ohne Baumaterial-Regel nun kostenlos
   ! Forschungen werden zusammengefasst, wenn man mehrmals dasselbe auswählt
   ! Forschung wird pausiert, falls kein forschender Clonk mehr da ist (zB durch Tod)
 
