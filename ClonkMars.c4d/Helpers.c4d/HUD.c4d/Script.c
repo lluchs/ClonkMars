@@ -176,10 +176,11 @@ public func UpdateTemperature(int iTemp) {
 }
 
 public func UpdateClonkTemperature(int iTemp) {
+	MovePointer(1, iTemp);
 	if(iTemp > 0)
 		iTemp = 0;
 	SetViewportFreeze(GetOwner(), ChangeRange(133-Abs(iTemp), 0, 133, 0, 255)); // hier geht Genauigkeit verloren, evtl. ändern
-	return MovePointer(1, iTemp);
+	return 1;
 }
 
 private func MovePointer(int iPointer, int iValue) {
