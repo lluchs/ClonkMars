@@ -164,33 +164,37 @@ public func Repair(int percent) {
 	
 	// Werden zusätzlich Components gebraucht?
 	
-	// aktuelle Components
-	var aComponents = GetComponents();
-	var aIDs = aComponents[0], aNum = aComponents[1], iNum = aComponents[2];
-	
-	// ursprünglich
-	var aNormal = HashGet(StructComp, GetID());
-	
-	var iCompDiff = aNormal[2] - iNum;
-	var iDamDiff = ChangeRange(GetDamage() - iChange, 0, MaxDamage(), 0, aNormal[2]);
-	//Log("CompDiff: %d; DamDiff: %d; MaxDamage: %d; Normal: %d", iCompDiff, iDamDiff, MaxDamage(), aNormal[2]);
-	iDamDiff -= iCompDiff;
-	
-	// fehlt ein Component für die Änderung?
-	if(iDamDiff < 0) {
-		// mal sehen was wir so alles da haben!
-		var iter = HashIter(RepairComp);
-		var node = HashIterNext(iter);
-		// nichts da? Dann keine Reparatur.
-		if(!node)
-			return;
+	// Nur, wenn Baumaterial aktiviert
+	if(ObjectCount2(Find_ID(CNMT))) {
 		
-		if(!--node[1])
-			HashErase(RepairComp, node[0]);
-		else
-			HashPut(RepairComp, node[0], node[1]);
+		// aktuelle Components
+		var aComponents = GetComponents();
+		var aIDs = aComponents[0], aNum = aComponents[1], iNum = aComponents[2];
 		
-		SetComponent(node[0], GetComponent(node[0]) + 1);
+		// ursprünglich
+		var aNormal = HashGet(StructComp, GetID());
+		
+		var iCompDiff = aNormal[2] - iNum;
+		var iDamDiff = ChangeRange(GetDamage() - iChange, 0, MaxDamage(), 0, aNormal[2]);
+		//Log("CompDiff: %d; DamDiff: %d; MaxDamage: %d; Normal: %d", iCompDiff, iDamDiff, MaxDamage(), aNormal[2]);
+		iDamDiff -= iCompDiff;
+		
+		// fehlt ein Component für die Änderung?
+		if(iDamDiff < 0) {
+			// mal sehen was wir so alles da haben!
+			var iter = HashIter(RepairComp);
+			var node = HashIterNext(iter);
+			// nichts da? Dann keine Reparatur.
+			if(!node)
+				return;
+			
+			if(!--node[1])
+				HashErase(RepairComp, node[0]);
+			else
+				HashPut(RepairComp, node[0], node[1]);
+			
+			SetComponent(node[0], GetComponent(node[0]) + 1);
+		}
 	}
 	
 	// success!
