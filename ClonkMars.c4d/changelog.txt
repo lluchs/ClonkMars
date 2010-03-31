@@ -69,6 +69,7 @@ Objekte:
   + Sauerstoffflasche
   + Wompfbeerenbaum (+Wompfbeere)
   + Speichersystem aus Luftherrschaft implementiert
+  + Clonk brennt abhängig von Temperatur
   + Regelwähler (Aufrufbar über globales Regelmenü)
   * Gebäudegrafik im Hintergrund beim Leitungsaufnehmen
   * wieder der alte O2-Warnsound
