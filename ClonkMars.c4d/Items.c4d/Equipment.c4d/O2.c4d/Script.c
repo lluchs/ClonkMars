@@ -20,7 +20,7 @@ protected func Entrance(object pObj) {
 }
 
 protected func FxRefillTimer() {
-	if(!Contained() -> HasO2() || !DoFill(1))
+	if(!Contained() || !Contained() -> HasO2() || !DoFill(1))
 		return -1;
 }
 
