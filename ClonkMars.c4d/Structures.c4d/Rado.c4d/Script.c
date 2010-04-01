@@ -5,7 +5,7 @@
 #include DACT //Damagecontrol
 #include PWRC // Energieverbraucher
 
-public func MaxDamage() { return 20; } //Maximaler Schaden
+public func MaxDamage() { return 27; } //Maximaler Schaden
 protected func Initialize(){
 	SetAction("Panel");
 	AddEffect("DestroyMeteorites", this, 10, 5, this);

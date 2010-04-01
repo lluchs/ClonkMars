@@ -1,6 +1,6 @@
 + hinzugefügt | - entfernt | * verändert |! Bugfix
 
-### Beta3 0.85 ###
+### Prefinal 0.95 ###
 Rundenordner/Extra.c4g:
 
 
@@ -8,6 +8,7 @@ Objekte:
 * NewGFX: Reel
 * Reel von der Seite gerendert, zur besseren Erkennung
 * Reel Hit nichtmehr Stein, sondern Metallksound
+* RADO hält etwas mehr Schaden aus
 
 Gebäude: 
 
