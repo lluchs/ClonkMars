@@ -5,6 +5,8 @@ Rundenordner/Extra.c4g:
 
 
 Objekte:
+* NewGFX: Reel
+* Reel von der Seite gerendert, zur besseren Erkennung
 
 
 Gebäude: 
