@@ -1,5 +1,9 @@
 Dreht die Schüssel auf einem Gebäude, bestehen folgende Möglichkeiten:
 
 - Clonks reproduzieren (erfordert Stromanschluss)
+
 - forschen (erfordert Stromanschluss)
+
 - Kapseln rufen, bzw. Kaufen per Nachschubkapsel
+
+- Geld an mitspieler überweisen

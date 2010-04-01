@@ -1,5 +1,9 @@
 Rotate the dish on a building, consisting of the following:
 
 - Clonks reproduce (requires electricity)
+
 - Do research (requires electricity)
+
 - Capsules call, or buy supplies per capsule
+
+- transfer some cash to your friends
