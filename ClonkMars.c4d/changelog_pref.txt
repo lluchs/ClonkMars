@@ -7,7 +7,7 @@ Rundenordner/Extra.c4g:
 Objekte:
 * NewGFX: Reel
 * Reel von der Seite gerendert, zur besseren Erkennung
-
+* Reel Hit nichtmehr Stein, sondern Metallksound
 
 Gebäude: 
 

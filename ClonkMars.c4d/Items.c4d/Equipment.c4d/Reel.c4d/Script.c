@@ -7,3 +7,8 @@
 public func ConnectionCondition() { return Find_Func("CanPowerConnect"); }
 public func LineID() { return PWRL; }
 public func MarsResearch() { return true; }
+
+protected func Hit() {
+  Sound("MetalHit*");
+  return(1);
+}
