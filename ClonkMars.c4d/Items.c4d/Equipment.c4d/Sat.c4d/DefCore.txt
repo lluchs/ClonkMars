@@ -14,7 +14,7 @@ VertexFriction=50,50
 Value=20
 Mass=2
 Components=PSTC=3;METL=1
-Picture=0,18,64,64
+Picture=0,36,64,64
 Rebuy=1
 Collectible=1
 Float=1
