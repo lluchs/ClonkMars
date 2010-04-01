@@ -1,0 +1,14 @@
++ hinzugefügt | - entfernt | * verändert |! Bugfix
+
+### Beta3 0.85 ###
+Rundenordner/Extra.c4g:
+
+
+Objekte:
+
+
+Gebäude: 
+
+
+Fahrzeuge:
+
