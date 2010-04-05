@@ -58,8 +58,8 @@ private func PipeHeadCheck()
   return(pDrillHead);
 }
 
-public func Transfer(int iAmount, bool fNoChange) {
-	for(var pTank in FindObjects(Find_ID(OILT), Find_Func("PipelineConnectedWith", this))) {
+public func Transfer(int iAmount, int iMaterial, bool fNoChange) {
+	for(var pTank in FindObjects(Find_Category(C4D_Structure), Find_Func("TankFor", iMaterial), Find_Func("PipelineConnectedWith", this))) {
 		if(pTank -> GetFill() + iAmount <= pTank -> MaxFill()) {
 			if(!fNoChange)
 				pTank -> DoFill(iAmount);

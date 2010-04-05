@@ -6,10 +6,11 @@
 #include L_SS
 
 func Initialize() {
-  return 1;
+	SetClrModulation(RGB(255)); // als Grafikersatz ;)
+	return 1;
 }
 
-public func TankFor(int mat) { return mat == Material("Oil"); }
+public func TankFor(int mat) { return WildcardMatch(MaterialName(mat), "*Lava*"); }
 
 public func MaxFill() { return 3500; }
 private func FillPicture() { return; }
@@ -38,16 +39,7 @@ public func PipelineConnect() {
 //Steuerung
   
 protected func ControlUp(){
-  Message("%d",this,GetFill());
-  }
-
-protected func ControlDig(object pClonk) {
-	var iChange = pClonk -> ~DoFuel(GetFill() * 100);
-	iChange = ChangeRange(iChange, 0, pClonk -> ~MaxFuel(), 0, 100);
-	Message("+%d", pClonk, iChange);
-	pClonk -> ~UpdateFuelHUD();
-	DoFill(-iChange);
-	return 1;
+	Message("%d",this,GetFill());
 }
 
 /* Erforschbar */
@@ -61,7 +53,7 @@ public func MaxDamage() { return 15; } //Maximaler Schaden
 private func DestroyBlast(object pTarget) {
 	if(!pTarget) if(!(pTarget=this)) return;
 	var iAmount = pTarget -> GetFill();
-	pTarget -> CastPXS("Oil", RandomX(iAmount / 2, iAmount), 50);
+	pTarget -> CastPXS("Lava", RandomX(iAmount / 2, iAmount), 50);
 	return inherited(...);
 }
 

@@ -14,8 +14,9 @@ local HasEnergy;
 protected func Transfer() {
 	var pTarget = GetActionTarget(), iExtracted;
 	if (!pTarget) return; //Bohrturm verschwunden?
-	// Wir pumpen nur Öl
-	if(!(pTarget -> Transfer(3, true) && GetMaterial() == Material("Oil")))
+	var mat = GetMaterial();
+	// Passendes Ziel mit genügend Platz vorhanden?
+	if(!(pTarget -> Transfer(3, mat, true)))
 		return StopTransfer(pTarget);
 	
 	if(!HasEnergy || GetActTime() % 10) {
@@ -27,15 +28,16 @@ protected func Transfer() {
 		}
 	}
 	
+	// in einem Durchgang wird nur ein Materialtyp extrahiert
 	for(var i = 3; i; i--) {
-		if(ExtractLiquid() == Material("Oil"))
+		if(ExtractLiquid() == mat)
 			iExtracted++;
 		else
 			break;
 	}
 	if(pTarget -> GetAction() != "Pump")
 		pTarget -> SetAction("Pump", this);
-	pTarget -> Transfer(iExtracted);
+	pTarget -> Transfer(iExtracted, mat);
 }
 
 private func StopTransfer(object pTarget) {
