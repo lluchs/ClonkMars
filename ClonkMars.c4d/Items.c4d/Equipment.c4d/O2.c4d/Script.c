@@ -26,7 +26,7 @@ protected func FxRefillTimer() {
 
 protected func Activate(object pClonk) {
   Sound("O2_fillup");
-	DoFill(-pClonk -> ~DoO2(GetAmount()));
+	DoFill(-pClonk -> ~DoO2(GetFill()));
 	return 1;
 }
 

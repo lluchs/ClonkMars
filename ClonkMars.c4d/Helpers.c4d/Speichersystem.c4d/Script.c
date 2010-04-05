@@ -22,7 +22,7 @@ private func TypeCheck() {
 /* Füllung */
 
 // Aktuelle Füllung
-public func & GetAmount(Key) { TypeCheck(); return HashGet(hFillLevel, Key); }
+public func & GetFill(Key) { TypeCheck(); return HashGet(hFillLevel, Key); }
 
 // Maximale Füllung
 public func GetMaxFill(Key) {
@@ -42,9 +42,9 @@ public func GetMaxFill(Key) {
 // Füllung erhöhen/verringern
 public func DoFill(int iChange, Key, bool fNoSound)
 {
-  var iNewFill = BoundBy(GetAmount(Key) + iChange, 0, GetMaxFill(Key));
-  if (iNewFill == GetAmount(Key)) return;
-  iChange = iNewFill - GetAmount(Key);
+  var iNewFill = BoundBy(GetFill(Key) + iChange, 0, GetMaxFill(Key));
+  if (iNewFill == GetFill(Key)) return;
+  iChange = iNewFill - GetFill(Key);
   OnFillChange(Key, iChange);
   if(!fNoSound)
   	FillSound(Key, iChange);
@@ -57,7 +57,7 @@ public func DoFill(int iChange, Key, bool fNoSound)
 // Voll?
 public func IsFull(Key) 
 { 
-  return GetAmount(Key) == GetMaxFill(Key);
+  return GetFill(Key) == GetMaxFill(Key);
 }
 
 /* Grafik anpassen */
@@ -66,21 +66,21 @@ public func UpdatePicture()
 	var Key = FillPicture();
 	if(Key == -1)
 		return;
-	if(GetAmount(Key)>99)
+	if(GetFill(Key)>99)
   {
-    SetGraphics(0,0,GetNumberID(GetAmount(Key) / 100),1,GFXOV_MODE_Picture);    
+    SetGraphics(0,0,GetNumberID(GetFill(Key) / 100),1,GFXOV_MODE_Picture);    
     SetObjDrawTransform(400,0,-14000,0,400,+10000, this, 1);
   }
   else SetGraphics(0,0,0,1,0);
   
-  if(GetAmount(Key)>9)
+  if(GetFill(Key)>9)
   {
-    SetGraphics(0,0,GetNumberID(GetAmount(Key) / 10 - GetAmount(Key) / 100 * 10),2,GFXOV_MODE_Picture);    
+    SetGraphics(0,0,GetNumberID(GetFill(Key) / 10 - GetFill(Key) / 100 * 10),2,GFXOV_MODE_Picture);    
     SetObjDrawTransform(400,0,-7000,0,400,+10000, this, 2);
   }
   else SetGraphics(0,0,0,2,0);  
 
-  SetGraphics(0,0,GetNumberID(GetAmount(Key) % 10),3,GFXOV_MODE_Picture);   
+  SetGraphics(0,0,GetNumberID(GetFill(Key) % 10),3,GFXOV_MODE_Picture);   
   SetObjDrawTransform(400,0,0,0,400,+10000, this, 3);
   return 1;
 }
