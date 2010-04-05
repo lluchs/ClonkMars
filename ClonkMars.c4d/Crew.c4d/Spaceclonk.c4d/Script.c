@@ -230,6 +230,14 @@ protected func ControlRightDouble() {
 
 protected func ContextDeconstruct(object clonk) {
 	[$CtxDeconstructDesc$|Image=CXCN|Condition=AtBuildingToDeconstruct]
+	var dummy = CreateObject(TIM1);
+	SetGraphics("Chosen", dummy, MS4C, 1, GFXOV_MODE_Picture);
+	CreateMenu(CXCN, this, this);
+	AddMenuItem("$CtxDeconstructDesc$!", "StartDeconstruction", 0, this, 0, 0, "OK", 4, dummy);
+	dummy -> RemoveObject();
+}
+
+protected func StartDeconstruction() {
 	var struct = FindObject2(Find_AtObject(), Find_Category(C4D_Structure), Find_Allied(GetOwner()), Find_Not(Find_Func("NoDeconstruction")));
 	if (!struct) {
 		Message("$DeconstructNotFound$", this);
