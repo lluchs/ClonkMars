@@ -110,9 +110,9 @@ protected func ProducePlastic(idItem, iParameter, fRight) {
 	if(GetAction() != "Idle" || DoorActive || !FindObject2(Find_Container(this), Find_OCF(OCF_CrewMember)) || !CheckPower(100, true))
 		return fContinue = false;
 	for(var pTank in FindObjects(Find_ID(OILT), Find_Func("PipelineConnectedWith", this))) {
-		if(pTank -> GetLiquidStorage() >= MTLB_plastic_cost) {
+		if(pTank -> GetFill() >= MTLB_plastic_cost) {
 			CheckPower(100);
-			pTank -> DoLiquidStorage(-MTLB_plastic_cost);
+			pTank -> DoFill(-MTLB_plastic_cost);
 			SetAction("Produce2");
 			idProduce = PSTC;
 			if(fRight)

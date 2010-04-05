@@ -60,9 +60,9 @@ private func PipeHeadCheck()
 
 public func Transfer(int iAmount, bool fNoChange) {
 	for(var pTank in FindObjects(Find_ID(OILT), Find_Func("PipelineConnectedWith", this))) {
-		if(pTank -> GetLiquidStorage() + iAmount <= pTank -> GetMaxLiquidStorage()) {
+		if(pTank -> GetFill() + iAmount <= pTank -> MaxFill()) {
 			if(!fNoChange)
-				pTank -> DoLiquidStorage(iAmount);
+				pTank -> DoFill(iAmount);
 			return 1;
 		}
 	}

@@ -3,21 +3,19 @@
 #strict 2
 #include B_60
 #include DACT //Damagecontrol
-
-local LiquidStorage, MaxLiquid;
+#include L_SS
 
 func Initialize() {
-  SetMaxLiquidStorage(3500); 
-  SetLiquidStorage(0);
-  UpdateDisplay();
-  return(1);
+  return 1;
 }
 
+public func MaxFill() { return 3500; }
+private func FillPicture() { return; }
 
-private func UpdateDisplay() {
+private func UpdatePicture() {
 	// Der Bohrturm füllt evtl. nicht ganz
-	var iNum = GetLiquidStorage() * 5 / GetMaxLiquidStorage();
-	if(GetMaxLiquidStorage() - GetLiquidStorage() < 5)
+	var iNum = GetFill() * 5 / MaxFill();
+	if(MaxFill() - GetFill() < 5)
 		iNum = 5; // trotzdem als voll anzeigen
 	SetGraphics(0, this, _BAR, 1, GFXOV_MODE_Action, Format("%d/5", iNum));
 	SetObjDrawTransform(1000, 0, -8000, 0, 1000, 3500, this, 1);
@@ -31,36 +29,6 @@ public func Deconstruction() {
 	return _inherited(...);
 }
 
-// Get- Funktionen
-public func GetMaxLiquidStorage() {
-  return MaxLiquid;
-}
-
-public func GetLiquidStorage() {
-  return LiquidStorage;
-}
-// Set- Funktionen
-public func SetMaxLiquidStorage(int NewMaxLiquidStorage) {
-  MaxLiquid = NewMaxLiquidStorage;
-  UpdateDisplay();
-  return true;
-}
-
-public func SetLiquidStorage(int NewLiquidStorage) {
-  if (NewLiquidStorage < GetMaxLiquidStorage()) {
-    LiquidStorage = NewLiquidStorage;
-  } else {
-    LiquidStorage = GetMaxLiquidStorage();
-  }
-  UpdateDisplay();
-  return true;
-}
-// Misc
-public func DoLiquidStorage(int LiquidNewStorage) {
-  SetLiquidStorage(GetLiquidStorage()+LiquidNewStorage);
-  return true;
-}
-
 public func PipelineConnect() {
 	return 1;
 }
@@ -68,15 +36,15 @@ public func PipelineConnect() {
 //Steuerung
   
 protected func ControlUp(){
-  Message("%d",this,GetLiquidStorage());
+  Message("%d",this,GetFill());
   }
 
 protected func ControlDig(object pClonk) {
-	var iChange = pClonk -> ~DoFuel(GetLiquidStorage() * 100);
+	var iChange = pClonk -> ~DoFuel(GetFill() * 100);
 	iChange = ChangeRange(iChange, 0, pClonk -> ~MaxFuel(), 0, 100);
 	Message("+%d", pClonk, iChange);
 	pClonk -> ~UpdateFuelHUD();
-	DoLiquidStorage(-iChange);
+	DoFill(-iChange);
 	return 1;
 }
 
@@ -90,7 +58,7 @@ public func MaxDamage() { return 15; } //Maximaler Schaden
 
 private func DestroyBlast(object pTarget) {
 	if(!pTarget) if(!(pTarget=this)) return;
-	var iAmount = pTarget -> GetLiquidStorage();
+	var iAmount = pTarget -> GetFill();
 	pTarget -> CastPXS("Oil", RandomX(iAmount / 2, iAmount), 50);
 	return inherited(...);
 }
