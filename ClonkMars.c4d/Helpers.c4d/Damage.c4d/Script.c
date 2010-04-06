@@ -158,7 +158,7 @@ public func DoRepairComponent(id ID) {
 }
 
 public func Repair(int percent) {
-	var iChange = ChangeRange(percent, 0, 100, 0, MaxDamage());
+	var iChange = Max(ChangeRange(percent, 0, 100, 0, MaxDamage()), 1);
 	if(GetDamage() - iChange < 0)
 		iChange = GetDamage();
 	
