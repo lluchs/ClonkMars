@@ -4,6 +4,7 @@
 #include B_40
 #include DACT //Damagecontrol
 #include PWRC // Energieverbraucher
+#include L_CA // Baugrafik
 
 public func MaxDamage() { return 27; } //Maximaler Schaden
 protected func Initialize(){
