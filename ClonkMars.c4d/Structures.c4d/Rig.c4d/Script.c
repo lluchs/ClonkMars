@@ -29,12 +29,6 @@ public func Deconstruction() {
 	return _inherited(...);	
 }
 
-private func EnergyCheck(int iEnergy, object pObj) {
-	if(!pObj)
-		pObj = this;
-	return pObj -> CheckPower(iEnergy / 150);
-}
-
 protected func Pumping() {
 	if(!ReadyToPump() || GetEffect("EnergyNeed", this))
 		SetAction("Wait", pDrillHead);
