@@ -4,10 +4,10 @@ Name=Tafel
 Version=4,9,5
 Category=1154
 MaxUserSelect=10
-Width=15
-Height=15
-Offset=-7,-7
+Width=14
+Height=11
+Offset=-7,-5
 Value=1
 Mass=1
 Components=PLAT=1;
-Picture=0,0,15,15
+Picture=0,0,14,11
