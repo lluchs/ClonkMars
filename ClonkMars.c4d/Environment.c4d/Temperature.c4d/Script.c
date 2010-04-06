@@ -153,27 +153,30 @@ global func FxLandTempTimer(object pTarget, int iEffectNumber) {
 	var iTemp = EffectVar(2, 0, iEffectNumber);
 	
 	// Temperatur der anderen Seiten anpassen
-	var iSides, iOther;
+	var iSides, iOther, k;
 	// oben
 	if(y) {
-		iSides++;
-		// etwas weniger, damit es unten kälter wird
-		iOther += EffectVar(2, 0, GetLandTempEffect(x, y-1)); //* 2 / 3;
+		k =  10 - GetLandTempChangeSpeed(iX, iY - LandTempDist);
+		iSides += k;
+		iOther += k * EffectVar(2, 0, GetLandTempEffect(x, y-1));
 	}
 	// unten
 	if((y-1) != LandscapeHeight() / LandTempDist) {
-		iSides++;
-		iOther += EffectVar(2, 0, GetLandTempEffect(x, y+1));
+		k =  10 - GetLandTempChangeSpeed(iX, iY + LandTempDist);
+		iSides += k;
+		iOther += k * EffectVar(2, 0, GetLandTempEffect(x, y+1));
 	}
 	// links
 	if(x) {
-		iSides++;
-		iOther += EffectVar(2, 0, GetLandTempEffect(x-1, y));
+		k =  10 - GetLandTempChangeSpeed(iX - LandTempDist, iY);
+		iSides += k;
+		iOther += k * EffectVar(2, 0, GetLandTempEffect(x-1, y));
 	}
 	// rechts
 	if((x-1) != LandscapeWidth() / LandTempDist) {
-		iSides++;
-		iOther += EffectVar(2, 0, GetLandTempEffect(x+1, y));
+		k =  10 - GetLandTempChangeSpeed(iX + LandTempDist, iY);
+		iSides += k;
+		iOther += k * EffectVar(2, 0, GetLandTempEffect(x+1, y));
 	}
 	
 	// Durchschnitt der Werte berechnen
@@ -201,13 +204,7 @@ global func FxLandTempTimer(object pTarget, int iEffectNumber) {
 		iOther = Max(iOther - 110 + GetLightIntensity() / 3, -MaxTemp);
 	}
 	
-	var k = 1; // Wachstumstgeschwindigkeit * 10
-	if(GBackSky(iX, iY))
-		k = 10;
-	else if(GBackSolid(iX, iY))
-		k = 5;
-	else if(GBackLiquid(iX, iY))
-		k = 2;
+	var k = GetLandTempChangeSpeed(iX, iY); // Wachstumstgeschwindigkeit * 10
 	
 	// Beschränktes Wachstum
 	// Bestand + k * (Schranke - Bestand)
@@ -228,6 +225,20 @@ global func FxLandTempTimer(object pTarget, int iEffectNumber) {
 		CreateParticle("PSpark", iX, iY, 0, 0, 100, b);
 	}
 }
+
+// *cough*
+global func GetLandTempChangeSpeed(int iX, int iY) {
+	var k = 1; // Wachstumstgeschwindigkeit * 10
+	if(GBackSky(iX, iY))
+		k = 9;
+	else if(GBackSolid(iX, iY))
+		k = 5;
+	else if(GBackLiquid(iX, iY))
+		k = 2;
+	
+	return k;
+}
+
 /*
 global func CalcBoundedGrowth(int iValue, int iLimit, int k) {
 	return iValue + k * (iLimit - iValue);
