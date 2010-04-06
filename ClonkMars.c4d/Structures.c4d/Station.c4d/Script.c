@@ -243,3 +243,9 @@ public func MaxDamage() { return 25; } //Maximaler Schaden
 public func MarsResearch() {
 	return true;
 }
+
+/* Wir brauchen keinen Loreninhalt */
+
+public func NoLorryEjection() {
+	return true;
+}
