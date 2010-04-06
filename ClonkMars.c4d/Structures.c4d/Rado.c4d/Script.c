@@ -67,8 +67,9 @@ private func DoBlast(bool power) {
 	var iAngle = GetAngle();
 	
 	for(var pObj in FindObjects(Find_Or(Find_ID(METO), Find_OCF(OCF_Alive), Find_OCF(OCF_Collectible)), Find_NoContainer(), AngleCriteria())) {
-		pObj -> Hit();
 		Fling(pObj, Sin(iAngle, 10), -Cos(iAngle, 10));
+		pObj -> DoEnergy(-RandomX(5, 15));
+		pObj -> Hit();
 	}
 	
 	var pObj = CreateObject(RADE, 0, 0, GetOwner());
