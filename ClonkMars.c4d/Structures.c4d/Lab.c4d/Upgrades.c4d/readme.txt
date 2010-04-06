@@ -1,1 +1,0 @@
-ext. Panels: In dem Panelobjekt einfach nach Upgrade dann die Funktion "PExtended" ausführen. Funktion aber auch ansehen! (gibts 2do)
