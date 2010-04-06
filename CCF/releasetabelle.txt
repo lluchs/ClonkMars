@@ -1,0 +1,138 @@
+[div align="center"][importimg src="http://luchs.bplaced.net/Clonk/Mars/CM-imagerotator.php" title="" align="center"][/div]
+[br]
+[div align="right"][Release Notes]
+[table]
+[tr]
+  [th]Name[/th][th]Rev[/th][th][img src="Releases/zip.png" title="Zip"][/th][th][img src="Releases/update.png" title="Update"][/th]
+[/tr]
+[tr style="background-color: #dbf0c1;"]
+  [td]http://white30.de/Clonk/CM/Archive/CM_Manual.zip,Anleitung;[/td][td]663[/td][td][img src="Releases/Jo.png" title="Nein"][/td][td][img src="Releases/No.png" title="Ja"][/td]
+[/tr]
+[/tr]
+[tr style="background-color: #dbf0c1;"]
+  [td]http://white30.de/Clonk/CM/Archive/CM_beta2.zip,Beta2;[/td][td]663[/td][td][img src="Releases/Jo.png" title="Nein"][/td][td][img src="Releases/No.png" title="Ja"][/td]
+[/tr]
+[tr style="background-color: #efc1c1;"]
+  [td]http://white30.de/Clonk/CM/CMv0.65b.zip,0.65b;[/td][td]600[/td][td][img src="Releases/No.png" title="Nein"][/td][td][img src="Releases/Jo.png" title="Ja"][/td]
+[/tr]
+[tr style="background-color: #efc1c1;"]
+  [td]http://cc.striver.net/download.php?act=getinfo&dl=566,Beta;[/td][td]593[/td][td][img src="Releases/Jo.png" title="Ja"][/td][td][img src="Releases/No.png" title="Nein"][/td]
+[/tr]
+[tr style="background-color: #efc1c1;"]
+  [td]Demo[/td][td]316[/td][td][img src="Releases/Jo.png" title="Nein"][/td][td][img src="Releases/No.png" title="Nein"][/td]
+[/tr]
+[/table]
+[/div]
+
+Die Ferne Welten Sparte bekommt einen neuen Bruder: Clonks auf dem roten Nachbarplaneten!
+[i]"aber ich versage da so, was den Sauerstoff angeht :<"[/i] -Luchs
+
+[region expanded="false" name="Neues" title="Neues"]
+[img src="Portrait2.jpg" title="" align="right"]
+[li][u]25.01.10:[/u] [i]rev643[/i]: Ein kurzer Zwischenstand: Bisher sind viele Bugs aus der Beta eingetroffen und auch bearbeitet/behoben. Zwar gibt es immer wieder einige, die "geht nicht" sagen, doch der Großteil hält sich daran uns auch genauere Informationen dazu zu geben. Somit werden wir versuchen Beta2 anzusteuern, aber einen konkreten Zeitplan dafür gibt es noch nicht. Bis dahin bleibt dafür der Bugtracker weiter öffentlich. Auch habe ich die Projektseite mal wieder geupdatet: Der geplante Meleepart wird ganz entfernt, sodass wir uns voll auf das Siedeln konzentrieren können. Melees machen andere Projekte genug, wir bleiben erstmal auf unserer bisherigen Schiene. So long.[br][/li][br]
+
+[li][u]20.01.10:[/u] [i]rev600[/i]: [c #999999]Der Kapselport funktionierte bisher leider nicht richtig, aufgrund eines Features, das aber noch nicht in der Demo enthalten war. Dazu gibt es jetzt einen Hotfix unter den Release Logs. Einfach die c4u in das Clonk Verzeichnis entpacken und per Doppelklick starten, der Rest erfolgt automatisch. Beachtet, dass von nun an womöglich eure Pakete abweichen werden von denen anderer Spieler. Macht alle die ihr kennt und mit denen ihr ClonkMars spielen wollt unbedingt auf diesen Fix aufmerksam![/c] Update vom 21.01.2010: Leider unterlief mir ein Fehler bei der Updatedatei. Luchs hat das nun behoben und ihr solltet den Fix nun korrekt ausführen können! Das Update ist wie immer unter den ReleaseLogs zu finden[br][/li][br]
+
+[li][u]16.01.10:[/u] [i]rev593[/i]: CM startet durch, die [b]Beta[/b] ist erhältlich! Download über den Link bei Release Logs, oder direkt über das Clonk-Center. Bugs bitte wie gehabt in den wieder öffentlichen http://www.clonkforge.net/bugtrack.php?prj=1125,Bugtracker;.[/li][br]
+
+[region1 expanded="false" name="Archiv" title="Archiv"]
+[li][u]16.12.09:[/u] [i]rev526[/i]: Es gibt mittlerweile viel zu berichten. Wir haben sehr gute Fortschritte gemacht und sind nun auch in der [b]Betaphase[/b] angelangt. Allerdings gibt es noch keine public Beta. Warum? Wir wollen, dass es euch auch Spaß macht und deshalb möchten wir gerne noch ein bisschen Hand anlegen. Der Bugtracker ist zwar (bis auf eine Unschönheit) Bugfrei, aber das ist ja nicht alles. Wir können auch kein genaues Datum dafür geben, wir haben uns Ende Dezember oder Januar als grobes Ziel gesteckt. Allerdings gibts gleich vier neue Screenshots vom neuen Baugrafiksystem und auch der neuen Materialeinheit (ehemals Schmelze, bzw. Materiallabor), sowie dem komplett neuem HUD und letzlich dem Terraformer. Auch gibt es eine neue Rubrik namens "Artikel". Ebenfalls neu hinzugekommen ist das Temperatursystem. Nun wird der Mars nicht global kälter, wenn die Nacht hereinbricht, sondern je nach Höhe gibt es verschiedene Schichten. In Bodennähe wärmt sich alles schneller auf, in großen Höhen und Tiefen ist es hingegen eher kälter. Das verleiht dem Spiel eine unglaubliche Dynamik und somit ist die Temperatur (wie in der Demo) nichtmehr einfach eine Art Chronometer, sondern ein wirklich echter Spielfaktor. Gerade wird auch an einem Sturmsystem gearbeitet...aber nun Schluss. Thats all folks!
+[/li]
+[br]
+[li][u]03.11.09:[/u] [i]rev400[/i]: Wie ihr bemerkt habt ist der Bugtracker erstmal dicht. Viele Bugs sind eingetroffen aus der Demoversion und wir haben ~alle gefixt. Hierzu einen herzlichen Dank an die Community für das fleissige Testen und gute Feedback! Wir haben nichtnur gefixt, sondern gewisse Dinge auch sehr optimiert. Als Beispiel: Sonnenkollektoren und Basis checken nun den Winkel. Das bedeutet wenn Erde darüber ist, gibts auch keinen Sauerstoff/Energie. Auch wenn zB links ein höherer Hügel als die Höhe des Panels ist, gibt es keinen oder kaum Strom. Das bringt noch einiges an Realismus in das ganze und zwingt den Spieler auf die Berggipfel hinauf, wenn er wirklich viel Strom effektiv haben will. Auch einige neue Features sind uns eingefallen und einige sind auch unmgesetzt. Es geht gerade nicht soo schnell voran wie in den letzten Wochen, aber dafür kontinuierlich. Fazit: Wir leben noch, bzw. mehr denn je![/li][br]
+[li][u]11.10.09:[/u][i]rev316[/i]: Wir freuen uns heute ein erstes Alpha Release in Form einer [b]Demoversion[/b] rauszubringen. Downloadbar ist es auf dem http://cc.striver.net/download.php?act=getinfo&dl=566,Clonk-Center;. Bugs und Featurewünsche zu den vorhandenen Systemen bitte in den Bugtracker, der nun öffentlich ist.[br][br][/li]
+[li][u]07.10.09:[/u][i]rev235[/i]: Heute war erster Multiplayertest. Nach dem vierten Anlauf sogar mit Erfolg! Teilnehmer waren Joshi, Icewing, Luchs und Nachtfalter. Die letzten beiden haben dann auch eher weitergesiedelt, da die anderen ins Bett mussten. Insgesamt ging die Runde über zwei Stunden und es hat schon richtig viel Spaß gemacht. Auch wurden eine Menge kleinerer Bugs sowie Balancingfragen geklärt, die nun möglichst bald umgesetzt werden. Unten gibt es zwei neue Screenshots aus der Runde.[/li][br]
+
+[li][u]02.10.09:[/u] [i]rev193[/i]: Relaunch der Projektseite, mit vielen neuen Sachen die ich hier gar nicht nennen kann. Wir haben jedenfalls viele neue Konzepte erstellt und zum Teil auch schon umgesetzt. Dadurch hat sich allerdings einiges an Terminen und Zeitplänen nach hinten verschoben, aber das ist denke ich mal nicht so schlimm. [/li][br]
+
+[li][u]14.09.09:[/u] [i]rev123[/i]: CM ist [b]Alpha[/b]! So viele Revisionen schon. Und ein Monat ist vergangen...was haben wir vorzuweisen? Eine Menge! Wir arbeiten sehr fleissig an dem Pack und es geht prima voran. Zwar wird der Bugtracker im voller und die Bugs immer weirder, dennoch sind wir frohen Mutes. Das Transmittersystem ist soweit fast fertig, die HUD Basics stehen auch und viele Änderung an Gebäuden und anderem wurden vorgenommen. Auch gibts einen neuen Clonk, den uns Randrian gebaut hat.
+
+Desweiteren habe ich bisher auch drei Musiktracks gemacht, die für noch mehr marsige Stimmung sorgen sollten. Zur Zeit arbeiten wir auch parallel an zwei Szenarios (und auch zwei Loader), um so wie wir hoffen möglichst bald eine public Alpha mit den primären Objekten zum Download anzubieten...
+
+Leider können wir auch nicht überall gleichzeitig arbeiten und mangels Priorität kann ich heute doch nicht (wie eigentlich versprochen) etwas näher auf die Vegetation eingehen. Möglicherweise beim nächsten Push. Achso, genau: In der aktuellen Ausgabe des CMags gibt es auch einen recht ausführlichen Artikel zum Projekt --> http://cmag.bplaced.net/magazine/online/0909/ClonkMagazin0909.html#CCF-news,Klick;[/li][br]
+
+[li][u]15.08.09:[/u] [i]rev44[/i]: Erzschmelze, Akkumulator, Terraformer (zum Teil) und eine neue Vegetationsart komplett fertig![/li]
+
+[li][u]14.08.09:[/u] [i]rev13[/i]: CM erreicht [b]Prealpha[/b] Status! Basis und Solarpaneele komplett fertig, Clonk hat Sauerstoffsystem[/li]
+
+[li][u]12.08.09:[/u] Projektseite eröffnet[/li][/region1]
+[/region]
+[br]
+[region expanded="false" region name="history" title="Die Mars Geschichte"]Alles fing mit Markus Lütkemeyers Colonize Mars im Jahr 2002 an. Das wurde noch für Clonk Planet programmiert. 2007/2008 habe ich versucht davon ein Remake zu machen, was aber letztendes an zu linearen Spielablauf (-Spaß) scheiterte. 2009 war nun die Idee einfach das Thema zu verwenden, aber mit eigenen Konzepten. Eine Bildergallerie zum Thema Mars-Geschichte in Clonk ist http://www.clonkforge.net/projects/project1125/History_big.jpg,hier; verfügbar.[/region]
+[br]
+
+[region expanded="false" region name="concept" title="Konzepte"]
+[br]
+[div class="kbox"]
+[div1 class="sprite clunker"]
+[/div1]
+[div1 class="konzept"]
+[b]Clunker verdienen[/b]
+Clunker braucht man immer und allgegenwärtig. Diverse Einnahmequellen wären zB der Verkauf von Energiezellen. Die Energie bekommt man durch die Sonne gratis, es muss nur genügend produziert werden, um die Siedlung zu versorgen, sowie auch Energiezellen auffüllen zu können.
+[/div1]
+[/div]
+
+[div class="kbox"]
+[div1 class="sprite materialien"]
+[/div1]
+[div1 class="konzept"]
+[b]Materialien verarbeiten[/b]
+Die Grundbausteine werden vermutlich (Änderungen vorbehalten) Plastik und Metall sein. Metall stellt man aus Erde her, die vom Himmel stets herabregnet (staubform). Die Erde ist sehr eisenhaltig, von daher ist das kein Problem für die Clonks. Plastik stellt man wiederum aus Öl her, dass es durch Ölquellen nahezu unbegrenzt gibt. Öl wird somit zu einem sehr wichtigen taktischen Element. Durch die Quellen und den Regen wird gewährleistet, dass kein Material zur Neige geht. Es gilt nur den Hunger nach selbigen zu stillen in dem man sein Gebiet ausweitet und immer mehr anknüpft. Wer zB 80% der Karte hat, hat gute Chancen für viele Ölquellen, sowie den Marsstaubregen.
+[/div1]
+[/div]
+
+[div class="kbox"]
+[div1 class="sprite forschen"]
+[/div1]
+[div1 class="konzept"]
+[b]Forschen[/b]
+Es wird eine vielzahl von Upgrades geben, die es erst ermöglichen wirklich effektiv seine Ressourcen auszunutzen. Es kann von Erweiterungen der Speicherkapazitäten, bis hin zu moderner Waffentechnik gehen, die es ermöglicht den Spieler noch wegzubomben eh er selbst Waffen hat - insofern dieser zu faul/vergessen hat auch div. Techniken zu erforschen.
+[/div1]
+[/div]
+
+[div class="kbox"]
+[div1 class="sprite jetbelt"]
+[/div1]
+[div1 class="konzept"]
+[b]Unwirtliche Gegenden[/b]
+Desweiteren wird der Clonk extremen Bedingungen ausgesetzt. Erstens hat er stetigen Sauerstoffbedarf, der ohne Upgrades nur aus der Hauptbasis zu beziehen ist. Nachts, bzw. in Polgegenden kann er schneller frieren als sonst und muss sich so in div. Gebäuden wieder aufwärmen gehen, ansonsten nimmt er auch schaden. Die Gravitation ist hier zwar ein Freund, da so besser höhere Sprünge möglich sind, aber dafür mag der Clonk ganz und gar nicht tief fallen. Aus diesem Grund gibts per Upgrade ein Jetpack mitgeliefert, womit er noch höhere Punkte einfach erreichen kann, oder seinen größeren Sprüngen den Schwung nehmen kann.
+[/div1]
+[/div]
+[/region]
+
+[br]
+
+[region expanded="true" region name="screens" title="Sceenshots"]
+Es gibt viel zu entdecken bei uns hier! Schaut euch in Ruhe um. Die Screenshots sind chronologisch (von links oben nach rechts unten aufsteigend) geordnet, deshalb können ggf. einige Unterschiede bei denselben Objekten auftauchen.
+
+[a href="http://www.clonkforge.net/projects/project1125/Settle.jpg" title="Clonks bauen Tank zusammen" rel="lytebox(moo)"][img src="Settle_prev.jpg"  border="0"][/a]
+[a href="http://www.clonkforge.net/projects/project1125/Lobby.jpg" title="Lobbyansicht" rel="lytebox(moo)"][img src="Lobby_prev.jpg" border="0"][/a]
+[a href="http://www.clonkforge.net/projects/project1125/Abendtransmit.jpg" title="Beamen in der Abenddämmerung - wunderschön!" rel="lytebox(moo)"][img src="Abendtransmit_prev.jpg" border="0"][/a]
+[a href="http://www.clonkforge.net/projects/project1125/transmitter3.jpg" title="Öllager Bravo" rel="lytebox(moo)"][img src="transmitter3_prev.jpg" border="0"][/a]
+[a href="http://www.clonkforge.net/projects/project1125/bigsettlement.jpg" title="Zentrum der Kolonie" rel="lytebox(moo)"][img src="bigsettlement_prev.jpg" border="0"][/a]
+[a href="http://www.clonkforge.net/projects/project1125/terraformer2.jpg" title="Ein Terraformer bei der Arbeit" rel="lytebox(moo)"][img src="terraformer2_prev.jpg" border="0"][/a]
+[a href="http://www.clonkforge.net/projects/project1125/HUD_new.jpg" title="Das neue HUD mit vielen nützlichen Infos" rel="lytebox(moo)"][img src="HUD_new_prev.jpg" border="0"][/a]
+[a href="http://www.clonkforge.net/projects/project1125/Phobosmars.jpg" title="ein Außenposten auf Phobos. Im Hintergrund ist der gewaltige Mars zu sehen" rel="lytebox(moo)"][img src="Phobosmars_prev.jpg" border="0"][/a]
+[a href="http://www.clonkforge.net/projects/project1125/Baugrafik.jpg" title="Alle Gebäude bekommen Stück für Stück Baugrafiken" rel="lytebox(moo)"][img src="Baugrafik_prev.jpg" border="0"][/a]
+[a href="http://www.clonkforge.net/projects/project1125/Eos.jpg" title="Eine ziemlich gut funktionierende Siedlung" rel="lytebox(moo)"][img src="Eos_prev.jpg" border="0"][/a]
+
+
+[/region][br]
+[region expanded="false" region name="Art" title="Artikel"]
+[div align="center"][img src="Blog.jpg" title="" align="right"][/div]
+Es gibt bereits einiges außerhalb dieser Projektseite über Clonk Mars. Und das wollen wir natürlich nicht vorenthalten.
+
+Ein Forenpost, der Werbung für Clonk macht, unter anderem für Modern Combat und ClonkMars! http://www.neogaf.com/forum/showthread.php?t=377494,Klick mich!;
+Hier ein kleiner Blogpost in Markus Lütkemeyers (der Vater von Colonize Mars) Blog. http://home.arcor.de/m6/m6/markusl/archiv/2009/10/entry_157.htm,Klick mich!;
+
+[/region]
+[br]
+[region expanded="false" region name="CSS" title="Projektinfos"]
+Die Grafiken wurden alle mit Cinema4D R11 erstellt, und mit Photoshop nachbearbeitet. Clonkgrafiken wurden von Randrian mit Blender erstellt. Das Pack ist ausschließlich für ClonkRage gebaut und gewährleistet keinerlei Abwärtskompatibilität.
+
+Die derzeitige Projektgröße aller Arbeitsdateien liegt bei 2086MB, die sich aus insgesamt 2914 Dateien, sowie 1419 Ordnern zusammensetzen. Das Projekt selbst befindet sich zur Zeit in der Beta Phase und ist geschätzt bei ca. 68%.
+[/region]
+[br][br]
+
+
+[eng]sorry, no english description aviable[br]please view in german[/eng]
