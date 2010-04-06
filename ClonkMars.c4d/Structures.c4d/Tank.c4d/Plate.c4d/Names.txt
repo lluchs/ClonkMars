@@ -1,0 +1,2 @@
+DE:Tafel
+US:Plate

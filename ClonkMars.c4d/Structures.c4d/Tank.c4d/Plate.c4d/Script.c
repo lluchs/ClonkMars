@@ -1,0 +1,3 @@
+/*-- Anzeigetafel --*/
+
+#strict

@@ -1,0 +1,7 @@
+[Action]
+Name=Lava
+Facet=0,0,15,15
+
+[Action]
+Name=Oil
+Facet=15,0,15,15
