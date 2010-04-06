@@ -2,16 +2,26 @@
 
 ### Prefinal 0.95 ###
 Rundenordner/Extra.c4g:
-
+* Jedes Szenario hat Base, Akku, Panel, Matlab als Standardbauplan (Spielstart einfacher)
 
 Objekte:
 * NewGFX: Reel
 * Reel von der Seite gerendert, zur besseren Erkennung
 * Reel Hit nichtmehr Stein, sondern Metallksound
 * RADO hält etwas mehr Schaden aus
+* Wompfbeere kleiner und farbiger
+! Plastik nicht mehr doppelt bau-/erforschbar
 
 Gebäude: 
+* Rig modularer fürs Flüssigkeiten pumpen
+* Tank hält mehr Damage aus
+* Gebäudebeschreibungen um einiges erweitert
 
 
 Fahrzeuge:
+
+Sonstiges:
+* Bestätigungsmenü für Rückbau
+* Reparieren kann mit Doppelrichtung abgebrochen werden
+! Clonk stuckt nicht mehr im Reperaturvorgang fest
 
