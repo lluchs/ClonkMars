@@ -1,4 +1,5 @@
-Stores/Saves energy and emits it when necessary.
+Stores/Saves energy and emits it when necessary. Needs
+one crystal for energy storage.
 
 Control:
 

@@ -1,5 +1,5 @@
-Speichert Energie und gibt sie bei Bedarf ab.
-
+Speichert Energie und gibt sie bei Bedarf ab. Benötgt zum Energie
+speichern einen Kristall.
 
 Steuerung:
 

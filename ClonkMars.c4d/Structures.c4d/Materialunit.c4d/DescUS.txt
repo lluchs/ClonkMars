@@ -5,3 +5,7 @@ Continuous production with item selection and confirmation with Special2, cancel
 With jump you can get to the menu with building-possibilitys with available material. With dig are all buildabile construction and the necessary components visible.
 
 That the lab can produce plastic, it must be connected with the oil tank.
+
+Grab to Show the costs for the Items.
+Metal=2Pieces of Earth
+Plastic=300 Oil
