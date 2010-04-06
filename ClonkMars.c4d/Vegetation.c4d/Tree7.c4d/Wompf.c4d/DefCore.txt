@@ -14,7 +14,7 @@ VertexFriction=50,50,50
 Value=4
 Mass=10
 Components=WMPF=1
-Picture=5,0,64,64
+Picture=8,0,64,64
 Edible=1
 Growth=20
 Rebuy=1
