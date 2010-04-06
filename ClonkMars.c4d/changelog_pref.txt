@@ -16,12 +16,16 @@ Gebäude:
 * Rig modularer fürs Flüssigkeiten pumpen
 * Tank hält mehr Damage aus
 * Gebäudebeschreibungen um einiges erweitert
-
+! Reproduktion sollte keine Clonks ohne Owner mehr erstellen
+! Rig benötigt nun wirklich Energie
+! Transmitterstation frisst nicht mehr Loreninhalt
+! Value Stack Overflow hoffentlich gefixt (Kurzschluss!)
 
 Fahrzeuge:
 
 Sonstiges:
 * Bestätigungsmenü für Rückbau
 * Reparieren kann mit Doppelrichtung abgebrochen werden
+* Flüssigkeiten sind in der Temperaturkonstante die höchste Instanz
 ! Clonk stuckt nicht mehr im Reperaturvorgang fest
 
