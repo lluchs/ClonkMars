@@ -10,16 +10,6 @@ NextAction=Walk
 StartCall=None
 
 [Action]
-Name=Jetpack
-Procedure=FLIGHT
-Directions=2
-FlipDir=1
-Length=1
-Facet=0,0,16,20
-NextAction=Hold
-StartCall=None
-
-[Action]
 Name=Scale
 Procedure=SCALE
 Directions=2

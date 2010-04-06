@@ -243,15 +243,14 @@ public func IsReady()
 
   if(GetAction() == "Jump"
   || GetAction() == "Tumble"
-  || GetAction() == "Dive"
-  || GetAction() == "Jetpack")
+  || GetAction() == "Dive")
     return(1);
 }
 
 private func SetUserAction()
 {
-  if(GetAction() != "Jetpack")
-    SetAction("Jetpack");
+  if(GetAction() != "Jump")
+    SetAction("Jump");
 }
 
 private func ComDir2Angle(int iDir)
