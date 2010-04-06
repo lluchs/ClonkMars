@@ -217,13 +217,13 @@ protected func ControlSpecial()  {
 
 /* Überladung für Deconstruct */
 protected func ControlLeftDouble() {
-	if (GetAction() == "Deconstruct")
+	if (GetAction() == "Deconstruct" || GetAction() == "Repair")
 		SetAction("Walk");
 	return _inherited(...);
 }
 
 protected func ControlRightDouble() {
-	if (GetAction() == "Deconstruct")
+	if (GetAction() == "Deconstruct" || GetAction() == "Repair")
 		SetAction("Walk");
 	return _inherited(...);
 }
