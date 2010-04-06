@@ -85,12 +85,17 @@ protected func FxReproductionTimer(object pTarget, int iEffectNumber, int iEffec
 	 pClonk -> Schedule("DoCon(1)", 50, 40);
 	 pClonk -> Birth();
 	 
-	 var pDeath = FindObject2(Find_ID(SCNK), Find_Owner(GetOwner()), Find_Not(Find_OCF(OCF_Alive)), Find_Not(Find_Func("IsReproduced")), Sort_Random());
-	 if(pDeath) {
+	 var death = FindObjects(Find_ID(SCNK), Find_Owner(GetOwner()), Find_Not(Find_OCF(OCF_Alive)), Find_Not(Find_Func("IsReproduced")), Sort_Random());
+	 for(var pDeath in death) {
 	 	pDeath -> Reproduced();
 	 	pClonk -> GrabObjectInfo(pDeath);
+	 	
+	 	// Erfolgreich? Es könnte schief gehen.
+	 	if(pClonk == GetCrew(GetOwner()))
+	 		break;
 	 }
-	 else
+	 // keinen passenden Clonk gefunden, dann einen neuen erstellen
+	 if(pClonk != GetCrew(GetOwner()))
 	 	MakeCrewMember(pClonk, GetOwner());
 	 EffectVar(0, pTarget, iEffectNumber) = -1;
 	}
