@@ -1,2 +1,2 @@
-DE:Öltank
-US:Oiltank
+DE:Tank
+US:Tank

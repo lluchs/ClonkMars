@@ -1,6 +1,6 @@
 [DefCore]
 id=OILT
-Name=Öltank
+Name=Tank
 Category=1154
 MaxUserSelect=1
 Width=60

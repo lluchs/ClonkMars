@@ -5,22 +5,45 @@
 #include DACT //Damagecontrol
 #include L_SS
 
+local type; // 0: Öl; 1: Lava
+
 func Initialize() {
-  return 1;
+	UpdateTypePicture();
+	UpdatePicture();
+	return 1;
 }
 
-public func TankFor(int mat) { return mat == Material("Oil"); }
+public func TankFor(int mat) {
+	if(type == 0)
+		return mat == Material("Oil");
+	else
+		return WildcardMatch(MaterialName(mat), "*Lava*");
+}
 
 public func MaxFill() { return 3500; }
 private func FillPicture() { return; }
 
 private func UpdatePicture() {
+	if(GetCon() != 100)
+		return;
 	// Der Bohrturm füllt evtl. nicht ganz
 	var iNum = GetFill() * 5 / MaxFill();
 	if(MaxFill() - GetFill() < 5)
 		iNum = 5; // trotzdem als voll anzeigen
 	SetGraphics(0, this, _BAR, 1, GFXOV_MODE_Action, Format("%d/5", iNum));
 	SetObjDrawTransform(1000, 0, -8000, 0, 1000, 3500, this, 1);
+	UpdateTypePicture();
+	return 1;
+}
+
+private func UpdateTypePicture() {
+	var act = "Oil";
+	if(type)
+		act = "Lava";
+	if(IsFull())
+		act = Format("%sFull", act);
+	SetGraphics(0, this, PLAT, 2, GFXOV_MODE_Action, act);
+	SetObjDrawTransform(1000, 0, 33000, 0, 1000, -2000, this, 2);
 	return 1;
 }
 
@@ -42,11 +65,21 @@ protected func ControlUp(){
   }
 
 protected func ControlDig(object pClonk) {
+	if(type)
+		Message("Nur Öl möglich!", pClonk);
 	var iChange = pClonk -> ~DoFuel(GetFill() * 100);
 	iChange = ChangeRange(iChange, 0, pClonk -> ~MaxFuel(), 0, 100);
 	Message("+%d", pClonk, iChange);
 	pClonk -> ~UpdateFuelHUD();
 	DoFill(-iChange);
+	return 1;
+}
+
+protected func ControlThrow() {
+	if(GetFill())
+		return Message("Nur bei leerem Tank möglich!", this);
+	type = !type;
+	UpdateTypePicture();
 	return 1;
 }
 
@@ -61,7 +94,10 @@ public func MaxDamage() { return 20; } //Maximaler Schaden
 private func DestroyBlast(object pTarget) {
 	if(!pTarget) if(!(pTarget=this)) return;
 	var iAmount = pTarget -> GetFill();
-	pTarget -> CastPXS("Oil", RandomX(iAmount / 2, iAmount), 50);
+	var mat = "Oil";
+	if(type)
+		mat = "Lava";
+	pTarget -> CastPXS(mat, RandomX(iAmount / 2, iAmount), 50);
 	return inherited(...);
 }
 
