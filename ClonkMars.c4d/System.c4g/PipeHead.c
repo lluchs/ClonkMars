@@ -20,7 +20,7 @@ protected func Transfer() {
 		return StopTransfer(pTarget);
 	
 	if(!HasEnergy || GetActTime() % 10) {
-		if(pTarget -> EnergyCheck(5))
+		if(pTarget -> CheckPower(5))
 			HasEnergy = true;
 		else {
 			HasEnergy = false;
