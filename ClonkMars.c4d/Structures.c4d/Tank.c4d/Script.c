@@ -56,7 +56,7 @@ public func MarsResearch() {
 	return true;
 }
 
-public func MaxDamage() { return 15; } //Maximaler Schaden
+public func MaxDamage() { return 20; } //Maximaler Schaden
 
 private func DestroyBlast(object pTarget) {
 	if(!pTarget) if(!(pTarget=this)) return;
