@@ -1,1 +1,1 @@
-Eine neue Objektdefinition.
+Stellt die Grundfunktionalität aller Objekte, die Sauerstoff speichern zur Verfügung.

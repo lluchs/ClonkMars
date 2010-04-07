@@ -1,1 +1,1 @@
-A new object definition.
+This object provides basic control for all objects, that contains o2.
