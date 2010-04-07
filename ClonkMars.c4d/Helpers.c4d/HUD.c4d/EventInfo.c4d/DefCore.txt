@@ -1,0 +1,16 @@
+[DefCore]
+id=INFO
+Name=Eventinfo
+Version=4,9,5
+Category=1154
+MaxUserSelect=10
+Width=28
+Height=28
+Offset=-14,-14
+Value=1
+Mass=1
+Components=INFO=1;
+Picture=28,28,28,28
+Vertices=1
+VertexY=1
+ 
