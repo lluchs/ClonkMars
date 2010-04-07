@@ -234,7 +234,7 @@ protected func ControlRightDouble() {
 }
 
 protected func ContextDeconstruct(object clonk) {
-	[$CtxDeconstructDesc$|Image=CXCN|Condition=AtBuildingToDeconstruct]
+	[$CtxDeconstructDesc$|Image=CRYC|Condition=AtBuildingToDeconstruct]
 	var dummy = CreateObject(TIM1);
 	SetGraphics("Chosen", dummy, MS4C, 1, GFXOV_MODE_Picture);
 	CreateMenu(CXCN, this, this);
