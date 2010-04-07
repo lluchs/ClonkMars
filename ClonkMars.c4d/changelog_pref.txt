@@ -13,9 +13,13 @@ Objekte:
 ! Plastik nicht mehr doppelt bau-/erforschbar
 
 Gebäude: 
++ Tank universell für Flüssigkeiten
++ Baugrafiken: RADO
 * Rig modularer fürs Flüssigkeiten pumpen
 * Tank hält mehr Damage aus
 * Gebäudebeschreibungen um einiges erweitert
+* Bohrturm braucht kein Plastik mehr als Baumaterial
+* RADO verletzt Clonks, die sich im Schussbereich bei Aktivität befinden
 ! Reproduktion sollte keine Clonks ohne Owner mehr erstellen
 ! Rig benötigt nun wirklich Energie
 ! Transmitterstation frisst nicht mehr Loreninhalt
