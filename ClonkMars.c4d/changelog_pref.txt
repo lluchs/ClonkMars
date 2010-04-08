@@ -3,14 +3,18 @@
 ### Prefinal 0.95 ###
 Rundenordner/Extra.c4g:
 * Jedes Szenario hat Base, Akku, Panel, Matlab als Standardbauplan (Spielstart einfacher)
+* Fossae: Materialien etwas besser balanced + Öl auf der Map ist konzentrierter verteilt
 
 Objekte:
-* NewGFX: Reel
++ NewGFX: Reel
++ NewIcons: Rückbau/Recycling
+* HUD überarbeitet
 * Reel von der Seite gerendert, zur besseren Erkennung
 * Reel Hit nichtmehr Stein, sondern Metallksound
 * RADO hält etwas mehr Schaden aus
 * Wompfbeere kleiner und farbiger
 ! Plastik nicht mehr doppelt bau-/erforschbar
+! Speichersystem Objekte hatten keine Beschreibungen
 
 Gebäude: 
 + Tank universell für Flüssigkeiten
