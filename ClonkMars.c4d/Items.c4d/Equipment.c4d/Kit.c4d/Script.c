@@ -2,9 +2,16 @@
 
 #strict 2
 
-static const SPCT_MaxUse = 3;
+#include L_SS
+
+private func MaxFill() { return 3; }
+private func FillPicture() { return; }
 
 local Used;
+
+protected func Initialize() {
+	DoFill(3);
+}
 
 protected func Activate(object pClonk) {
 	var act = pClonk -> GetAction();
@@ -47,8 +54,8 @@ protected func Activate(object pClonk) {
 		pSite->CreateParticle("PSpark", x_off[1], y_off[1], 0, 0, 50, RGB(0, 255), pSite);
 		*/
 		
-		Used++;
-		if(Used == SPCT_MaxUse)
+		DoFill(-1);
+		if(!GetFill())
 			RemoveObject();
 	}
 	return 1;
