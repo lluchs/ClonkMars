@@ -2,28 +2,30 @@
 
 #strict 2
 
-global func PipelineConnectedWith(object pTarget, object pNext, object pOldLine)
+// The other three Parameters pNext, pOldLine and aOld are only used for recursive purposes.
+global func PipelineConnectedWith(object pConsumer, object pNext, object pOldLine, array aOld)
 {
-	if(!pNext)
-		pNext = pTarget;
-	for(var pLine in FindObjects(Find_ID(DPIP)))
+	if(!pNext) { // Initial call to this function.
+		pNext = pConsumer;
+		aOld = [];
+	}
+	for(var pLine in FindObjects(Find_ID(DPIP))) // Check all lines connected to pNext.
 	{
-		if(pLine == pOldLine) // Recursive -> Not backwards.
+		if(pLine == pOldLine) // Recursive -> Not backwards<->forwards through lines.
 			continue;
-		var pEnd;
-		if(pLine -> GetActionTarget(0) == pNext)
-			pEnd = pLine -> GetActionTarget(1);
-		else if(pLine -> GetActionTarget(1) == pNext)
-			pEnd = pLine -> GetActionTarget(0);
-		else
-			continue;
+		//if(!pLine -> IsConnectedWith(pNext)) // Power line connected with pConsumer.
+			//continue;
+		var pEnd = pLine -> GetConnectedObject(pNext); // What is on the line's other end.
 		if(!pEnd) // Nothing on the other end.
 			continue;		
-		if(pEnd == pTarget) // End of a loop.
+		if(pEnd == pConsumer) // End of a recursive loop.
+			continue;
+		if(GetIndexOf(pEnd, aOld) != -1) // We already know this
 			continue;
 		if(pEnd == this) // Found this object, i.e. the generator.
 			return true;
-		if(PipelineConnectedWith(pTarget, pEnd, pLine))
+		PushBack(pEnd, aOld);
+		if(PipelineConnectedWith(pConsumer, pEnd, pLine, aOld)) // This building is not found, continue with next pEnd as next building.
 			return true;		
 	}
 	return false;
