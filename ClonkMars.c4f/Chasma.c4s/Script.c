@@ -19,7 +19,10 @@ func Initialize() {
   PlaceObjects(METL,2,"Durolava",950,1200,150,150);   
   PlaceObjects(CELL,1,"Durolava",950,1200,150,150);   
   PlaceObjects(SATD,1,"Durolava",950,1200,150,150);
-  PlaceObjects(ORE1,8,"Durolava",950,1200,150,150);    
+  PlaceObjects(ORE1,8,"Durolava",950,1200,150,150);  
+  
+  // Spouter
+  PlaceObjects(OILS, RandomX(1,3), "Oil", 0, 1300, LandscapeWidth(), 300);  
   
   return(1);
   }
