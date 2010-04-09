@@ -11,11 +11,15 @@ global func PipelineConnectedWith(object pConsumer, object pNext, object pOldLin
 	}
 	for(var pLine in FindObjects(Find_ID(DPIP))) // Check all lines connected to pNext.
 	{
-		if(pLine == pOldLine) // Recursive -> Not backwards<->forwards through lines.
+		if(pLine == pOldLine) // Recursive -> Not backwards.
 			continue;
-		//if(!pLine -> IsConnectedWith(pNext)) // Power line connected with pConsumer.
-			//continue;
-		var pEnd = pLine -> GetConnectedObject(pNext); // What is on the line's other end.
+		var pEnd;
+		if(pLine -> GetActionTarget(0) == pNext)
+			pEnd = pLine -> GetActionTarget(1);
+		else if(pLine -> GetActionTarget(1) == pNext)
+			pEnd = pLine -> GetActionTarget(0);
+		else
+			continue;
 		if(!pEnd) // Nothing on the other end.
 			continue;		
 		if(pEnd == pConsumer) // End of a recursive loop.
