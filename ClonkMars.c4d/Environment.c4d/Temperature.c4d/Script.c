@@ -108,10 +108,15 @@ global func CreateLandTempEffects() {
 	LandTempEffects = CreateArray(LandscapeWidth() / LandTempDist);
 	// x-1 bzw. y-1, damit auch am Spielfeldrand ein Effekt vorhanden ist
 	// dieser ist natürlich außerhalb der Landschaft
+	var iTimer = 0;
 	for(var x = 0; (x-1) * LandTempDist < LandscapeWidth(); x++) {
 		LandTempEffects[x] = CreateArray(LandscapeHeight() / LandTempDist);
 		for(var y = 0; (y-1) * LandTempDist < LandscapeHeight(); y++) {
-			LandTempEffects[x][y] = AddEffect("LandTemp", 0, 10, 50, 0, 0, x, y);
+			LandTempEffects[x][y] = AddEffect("LandTemp", 0, 10, 0, 0, 0, x, y);
+			iTimer++;
+			Schedule(Format("ChangeEffect(0, 0, %d, \"LandTemp\", 50)", LandTempEffects[x][y]), iTimer);
+			if(iTimer > 50)
+				iTimer = 0;
 		}
 	}
 }
