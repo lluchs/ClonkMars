@@ -190,7 +190,10 @@ global func FxLandTempTimer(object pTarget, int iEffectNumber) {
 	// Erwärmung der Erde
 	if(GBackSolid(iX, iY)) {
 		if(!y || (!GBackSolid(iX, iY - LandTempDist) && GBackSky(iX, iY - LandTempDist))) {
-			iOther = Min(iOther + GetLightIntensity() * 7 / 4, MaxTemp);
+			var earthWarming = GameCall("EarthWarming");
+			if(!earthWarming)
+				earthWarming = GetLightIntensity() * 7 / 4;
+			iOther = Min(iOther + earthWarming, MaxTemp);
 		}
 	}
 	
@@ -201,12 +204,18 @@ global func FxLandTempTimer(object pTarget, int iEffectNumber) {
 	
 	// Abkühlung ganz unten
 	if(y == LandscapeHeight() / LandTempDist) {
-		iOther = Max(iOther - 150, -MaxTemp);
+		var lowerCooling = GameCall("LowerCooling");
+		if(!lowerCooling)
+			lowerCooling = 150;
+		iOther = Max(iOther - lowerCooling, -MaxTemp);
 	}
 	
 	// Abkühlung ganz oben, abhängig von Tageszeit
 	if(!y) {
-		iOther = Max(iOther - 110 + GetLightIntensity() / 3, -MaxTemp);
+		var upperCooling = GameCall("UpperCooling");
+		if(!upperCooling)
+			upperCooling = 110 - GetLightIntensity() / 3;
+		iOther = Max(iOther - upperCooling, -MaxTemp);
 	}
 	
 	var k = GetLandTempChangeSpeed(iX, iY); // Wachstumstgeschwindigkeit * 10
