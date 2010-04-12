@@ -25,6 +25,9 @@ Objekte:
 Gebäude: 
 + Tank universell für Flüssigkeiten
 + Baugrafiken: RADO
++ fehlende Strings für Tank
++ Energiezellen als Bauelement
+* Baumaterialien balanced
 * Rig modularer fürs Flüssigkeiten pumpen
 * Tank hält mehr Damage aus
 * Gebäudebeschreibungen um einiges erweitert
@@ -38,6 +41,8 @@ Gebäude:
 Fahrzeuge:
 
 Sonstiges:
+* HUD geringfügig nochmals überarbeitet
+* Viewporteffekte bei jeder Art von Schmerz, sowie Kälteeinfluss
 * Bestätigungsmenü für Rückbau
 * Reparieren kann mit Doppelrichtung abgebrochen werden
 * Flüssigkeiten sind in der Temperaturkonstante die höchste Instanz
