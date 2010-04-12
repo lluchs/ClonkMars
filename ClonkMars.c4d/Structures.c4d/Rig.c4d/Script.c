@@ -26,7 +26,7 @@ protected func Incineration() {
 public func Deconstruction() {
 	pLamp -> RemoveObject();
 	pDrillHead -> RemoveObject();
-	return _inherited(...);	
+	return _inherited(...);
 }
 
 protected func Pumping() {
@@ -57,11 +57,21 @@ public func Transfer(int iAmount, int iMaterial, bool fNoChange) {
 		if(pTank -> GetFill() + iAmount <= pTank -> MaxFill()) {
 			if(!fNoChange)
 				pTank -> DoFill(iAmount);
+				  Overburn();
 			return 1;
 		}
 	}
 	return;
 }
+
+/*Fackel*/
+
+protected func Overburn(){
+  CreateParticle("Fire2", -10, -35, RandomX(-5,5), -10-Random(10), 75 + Random(75), RGBa(255, 230, 230, 50), this());
+  CreateParticle("Fire2", -10, -30, RandomX(-5,5), -10-Random(10), 75 + Random(75), RGBa(255, 230, 230, 50), this());
+  if(!Random(3))
+    CreateParticle("Fire", -10, -30, RandomX(-5,5), -10-Random(10), 55, RGBa(255, 230, 230, 50), this());
+    }
 
 public func MaxDamage() { return 25; } //Maximaler Schaden
 
