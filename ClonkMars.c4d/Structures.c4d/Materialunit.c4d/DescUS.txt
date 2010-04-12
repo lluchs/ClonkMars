@@ -7,5 +7,5 @@ With jump you can get to the menu with building-possibilitys with available mate
 That the lab can produce plastic, it must be connected with the oil tank.
 
 Grab to Show the costs for the Items.
-Metal=2Pieces of Earth
-Plastic=300 Oil
+{{METL}} = 2Pieces of Earth
+{{PSTC}} = 300 Oil

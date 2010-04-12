@@ -8,5 +8,5 @@ Damit das Labor Plastik produzieren kann, muss es mit einem Öltank verbunden sei
 
 
 Herstellungskosten sind per Graben aufrufbar.
-Metall=2Erdklumpen
-Plastik=300 Öl
+{{METL}} = 2Erdklumpen
+{{PSTC}} = 300 Öl
