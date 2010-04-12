@@ -1,0 +1,2 @@
+TxtOnlyOil=Nur Öl möglich!
+TxtOnlyEmptyTank=Nur bei leerem Tank möglich!

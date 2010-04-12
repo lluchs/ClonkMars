@@ -1,0 +1,2 @@
+TxtOnlyOil=Only Oil possible.
+TxtOnlyEmptyTank=Only possible if|tank is empty!

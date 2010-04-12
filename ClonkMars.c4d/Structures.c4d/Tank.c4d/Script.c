@@ -66,7 +66,7 @@ protected func ControlUp(){
 
 protected func ControlDig(object pClonk) {
 	if(type)
-		Message("Nur Öl möglich!", pClonk);
+		Message("$TxtOnlyOil$", pClonk);
 	var iChange = pClonk -> ~DoFuel(GetFill() * 100);
 	iChange = ChangeRange(iChange, 0, pClonk -> ~MaxFuel(), 0, 100);
 	Message("+%d", pClonk, iChange);
@@ -77,7 +77,7 @@ protected func ControlDig(object pClonk) {
 
 protected func ControlThrow() {
 	if(GetFill())
-		return Message("Nur bei leerem Tank möglich!", this);
+		return Message("$TxtOnlyEmptyTank$", this);
 	type = !type;
 	UpdateTypePicture();
 	return 1;
