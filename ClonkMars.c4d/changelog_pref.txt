@@ -25,12 +25,15 @@ Objekte:
 Gebäude: 
 + Tank universell für Flüssigkeiten
 + Baugrafiken: RADO
++ Fackel für Rig
 + fehlende Strings für Tank
 + Energiezellen als Bauelement
+* Rig Grafik: neue Elemente + endlich AA
 * Baumaterialien balanced
 * Rig modularer fürs Flüssigkeiten pumpen
 * Tank hält mehr Damage aus
 * Gebäudebeschreibungen um einiges erweitert
+* Rig: beim pumpen wird überschüssiges Gas via Fackel abgebrannt
 * Bohrturm braucht kein Plastik mehr als Baumaterial
 * RADO verletzt Clonks, die sich im Schussbereich bei Aktivität befinden
 ! Reproduktion sollte keine Clonks ohne Owner mehr erstellen
