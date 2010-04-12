@@ -2,12 +2,17 @@
 
 ### Prefinal 0.95 ###
 Rundenordner/Extra.c4g:
++ Ölquelle in Chasma
 * Jedes Szenario hat Base, Akku, Panel, Matlab als Standardbauplan (Spielstart einfacher)
 * Fossae: Materialien etwas besser balanced + Öl auf der Map ist konzentrierter verteilt
+* Kristallmaterial wieder rötlich (nicht mehr weiss)
 
 Objekte:
-+ NewGFX: Reel
++ NewGFX: Reel, Pipekit
 + NewIcons: Rückbau/Recycling
+* Temperaturveränderung kann vom Szenario spezifisch festgelegt werden
+* Performance der Temperaturberechnungen gesteigert
+* Splitterkit mit Speichersystem (Zahlensystem wie O2-Flasche)
 * HUD überarbeitet
 * Reel von der Seite gerendert, zur besseren Erkennung
 * Reel Hit nichtmehr Stein, sondern Metallksound
@@ -15,6 +20,7 @@ Objekte:
 * Wompfbeere kleiner und farbiger
 ! Plastik nicht mehr doppelt bau-/erforschbar
 ! Speichersystem Objekte hatten keine Beschreibungen
+! hoffentlich endlich value stack overflow bei Strom-/Leitungssystemen die in Kreis gehen fixed
 
 Gebäude: 
 + Tank universell für Flüssigkeiten
