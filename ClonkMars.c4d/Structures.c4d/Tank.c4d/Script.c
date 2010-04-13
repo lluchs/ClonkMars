@@ -83,6 +83,24 @@ protected func ControlThrow() {
 	return 1;
 }
 
+protected func ContextSwitch2Oil() {
+	[Zu Öl wechseln|Image=OILT|Condition=ContainsLava]
+	ControlThrow();
+}
+
+protected func ContextSwitch2Lava() {
+	[Zu Lava wechseln|Image=OILT|Condition=ContainsOil]
+	ControlThrow();
+}
+
+public func ContainsOil() {
+	return type == 0;
+}
+
+public func ContainsLava() {
+	return type == 1;
+}
+
 /* Erforschbar */
 
 public func MarsResearch() {
