@@ -88,8 +88,9 @@ protected func FxReproductionTimer(object pTarget, int iEffectNumber, int iEffec
 	 var death = FindObjects(Find_ID(SCNK), Find_Owner(GetOwner()), Find_Not(Find_OCF(OCF_Alive)), Find_Not(Find_Func("IsReproduced")), Sort_Random());
 	 for(var pDeath in death) {
 	 	pDeath -> Reproduced();
-	 	pClonk -> GrabObjectInfo(pDeath);
-	 	
+	  pClonk -> GrabObjectInfo(pDeath);	
+	 	// ^- L2Einrücken und L2Tab
+	 
 	 	// Erfolgreich? Es könnte schief gehen.
 	 	if(pClonk == GetCrew(GetOwner()))
 	 		break;
@@ -97,6 +98,10 @@ protected func FxReproductionTimer(object pTarget, int iEffectNumber, int iEffec
 	 // keinen passenden Clonk gefunden, dann einen neuen erstellen
 	 if(pClonk != GetCrew(GetOwner()))
 	 	MakeCrewMember(pClonk, GetOwner());
+	 
+ 	 // Rang berücksichtigen (HP)
+ 	 pClonk -> DoEnergy(pClonk->GetPhysical("Energy")/1000 - pClonk->GetEnergy());
+ 	 
 	 EffectVar(0, pTarget, iEffectNumber) = -1;
 	}
 }
