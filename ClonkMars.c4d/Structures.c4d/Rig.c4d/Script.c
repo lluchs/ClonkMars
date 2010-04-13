@@ -55,9 +55,10 @@ private func PipeHeadCheck()
 public func Transfer(int iAmount, int iMaterial, bool fNoChange) {
 	for(var pTank in FindObjects(Find_Category(C4D_Structure), Find_Func("TankFor", iMaterial), Find_Func("PipelineConnectedWith", this))) {
 		if(pTank -> GetFill() + iAmount <= pTank -> MaxFill()) {
-			if(!fNoChange)
+			if(!fNoChange) {
 				pTank -> DoFill(iAmount);
-				  Overburn();
+				Overburn();
+			}
 			return 1;
 		}
 	}
