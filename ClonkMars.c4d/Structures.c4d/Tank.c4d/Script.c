@@ -101,6 +101,15 @@ public func ContainsLava() {
 	return type == 1;
 }
 
+protected func ContextFlush() {
+	[Tank leeren|Image=OILT]
+	var mat = "Oil";
+	if(type)
+		mat = "Lava";
+	CastPXS(mat, Abs(DoFill(-MaxFill())), 20);
+	return 1;
+}
+
 /* Erforschbar */
 
 public func MarsResearch() {
