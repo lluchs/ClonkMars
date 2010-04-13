@@ -128,3 +128,10 @@ private func DestroyBlast(object pTarget) {
 	return inherited(...);
 }
 
+public func Deconstruction() {
+	var mat = "Oil";
+	if(type)
+		mat = "Lava";
+	CastPXS(mat, Abs(DoFill(-MaxFill())), 20);
+	return _inherited(...);
+}
