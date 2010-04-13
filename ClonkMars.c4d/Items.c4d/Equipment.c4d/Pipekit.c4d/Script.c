@@ -2,6 +2,7 @@
 
 #strict 2
 
+#include L_RC // Recycling
 #include L_LK
 
 public func ConnectionCondition() { return Find_Func("PipelineConnect"); }

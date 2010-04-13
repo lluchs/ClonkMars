@@ -2,6 +2,7 @@
 
 #strict 2
 
+#include L_RC // Recycling
 #include L_SS // Speichersystem
 
 private func MaxFill() { return 40; }

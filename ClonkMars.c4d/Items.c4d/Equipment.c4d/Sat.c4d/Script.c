@@ -2,6 +2,8 @@
 
 #strict 2
 
+#include L_RC // Recycling
+
 func ResetCategory()
 {
   SetCategory(GetDefCategory());

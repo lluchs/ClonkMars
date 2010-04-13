@@ -2,6 +2,8 @@
 
 #strict 2
 
+#include L_RC // Recycling
+
 local light, attached, vertex;
 
 static const LED_AttachBuilding = 1, LED_AttachTunnel = 2;
