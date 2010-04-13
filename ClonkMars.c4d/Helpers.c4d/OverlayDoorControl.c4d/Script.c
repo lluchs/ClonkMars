@@ -28,7 +28,7 @@ private func ClonkCapacity() {
 /* Ende der zu überladenden Funktionen */
 
 protected func ActivateEntrance(object pObj) {
-  if(CanOpen(pObj) && !DoorActive && !GetDefNoPushEnter(GetID(pObj))) {
+  if(CanOpen(pObj) && !DoorActive && !GetDefNoPushEnter(GetID(pObj)) && !Hostile(GetOwner(), pObj -> GetOwner())) {
   	SetOverlayAction("Door", DoorOverlay(), false, true, 0, "OpenEntrance");
   	SoundOpenDoor();
   	DoorActive = true;
@@ -100,14 +100,15 @@ func Ejection(object pObj) {
 
 func Collection2(object pObj) {
 	if(GetEntrance()) {
-		if(pObj -> ~IsClonk() && IsFull(pObj)) {
+		if(pObj -> ~IsClonk() && (IsFull(pObj) || Hostile(GetOwner(), pObj -> GetOwner()))) {
 			//SetCommand(pObj, "Exit"); <- nicht möglich, da der Clonk damit erst kurz danach das Gebäude wieder verlässt
 			if(GetDir() == DIR_Left)
 				pObj -> Exit(pObj, GetDefCoreVal("Entrance", "DefCore", GetID(), 0) + GetDefCoreVal("Entrance", "DefCore", GetID(), 2) / 2, GetDefCoreVal("Entrance", "DefCore", GetID(), 1) + GetDefCoreVal("Entrance", "DefCore", GetID(), 3));
 			else if(GetDir() == DIR_Right)
 				pObj -> Exit(pObj, -GetDefCoreVal("Entrance", "DefCore", GetID(), 0) - GetDefCoreVal("Entrance", "DefCore", GetID(), 2) / 2, GetDefCoreVal("Entrance", "DefCore", GetID(), 1) + GetDefCoreVal("Entrance", "DefCore", GetID(), 3));
 			pObj -> Sound("CommandFailure1");
-			Message("$TxtFull$", pObj, GetName(), ClonkCapacity());
+			if(IsFull(pObj))
+				Message("$TxtFull$", pObj, GetName(), ClonkCapacity());
 			return 1;
 		}
 		SetDoorClonk(pObj);
