@@ -21,9 +21,18 @@ private func Seed()		// alle 350 Frames
 
 public func ChopDown()		// Früchte fallen runter wenn gefällt
 {
-  var pFruit;
-  while(pFruit = FindObject(FruitID(),0,0,0,0,0,0,this(),0,pFruit)) pFruit->~Drop();
+  DropFruits();
   return(_inherited());
+}
+
+private func TreeHurt() {
+	DropFruits();
+	return _inherited(...);
+}
+
+private func DropFruits() {
+	var pFruit;
+	while(pFruit = FindObject(FruitID(),0,0,0,0,0,0,this(),0,pFruit)) pFruit->~Drop();
 }
 
 public func Incineration()	// Früchte versengen alle in den Flammen!!!1
