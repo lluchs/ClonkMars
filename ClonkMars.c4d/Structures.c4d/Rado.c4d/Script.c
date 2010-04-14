@@ -15,9 +15,9 @@ public func MarsResearch() {
 	return true;
 }
 
-protected func ControlLeft() {
+protected func ControlLeft(object pClonk) {
 	// not for JnR-Users
-  if(!GetPlrCoreJumpAndRunControl(GetController()))
+  if(GetPlrCoreJumpAndRunControl(GetController(pClonk)))
   	return;
   	
 	AimLeft();
@@ -36,9 +36,9 @@ func AimLeft()
 	SetPhase(iPhase);
 }
 
-protected func ControlRight() {
+protected func ControlRight(object pClonk) {
 	// not for JnR-Users
-  if(!GetPlrCoreJumpAndRunControl(GetController()))
+  if(GetPlrCoreJumpAndRunControl(GetController(pClonk)))
   	return;
   	
 	AimRight();
