@@ -1,6 +1,6 @@
 /*-- Basics --*/
 
-#strict
+#strict 2
 
 func Initialize() {
   ScriptGo(1);
@@ -32,8 +32,7 @@ func Script12()
 
 func Script14()
 {
-  //+ Bedingung, wenn in Basis
-  if(!GetMenu(GetCrew()))
+  if(!GetMenu(GetCrew())&&FindObject2(Find_Func("NF_FindHelper_InBase")))
   {
     MsgWindow(GetCrew(), "$Txt03$");
     RemoveArrow();
@@ -44,6 +43,10 @@ func Script14()
 
 
 
+func NF_FindHelper_InBase()
+{
+    return Contained() && Contained()->GetID() == BASE;
+}
 
 global func MsgWindow(pClonk, szText)
 {
