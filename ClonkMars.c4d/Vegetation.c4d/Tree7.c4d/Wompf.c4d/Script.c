@@ -51,4 +51,12 @@ protected func Eat(object pClonk)
 
 public func GetFeedValue() { return(30); }
 
-protected func Hit() { Sound("WoodHit*"); }
+protected func Hit() {
+ Sound("WoodHit*"); 
+ SetAction("Hit");
+ CreateParticle("Gras",0,0,20,20);
+ }
+
+protected func HitDone(){
+  RemoveObject(this());
+ }

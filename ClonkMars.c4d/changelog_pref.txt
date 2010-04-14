@@ -10,6 +10,7 @@ Rundenordner/Extra.c4g:
 Objekte:
 + NewGFX: Reel, Pipekit
 + NewIcons: Rückbau/Recycling
++ Recycling für: LED, O2Flasche, Kabelrolle, Rohrbausatz, Satellitenschüssel
 * Temperaturveränderung kann vom Szenario spezifisch festgelegt werden
 * Performance der Temperaturberechnungen gesteigert
 * Splitterkit mit Speichersystem (Zahlensystem wie O2-Flasche)
@@ -21,6 +22,8 @@ Objekte:
 ! Plastik nicht mehr doppelt bau-/erforschbar
 ! Speichersystem Objekte hatten keine Beschreibungen
 ! hoffentlich endlich value stack overflow bei Strom-/Leitungssystemen die in Kreis gehen fixed
+! Clonks bekommen nach Reproduktion volle Energie
+! Früchte fallen herunter, sobald der Baum eingeht
 
 Gebäude: 
 + Tank universell für Flüssigkeiten
@@ -28,7 +31,9 @@ Gebäude:
 + Fackel für Rig
 + fehlende Strings für Tank
 + Energiezellen als Bauelement
++ verfeindete Gebäude sind nicht mehr betretbar
 * Rig Grafik: neue Elemente + endlich AA
+* Tank kann ausgeleert werden
 * Baumaterialien balanced
 * Rig modularer fürs Flüssigkeiten pumpen
 * Tank hält mehr Damage aus
@@ -39,6 +44,7 @@ Gebäude:
 ! Reproduktion sollte keine Clonks ohne Owner mehr erstellen
 ! Rig benötigt nun wirklich Energie
 ! Transmitterstation frisst nicht mehr Loreninhalt
+! bei Rückbau des Tanks wird der Inhalt ausgegeben
 ! Value Stack Overflow hoffentlich gefixt (Kurzschluss!)
 
 Fahrzeuge:
