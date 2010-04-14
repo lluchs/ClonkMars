@@ -11,6 +11,7 @@ Objekte:
 + NewGFX: Reel, Pipekit
 + NewIcons: Rückbau/Recycling
 + Recycling für: LED, O2Flasche, Kabelrolle, Rohrbausatz, Satellitenschüssel
+* Wompfbeeren können kaputt gehen
 * Temperaturveränderung kann vom Szenario spezifisch festgelegt werden
 * Performance der Temperaturberechnungen gesteigert
 * Splitterkit mit Speichersystem (Zahlensystem wie O2-Flasche)
@@ -19,6 +20,7 @@ Objekte:
 * Reel Hit nichtmehr Stein, sondern Metallksound
 * RADO hält etwas mehr Schaden aus
 * Wompfbeere kleiner und farbiger
+! RADO ist nun auch per JnR steuerbar
 ! Plastik nicht mehr doppelt bau-/erforschbar
 ! Speichersystem Objekte hatten keine Beschreibungen
 ! hoffentlich endlich value stack overflow bei Strom-/Leitungssystemen die in Kreis gehen fixed

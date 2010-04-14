@@ -16,11 +16,13 @@ JCaesar: Kapsellandesystem, div. Bugfixes
 
 Killerwipf: Kristallabbau-Regel
 
-Joshi: gelegentliches Betatesting
+Hubble: Betatesting
+
+boni: Betatesting, JnR Steuerung für RADO
 
 ala: Betatesting, komplette Map: Tithonium Chasma + Überarbeitung sämtlicher Maps
 
-mcGreen, s_m_w: gelegentliches Betatesting
+mcGreen, s_m_w, Joshi: gelegentliches Betatesting
 
 OpenClonk: Rock, Earth Textur (leichte Veränderungen)
 
