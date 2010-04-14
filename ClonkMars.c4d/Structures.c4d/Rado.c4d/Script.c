@@ -16,22 +16,59 @@ public func MarsResearch() {
 }
 
 protected func ControlLeft() {
+	// not for JnR-Users
+  if(!GetPlrCoreJumpAndRunControl(GetController()))
+  	return;
+  	
+	AimLeft();
+	return 1;
+}
+
+
+// Ändert den Zielwinkel nach links
+func AimLeft()
+{
 	var iPhase = GetPhase() - 1;
 	if(iPhase < 1) {
 		Sound("Click");
 		return;
 	}
 	SetPhase(iPhase);
+}
+
+protected func ControlRight() {
+	// not for JnR-Users
+  if(!GetPlrCoreJumpAndRunControl(GetController()))
+  	return;
+  	
+	AimRight();
 	return 1;
 }
-protected func ControlRight() {
+
+func AimRight()
+{
 	var iPhase = GetPhase() + 1;
 	if(iPhase > 25) {
 		Sound("Click");
 		return;
 	}
 	SetPhase(iPhase);
-	return 1;
+}
+
+// for JnR-Users
+public func ControlUpdate(object clonk, int comdir, bool dig, bool throw)
+{
+ // move aim to left
+	if(comdir == COMD_Left)
+		AimUpdate(clonk, COMD_Up, 5, "AimLeft"); // AimUpdate: System.c4g/JumpandRun.c
+	// move aim to right
+	else if(comdir == COMD_Right)
+		AimUpdate(clonk, COMD_Down, 5, "AimRight");
+	// stop changing the aim
+	else
+		AimUpdate(clonk, 0, 5, "");
+	
+	return(true);
 }
 
 protected func ControlDig() {
