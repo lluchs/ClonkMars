@@ -4,15 +4,20 @@
 
 func Initialize() {
   ScriptGo(1);
-  CreateConstruction(BASE,50,320,0,100,1,0);  //1
-  CreateConstruction(BASE,840,310,0,100,1,0); //2
-  
-  SetSkyAdjust(RGBa(200,94,51,90),RGB(200,110,55));
   SetGamma(RGB(50,0,0), RGB(140,100,100), RGB(255,220,220));
   //Hintergrund
-  CreateObject(BG_2,-0,0,-1);
+  CreateObject(BG_3,-0,0,-1);
   
   return(1);
+}
+
+func Script1()
+{
+  CreateConstruction(BASE,50,320,0,100,1,0)  ->SetOwner(0); //1
+  CreateConstruction(BASE,840,310,0,100,1,0) ->SetOwner(0); //2
+  CreateConstruction(SOLA,950,310,0,100,1,0) ->SetOwner(0);
+  CreateConstruction(ACCU,620,340,0,100,1,0) ->SetOwner(0);
+  CreateObject(LED_,620,335,0) -> ControlDigDouble();
 }
 
 func Script10()
