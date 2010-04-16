@@ -5,6 +5,8 @@
 #include DACT
 #include SRMO
 
+public func GetTemp() { return 250; } // klimatisiert
+
 local port, portvertex, origx;
 local mode, horrblow, vertblow; //mode: 1 for automatic; 
 local sat;
