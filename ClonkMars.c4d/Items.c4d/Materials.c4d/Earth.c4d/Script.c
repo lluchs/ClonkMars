@@ -1,6 +1,10 @@
 /*--- Erde ---*/
 
-#strict
+#strict 2
+
+protected func Initialize() {
+	SetGraphics("Grey", this);
+}
 
 protected func Hit()
 {
