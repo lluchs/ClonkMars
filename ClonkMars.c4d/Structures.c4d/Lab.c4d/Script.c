@@ -14,8 +14,7 @@ private func EnergyNeedOverlay() {
 /* Türsteuerung */
 
 private func CanOpen() {
-	return 1;
-	//return GetAction() == "Idle";
+	return !IsResearching();
 }
 
 private func SoundOpenDoor() {
@@ -29,6 +28,8 @@ private func SoundCloseDoor() {
 func Initialize() {
   SetAction("SiGreen");
   AddBuildingLight();
+  
+  upgrades = CreateArray();
   return(1);
 }
 
@@ -36,7 +37,31 @@ protected func SiRed() {
 	Sound("Lab_SiBeep_R");
 }
 
+/* Upgrades */
+
+local upgrades;
+
+public func AddUpgrade(id ID) {
+	PushBack(ID, upgrades);
+	ID -> UpgradeCompleted(GetOwner());
+}
+
+public func HasUpgrade(id ID) {
+	return GetIndexOf(ID, upgrades) != -1;
+}
+
+global func UpgradeComplete(int iPlr, id ID) {
+	return FindObject2(Find_ID(LABR), Find_Allied(iPlr), Find_Func("HasUpgrade", ID));
+}
+
 /* Forschung */
+
+public func IsResearching() {
+	for(var iNumber, i = 0; iNumber = GetEffect("Research", this, i); i++) {
+		if(GetEffect(0, this, iNumber, 3))
+			return true;
+	}
+}
 
 private func ResearchMenu(object pClonk) {
   // Hauptmenü erzeugen
@@ -47,35 +72,17 @@ private func ResearchMenu(object pClonk) {
   	AddMenuItem("$TxtContinuedevelopement$", "SelectResearch", EffectVar(1, this, iEffectNumber), pClonk, 0, iEffectNumber);
   }
   
-  AddMenuItem("$TxtResearchs$", "ResearchObjects", RSR3, pClonk, 0, pClonk);
-	AddMenuItem("$TxtResearchs$", "ResearchVehicles", RSR4, pClonk, 0, pClonk);
-	AddMenuItem("$TxtResearchs$", "ResearchStructures", RSR5, pClonk, 0, pClonk);
+  AddMenuItem("Neue Forschung", "NewResearch", GetID(), pClonk, 0, pClonk);
 }
 
-protected func ResearchObjects(id idImage, object pClonk) { return SelectResearchCategory(idImage, pClonk, C4D_Object); }
-protected func ResearchVehicles(id idImage, object pClonk) { return SelectResearchCategory(idImage, pClonk, C4D_Vehicle); }
-protected func ResearchStructures(id idImage, object pClonk) { return SelectResearchCategory(idImage, pClonk, C4D_Structure); }
-
-private func SelectResearchCategory(id idImage, object pClonk, int iCategory) {
+private func NewResearch(id idImage, object pClonk) {
 	// Auswahlmenü erzeugen
 	CreateMenu(idImage, pClonk, this, 0, "$TxtNothingelsetoresearc$");
 	// Alle geladenen Baupläne überprüfen
 	var i, idDef, iPlr = pClonk -> GetOwner();
-	while(idDef = GetDefinition(i++, iCategory)) {
+	while(idDef = GetDefinition(i++, C4D_StaticBack)) {
 		// Passende Kategorie und dem Spieler noch nicht bekannt
-		if (GetCategory(0, idDef) & C4D_Knowledge && !GetPlrKnowledge(iPlr, idDef) && idDef -> ~MarsResearch()) {
-			// Keine Forschungsgrundlage nötig oder Forschungsgrundlage vorhanden
-			var aBase = idDef -> ~GetResearchBase(), fHasBase = true;
-			if(aBase) {
-				if(GetType(aBase) != C4V_Array)
-					aBase = [aBase];
-				for(var idBase in aBase)
-					if(!GetPlrKnowledge(iPlr, idBase))
-						fHasBase = false;
-				// Forschungslinks brauchen wir nicht
-			}
-			// Menüeintrag hinzufügen
-			if(fHasBase) 
+		if (!HasUpgrade(idDef) && idDef -> ~IsUpgrade()) {
 				AddMenuItem("$TxtResearchs$", "SelectResearch", idDef, pClonk, 0, pClonk);
 		}
 	}
@@ -96,7 +103,7 @@ protected func SelectResearch(id idDef, par) {
 
 protected func StartResearch(id idDef, object pClonk, int iEffectNumber) {
 	// Spieler hat diesen Bauplan schon
-	if(GetPlrKnowledge(pClonk -> GetOwner(), idDef)) {
+	if(HasUpgrade(idDef)) {
 		Message("$TxtAlreadyDeveloped$", this, GetName(0, idDef));
 		Sound("Error");
 		if(iEffectNumber)
@@ -126,8 +133,8 @@ private func PauseAllResearch() {
   for(var iNumber, i = 0; iNumber = GetEffect("Research", this, i); i++) {
   	PauseResearch(iNumber);
   }
-  SetAction("SiGreen");
   Sound("Lab_Research", 0, 0, 0, 0, -1);
+  SetAction("SiGreen");
 }
 
 // es ist nicht sichergestellt, dass danach keine Forschung mehr läuft
@@ -138,6 +145,7 @@ private func PauseResearch(int iNumber) {
 
 private func ContinueResearch(int iNumber) {
 	Sound("Lab_Research", 0, 0, 0, 0, +1);
+	SetAction("SiYellow");
 	return ChangeEffect(0, this, iNumber, GetEffect(0, this, iNumber, 1), 15);
 }
 
@@ -151,6 +159,7 @@ protected func Ejection() {
  * 1: ID, die erforscht wird
  * 2: benötigte Gesamtzeit
  * 3: bisherige Forschungsschritte
+ * 4: Sound wird abgespielt?
  */
 
 protected func FxResearchStart(object pTarget, int iEffectNumber, int iTemp, id idDef, object pClonk) {
@@ -159,21 +168,33 @@ protected func FxResearchStart(object pTarget, int iEffectNumber, int iTemp, id 
 	EffectVar(1, pTarget, iEffectNumber) = idDef;
 	var iTime = idDef -> ~GetResearchTime(this, pClonk);
 	if(!iTime)
-		iTime = 100;
+		iTime = RandomX(50, 200);
 	EffectVar(2, pTarget, iEffectNumber) = iTime;
 	Sound("Lab_Research", 0, 0, 0, 0, +1);
+	SetAction("SiYellow");
+	EffectVar(4, pTarget, iEffectNumber) = true;
+}
+
+protected func FxResearchEffect(string szNewEffectName, object pTarget, int iEffectNumber, int iNewEffectNumber, id idDef, object pClonk) {
+	if(szNewEffectName == "Research" && idDef == EffectVar(1, pTarget, iEffectNumber)) {
+		ContinueResearch(iEffectNumber);
+		return -1;
+	}
 }
 
 protected func FxResearchTimer(object pTarget, int iEffectNumber, int iEffectTime) {
+	if(!ObjectCount2(Find_Container(this), Find_OCF(OCF_CrewMember)))
+		return PauseAllResearch();
 	if(!CheckPower(10)) {
-		if(GetAction() != "SiRed")
-			SetAction("SiRed");
 		Sound("Lab_Research", 0, 0, 0, 0, -1);
+		SetAction("SiRed");
+		EffectVar(4, pTarget, iEffectNumber) = false;
 		return;
 	}
-	if(GetAction() != "SiYellow") {
-		Sound("Lab_Research", 0, 0, 0, 0, +1);
+	if(!EffectVar(4, pTarget, iEffectNumber)) {
 		SetAction("SiYellow");
+		Sound("Lab_Research", 0, 0, 0, 0, +1);
+		EffectVar(4, pTarget, iEffectNumber) = true;
 	}
 	var iProgress = ++EffectVar(3, pTarget, iEffectNumber);
 	if(iProgress == EffectVar(2, pTarget, iEffectNumber))
@@ -184,9 +205,9 @@ protected func FxResearchStop(object pTarget, int iEffectNumber, int iReason, bo
 	if(iReason)
 		return;
 	Sound("Lab_Research", 0, 0, 0, 0, -1);
-	Sound("ResearchDone");
 	SetAction("SiGreen");
-	SetPlrKnowledge(GetOwner(), EffectVar(1, pTarget, iEffectNumber));
+	Sound("ResearchDone");
+	AddUpgrade(EffectVar(1, pTarget, iEffectNumber));
 	// Nachricht ausgeben
 	Message("$Txtsdeveloped$", this, GetName(0, EffectVar(1, pTarget, iEffectNumber)));
 }
