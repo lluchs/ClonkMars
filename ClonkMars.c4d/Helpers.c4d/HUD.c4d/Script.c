@@ -30,6 +30,8 @@ global func UpdateHUD(int iPlr, int iType, value) {
 	var HUDs;
 	if(iPlr == NO_OWNER)
 		HUDs = FindObjects(Find_ID(MHUD));
+	else if(iPlr < -1) // Spielernummer ab -2 für verbündete Spieler
+		HUDs = FindObjects(Find_ID(MHUD), Find_Allied(Abs(iPlr) - 2));
 	else
 		HUDs = FindObjects(Find_ID(MHUD), Find_Owner(iPlr));
 	if(!HUDs[0])
