@@ -42,7 +42,8 @@ protected func Initialize() {
 /*Zellteilung*/
 
 public func Birth() {
-  Sound("Clonk_Birth");
+	Sound("Clonk_Birth");
+	UpdateHUD(GetOwner(), HUD_EventLog, "ClonkRepro");
 }
 
 public func IsReproducing() {
@@ -505,8 +506,12 @@ protected func Hit(int iXDir, int iYDir) {
 }
 
 protected func FxViewportCheckDamage(object pTarget, int iEffectNumber, int iDmgEngy, int iCause) {
-	if(iDmgEngy < 0 && GetCursor(GetOwner()) == this)
-		DoViewportBlood(GetOwner());
+	if(iDmgEngy < 0) {
+		if(GetCursor(GetOwner()) == this)
+			DoViewportBlood(GetOwner());
+		else
+			UpdateHUD(GetOwner(), HUD_EventLog, "ClonkAttack");
+	}
 	return iDmgEngy;
 }
 
@@ -517,6 +522,9 @@ protected func Death() {
 		var pHUD = FindObject2(Find_ID(MHUD), Find_Owner(GetOwner()));
 		if(pHUD)
 			pHUD -> RemoveObject();
+	}
+	else {
+		UpdateHUD(GetOwner(), HUD_EventLog, "ClonkDeath");
 	}
 	return _inherited(...);
 }
