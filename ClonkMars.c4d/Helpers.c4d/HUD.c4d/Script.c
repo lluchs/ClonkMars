@@ -9,7 +9,7 @@ func Initialize() {
   SetVisibility(VIS_Owner);
   
   SetStillOverlayAction("Temperatur", HUD_Temp);
-  SetStillOverlayAction("ItemLog", HUD_ItemLog);
+  SetStillOverlayAction("ItemLog", HUD_Log);
   
   Pointer = CreateArray(2);
   return(1);
@@ -19,7 +19,9 @@ static const HUD_O2 = 1;
 static const HUD_Fuel = 2;
 static const HUD_Gencode = 3;
 static const HUD_Temp = 4;
-static const HUD_ItemLog = 5; // +2
+static const HUD_Log = 5;
+static const HUD_ItemLog = 6;
+static const HUD_EventLog = 7;
 static const HUD_Pointer = 8; // +1
 static const HUD_LandTemp = 8; // nicht für Overlays
 static const HUD_ClonkTemp = 9; // sondern für UpdateHUD()
@@ -43,8 +45,8 @@ global func UpdateHUD(int iPlr, int iType, value) {
 			HUD -> UpdateTemperature(value);
 		else if(iType == HUD_ClonkTemp)
 			HUD -> UpdateClonkTemperature(value);
-		else if(iType == HUD_ItemLog)
-			HUD -> AddLog(value);
+		else if(iType == HUD_ItemLog || iType == HUD_EventLog)
+			HUD -> AddLog(value, iType);
 	}
 }
 
@@ -78,89 +80,66 @@ public func UpdateGencode(int iValue) {
 	return 1;
 }
 
-public func AddLog(id ID) {
+public func AddLog(id ID, int iType) {
 	if(!ID) {
 		DebugLog("ERROR: HUD: keine ID");
 		return;
 	}
 	
-	AddEffect("Log", this, 10, 1, this, 0, ID);
+	AddEffect("Log", this, 10, 1, this, 0, ID, iType);
 }
 
-protected func FxLogStart(object pTarget, int iEffectNumber, bool fTemp, id ID) {
+protected func FxLogStart(object pTarget, int iEffectNumber, bool fTemp, id ID, int iType) {
 	if(fTemp)
 		return;
-	EffectVar(0, pTarget, iEffectNumber) = [255, 0];
+	EffectVar(0, pTarget, iEffectNumber) = 255;
 	EffectVar(1, pTarget, iEffectNumber) = CreateArray();
+	EffectVar(2, pTarget, iEffectNumber) = iType;
 	
-	DrawLogItem(1, ID, iEffectNumber);
-	
-	// auch Platz 2 initialisieren, aber unsichtbar machen
-	DrawLogItem(2, ID, iEffectNumber);
-	SetClrModulation(RGBa(255, 255, 255, 255), this, HUD_ItemLog+2);
+	DrawLogItem(iType, ID, iEffectNumber);
 }
 
 protected func FxLogTimer(object pTarget, int iEffectNumber) {
 	var alpha = EffectVar(0, pTarget, iEffectNumber);
 	var waiting = EffectVar(1, pTarget, iEffectNumber);
-	alpha[0]--;
-	alpha[1]--;
+	var type = EffectVar(2, pTarget, iEffectNumber);
+	alpha = Max(alpha - 2, 0);
 	
-	if(!alpha[0]) {
+	if(!alpha) {
 		if(!waiting[0])
 			return -1;
 		else {
-			DrawLogItem(1, waiting[0], iEffectNumber);
-			alpha[0] = alpha[1];
+			DrawLogItem(type, waiting[0], iEffectNumber);
 			DeleteArrayItem(0, waiting);
-			if(waiting[0]) {
-				DrawLogItem(2, waiting[0], iEffectNumber);
-				alpha[1] = 255;
-			}
-			else
-				alpha[1] = 0;
+			alpha = 255;
 		}
 	}
 	
-	SetClrModulation(RGBa(255, 255, 255, 255-alpha[0]), this, HUD_ItemLog+1);
-	if(alpha[1] < 0)
-		alpha[1] = 0;
-	SetClrModulation(RGBa(255, 255, 255, 255-alpha[1]), this, HUD_ItemLog+2);
+	SetClrModulation(RGBa(255, 255, 255, 255-alpha), this, type);
 	EffectVar(0, pTarget, iEffectNumber) = alpha;
 	EffectVar(1, pTarget, iEffectNumber) = waiting;
 }
 
-protected func FxLogEffect(string szEffectName) {
-	if(szEffectName == "Log")
+protected func FxLogEffect(string szEffectName, object pTarget, int iEffectNumber, int iNewEffectNumber, id ID, int iType) {
+	if(szEffectName == "Log" && iType == EffectVar(2, pTarget, iEffectNumber))
 		return -2;
 }
 
 protected func FxLogAdd(object pTarget, int iEffectNumber, string szNewEffectName, int iNewEffectTimer, id ID) {
-	var alpha = EffectVar(0, pTarget, iEffectNumber);
-	var item = GetLength(EffectVar(1, pTarget, iEffectNumber));
-	if(item == 1)
-		item--;
-	EffectVar(1, pTarget, iEffectNumber)[item] = ID;
-	if(alpha[1] <= 0) {
-		DrawLogItem(2, ID, iEffectNumber);
-		EffectVar(0, pTarget, iEffectNumber)[1] = 255;
-	}
+	PushBack(ID, EffectVar(1, pTarget, iEffectNumber));
 }
 
 protected func FxLogStop(object pTarget, int iEffectNumber, int iReason, bool fTemp) {
 	if(fTemp)
 		return;
 	
-	// Grafiken zurücksetzen
-	SetGraphics(0, this, 0, HUD_ItemLog+1);
-	SetGraphics(0, this, 0, HUD_ItemLog+2);
+	// Grafik zurücksetzen
+	SetGraphics(0, this, 0, EffectVar(2, pTarget, iEffectNumber));
 }
 
-private func DrawLogItem(int iItem, id ID, int iEffectNumber) {
-	var iOverlay = HUD_ItemLog + iItem;
-	
+private func DrawLogItem(int iOverlay, id ID, int iEffectNumber) {
 	SetGraphics(0, this, ID, iOverlay, GFXOV_MODE_IngamePicture);
-	iItem--;
+	var iItem = iOverlay - HUD_ItemLog;
 	// Größe des Bildes: angenommene 64x64
 	// andere Grafikgrößen passen leider eher nicht (z.B. CNKT)
 	var iWidth, iHeight;
