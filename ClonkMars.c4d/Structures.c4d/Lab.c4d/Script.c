@@ -242,6 +242,22 @@ public func ContainedDig(object pClonk) {
 	return 1;
 }
 
+protected func ContextResearch(object pClonk) {
+	[$TxtResearch$|Image=RSR1|Condition=IsNotResearching]
+	ResearchMenu(pClonk);
+	return 1;
+}
+
+private func IsNotResearching() {
+	return !IsResearching();
+}
+
+protected func ContextCancelResearch(object pClonk) {
+	[$TxtCancelresearch$|Image=RSR2|Condition=IsResearching]
+	PauseAllResearch();
+	return 1;
+}
+
 /* Wärme */
 
 public func GetTemp() {
