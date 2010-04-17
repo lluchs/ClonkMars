@@ -5,7 +5,7 @@
 #include L_RC // Recycling
 #include L_SS // Speichersystem
 
-private func MaxFill() { return 40; }
+private func MaxFill() { if(IsUpgraded()) return 80; else return 40; }
 
 private func FillPicture() { return 0; }
 
@@ -32,3 +32,15 @@ protected func Activate(object pClonk) {
 }
 
 public func MarsResearch() { return true; }
+
+/* Upgrade */
+
+local upgraded;
+
+public func IsUpgraded() {
+	return upgraded;
+}
+
+public func Upgrade() {
+	upgraded = true;
+}
