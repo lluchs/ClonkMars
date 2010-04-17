@@ -43,7 +43,7 @@ local upgrades;
 
 public func AddUpgrade(id ID) {
 	PushBack(ID, upgrades);
-	ID -> UpgradeCompleted(GetOwner());
+	ID -> ~UpgradeCompleted(GetOwner());
 }
 
 public func HasUpgrade(id ID) {
@@ -52,6 +52,22 @@ public func HasUpgrade(id ID) {
 
 global func UpgradeComplete(int iPlr, id ID) {
 	return FindObject2(Find_ID(LABR), Find_Allied(iPlr), Find_Func("HasUpgrade", ID));
+}
+
+private func ApplyMenu(pClonk) {
+	CreateMenu(LABR, pClonk, this);
+	
+	for(var ID in upgrades) {
+		if(ID -> ~CanApply(this, pClonk))
+			AddMenuItem(Format("%s anwenden", GetName(0, ID)), "ApplyUpgrade", ID, pClonk, 0, pClonk);
+	}
+}
+
+protected func ApplyUpgrade(id ID, object pClonk) {
+	if(ID -> ~CanApply(this, pClonk))
+		ID -> ~Apply(this, pClonk);
+	else
+		Sound("Error");
 }
 
 /* Forschung */
@@ -217,6 +233,12 @@ protected func FxResearchStop(object pTarget, int iEffectNumber, int iReason, bo
 public func ContainedUp(object pClonk) {
 	[$TxtResearch$|Image=RSR1]
 	ResearchMenu(pClonk);
+	return 1;
+}
+
+public func ContainedDig(object pClonk) {
+	[Upgrades anwenden|Image=LABR]
+	ApplyMenu(pClonk);
 	return 1;
 }
 
