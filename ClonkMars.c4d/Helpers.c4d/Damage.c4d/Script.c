@@ -42,6 +42,12 @@ public func Damage (int iChange)
 	
 	if (GetDamage() > MaxDamage())
 		AddEffect("MaxDamageExplosion", this, 1, 20, this, DACT);
+	else {
+		var type = "BuildingAttack";
+		if(GetID() == CPSL)
+			type = "CapsuleAttack";
+		UpdateHUD(-GetOwner() - 2, HUD_EventLog, type);
+	}
 	var ox, oy, wdt, hgt;
 	GetRect(GetID(), ox, oy, wdt, hgt);
 	var glascount = iChange + Random(4);
@@ -80,8 +86,14 @@ public func Damage (int iChange)
 }
 
 public func FxMaxDamageExplosionStart(object pTarget, int iEffectNumber, bool fTemp) {
-	if(!fTemp)
+	if(!fTemp) {
 		Sound("Warning_blowup", 0, this, 0, 0, 1);
+		
+		var type = "BuildingExplode";
+		if(GetID() == CPSL)
+			type = "CapsuleExplode";
+		UpdateHUD(-GetOwner() - 2, HUD_EventLog, type);
+	}
 }
 
 public func FxMaxDamageExplosionTimer(object pTarget, int iEffectNumber, int iEffectTime)
