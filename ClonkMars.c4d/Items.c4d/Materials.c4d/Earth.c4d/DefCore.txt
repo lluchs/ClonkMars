@@ -10,7 +10,7 @@ Vertices=1
 VertexY=1
 VertexFriction=100
 Mass=8
-Components=ILOA=1
+Components=ROCK=2
 Picture=6,0,35,35
 Collectible=1
 Fragile=1
