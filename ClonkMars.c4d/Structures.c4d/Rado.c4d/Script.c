@@ -76,7 +76,8 @@ protected func ControlDig() {
 }
 
 private func GetAngle() {
-	return [322,321,327,328,331,334,337,339,341,345,352,0,13,24,33,42,50,53,58,60,61,62,63,64,66][GetPhase()-1];
+	var iAngle = [290,293,297,300,303,306,308,310,312,314,317,323,333,343,348,358,4,18,23,34,41,46,53,56,59,62,64,65,66,67,68][GetPhase() - 1];
+	return iAngle;
 }
 
 private func AngleCriteria() {
