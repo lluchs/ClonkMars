@@ -80,23 +80,23 @@ public func UpdateGencode(int iValue) {
 	return 1;
 }
 
-public func AddLog(id ID, int iType) {
-	if(!ID) {
-		DebugLog("ERROR: HUD: keine ID");
+public func AddLog(val, int iType) {
+	if(!val) {
+		DebugLog("ERROR: HUD: kein Item/Event");
 		return;
 	}
 	
-	AddEffect("Log", this, 10, 1, this, 0, ID, iType);
+	AddEffect("Log", this, 10, 1, this, 0, val, iType);
 }
 
-protected func FxLogStart(object pTarget, int iEffectNumber, bool fTemp, id ID, int iType) {
+protected func FxLogStart(object pTarget, int iEffectNumber, bool fTemp, val, int iType) {
 	if(fTemp)
 		return;
 	EffectVar(0, pTarget, iEffectNumber) = 255;
 	EffectVar(1, pTarget, iEffectNumber) = CreateArray();
 	EffectVar(2, pTarget, iEffectNumber) = iType;
 	
-	DrawLogItem(iType, ID, iEffectNumber);
+	DrawLogItem(iType, val, iEffectNumber);
 }
 
 protected func FxLogTimer(object pTarget, int iEffectNumber) {
@@ -120,13 +120,13 @@ protected func FxLogTimer(object pTarget, int iEffectNumber) {
 	EffectVar(1, pTarget, iEffectNumber) = waiting;
 }
 
-protected func FxLogEffect(string szEffectName, object pTarget, int iEffectNumber, int iNewEffectNumber, id ID, int iType) {
+protected func FxLogEffect(string szEffectName, object pTarget, int iEffectNumber, int iNewEffectNumber, val, int iType) {
 	if(szEffectName == "Log" && iType == EffectVar(2, pTarget, iEffectNumber))
 		return -2;
 }
 
-protected func FxLogAdd(object pTarget, int iEffectNumber, string szNewEffectName, int iNewEffectTimer, id ID) {
-	PushBack(ID, EffectVar(1, pTarget, iEffectNumber));
+protected func FxLogAdd(object pTarget, int iEffectNumber, string szNewEffectName, int iNewEffectTimer, val) {
+	PushBack(val, EffectVar(1, pTarget, iEffectNumber));
 }
 
 protected func FxLogStop(object pTarget, int iEffectNumber, int iReason, bool fTemp) {
@@ -137,15 +137,25 @@ protected func FxLogStop(object pTarget, int iEffectNumber, int iReason, bool fT
 	SetGraphics(0, this, 0, EffectVar(2, pTarget, iEffectNumber));
 }
 
-private func DrawLogItem(int iOverlay, id ID, int iEffectNumber) {
-	SetGraphics(0, this, ID, iOverlay, GFXOV_MODE_IngamePicture);
-	var iItem = iOverlay - HUD_ItemLog;
-	// Größe des Bildes: angenommene 64x64
-	// andere Grafikgrößen passen leider eher nicht (z.B. CNKT)
-	var iWidth, iHeight;
-	iWidth = GetDefCoreVal("Picture", "DefCore", ID, 2);
-	iHeight = GetDefCoreVal("Picture", "DefCore", ID, 3);
-	SetObjDrawTransform(15 * 1000 / iWidth, 0, OverlayShiftX(iWidth) + 1000*(18 + iItem * 18), 0, 15 * 1000 / iHeight, OverlayShiftY(iHeight) + 7000, this, iOverlay);
+private func DrawLogItem(int iOverlay, val, int iEffectNumber) {
+	if(iOverlay == HUD_ItemLog) {
+		SetGraphics(0, this, val, iOverlay, GFXOV_MODE_IngamePicture);
+		
+		var iWidth, iHeight;
+		iWidth = GetDefCoreVal("Picture", "DefCore", val, 2);
+		iHeight = GetDefCoreVal("Picture", "DefCore", val, 3);
+		
+		// Größe des Bildes: angenommene 64x64
+		// andere Grafikgrößen passen leider eher nicht (z.B. CNKT)
+		SetObjDrawTransform(15 * 1000 / iWidth, 0, OverlayShiftX(iWidth) + 1000*(18), 0, 15 * 1000 / iHeight, OverlayShiftY(iHeight) + 7000, this, iOverlay);
+	}
+	else {
+		SetGraphics(0, this, INFO, iOverlay, GFXOV_MODE_Action, val);
+		SetObjDrawTransform(1000, 0, OverlayShiftX(28) + 1000*(40), 0, 1000, OverlayShiftY(28) + 7000, this, iOverlay);
+	}
+	
+	
+	
 	
 	return 1;
 }
