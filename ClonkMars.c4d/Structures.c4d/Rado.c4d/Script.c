@@ -98,7 +98,11 @@ private func DoBlast(bool power) {
 	
 	// Nur bei Bedarf
 	if(!power) {
-		if(!ObjectCount2(Find_ID(METO), AngleCriteria()) || !CheckPower(50)) {
+		if(!ObjectCount2(Find_ID(METO), AngleCriteria())) {
+			return;
+		}
+		if(!CheckPower(50)) {
+			UpdateHUD(-GetOwner() - 2, HUD_EventLog, "RadoEnergy");
 			return;
 		}
 	}
