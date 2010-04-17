@@ -44,6 +44,10 @@ protected func FxTemperatureTimer(object pTarget, int iEffectNumber) {
 	if(pTarget -> GBackLiquid())
 		k = 50;
 	
+	// Schwerer Anzug => kaum Temperaturänderung
+	if(pTarget -> ~HeavySuit())
+		k = 2;
+	
 	var diff = iOuterTemp - iTemp;
 	// Beschränktes Wachstum
 	// Bestand + k * (Schranke - Bestand)
@@ -54,6 +58,10 @@ protected func FxTemperatureTimer(object pTarget, int iEffectNumber) {
 			iChange = -1;
 		else
 			iChange = 1;
+	}
+	// außer bei schwerem Anzug
+	if(Abs(iChange) == 1 && pTarget -> ~HeavySuit() && Random(2)) {
+		iChange = 0;
 	}
 	
 	iTemp += iChange;

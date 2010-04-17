@@ -540,3 +540,19 @@ protected func ContactBottom() {
 	if(GetAction() == "Swim")
 		SetAction("Walk");
 }
+
+/* Schwerer Anzug */
+
+local heavysuit;
+
+public func HeavySuit() { return heavysuit; }
+
+public func UpgradeSuit() {
+	// ein schwerer Anzug macht langsamer!
+	SetPhysical("Walk", 60000, PHYS_Temporary); // 70000
+	SetPhysical("Jump", 30000, PHYS_Temporary); // 40000
+	SetPhysical("Scale", 27000, PHYS_Temporary); // 30000
+	SetPhysical("Hangle", 27000, PHYS_Temporary); // 30000
+	SetPhysical("Dig", 35000, PHYS_Temporary); // 40000
+	return heavysuit = true;
+}
