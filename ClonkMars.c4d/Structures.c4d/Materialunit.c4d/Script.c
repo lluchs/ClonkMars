@@ -8,8 +8,8 @@
 #include DACT //Damagecontrol
 #include L_CA // Baugrafik
 
-static const MTLB_metal_earth_cost = 2;
-static const MTLB_plastic_cost = 350;
+static const UNIT_metal_earth_cost = 2;
+static const UNIT_plastic_cost = 350;
 public func GetTemp() { if(GetAction() == "Produce") return 500; return 250;}
 
 func Initialize() {
@@ -50,7 +50,7 @@ protected func ProduceMenu(object pClonk, fShowAll) {
 	}
 	
 	CreateMenu(GetID(), pClonk, this, C4MN_Extra_Components, "$TxtNothingProducible$");
-	if(fShowAll || ObjectCount2(Find_Container(this), Find_ID(ORE1)) || ObjectCount2(Find_Container(this), Find_ID(ERTH)) >= MTLB_metal_earth_cost) {
+	if(fShowAll || ObjectCount2(Find_Container(this), Find_ID(ORE1)) || ObjectCount2(Find_Container(this), Find_ID(ERTH)) >= UNIT_metal_earth_cost) {
 		AddMenuItem("Metall", "ProduceMetal", METL, pClonk);
 	}
 	if(fShowAll || ObjectCount2(Find_ID(OILT), Find_Func("PipelineConnectedWith", this))) {
@@ -80,11 +80,11 @@ protected func ProduceMetal(idItem, iParameter, fRight) {
 		return fContinue = false;
 	var pOre = FindObject2(Find_Container(this), Find_ID(ORE1));
 	var aEarth = FindObjects(Find_Container(this), Find_ID(ERTH));
-	if(pOre || GetLength(aEarth) >= MTLB_metal_earth_cost) {
+	if(pOre || GetLength(aEarth) >= UNIT_metal_earth_cost) {
 		if (pOre)
 			pOre -> RemoveObject();
 		else {
-			for (var i = 0; i < MTLB_metal_earth_cost; ++i)
+			for (var i = 0; i < UNIT_metal_earth_cost; ++i)
 				aEarth[i] -> RemoveObject();
 		}
 		CheckPower(100);
@@ -103,9 +103,9 @@ protected func ProducePlastic(idItem, iParameter, fRight) {
 	if(GetAction() != "Idle" || DoorActive || !FindObject2(Find_Container(this), Find_OCF(OCF_CrewMember)) || !CheckPower(100, true))
 		return fContinue = false;
 	for(var pTank in FindObjects(Find_ID(OILT), Find_Func("PipelineConnectedWith", this))) {
-		if(pTank -> GetFill() >= MTLB_plastic_cost) {
+		if(pTank -> GetFill() >= UNIT_plastic_cost) {
 			CheckPower(100);
-			pTank -> DoFill(-MTLB_plastic_cost);
+			pTank -> DoFill(-UNIT_plastic_cost);
 			SetAction("Produce2");
 			idProduce = PSTC;
 			if(fRight)
