@@ -296,3 +296,35 @@ global func GetLandTemp() {
 	
 	return iTemp;
 }
+
+global func DoLandTemp(int iChange, int k) {
+	var iX = GetX(), iY = GetY(), x, y;
+	
+	x = Round(iX, LandTempDist, RoundDown) / LandTempDist;
+	y = Round(iY, LandTempDist, RoundDown) / LandTempDist;
+	
+	var iEffectNum;
+	if(iEffectNum = GetLandTempEffect(x, y)) {
+		_DoLandTemp(iEffectNum, iChange, k);
+	}
+	if(iEffectNum = GetLandTempEffect(x+1, y)) {
+		_DoLandTemp(iEffectNum, iChange, k);
+	}
+	if(iEffectNum = GetLandTempEffect(x, y+1)) {
+		_DoLandTemp(iEffectNum, iChange, k);
+	}
+	if(iEffectNum = GetLandTempEffect(x+1, y+1)) {
+		_DoLandTemp(iEffectNum, iChange, k);
+	}
+	
+	return 1;
+}
+
+global func _DoLandTemp(int iEffectNum, int iChange, int k) {
+	if(!k)
+		k = GetLandTempChangeSpeed(LandTempDist * EffectVar(0, 0, iEffectNum), LandTempDist * EffectVar(1, 0, iEffectNum));
+	var temp = EffectVar(2, 0, iEffectNum);
+	temp += k * iChange / 10;
+	temp = BoundBy(temp, -MaxTemp, MaxTemp);
+	EffectVar(2, 0, iEffectNum) = temp;
+}

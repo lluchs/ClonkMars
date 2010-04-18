@@ -54,7 +54,7 @@ public func Deconstruction() {
 	return _inherited(...);	
 }
 
-local iEnergy; // kleines Polster falls die Energie kurzzeitig nicht ausreicht
+local iEnergy; // kleines Polster falls die Energie kurzzeitig nicht ausreicht (ab 10 reicht es nicht mehr)
 local fTerraforming, fOn;
 
 protected func Terraforming() { // TimerCall
@@ -77,6 +77,16 @@ protected func Terraforming() { // TimerCall
 	if(!Random(10) && ObjectCount2(Find_Distance(TRFM_RADIUS), Find_Func("IsTree")) < Random(10)) { // neue Bäume
 		PlaceVegetation(RandomTreeID(), TRFM_RADIUS / -2, TRFM_RADIUS / -2, TRFM_RADIUS, TRFM_RADIUS, 10);
 	}
+	
+	/* Temperatur anpassen */
+	var iTemp = GetLandTemp(), iChange;
+	if(iTemp > 0)
+		iChange = -iTemp - 100 + iEnergy * 10;
+	else
+		iChange = -iTemp + 100 - iEnergy * 10;
+	// bei dauerhaftem Betrieb funktionierts besser
+	// -> 0
+	DoLandTemp(-iTemp, 9);
 }
 
 public func NoEnergy() {
