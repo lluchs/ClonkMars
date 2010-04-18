@@ -56,7 +56,7 @@ protected func Activate() {
 	SetCategory(C4D_Vehicle); // damit man es anfassen kann
 	// an Gebäude anbringen
 	if(pBuilding) {
-		pBuilding -> AddVertex(GetX() - pBuilding -> GetX(), GetY() - pBuilding -> GetY());
+		pBuilding -> AddVertex(GetX() - pBuilding -> GetX(), GetY() - pBuilding -> GetY() + GetDefHeight(GetID()) / 2);
 		vertex = pBuilding -> GetVertexNum() - 1;
 		SetAction("Attach", pBuilding);
 		SetActionData(256*2 + vertex);
