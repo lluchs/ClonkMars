@@ -1,0 +1,17 @@
+[DefCore]
+id=B_60
+Version=4,9,8
+Name=Basement
+Category=C4D_Structure
+Width=60
+Height=8
+Offset=-30,-4
+Vertices=2
+VertexX=-29,29
+VertexY=-4,-4
+VertexFriction=100,100
+Value=1
+Mass=10
+Components=METL=4;
+SolidMask=0,0,60,8,0,0
+Construction=1
