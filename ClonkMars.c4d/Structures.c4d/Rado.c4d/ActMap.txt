@@ -1,18 +1,7 @@
 [Action]
-Name=Wait
-Delay=2
-Length=1
-FacetBase=0
-Facet=0,0,40,40,0,0
-NextAction=Wait
-
-[Action]
 Name=Turn
-Delay=4
 Length=31
-FacetBase=0
 Facet=0,0,40,40,0,0
-NextAction=TurnBackWait
 
 [Action]
 Name=Construct

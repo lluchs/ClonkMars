@@ -8,7 +8,7 @@
 
 public func MaxDamage() { return 27; } //Maximaler Schaden
 protected func Initialize(){
-	SetAction("Panel");
+	SetAction("Turn");
 	AddEffect("DestroyMeteorites", this, 10, 5, this);
 }
 public func MarsResearch() {
@@ -48,7 +48,7 @@ protected func ControlRight(object pClonk) {
 func AimRight()
 {
 	var iPhase = GetPhase() + 1;
-	if(iPhase > 25) {
+	if(iPhase >= GetActMapVal("Length", "Turn", GetID())) {
 		Sound("Click");
 		return;
 	}
