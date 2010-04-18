@@ -88,11 +88,6 @@ public func Damage (int iChange)
 public func FxMaxDamageExplosionStart(object pTarget, int iEffectNumber, bool fTemp) {
 	if(!fTemp) {
 		Sound("Warning_blowup", 0, this, 0, 0, 1);
-		
-		var type = "BuildingExplode";
-		if(GetID() == CPSL)
-			type = "CapsuleExplode";
-		UpdateHUD(-GetOwner() - 2, HUD_EventLog, type);
 	}
 }
 
@@ -126,6 +121,12 @@ private func DestroyBlast(object pTarget) {
 	for(var pObj in FindObjects(Find_Container(pTarget), Find_Not(Find_Func("IsLight"))))
 		pObj -> Exit(0, Random(wdt) - wdt / 2, Random(hgt) - hgt / 2);
 	pTarget -> Explode(power / 2);
+	
+	var type = "BuildingExplode";
+	if(pTarget -> GetID() == CPSL)
+		type = "CapsuleExplode";
+	UpdateHUD(-(pTarget -> GetOwner()) - 2, HUD_EventLog, type);
+	
 	return true;
 }
 
