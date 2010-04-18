@@ -105,7 +105,7 @@ protected func FxLogTimer(object pTarget, int iEffectNumber) {
 	var alpha = EffectVar(0, pTarget, iEffectNumber);
 	var waiting = EffectVar(1, pTarget, iEffectNumber);
 	var type = EffectVar(2, pTarget, iEffectNumber);
-	alpha = Max(alpha - 2, 0);
+	alpha--;
 	
 	if(!alpha) {
 		if(!waiting[0])
