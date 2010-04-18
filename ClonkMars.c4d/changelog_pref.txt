@@ -28,12 +28,15 @@ Objekte:
 ! Früchte fallen herunter, sobald der Baum eingeht
 
 Gebäude: 
++ Labor zum Upgrades erforschen
++ Upgrades: Steinmahlen, O2Flaschen Upgrade, schwerer Anzug
 + Tank universell für Flüssigkeiten
 + Baugrafiken: RADO
 + Fackel für Rig
 + fehlende Strings für Tank
 + Energiezellen als Bauelement
 + verfeindete Gebäude sind nicht mehr betretbar
+* RADO Effekt additiv
 * Rig Grafik: neue Elemente + endlich AA
 * Tank kann ausgeleert werden
 * Baumaterialien balanced
@@ -48,10 +51,13 @@ Gebäude:
 ! Transmitterstation frisst nicht mehr Loreninhalt
 ! bei Rückbau des Tanks wird der Inhalt ausgegeben
 ! Value Stack Overflow hoffentlich gefixt (Kurzschluss!)
+! RADO Winkelausrichtung nicht mehr asynchron
 
 Fahrzeuge:
++ Kapsel ist dicht, sodass Clonks darin nicht mehr frieren
 
 Sonstiges:
++ EventLog im HUD
 * HUD geringfügig nochmals überarbeitet
 * Viewporteffekte bei jeder Art von Schmerz, sowie Kälteeinfluss
 * Bestätigungsmenü für Rückbau
