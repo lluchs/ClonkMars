@@ -26,6 +26,7 @@ Objekte:
 ! hoffentlich endlich value stack overflow bei Strom-/Leitungssystemen die in Kreis gehen fixed
 ! Clonks bekommen nach Reproduktion volle Energie
 ! Früchte fallen herunter, sobald der Baum eingeht
+! LEDs an Gebäuden sind in passender Höhe zum anfassen
 
 Gebäude: 
 + Labor zum Upgrades erforschen
@@ -35,6 +36,7 @@ Gebäude:
 + Fackel für Rig
 + fehlende Strings für Tank
 + Energiezellen als Bauelement
++ Terraformer haben auch Einfluss auf die Temperatur
 + verfeindete Gebäude sind nicht mehr betretbar
 * RADO Effekt additiv
 * Rig Grafik: neue Elemente + endlich AA
