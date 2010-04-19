@@ -1,2 +1,2 @@
-DE:Leitungsaufnahme
-US:Line pickup
+DE:Steinmahler
+US:Rock Crusher
