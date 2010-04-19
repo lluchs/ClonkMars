@@ -1,1 +1,5 @@
-Is used as a reseach center.
+Serves as a research facility for updates and upgrades.
+
+If the green light, everything is fine, it can be researched.
+Yellow light indicates research enterprise.
+In Red light, no research is possible (eg energy)
