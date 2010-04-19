@@ -1,2 +1,2 @@
-DE:Leitungsaufnahme
-US:Line pickup
+DE:O2 Flaschen Upgrade
+US:O2 Bottle Upgrade

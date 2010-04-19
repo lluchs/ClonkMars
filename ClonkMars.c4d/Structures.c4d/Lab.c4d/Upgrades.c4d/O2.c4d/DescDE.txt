@@ -1,1 +1,1 @@
-Dieses Objekt stellt die Grundfunktionalität für Leitungsbausätze zur Verfügung.
+Verdoppelt die Kapazität einer O2 Flasche.
