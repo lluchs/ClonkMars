@@ -5,6 +5,8 @@
 #include B_50
 #include PWRC
 #include DACT //Damagecontrol
+#include L_CA //Baugrafik
+
 
 local pLamp;
 func Initialize() {
