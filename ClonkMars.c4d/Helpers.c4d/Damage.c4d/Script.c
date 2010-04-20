@@ -113,6 +113,12 @@ public func FxMaxDamageExplosionTimer(object pTarget, int iEffectNumber, int iEf
 
 private func DestroyBlast(object pTarget) {
 	if(!pTarget) if(!(pTarget=this)) return;
+	
+	var type = "BuildingExplode";
+	if(pTarget -> GetID() == CPSL)
+		type = "CapsuleExplode";
+	UpdateHUD(-(pTarget -> GetOwner()) - 2, HUD_EventLog, type);
+	
 	var ox, oy, wdt, hgt;
 	GetRect(pTarget->GetID(), ox, oy, wdt, hgt);
 	var metlcount = GetComponent(METL, 0, 0, pTarget -> GetID());
@@ -121,11 +127,6 @@ private func DestroyBlast(object pTarget) {
 	for(var pObj in FindObjects(Find_Container(pTarget), Find_Not(Find_Func("IsLight"))))
 		pObj -> Exit(0, Random(wdt) - wdt / 2, Random(hgt) - hgt / 2);
 	pTarget -> Explode(power / 2);
-	
-	var type = "BuildingExplode";
-	if(pTarget -> GetID() == CPSL)
-		type = "CapsuleExplode";
-	UpdateHUD(-(pTarget -> GetOwner()) - 2, HUD_EventLog, type);
 	
 	return true;
 }
