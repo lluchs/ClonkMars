@@ -113,12 +113,12 @@ protected func ContainedUp(object pClonk) {
 	AddSubmenu(menu, 0, "Buy", MenuCond_Chosen(0, "Sell", "Buy"), "$TxtOrder$",IC_O);
 		var i = 0, ID;
 		while(ID = GetHomebaseMaterial(pClonk -> GetOwner(), 0, i++, C4D_Object)) {
-			AddRangeChoice(menu, ["Buy"], ID, 0, GetName(0, ID), ID, 0, GetHomebaseMaterial(pClonk -> GetOwner(), ID), 1, 0);
+			AddRangeChoice(menu, ["Buy"], ID, 0, Format("%s - %d{{GOLD}}", GetName(0, ID), GetValue(0, ID, this, pClonk -> GetOwner())), ID, 0, GetHomebaseMaterial(pClonk -> GetOwner(), ID), 1, 0);
 		}
 	
 	CreateMenuByTemplate(pClonk, this, "OrderCapsule", menu, pClonk);
 	
-	return 1;
+	return 1; 
 }
 
 public func OrderCapsule(hash, object pClonk, bool fCanceled) {

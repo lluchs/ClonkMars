@@ -141,7 +141,8 @@ protected func FxBlowoutTimer(object pObj, int iEffectNumber, int iEffectTime) {
 			CreateParticle("Thrust", -Sin(GetR(),11),                Cos(GetR(),11),                -Sin(GetR(),15)+RandomX(-1,1)+GetXDir(), Cos(GetR(),15+Random(10))+GetYDir()/2, 45, clr, this);
 			CreateParticle("Thrust", -Sin(GetR(),8)+Cos(GetR(),11),  Cos(GetR(),8)-Sin(GetR(),-11), -Sin(GetR(),15)+RandomX(-1,1)+GetXDir(), Cos(GetR(),15+Random(10))+GetYDir()/2, 45, clr, this);
 		}
-		if(!(iEffectTime%3)) EffectDust(); //Staub
+		EffectDust(); //Staub
+		if(vertblow == 2) EffectDust();
 		//Gegenrotation
 		if(GetR() < -1 && GetRDir() < 1) SetRDir(GetRDir(0, 50)+1, 0, 50);
 		else if(GetR() > 1 && GetRDir() > -1) SetRDir(GetRDir(0, 50)-1, 0, 50);
@@ -260,24 +261,23 @@ protected func EffectDust() {
 			
 			// all values dependend on distance
 			var size = RandomX(20,300-i/2);
-			var alpha = Min(255,120+i);
+			var alpha = Min(255,30+i);
 			var pos = RandomX(0,30);
 			// the nearer the dust to the center, the faster it is blown aside 
-			CreateParticle("Dust",-pos,i,(-50+pos)+GetXDir()/2,RandomX(-5,5),size,RGBa(r,g,b,alpha));
-			CreateParticle("Dust",+pos,i,(+50-pos)+GetXDir()/2,RandomX(-5,5),size,RGBa(r,g,b,alpha));
+			CreateParticle("BoostDust",-pos,i,(-50+pos)+GetXDir()/2,RandomX(-9,5),size,RGBa(r,g,b,alpha));
+			CreateParticle("BoostDust", pos,i,( 50-pos)+GetXDir()/2,RandomX(-9,5),size,RGBa(r,g,b,alpha));
 		}
 		if(i < 50) {
-			var iX, iY, iM;
-			for(var j = 0; j < 20; j++) {
+			var iX, iY, iM = 70 - i, iC = RGB(iM, iM, iM);
+			for(var j = 0; j < 5; ++j) {
 				iX = RandomX(-20, 20);
 				if(!Random(2))
 					iX *= 2;
 				iY = 0;
 				while(!GBackSolid(iX, ++iY));
-				iM = (70 - i);
 				iY += RandomX(-2, 2) + iM / 3;
 				if(GBackSolid(iX, iY))
-					SetLandscapePixel(iX, iY, RGB(iM, iM, iM));
+					SetLandscapePixel(iX, iY, iC);
 			}
 		}
 	}
