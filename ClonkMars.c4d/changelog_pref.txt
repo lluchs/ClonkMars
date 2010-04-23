@@ -40,6 +40,7 @@ Gebäude:
 + verfeindete Gebäude sind nicht mehr betretbar
 * Baugrafiken haben mehr Frames: Basis
 * RADO Effekt additiv
+* Materialeinheit kostet weniger Materialien
 * Rig Grafik: neue Elemente + endlich AA
 * Tank kann ausgeleert werden
 * Baumaterialien balanced
@@ -61,9 +62,9 @@ Fahrzeuge:
 + Kapsel ist dicht, sodass Clonks darin nicht mehr frieren
 
 Sonstiges:
++ Viewporteffekte bei jeder Art von Schmerz, sowie Kälteeinfluss
 + EventLog im HUD
 * HUD geringfügig nochmals überarbeitet
-* Viewporteffekte bei jeder Art von Schmerz, sowie Kälteeinfluss
 * Bestätigungsmenü für Rückbau
 * Reparieren kann mit Doppelrichtung abgebrochen werden
 * Flüssigkeiten sind in der Temperaturkonstante die höchste Instanz
