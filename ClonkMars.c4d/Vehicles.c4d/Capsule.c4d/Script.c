@@ -17,6 +17,8 @@ static const iCapsAcceleration = 40;
 
 public func SetHorrBlowout(int bo) {
 	if(horrblow != bo) {
+		if(bo && !horrblow) DoCpslSound(1);
+		else if(!bo) DoCpslSound(-1);
 		horrblow = bo;
 		if(bo == -1) SetAction("LeftBoostTurnUp");
 		else if(bo == 1) SetAction("RightBoostTurnUp");
@@ -28,8 +30,7 @@ public func SetHorrBlowout(int bo) {
 
 public func SetVertBlowout(int bo) {
 	if(vertblow != bo) {
-		if(bo && !vertblow) Sound("Blowout", 0, this, 0, 0, 1);
-		else if(!bo) Sound("Blowout", 0, this, 0, 0, -1);
+		DoCpslSound(bo-vertblow);
 		vertblow = bo;
 		if(bo && !GetEffect("Blowout", this)) {AddEffect("Blowout", this,1,1,this);}
 	}
@@ -334,3 +335,12 @@ public func ContainedDownReleased() { SetVertBlowout(0); }
 public func ContainedLeftReleased() { SetHorrBlowout(0); }
 public func ContainedRightReleased() { SetHorrBlowout(0); }
 public func ContainedDig() { SetHorrBlowout(0); SetVertBlowout(0); }
+
+//Proper Sound() stacking emulator
+local sndcount;
+private func DoCpslSound(int chng){
+	if(sndcount + chng < 1)       Sound("Jetbelt", 0, this, 0, 0, -1);
+	if(sndcount == 0 && chng > 0) Sound("Jetbelt", 0, this, 0, 0, 1);
+	sndcount += chng;
+	if(sndcount < 0) sndcount = 0;
+}
