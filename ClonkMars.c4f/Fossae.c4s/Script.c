@@ -31,3 +31,7 @@ protected func Script5(){
 func NotChoosableRules() { return [LNGT,LDAY,ENRG,CNMT]; }
 
 func LowerCooling() { return 75; }
+
+func RegulatedMaxTemp() {
+	return 300;
+}

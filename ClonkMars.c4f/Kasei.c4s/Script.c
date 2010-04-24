@@ -19,3 +19,7 @@ protected func InitializePlayer(iPlr){
 
   //Regelwähler
   func NotChoosableRules() { return [LNGT,ENRG,CNMT]; }
+
+func RegulatedMaxTemp() {
+	return 715;
+}

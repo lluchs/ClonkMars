@@ -30,3 +30,7 @@ protected func InitializePlayer(int iPlr) {
 
   //Regelwähler
   func NotChoosableRules() { return [ENRG,CNMT]; }
+  
+func RegulatedMaxTemp() {
+	return 299;
+}

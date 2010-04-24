@@ -63,3 +63,7 @@ global func MsgWindow(pClonk, szText)
   SetMenuTextProgress(1, pClonk);
   SetMenuDecoration(MD69, pClonk);
 }
+
+func RegulatedMaxTemp() {
+	return 496;
+}

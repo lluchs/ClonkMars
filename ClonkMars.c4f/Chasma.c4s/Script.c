@@ -51,3 +51,7 @@ func Script8() {
   for(var i;i<1;i++) PlaceInMaterial(_BUB,Material("DuroLava"));
   goto(1);
   }
+
+func RegulatedMaxTemp() {
+	return 500;
+}
