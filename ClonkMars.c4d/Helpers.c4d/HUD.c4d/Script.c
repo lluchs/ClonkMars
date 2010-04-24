@@ -170,7 +170,7 @@ public func UpdateClonkTemperature(int iTemp) {
 	MovePointer(1, iTemp);
 	if(iTemp > 0)
 		iTemp = 0;
-	SetViewportFreeze(GetOwner(), ChangeRange(133-Abs(iTemp), 0, 133, 0, 255)); // hier geht Genauigkeit verloren, evtl. ändern
+	SetViewportFreeze(GetOwner(), ChangeRange(MaxTemp-Abs(iTemp), 0, MaxTemp, 0, 255));
 	return 1;
 }
 
@@ -202,7 +202,7 @@ protected func FxMovePointerAdd(object pTarget, int iEffectNumber, string szNewE
 }
 
 private func DrawPointer(int iPointer, int iValue) {
-	if(iValue < -133 || iValue > 27) {
+	if(Abs(iValue) > MaxTemp) {
 		DebugLog("ERROR: HUD: falscher Wert für Pointer");
 		return;
 	}
@@ -211,14 +211,9 @@ private func DrawPointer(int iPointer, int iValue) {
 	x = (13 + iPointer * 23) * 1000; // richtige Spalte
 	y = 24000; // Position für 0
 	
-	var hgt = 27000; // Abstand zwischen 0 und 27 bzw. -133
+	var hgt = 27000; // Abstand zwischen 0 und Max/Min
 	
-	if(iValue > 0) {
-		y -= iValue * hgt / 27;
-	}
-	else if(iValue < 0) {
-		y += iValue * hgt / -133;
-	}
+	y -= iValue * hgt / MaxTemp;
 	
 	// Grafik setzen
 	SetGraphics("Pointer", this, GetID(), HUD_Pointer + iPointer, GFXOV_MODE_Action, "Pointer");

@@ -84,21 +84,12 @@ protected func FxTemperatureTimer(object pTarget, int iEffectNumber) {
 		pTarget -> AddFireEffect(GetEffect("FireEffect", pTarget, 0, 6) + 25, 0, true);
 	}
 	
-	var iHUD = 0;
-	if(iTemp > 0)
-		iHUD = ChangeRange(iTemp, 0, MaxTemp, 0, 27);
-	else if(iTemp < 0)
-		iHUD = ChangeRange(iTemp, -MaxTemp, 0, -133, 0);
-	pTarget -> UpdateHUDValue(HUD_ClonkTemp, iHUD);
+	pTarget -> UpdateHUDValue(HUD_ClonkTemp, iTemp);
 }
 
 protected func FxLandTempHUDUpdateTimer(object pTarget, int iEffectNumber) {
-	var iLandTemp = pTarget -> GetLandTemp(), iHUD = 0;
-	if(iLandTemp > 0)
-		iHUD = ChangeRange(iLandTemp, 0, MaxTemp, 0, 27);
-	else if(iLandTemp < 0)
-		iHUD = ChangeRange(iLandTemp, -MaxTemp, 0, -133, 0);
-	pTarget -> UpdateHUDValue(HUD_LandTemp, iHUD);
+	var iLandTemp = pTarget -> GetLandTemp();
+	pTarget -> UpdateHUDValue(HUD_LandTemp, iLandTemp);
 }
 
 
