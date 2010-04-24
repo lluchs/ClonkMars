@@ -47,7 +47,7 @@ protected func Activate(clonk)
 
 protected func ContextFarRemoval(clonk)
 {
-	[$TxtFarRemoval$|Condition=GotLine]
+	[$TxtFarRemoval$|Image=GLNE|Condition=GotLine]
 	var line = FindObject(0, 0,0,0,0, 0, "Connect", this() );
 	if (!line) return false;
 	var obj = line->GetActionTarget(1);
