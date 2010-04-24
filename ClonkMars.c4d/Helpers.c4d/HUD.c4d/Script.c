@@ -88,9 +88,6 @@ public func AddLog(val, int iType) {
 		return;
 	}
 	
-	if(iType == HUD_EventLog)
-		Sound("Special_Event", true, 0, 0, GetOwner()+1);
-	
 	AddEffect("Log", this, 10, 1, this, 0, val, iType);
 }
 
@@ -101,6 +98,9 @@ protected func FxLogStart(object pTarget, int iEffectNumber, bool fTemp, val, in
 	EffectVar(1, pTarget, iEffectNumber) = CreateArray();
 	EffectVar(2, pTarget, iEffectNumber) = iType;
 	
+	if(iType == HUD_EventLog)
+		Sound("Special_Event", true, 0, 0, GetOwner()+1);
+	
 	DrawLogItem(iType, val, iEffectNumber);
 }
 
@@ -110,14 +110,16 @@ protected func FxLogTimer(object pTarget, int iEffectNumber) {
 	var type = EffectVar(2, pTarget, iEffectNumber);
 	alpha--;
 	
-	if(!alpha) {
-		if(!waiting[0])
-			return -1;
-		else {
-			DrawLogItem(type, waiting[0], iEffectNumber);
-			DeleteArrayItem(0, waiting);
-			alpha = 255;
-		}
+	if(!alpha && !waiting[0])
+		return -1;
+	
+	if(alpha < 100 && waiting[0]) {
+		DrawLogItem(type, waiting[0], iEffectNumber);
+		DeleteArrayItem(0, waiting);
+		alpha = 255;
+		
+		if(type == HUD_EventLog)
+			Sound("Special_Event", true, 0, 0, GetOwner()+1);
 	}
 	
 	SetClrModulation(RGBa(255, 255, 255, 255-alpha), this, type);
