@@ -232,6 +232,8 @@ protected func FxResearchStop(object pTarget, int iEffectNumber, int iReason, bo
 
 public func ContainedUp(object pClonk) {
 	[$TxtResearch$|Image=RSR1]
+	if(IsResearching())
+		PauseAllResearch();
 	ResearchMenu(pClonk);
 	return 1;
 }
