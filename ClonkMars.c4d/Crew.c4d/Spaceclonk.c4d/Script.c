@@ -142,8 +142,13 @@ protected func FxO2Start(object pTarget, int iEffectNumber, bool fTemp) {
 
 // der Timerintervall ist so gewÃ¤hlt, dass immer pro Zeiteinheit ein Prozentpunkt abgezogen wird
 protected func FxO2Timer() {
-	// nicht, wÃ¤hrend man in einem GebÃ¤ude ist, das Sauerstoff produziert oder ein Baum in der NÃ¤he ist
-	if(Contained() && Contained() -> HasO2() || ObjectCount2(Find_Distance(50), Find_Func("IsTree"), Find_Not(Find_Func("IsDeadTree")))) {
+	// nicht, während man in einem Gebäude ist, das Sauerstoff produziert
+	if(Contained() && Contained() -> HasO2() || 
+	   // ein Baum in der Nähe ist
+	   ObjectCount2(Find_Distance(50), Find_Func("IsTree"), Find_Not(Find_Func("IsDeadTree"))) || 
+	   // man einen schweren Anzug hat und ein verbundenes Pipekit
+	   (HeavySuit() && ObjectCount2(Find_Container(this), Find_ID(PIKT), Find_Func("HasO2")))
+	) {
 		// Sauerstoff nachladen
 		O2 += 10;
 		if(O2 > 100)
