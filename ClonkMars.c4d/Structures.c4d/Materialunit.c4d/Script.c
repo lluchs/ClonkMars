@@ -124,6 +124,7 @@ protected func ProduceLorry(idItem, iParameter, fRight) {
 		return fContinue = false;
 	
 	if(CheckComponents(idItem, true)) {
+		CheckPower(100);
 		SetAction("Produce");
 		idProduce = idItem;
 		if(fRight)
@@ -162,6 +163,7 @@ protected func Produce(idItem, iParameter, fRight) {
 		return fContinue = false;
 	
 	if(CheckComponents(idItem, true)) {
+		CheckPower(100);
 		SetAction("Produce2");
 		idProduce = idItem;
 		if(fRight)
@@ -187,6 +189,10 @@ protected func Finish() {
 	}
 	
 	Sound("Pshshsh");
+	Continue();
+}
+
+protected func Continue() {
 	if(fContinue) {
 		if(idProduce == METL)
 			ProduceMetal(0, 0, true);
