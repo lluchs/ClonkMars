@@ -38,6 +38,7 @@ Gebäude:
 + Energiezellen als Bauelement
 + Terraformer haben auch Einfluss auf die Temperatur
 + verfeindete Gebäude sind nicht mehr betretbar
+* Mitteilung, sobald Energie für Reproduktion fehlt
 * Baugrafiken haben mehr Frames: Basis
 * RADO Effekt additiv
 * Materialeinheit kostet weniger Materialien
@@ -45,6 +46,7 @@ Gebäude:
 * Tank kann ausgeleert werden
 * Baumaterialien balanced
 * Rig modularer fürs Flüssigkeiten pumpen
+* Dauerproduktion wird bei Energiemangel nicht gestoppt
 * Tank hält mehr Damage aus
 * Gebäudebeschreibungen um einiges erweitert
 * Rig: beim pumpen wird überschüssiges Gas via Fackel abgebrannt
@@ -53,17 +55,22 @@ Gebäude:
 ! Reproduktion sollte keine Clonks ohne Owner mehr erstellen
 ! Rig benötigt nun wirklich Energie
 ! Transmitterstation frisst nicht mehr Loreninhalt
+! Herstellen von Dingen in Materialeinheit kostet nun wirklich Strom
 ! bei Rückbau des Tanks wird der Inhalt ausgegeben
 ! Value Stack Overflow hoffentlich gefixt (Kurzschluss!)
 ! Zero-Call bei Gebäudeexplosion
 ! RADO Winkelausrichtung nicht mehr asynchron
+! Offsets gefixt :Port, Rig
 
 Fahrzeuge:
 + Kapsel ist dicht, sodass Clonks darin nicht mehr frieren
+! Kapsel Thrust-Sound kommt nicht mehr sporadisch
 
 Sonstiges:
 + Viewporteffekte bei jeder Art von Schmerz, sowie Kälteeinfluss
 + EventLog im HUD
+* Temperatur muss vom Szenarioscript reguliert werden
+* Temperaturanzeige im HUD genauer
 * HUD geringfügig nochmals überarbeitet
 * Bestätigungsmenü für Rückbau
 * Reparieren kann mit Doppelrichtung abgebrochen werden
