@@ -64,8 +64,10 @@ private func ApplyMenu(pClonk) {
 }
 
 protected func ApplyUpgrade(id ID, object pClonk) {
-	if(ID -> ~CanApply(this, pClonk))
+	if(ID -> ~CanApply(this, pClonk)) {
 		ID -> ~Apply(this, pClonk);
+		Sound("Connect");
+	}
 	else
 		Sound("Error");
 }
