@@ -20,6 +20,13 @@ EndCall=Finish
 Sound=Melt_Working
 
 [Action]
+Name=Wait
+Delay=10
+FacetBase=1
+EndCall=Continue
+NextAction=Idle
+
+[Action]
 Name=Construct
 Facet=0,137,95,55,0,0
 Length=101

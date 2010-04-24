@@ -45,7 +45,8 @@ protected func ProduceMenu(object pClonk, fShowAll) {
 		CreateMenu(GetID(), pClonk, this);
 		if(fContinue)
 			AddMenuItem("$TxtCancel$", "fContinue = false;", RSR2, pClonk, 0, 0, "$TxtCancelFull$");
-		AddMenuItem("$TxtCancelNow$", "Cancel", RSR2, pClonk, 0, 0, "$TxtCancelNow$");
+		if(GetAction() != "Wait")
+			AddMenuItem("$TxtCancelNow$", "Cancel", RSR2, pClonk, 0, 0, "$TxtCancelNow$");
 		return 1;
 	}
 	
@@ -76,8 +77,18 @@ protected func ProduceMenu(object pClonk, fShowAll) {
 local idProduce, fContinue;
 
 protected func ProduceMetal(idItem, iParameter, fRight) {
-	if (GetAction() != "Idle" || DoorActive || !FindObject2(Find_Container(this), Find_OCF(OCF_CrewMember)) || !CheckPower(100, true))
+	if (GetAction() != "Idle" || DoorActive || !FindObject2(Find_Container(this), Find_OCF(OCF_CrewMember)))
 		return fContinue = false;
+	if(!CheckPower(100, true)) {
+		if(fRight)
+			fContinue = true;
+		if(fContinue) {
+			SetAction("Wait");
+			idProduce = METL;
+		}
+		return;
+	}
+	
 	var pOre = FindObject2(Find_Container(this), Find_ID(ORE1));
 	var aEarth = FindObjects(Find_Container(this), Find_ID(ERTH));
 	if(pOre || GetLength(aEarth) >= UNIT_metal_earth_cost) {
@@ -100,8 +111,18 @@ protected func ProduceMetal(idItem, iParameter, fRight) {
 }
 
 protected func ProducePlastic(idItem, iParameter, fRight) {
-	if(GetAction() != "Idle" || DoorActive || !FindObject2(Find_Container(this), Find_OCF(OCF_CrewMember)) || !CheckPower(100, true))
+	if(GetAction() != "Idle" || DoorActive || !FindObject2(Find_Container(this), Find_OCF(OCF_CrewMember)))
 		return fContinue = false;
+	if(!CheckPower(100, true)) {
+		if(fRight)
+			fContinue = true;
+		if(fContinue) {
+			SetAction("Wait");
+			idProduce = PSTC;
+		}
+		return;
+	}
+	
 	for(var pTank in FindObjects(Find_ID(OILT), Find_Func("PipelineConnectedWith", this))) {
 		if(pTank -> GetFill() >= UNIT_plastic_cost) {
 			CheckPower(100);
@@ -120,8 +141,17 @@ protected func ProducePlastic(idItem, iParameter, fRight) {
 }
 
 protected func ProduceLorry(idItem, iParameter, fRight) {
-	if (GetAction() != "Idle" || DoorActive || !FindObject2(Find_Container(this), Find_OCF(OCF_CrewMember)) || !CheckPower(100, true))
+	if (GetAction() != "Idle" || DoorActive || !FindObject2(Find_Container(this), Find_OCF(OCF_CrewMember)))
 		return fContinue = false;
+	if(!CheckPower(100, true)) {
+		if(fRight)
+			fContinue = true;
+		if(fContinue) {
+			SetAction("Wait");
+			idProduce = idItem;
+		}
+		return;
+	}
 	
 	if(CheckComponents(idItem, true)) {
 		CheckPower(100);
@@ -159,8 +189,17 @@ private func CheckComponents(id idItem, bool fRemove) {
 
 // Universal-Herstellen
 protected func Produce(idItem, iParameter, fRight) {
-	if (GetAction() != "Idle" || DoorActive || !FindObject2(Find_Container(this), Find_OCF(OCF_CrewMember)) || !CheckPower(100, true))
+	if (GetAction() != "Idle" || DoorActive || !FindObject2(Find_Container(this), Find_OCF(OCF_CrewMember)))
 		return fContinue = false;
+	if(!CheckPower(100, true)) {
+		if(fRight)
+			fContinue = true;
+		if(fContinue) {
+			SetAction("Wait");
+			idProduce = idItem;
+		}
+		return;
+	}
 	
 	if(CheckComponents(idItem, true)) {
 		CheckPower(100);
