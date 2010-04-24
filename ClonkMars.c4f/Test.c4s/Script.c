@@ -10,3 +10,7 @@ func Initialize() {
   CreateObject(TEMP,0,0,-1);
   return(1);
 }
+
+func RegulatedMaxTemp() {
+	return 500;
+}
