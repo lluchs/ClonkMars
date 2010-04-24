@@ -88,6 +88,9 @@ public func AddLog(val, int iType) {
 		return;
 	}
 	
+	if(iType == HUD_EventLog)
+		Sound("Special_Event", true, 0, 0, GetOwner()+1);
+	
 	AddEffect("Log", this, 10, 1, this, 0, val, iType);
 }
 
