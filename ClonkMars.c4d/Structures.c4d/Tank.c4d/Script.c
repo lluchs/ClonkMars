@@ -4,6 +4,7 @@
 #include B_60
 #include DACT //Damagecontrol
 #include L_SS
+#include L_CA //Baugrafik
 
 local type; // 0: Öl; 1: Lava
 
