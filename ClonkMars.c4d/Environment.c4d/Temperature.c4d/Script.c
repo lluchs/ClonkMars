@@ -192,7 +192,7 @@ global func FxLandTempTimer(object pTarget, int iEffectNumber) {
 			var earthWarming = GameCall("EarthWarming");
 			if(!earthWarming)
 				earthWarming = GetLightIntensity() * 7 / 4;
-			iOther = Min(iOther + earthWarming, MaxTemp);
+			iOther = Min(iOther + earthWarming, GetRegulatedMaxTemp());
 		}
 	}
 	
@@ -206,7 +206,7 @@ global func FxLandTempTimer(object pTarget, int iEffectNumber) {
 		var lowerCooling = GameCall("LowerCooling");
 		if(!lowerCooling)
 			lowerCooling = 150;
-		iOther = Max(iOther - lowerCooling, -MaxTemp);
+		iOther = Max(iOther - lowerCooling, GetRegulatedMinTemp());
 	}
 	
 	// Abkühlung ganz oben, abhängig von Tageszeit
@@ -214,7 +214,7 @@ global func FxLandTempTimer(object pTarget, int iEffectNumber) {
 		var upperCooling = GameCall("UpperCooling");
 		if(!upperCooling)
 			upperCooling = 110 - GetLightIntensity() / 3;
-		iOther = Max(iOther - upperCooling, -MaxTemp);
+		iOther = Max(iOther - upperCooling, GetRegulatedMinTemp());
 	}
 	
 	var k = GetLandTempChangeSpeed(iX, iY); // Wachstumstgeschwindigkeit * 10
@@ -250,6 +250,14 @@ global func GetLandTempChangeSpeed(int iX, int iY) {
 		k = 2;
 	
 	return k;
+}
+
+global func GetRegulatedMaxTemp() {
+	return GameCall("RegulatedMaxTemp") || MaxTemp;
+}
+
+global func GetRegulatedMinTemp() {
+	return GameCall("RegulatedMinTemp") || -MaxTemp;
 }
 
 /*
