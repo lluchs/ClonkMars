@@ -5,7 +5,7 @@ Category=1154
 MaxUserSelect=1
 Width=60
 Height=30
-Offset=-30,-10
+Offset=-30,-15
 Value=30
 Mass=400
 Components=METL=2;PSTC=1;
