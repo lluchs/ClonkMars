@@ -27,5 +27,7 @@ protected func Script5(){
   return(goto(0));
   }
   
-  //Regelwähler
-  func NotChoosableRules() { return [LNGT,LDAY,ENRG,CNMT]; }
+//Regelwähler
+func NotChoosableRules() { return [LNGT,LDAY,ENRG,CNMT]; }
+
+func LowerCooling() { return 75; }
