@@ -14,6 +14,7 @@ Objekte:
 * Wompfbeeren können kaputt gehen
 * Temperaturveränderung kann vom Szenario spezifisch festgelegt werden
 * Performance der Temperaturberechnungen gesteigert
+* Bausatz kostet 10 Clunker (vorher 15)
 * Splitterkit mit Speichersystem (Zahlensystem wie O2-Flasche)
 * HUD überarbeitet
 * Reel von der Seite gerendert, zur besseren Erkennung
@@ -32,7 +33,7 @@ Gebäude:
 + Labor zum Upgrades erforschen
 + Upgrades: Steinmahlen, O2Flaschen Upgrade, schwerer Anzug
 + Tank universell für Flüssigkeiten
-+ Baugrafiken: RADO, Bohrturm
++ Baugrafiken: RADO, Bohrturm, Öltank
 + Fackel für Rig
 + fehlende Strings für Tank
 + Energiezellen als Bauelement
@@ -61,6 +62,7 @@ Gebäude:
 ! Zero-Call bei Gebäudeexplosion
 ! RADO Winkelausrichtung nicht mehr asynchron
 ! Offsets gefixt :Port, Rig
+! Forschung in Basis wird nicht mehr pausiert, wenn ein Itemwechsel stattfindet
 
 Fahrzeuge:
 + Kapsel ist dicht, sodass Clonks darin nicht mehr frieren
@@ -68,6 +70,7 @@ Fahrzeuge:
 
 Sonstiges:
 + Viewporteffekte bei jeder Art von Schmerz, sowie Kälteeinfluss
++ Icon für Leitungaufnehmen
 + EventLog im HUD
 * Temperatur muss vom Szenarioscript reguliert werden
 * Temperaturanzeige im HUD genauer
