@@ -55,7 +55,7 @@ global func UpgradeComplete(int iPlr, id ID) {
 }
 
 private func ApplyMenu(pClonk) {
-	CreateMenu(LABR, pClonk, this);
+	CreateMenu(LABR, pClonk, this, 0, "Keine anwendbaren Upgrades!");
 	
 	for(var ID in upgrades) {
 		if(ID -> ~CanApply(this, pClonk))
