@@ -165,11 +165,6 @@ private func ContinueResearch(int iNumber) {
 	return ChangeEffect(0, this, iNumber, GetEffect(0, this, iNumber, 1), 15);
 }
 
-protected func Ejection() {
-	PauseAllResearch();
-	return _inherited(...);
-}
-
 /* EffectVars:
  * 0: temporär gespeicherter Clonk
  * 1: ID, die erforscht wird
