@@ -156,7 +156,7 @@ private func DrawLogItem(int iOverlay, val, int iEffectNumber) {
 	}
 	else {
 		SetGraphics(0, this, INFO, iOverlay, GFXOV_MODE_Action, val);
-		SetObjDrawTransform(1000, 0, OverlayShiftX(28) + 1000*(40), 0, 1000, OverlayShiftY(28) + 7000, this, iOverlay);
+		SetObjDrawTransform(1000, 0, OverlayShiftX(28) + 1000*(45), 0, 1000, OverlayShiftY(28) + 7000, this, iOverlay);
 	}
 	
 	
