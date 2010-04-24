@@ -5,7 +5,7 @@ Category=1154
 MaxUserSelect=1
 Width=50
 Height=65
-Offset=-25,-38
+Offset=-25,-33
 Value=700
 Mass=400
 Components=METL=4;CRYS=1;
