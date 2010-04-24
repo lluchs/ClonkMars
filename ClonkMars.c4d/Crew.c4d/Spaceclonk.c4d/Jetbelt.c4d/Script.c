@@ -239,7 +239,7 @@ protected func FxJetbeltStop(object pTarget, int iEffectNumber) {
 
 public func IsReady()
 {
-  if(!GetFuel() || GetCommand()) return;
+  if(!GetFuel() || GetCommand() || this -> ~HeavySuit()) return;
 
   if(GetAction() == "Jump"
   || GetAction() == "Tumble"
