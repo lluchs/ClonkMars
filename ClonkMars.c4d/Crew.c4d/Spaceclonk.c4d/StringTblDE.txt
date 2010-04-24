@@ -7,3 +7,4 @@ CtxRepair=Reparieren
 NothingtoRepair=Nichts reparierbares gefunden!
 Standing=Clonk muss zum Reparieren stehen!
 NeededMaterials=Benötigte Materialien:
+NoEnergy=Nicht genügend Energie vorhanden!

@@ -70,7 +70,9 @@ protected func FxReproductionTimer(object pTarget, int iEffectNumber, int iEffec
 	if(!(Contained() -> CheckPower(2, false, true))) {
 		EffectVar(0, pTarget, iEffectNumber) = 0;
 		UpdateHUDValue(HUD_Gencode, 0);
-		return;
+		Sound("Error", 0, 0, 0, GetOwner()+1);
+		PlayerMessage(GetOwner(), "$NoEnergy$", this);
+		return -1;
 	}
 	
 	// Während geforscht ist, teilen sich die Zellen nicht so gut

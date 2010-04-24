@@ -7,3 +7,4 @@ CtxRepair=Repair
 NothingtoRepair=Nothing to repair!
 Standing=Just stand quitly to repair!
 NeededMaterials=Needed Materials:
+NoEnergy=Not enough energy!
