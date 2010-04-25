@@ -9,6 +9,8 @@
 
 public func GetTemp() { return 250;}
 
-func Initialize() {
-  return(1);
-}
+public func MarsResearch() {return true;}
+
+public func MaxDamage() { return 40; } //Maximaler Schaden
+
+private func ClonkCapacity() {return 2;}
