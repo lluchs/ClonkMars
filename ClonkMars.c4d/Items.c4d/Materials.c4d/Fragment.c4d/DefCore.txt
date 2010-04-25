@@ -7,7 +7,7 @@ MaxUserSelect=10
 Width=16
 Height=16
 Offset=-8,-8
-Value=10
+Value=5
 Mass=35
 Components=METL=1;PSTC=2
 Picture=0,16,64,64

@@ -11,7 +11,7 @@ Vertices=3
 VertexX=0,3,-3
 VertexY=0,-3,3
 VertexFriction=100,100,100
-Value=7
+Value=5
 Mass=10
 Components=PSTC=1;
 Picture=20,0,64,64
