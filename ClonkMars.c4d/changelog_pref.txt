@@ -3,6 +3,7 @@
 ### Prefinal 0.95 ###
 Rundenordner/Extra.c4g:
 + Ölquelle in Chasma
++ Szenarien haben alle Temperaturlimits
 * Jedes Szenario hat Base, Akku, Panel, Matlab als Standardbauplan (Spielstart einfacher)
 * Fossae: Materialien etwas besser balanced + Öl auf der Map ist konzentrierter verteilt
 * Kristallmaterial wieder rötlich (nicht mehr weiss)
@@ -11,6 +12,7 @@ Objekte:
 + NewGFX: Reel, Pipekit
 + NewIcons: Rückbau/Recycling
 + Recycling für: LED, O2Flasche, Kabelrolle, Rohrbausatz, Satellitenschüssel
+* Objekte haben vernünftigere Einheiten
 * Wompfbeeren können kaputt gehen
 * Temperaturveränderung kann vom Szenario spezifisch festgelegt werden
 * Performance der Temperaturberechnungen gesteigert
@@ -40,7 +42,7 @@ Gebäude:
 + Terraformer haben auch Einfluss auf die Temperatur
 + verfeindete Gebäude sind nicht mehr betretbar
 * Mitteilung, sobald Energie für Reproduktion fehlt
-* Baugrafiken haben mehr Frames: Basis
+* Baugrafiken haben mehr Frames: Basis, Akku
 * RADO Effekt additiv
 * Materialeinheit kostet weniger Materialien
 * Rig Grafik: neue Elemente + endlich AA
@@ -61,6 +63,7 @@ Gebäude:
 ! Value Stack Overflow hoffentlich gefixt (Kurzschluss!)
 ! Zero-Call bei Gebäudeexplosion
 ! RADO Winkelausrichtung nicht mehr asynchron
+! Pipe beim Trennen korrekten String
 ! Offsets gefixt :Port, Rig
 ! Forschung in Basis wird nicht mehr pausiert, wenn ein Itemwechsel stattfindet
 
