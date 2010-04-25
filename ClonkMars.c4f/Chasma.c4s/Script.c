@@ -53,5 +53,5 @@ func Script8() {
   }
 
 func RegulatedMaxTemp() {
-	return 500;
+	return 400;
 }
