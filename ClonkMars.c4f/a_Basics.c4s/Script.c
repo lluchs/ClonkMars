@@ -11,8 +11,7 @@ func Initialize() {
   return(1);
 }
 
-func Script1()
-{
+func Script1(){
   CreateConstruction(BASE,50,320,0,100,1,0)  ->SetOwner(0); //1
   CreateConstruction(BASE,840,310,0,100,1,0) ->SetOwner(0); //2
   CreateConstruction(SOLA,950,310,0,100,1,0) ->SetOwner(0);
@@ -20,13 +19,11 @@ func Script1()
   CreateObject(LED_,620,335,0) -> ControlDigDouble();
 }
 
-func Script10()
-{
+func Script10(){
   MsgWindow(GetCrew(), "$Txt01$");
 }
 
-func Script12()
-{
+func Script12(){
   if(!GetMenu(GetCrew()))
   {
     MsgWindow(GetCrew(), "$Txt02$");
@@ -35,23 +32,18 @@ func Script12()
   else return goto(11);
 }
 
-func Script14()
-{
-  if(!GetMenu(GetCrew())&&FindObject2(Find_Func("NF_FindHelper_InBase")))
+func Script15(){
+  if (!Contained(GetHiRank(0))) return(goto(13));
   {
     MsgWindow(GetCrew(), "$Txt03$");
     RemoveArrow();
-    
   }
-  else return goto(13);
 }
 
-
-
-func NF_FindHelper_InBase()
-{
-    return Contained() && Contained()->GetID() == BASE;
+func Script30(){
+  MsgWindow(GetCrew(), "$Txt02$");
 }
+
 
 global func MsgWindow(pClonk, szText)
 {
