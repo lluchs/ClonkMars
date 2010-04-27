@@ -6,7 +6,6 @@
 #include PWRC // Energieverbraucher
 #include L_CA // Baugrafik
 
-public func MaxDamage() { return 27; } //Maximaler Schaden
 protected func Initialize(){
 	SetAction("Turn");
 	AddEffect("DestroyMeteorites", this, 10, 5, this);
@@ -121,3 +120,5 @@ private func DoBlast(bool power) {
 	
 	Sound("RADO_Shoot");
 }
+
+public func MaxDamage() { return 32; } //Maximaler Schaden
