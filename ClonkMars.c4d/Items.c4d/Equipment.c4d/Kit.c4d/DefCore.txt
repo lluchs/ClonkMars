@@ -13,7 +13,7 @@ VertexY=4,-4,-1
 VertexFriction=50,50,50
 Value=18
 Mass=15
-Components=METL=2;PSTC=2;
+Components=METL=1;PSTC=2;
 Picture=13,0,64,64
 Rebuy=1
 Collectible=1
