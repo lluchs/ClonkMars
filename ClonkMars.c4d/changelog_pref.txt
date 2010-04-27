@@ -2,6 +2,7 @@
 
 ### Prefinal 0.95 ###
 Rundenordner/Extra.c4g:
++ FolderMap wieder vollständig drin
 + Ölquelle in Chasma
 + Szenarien haben alle Temperaturlimits
 * Jedes Szenario hat Base, Akku, Panel, Matlab als Standardbauplan (Spielstart einfacher)
@@ -41,17 +42,22 @@ Gebäude:
 + Energiezellen als Bauelement
 + Terraformer haben auch Einfluss auf die Temperatur
 + verfeindete Gebäude sind nicht mehr betretbar
+* Akku braucht kein Plastik mehr als Baumaterial
+* Splitterkit ein bisschen günstiger
+* Transmitter Sounds
 * Mitteilung, sobald Energie für Reproduktion fehlt
 * Baugrafiken haben mehr Frames: Basis, Akku
 * RADO Effekt additiv
 * Materialeinheit kostet weniger Materialien
 * Rig Grafik: neue Elemente + endlich AA
 * Tank kann ausgeleert werden
+* Transmitter verträgt mehr Damage
 * Baumaterialien balanced
 * Rig modularer fürs Flüssigkeiten pumpen
 * Dauerproduktion wird bei Energiemangel nicht gestoppt
 * Tank hält mehr Damage aus
 * Gebäudebeschreibungen um einiges erweitert
+* RADO verträgt mehr Damage
 * Rig: beim pumpen wird überschüssiges Gas via Fackel abgebrannt
 * Bohrturm braucht kein Plastik mehr als Baumaterial
 * RADO verletzt Clonks, die sich im Schussbereich bei Aktivität befinden
