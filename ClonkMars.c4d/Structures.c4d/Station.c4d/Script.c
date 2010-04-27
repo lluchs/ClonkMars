@@ -106,7 +106,7 @@ protected func Beam(int iClonk, int iStation, bool fFast) {
 		pObj -> ToggleReservation();
 	}
 	AddEffect("Beam", pClonk, 100, 50, 0, GetID(), Way);
-  Sound("Energize");
+  Sound("Transmitter_up");
   SetAction("Energize");
 }
 
@@ -142,7 +142,7 @@ protected func FxBeamStop(object pTarget, int iEffectNumber, int iReason, bool f
 	if(fTemp)
 		return;
 	var pStation = pTarget -> Contained();
-	pStation -> Sound("Energize");
+	pStation -> Sound("Transmitter_down");
 	pStation -> SetAction("Energize");
 	pTarget -> Exit(0, 18, 21);
 }
