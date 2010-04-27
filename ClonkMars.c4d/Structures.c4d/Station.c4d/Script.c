@@ -236,7 +236,7 @@ public func GetWarmth() {
   return(130);
 }
 
-public func MaxDamage() { return 25; } //Maximaler Schaden
+public func MaxDamage() { return 35; } //Maximaler Schaden
 
 /* Erforschbar */
 
