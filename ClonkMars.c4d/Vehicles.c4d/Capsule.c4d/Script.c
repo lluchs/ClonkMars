@@ -12,8 +12,8 @@ local mode, horrblow, vertblow; //mode: 1 for automatic;
 local sat;
 
 static const iCapsMaxSpeed  = 2500; //iPrecision = 500
-static const iCapsLandSpeed = 120;
-static const iCapsAcceleration = 40;
+static const iCapsLandSpeed = 250;
+static const iCapsAcceleration = 30;
 
 public func SetHorrBlowout(int bo) {
 	if(horrblow != bo) {
