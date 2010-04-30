@@ -104,3 +104,10 @@ public func MarsResearch() {
 }
 
 public func MaxDamage() { return 25; } //Maximaler Schaden
+
+/* Anzeige-fix nach Spielstand laden */
+
+func UpdateTransferZone()
+{
+	UpdateDisplay();
+}

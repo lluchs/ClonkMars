@@ -136,3 +136,10 @@ public func Deconstruction() {
 	CastPXS(mat, Abs(DoFill(-MaxFill())), 20);
 	return _inherited(...);
 }
+
+/* Anzeige-fix nach Spielstand laden */
+
+func UpdateTransferZone()
+{
+	UpdatePicture();
+}
