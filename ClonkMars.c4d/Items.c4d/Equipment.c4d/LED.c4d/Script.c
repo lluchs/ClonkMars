@@ -4,7 +4,7 @@
 
 #include L_RC // Recycling
 
-local light, attached, vertex;
+local light, attached, vertex, xpos, ypos;
 
 static const LED_AttachBuilding = 1, LED_AttachTunnel = 2;
   
@@ -29,9 +29,10 @@ protected func Activate() {
 	// bereits befestigt?
 	if(attached) {
 		if(attached == LED_AttachBuilding) {
-			var pBuilding = GetActionTarget();
+//			var pBuilding = GetActionTarget();
 			SetAction("Idle");
-			pBuilding -> RemoveVertex(vertex); // Befestigungsvertex entfernen
+			SetVertexXY(1,0,0);
+//			pBuilding -> RemoveVertex(vertex); // Befestigungsvertex entfernen
 		}
 		else if(attached == LED_AttachTunnel) {
 			SetAction("Idle");
@@ -56,10 +57,13 @@ protected func Activate() {
 	SetCategory(C4D_Vehicle); // damit man es anfassen kann
 	// an Gebäude anbringen
 	if(pBuilding) {
-		pBuilding -> AddVertex(GetX() - pBuilding -> GetX(), GetY() - pBuilding -> GetY() + GetDefHeight(GetID()) / 2);
-		vertex = pBuilding -> GetVertexNum() - 1;
+		xpos = pBuilding->GetVertex(0,0) - (GetX()-pBuilding->GetX());
+		ypos = pBuilding->GetVertex(0,1) + GetDefHeight(GetID()) / 2 - (GetY()-pBuilding->GetY());
+		SetVertex(1,0,xpos);
+		SetVertex(1,1,ypos);
+		vertex = 1; //GetVertexNum() - 1;
 		SetAction("Attach", pBuilding);
-		SetActionData(256*2 + vertex);
+		SetActionData(256*vertex);
 		attached = LED_AttachBuilding;
 		AddEffect("AttachBuilding", this, 100, 50, this);
 	}
@@ -100,3 +104,11 @@ private func InEntrance(gbaeude)
 }
 
 public func MarsResearch() { return true; }
+
+// Spielstand-Laden Position-Fix
+func UpdateTransferZone()
+{
+	SetVertex(1,0,xpos);
+	SetVertex(1,1,ypos);
+	SetActionData(256*vertex);
+}

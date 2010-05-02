@@ -7,10 +7,10 @@ MaxUserSelect=4
 Width=10
 Height=7
 Offset=-5,-4,-2
-Vertices=3
-VertexX=0,3,-3
-VertexY=0,-3,3
-VertexFriction=100,100,100
+Vertices=4
+VertexX=0,0,3,-3
+VertexY=0,0,-3,3
+VertexFriction=100,100,100,100
 Value=5
 Mass=10
 Components=PSTC=1;
