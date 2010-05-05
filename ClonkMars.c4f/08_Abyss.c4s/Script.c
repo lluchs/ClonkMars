@@ -10,7 +10,8 @@ func Initialize() {
   var Rain=CreateObject(FXP1,0,0,-1);
   Rain->Activate(Material("DuroLava"),960,50);
   ScriptGo(1);
-  CreateObject(BG_3, LandscapeWidth()/2, 200);
+  CreateObject(BG_3, LandscapeWidth()/2, 200); //Vulkan
+  CreateObject(S_VO,0,0,-1); //Sound dafür
   return(1);
 }
 
