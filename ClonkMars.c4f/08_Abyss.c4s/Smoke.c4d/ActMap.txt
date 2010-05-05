@@ -1,6 +1,6 @@
 [Action]
 Name=Block air traffic
-Length=101
-Facet=0,0,800,320
+Length=31
+Facet=0,0,1440,720
 Delay=1
 NextAction=Block air traffic
