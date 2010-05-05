@@ -49,6 +49,7 @@ Gebäude:
 * Baugrafiken haben mehr Frames: Basis, Akku
 * RADO Effekt additiv
 * Materialeinheit kostet weniger Materialien
+* Transmitter günstiger zu bauen
 * Rig Grafik: neue Elemente + endlich AA
 * Tank kann ausgeleert werden
 * Transmitter verträgt mehr Damage
@@ -72,9 +73,11 @@ Gebäude:
 ! Pipe beim Trennen korrekten String
 ! Offsets gefixt :Port, Rig
 ! Forschung in Basis wird nicht mehr pausiert, wenn ein Itemwechsel stattfindet
+! nach Spielstand Laden werden die Füllanzeigen nicht mehr gelöscht
 
 Fahrzeuge:
 + Kapsel ist dicht, sodass Clonks darin nicht mehr frieren
+* Kapsel landet etwas schneller, hebt langsamer ab
 ! Kapsel Thrust-Sound kommt nicht mehr sporadisch
 
 Sonstiges:
