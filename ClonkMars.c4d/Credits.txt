@@ -1,6 +1,9 @@
 // CREDITZ!
 
-Mirosh (EKE Pack): Schweiss-Sound
+
+ala: Betatesting, komplette Map: Tithonium Chasma + Überarbeitung sämtlicher Maps
+
+boni: Betatesting, JnR Steuerung für RADO, div. Bugfixes
 
 Hazard Team: Dunkelheit- und Lasersystem, div. Effekte
 
@@ -10,19 +13,17 @@ Maikel: Power.c4d
 
 Randrian: Raumfahrerclonk+Portrait Grafiken
 
-Icewing: Pipesystem, Baugrafiksystem, Menüsystem, ehem. Betatesting
+Icewing: Pipesystem, Baugrafiksystem, Menüsystem, Betatesting
 
 JCaesar: Kapsellandesystem, div. Bugfixes
 
-Killerwipf: Kristallabbau-Regel
-
 Hubble: Betatesting
 
-boni: Betatesting, JnR Steuerung für RADO
-
-ala: Betatesting, komplette Map: Tithonium Chasma + Überarbeitung sämtlicher Maps
+Mirosh (EKE Pack): Schweiss-Sound
 
 mcGreen, s_m_w, Joshi: gelegentliches Betatesting
+
+Killerwipf: Kristallabbau-Regel
 
 OpenClonk: Rock, Earth Textur (leichte Veränderungen)
 

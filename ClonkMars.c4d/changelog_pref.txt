@@ -25,6 +25,7 @@ Objekte:
 * RADO hält etwas mehr Schaden aus
 * Wompfbeere kleiner und farbiger
 ! RADO ist nun auch per JnR steuerbar
+! LED Positionen nach Spielstand Laden gefixt
 ! Plastik nicht mehr doppelt bau-/erforschbar
 ! Speichersystem Objekte hatten keine Beschreibungen
 ! hoffentlich endlich value stack overflow bei Strom-/Leitungssystemen die in Kreis gehen fixed
