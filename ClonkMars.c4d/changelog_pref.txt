@@ -3,17 +3,20 @@
 ### Prefinal 0.95 ###
 Rundenordner/Extra.c4g:
 + FolderMap wieder vollständig drin
-+ Ölquelle in Chasma
++ Ölquelle in Tithonium Chasma
 + Szenarien haben alle Temperaturlimits
++ komplett neuer Loader
 * Jedes Szenario hat Base, Akku, Panel, Matlab als Standardbauplan (Spielstart einfacher)
 * Fossae: Materialien etwas besser balanced + Öl auf der Map ist konzentrierter verteilt
 * Kristallmaterial wieder rötlich (nicht mehr weiss)
+* Rundenordner-Icon optimiert
 
 Objekte:
 + NewGFX: Reel, Pipekit
 + NewIcons: Rückbau/Recycling
 + Recycling für: LED, O2Flasche, Kabelrolle, Rohrbausatz, Satellitenschüssel
 * Objekte haben vernünftigere Einheiten
+* volle Energiezellen können nun auch als Startmaterial ausgewählt werden
 * Wompfbeeren können kaputt gehen
 * Temperaturveränderung kann vom Szenario spezifisch festgelegt werden
 * Performance der Temperaturberechnungen gesteigert
