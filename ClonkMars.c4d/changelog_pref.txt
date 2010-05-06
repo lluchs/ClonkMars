@@ -2,6 +2,7 @@
 
 ### Prefinal 0.95 ###
 Rundenordner/Extra.c4g:
++ neue Maps: Elysium Abyss, Phobos
 + FolderMap wieder vollständig drin
 + Ölquelle in Tithonium Chasma
 + Szenarien haben alle Temperaturlimits
