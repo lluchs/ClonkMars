@@ -16,6 +16,7 @@ Objekte:
 + NewGFX: Reel, Pipekit
 + NewIcons: Rückbau/Recycling
 + Recycling für: LED, O2Flasche, Kabelrolle, Rohrbausatz, Satellitenschüssel
+* Kristallmine-Ziel hat Grafik bekommen
 * Objekte haben vernünftigere Einheiten
 * volle Energiezellen können nun auch als Startmaterial ausgewählt werden
 * Wompfbeeren können kaputt gehen
@@ -51,7 +52,7 @@ Gebäude:
 * Splitterkit ein bisschen günstiger
 * Transmitter Sounds
 * Mitteilung, sobald Energie für Reproduktion fehlt
-* Baugrafiken haben mehr Frames: Basis, Akku
+* Baugrafiken haben mehr Frames: Basis, Akku, Panel
 * RADO Effekt additiv
 * Materialeinheit kostet weniger Materialien
 * Transmitter günstiger zu bauen
