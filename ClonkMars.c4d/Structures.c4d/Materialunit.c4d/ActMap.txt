@@ -20,6 +20,16 @@ EndCall=Finish
 Sound=Melt_Working
 
 [Action]
+Name=Crush
+Delay=3
+Length=61
+FacetBase=1
+PhaseCall=Smoking
+NextAction=Idle
+EndCall=Finish
+Sound=Melt_Crushing
+
+[Action]
 Name=Wait
 Delay=10
 FacetBase=1

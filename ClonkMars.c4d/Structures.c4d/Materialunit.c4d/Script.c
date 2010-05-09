@@ -203,7 +203,11 @@ protected func Produce(idItem, iParameter, fRight) {
 	
 	if(CheckComponents(idItem, true)) {
 		CheckPower(100);
-		SetAction("Produce2");
+		// anderer Sound bei Erdherstellung
+		if(idItem == ERTH)
+			SetAction("Crush");
+		else
+			SetAction("Produce2");
 		idProduce = idItem;
 		if(fRight)
 			fContinue = true;
