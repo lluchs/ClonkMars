@@ -48,6 +48,8 @@ Gebäude:
 + Energiezellen als Bauelement
 + Terraformer haben auch Einfluss auf die Temperatur
 + verfeindete Gebäude sind nicht mehr betretbar
++ volle Energiezellen können Akku aufladen
++ Metall auch aus Asche herstellbar
 * Akku braucht kein Plastik mehr als Baumaterial
 * Splitterkit ein bisschen günstiger
 * Transmitter Sounds
@@ -57,6 +59,7 @@ Gebäude:
 * Materialeinheit kostet weniger Materialien
 * Transmitter günstiger zu bauen
 * Rig Grafik: neue Elemente + endlich AA
+* Terraformer erzeugt Regen und Donner
 * Tank kann ausgeleert werden
 * Transmitter verträgt mehr Damage
 * Baumaterialien balanced
@@ -85,6 +88,9 @@ Fahrzeuge:
 + Kapsel ist dicht, sodass Clonks darin nicht mehr frieren
 * Kapsel landet etwas schneller, hebt langsamer ab
 ! Kapsel Thrust-Sound kommt nicht mehr sporadisch
+
+Vegetation:
++ Pflanzen wachsen jetzt in Asche
 
 Sonstiges:
 + Viewporteffekte bei jeder Art von Schmerz, sowie Kälteeinfluss
