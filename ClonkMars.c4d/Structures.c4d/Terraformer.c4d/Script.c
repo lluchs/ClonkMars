@@ -68,6 +68,10 @@ protected func Terraforming() { // TimerCall
 		
 	//play Animation
 	SetAction("WindTurn");
+	
+	// Sound
+	if(!Random(3))
+		Sound("Terraformer_thunder*");
   	
 	if(iEnergy)
 		iEnergy--;
