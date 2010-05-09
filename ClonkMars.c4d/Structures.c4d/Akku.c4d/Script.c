@@ -81,12 +81,28 @@ protected func ControlUp() {
 	Message("$TxtStored$", this, GetPower());
 }
 
-protected func ControlThrow(object pClonk) {
+protected func ControlDig(object pClonk) {
 	var pObj = FindObject2(Find_Container(pClonk), Find_ID(CELL));
 	if(pObj) {
 		if(GetPower() >= 200) {
 			DoPower(-200);
 			pObj -> ChangeDef(FCLL);
+			Message("$TxtCharged$", this);
+		}
+		else
+			Message("$TxtNotEnoughPower$", this);
+	} else {
+		Message("$TxtNoCell$", this);
+	}
+	return 1;
+}
+
+protected func ControlThrow(object pClonk) {
+	var pObj = FindObject2(Find_Container(pClonk), Find_ID(FCLL));
+	if(pObj) {
+		if(GetPower() < GetCapacity()) {
+			DoPower(200);
+			pObj -> ChangeDef(CELL);
 			Message("$TxtCharged$", this);
 		}
 		else
