@@ -103,10 +103,8 @@ protected func ControlThrow(object pClonk) {
 		if(GetPower() < GetCapacity()) {
 			DoPower(200);
 			pObj -> ChangeDef(CELL);
-			Message("$TxtCharged$", this);
+			Message("$TxtAssign$", this);
 		}
-		else
-			Message("$TxtNotEnoughPower$", this);
 	} else {
 		Message("$TxtNoCell$", this);
 	}
