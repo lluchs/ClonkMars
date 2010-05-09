@@ -9,6 +9,7 @@
 #include L_CA // Baugrafik
 
 static const UNIT_metal_earth_cost = 2;
+static const UNIT_metal_ashes_cost = 3;
 static const UNIT_plastic_cost = 350;
 public func GetTemp() { if(GetAction() == "Produce") return 500; return 250;}
 
@@ -51,7 +52,10 @@ protected func ProduceMenu(object pClonk, fShowAll) {
 	}
 	
 	CreateMenu(GetID(), pClonk, this, C4MN_Extra_Components, "$TxtNothingProducible$");
-	if(fShowAll || ObjectCount2(Find_Container(this), Find_ID(ORE1)) || ObjectCount2(Find_Container(this), Find_ID(ERTH)) >= UNIT_metal_earth_cost) {
+	if(fShowAll || ObjectCount2(Find_Container(this), Find_ID(ORE1)) || 
+	               ObjectCount2(Find_Container(this), Find_ID(ERTH)) >= UNIT_metal_earth_cost ||
+	               ObjectCount2(Find_Container(this), Find_ID(ASHS)) >= UNIT_metal_ashes_cost
+	) {
 		AddMenuItem("Metall", "ProduceMetal", METL, pClonk);
 	}
 	if(fShowAll || ObjectCount2(Find_ID(OILT), Find_Func("PipelineConnectedWith", this))) {
@@ -91,12 +95,17 @@ protected func ProduceMetal(idItem, iParameter, fRight) {
 	
 	var pOre = FindObject2(Find_Container(this), Find_ID(ORE1));
 	var aEarth = FindObjects(Find_Container(this), Find_ID(ERTH));
-	if(pOre || GetLength(aEarth) >= UNIT_metal_earth_cost) {
+	var aAshes = FindObjects(Find_Container(this), Find_ID(ASHS));
+	if(pOre || GetLength(aEarth) >= UNIT_metal_earth_cost || GetLength(aAshes) >= UNIT_metal_ashes_cost) {
 		if (pOre)
 			pOre -> RemoveObject();
-		else {
+		else if(GetLength(aEarth) >= UNIT_metal_earth_cost) {
 			for (var i = 0; i < UNIT_metal_earth_cost; ++i)
 				aEarth[i] -> RemoveObject();
+		}
+		else {
+			for (var i = 0; i < UNIT_metal_ashes_cost; ++i)
+				aAshes[i] -> RemoveObject();
 		}
 		CheckPower(100);
 		SetAction("Produce");
