@@ -1,7 +1,9 @@
 Speichert Energie und gibt sie bei Bedarf ab. Benötgt zum Energie
-speichern einen Kristall.
+speichern einen Kristall. Volle Energiezellen können wieder in den
+Akku eingespeist werden.
 
 Steuerung:
 
 Springen --> Abruf der Energiemenge
-Werfen   --> Energiezelle aufladen (sofern im Inventar)
+Werfen   --> volle Energiezelle entladen (sofern im Inventar)
+Graben   --> leere Energiezelle aufladen (sofern im Inventar)
