@@ -105,4 +105,4 @@ public func MarsResearch() {
 	return true;
 }
 
-public func MaxDamage() { return 18; } //Maximaler Schaden
+public func MaxDamage() { return 21; } //Maximaler Schaden
