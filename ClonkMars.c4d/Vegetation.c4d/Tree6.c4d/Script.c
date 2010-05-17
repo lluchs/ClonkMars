@@ -1,6 +1,5 @@
 /*-- Baum --*/
 
-#strict
+#strict 2
 
-#include TREE
-#include TRE5
+#include TRE5 // enthält die Grundfunktionalität für Marsbäume
