@@ -82,6 +82,8 @@ protected func Seed() {
 
 public func IsStanding() { return GetCategory() & C4D_StaticBack; }	// steht noch
 
+public func IsTree() { return 0; } // kein Baum
+
 /*func IsAlchemContainer() { return(true); }
 func AlchemProcessTime() { return(80); }*/
 
