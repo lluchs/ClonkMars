@@ -8,35 +8,35 @@ private func ReproductionRate()     { return 23; }
 private func MaxTreeCount()         { return 6; }
 
 protected func Damage(iDamage) {
-	CastObjects(CRYS, RandomX(1,5), iDamage / 2);
-	RemoveObject();
+	ControlDigDouble();
 }
 
 protected func Incineration() { Extinguish(); }
 
 public func Construction() {
 	if(GetAction() == "Idle") {
-  	SetAction("Hang");		// zufällige Animationsphase
-  	iPhase = Random(4);
-  	// Zufällige Richtung
-  	if (Random(1)) SetDir(DIR_Right);
-  }
-  // Höhe anpassen
-  while (!GBackSolid(0, 12))
-    SetPosition(GetX(), GetY() + 1);
-  // Drehung nach Erdoberfläche
-  var x_off = 18 * GetCon() / 100;
-  var y_off = 15 * GetCon() / 100;
-  var slope = GetSolidOffset(-x_off, y_off) - GetSolidOffset(x_off, y_off);
-  SetR(slope);
-  SetPhase(iPhase);
-  return 1;
+		SetAction("Hang");		// zufällige Animationsphase
+		iPhase = Random(4);
+		// Zufällige Richtung
+		if (Random(1))
+			SetDir(DIR_Right);
+	}
+	// Höhe anpassen
+	while (!GBackSolid(0, 12))
+		SetPosition(GetX(), GetY() + 1);
+	// Drehung nach Erdoberfläche
+	var x_off = GetDefWidth(GetID()) / 2;
+	var y_off = GetDefHeight(GetID()) / 2;
+	var slope = GetSolidOffset(-x_off, y_off) - GetSolidOffset(x_off, y_off);
+	SetR(slope*2); // passt besser
+	SetPhase(iPhase);
+	return 1;
 }
 
 private func GetSolidOffset(int x, int y)
 {
   var i;
-  for (i = -15; GBackSolid(x, y - i) && (i < 15); i++);
+  for (i = -20; GBackSolid(x, y - i) && (i < 20); i++);
   return i;
 }
 
@@ -87,7 +87,7 @@ public func IsTree() { return 0; } // kein Baum
 /*func IsAlchemContainer() { return(true); }
 func AlchemProcessTime() { return(80); }*/
 
-protected func Hit() { Sound("CrystalHit*"); }
+protected func Hit() { Sound("Crystal*"); }
 
 public func Set(int iPar) {
 	if(!iPar) {
