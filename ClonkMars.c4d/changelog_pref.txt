@@ -16,6 +16,7 @@ Objekte:
 + NewGFX: Reel, Pipekit
 + NewIcons: Rückbau/Recycling
 + Recycling für: LED, O2Flasche, Kabelrolle, Rohrbausatz, Satellitenschüssel
++ 1680x1050px im Auflösungsmenü hinzugefügt
 * Kristallmine-Ziel hat Grafik bekommen
 * Objekte haben vernünftigere Einheiten
 * volle Energiezellen können nun auch als Startmaterial ausgewählt werden
@@ -24,7 +25,7 @@ Objekte:
 * Performance der Temperaturberechnungen gesteigert
 * Bausatz kostet 10 Clunker (vorher 15)
 * Splitterkit mit Speichersystem (Zahlensystem wie O2-Flasche)
-* HUD überarbeitet
+* HUD grafisch überarbeitet
 * Reel von der Seite gerendert, zur besseren Erkennung
 * Reel Hit nichtmehr Stein, sondern Metallksound
 * RADO hält etwas mehr Schaden aus
@@ -50,7 +51,9 @@ Gebäude:
 + verfeindete Gebäude sind nicht mehr betretbar
 + volle Energiezellen können Akku aufladen
 + Metall auch aus Asche herstellbar
+* Transmittergrafik und Animation überarbeitet
 * Akku braucht kein Plastik mehr als Baumaterial
+* Panel hält etwas mehr Damage aus
 * Splitterkit ein bisschen günstiger
 * Transmitter Sounds
 * Mitteilung, sobald Energie für Reproduktion fehlt
@@ -80,6 +83,7 @@ Gebäude:
 ! Zero-Call bei Gebäudeexplosion
 ! RADO Winkelausrichtung nicht mehr asynchron
 ! Pipe beim Trennen korrekten String
+! Materialeinheit Grafikfehler gefixt
 ! Offsets gefixt :Port, Rig
 ! Forschung in Basis wird nicht mehr pausiert, wenn ein Itemwechsel stattfindet
 ! nach Spielstand Laden werden die Füllanzeigen nicht mehr gelöscht
@@ -91,6 +95,7 @@ Fahrzeuge:
 
 Vegetation:
 + Pflanzen wachsen jetzt in Asche
+- appendtos für verbrannte Bäume
 
 Sonstiges:
 + Viewporteffekte bei jeder Art von Schmerz, sowie Kälteeinfluss
