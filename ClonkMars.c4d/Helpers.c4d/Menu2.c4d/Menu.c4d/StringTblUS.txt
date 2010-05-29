@@ -3,6 +3,8 @@ Deactivate=Deactivate %s
 
 Increase=Increase %s by %d
 Decrease=Decrease %s by %d
+Increase2=Increase by %d
+Decrease2=Decrease by %d
 
 Choose=Choose %s for %s
 

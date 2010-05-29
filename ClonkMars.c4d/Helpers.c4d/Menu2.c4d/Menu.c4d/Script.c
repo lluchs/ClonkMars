@@ -109,8 +109,10 @@ private func ShowRange(Key, array aCond, string szName, id idItem, data, &i)
 {
   var selectable = Evaluate_MenuCond(aMenu, aCond);
   var szCaption = szName;
-  var szIncCaption = Format("$Increase$", szName, data[2]);
-  var szDeCaption = Format("$Decrease$", szName, data[2]);  
+//  var szIncCaption = Format("$Increase$", szName, data[2]);
+//  var szDeCaption = Format("$Decrease$", szName, data[2]);  
+  var szIncCaption = Format("$Increase2$", data[2]);
+  var szDeCaption = Format("$Decrease2$", data[2]);  
   if (selectable)
   {
     AddMenuItem(szCaption, Format("ShowMenu(%d)",i++), idItem, pMenuObject, data[3],
