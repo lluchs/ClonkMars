@@ -31,7 +31,7 @@ private func GetRes(int index) {
 		[1920, 1080],
 		
 		// Sonstige
-		[1366, 768]
+		[1366, 768],
 		[1680, 1050]
 	];
 	
