@@ -6,6 +6,7 @@
 #include OVDR
 #include PWRC // ist ein Energieverbraucher
 #include DACT //Damagecontrol
+#include L_CA //Baugrafik
 
 private func EnergyNeedOverlay() {
 	return 3; // Overlay 1 und 2: Türsteuerung
