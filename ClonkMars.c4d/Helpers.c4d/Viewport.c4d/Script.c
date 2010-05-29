@@ -32,6 +32,7 @@ private func GetRes(int index) {
 		
 		// Sonstige
 		[1366, 768]
+		[1680, 1050]
 	];
 	
 	if(index < 0) {
