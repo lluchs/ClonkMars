@@ -1,0 +1,3 @@
+Txt01=Guten Morgen, Sir! Sind sie bereit für ihr Training?
+Txt02=Gut, dann sollten sie erst einmal in die Basis gehen, damit Ihnen der Sauerstoff nicht ausgeht.
+Txt03=bla

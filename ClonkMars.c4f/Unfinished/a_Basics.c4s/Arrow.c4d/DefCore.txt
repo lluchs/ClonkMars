@@ -1,0 +1,9 @@
+[DefCore]
+id=_AR1
+Version=4,9,10,2
+Name=Arrow
+Category=C4D_Object|C4D_Foreground
+Width=32
+Height=32
+Timer=1
+TimerCall=PositionCheck
