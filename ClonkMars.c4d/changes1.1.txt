@@ -1,0 +1,3 @@
++ hinzugefügt | - entfernt | * verändert |! Bugfix
+
+- Laustärke vom Steincrusher Sound erhöht
