@@ -128,7 +128,7 @@ Fahrzeuge:
   ! zweite Triebwerkszündung bei Landekapseln ist nun unkaputt
   ! Kapsel-Landevektoring Bug behoben
 
-### Prefinal 0.95 ###
+### Final 1.0 ###
 Rundenordner/Extra.c4g:
 + neue Maps: Elysium Abyss, Phobos
 + FolderMap wieder vollständig drin
