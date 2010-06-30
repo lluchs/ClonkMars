@@ -8,7 +8,7 @@ func Initialize() {
   SetGamma(RGB(30,0,0), RGB(120,100,100), RGB(235,220,220));
   DigBuildingsFree();
   // Spielziel setzen
-  FindObject(CROB)->AddType(RADO, 3);
+  FindObject(CROB)->AddType(MRAS, 2);
   CreateObject(MARS,-0,0,-1);
   return(1);
 }
