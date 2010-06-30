@@ -53,7 +53,7 @@ FullscreenBG=1
 	Area=556,159,78,47
 
 	[Scenario]
-	File=01_Fossae.c4s
+	File=08_Phobos.c4s
 	BaseImage=Phobos.png
 	OverlayImage=Phobos_Hl.png
 	Area=447,399,43,58
