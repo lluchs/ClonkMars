@@ -237,3 +237,10 @@ Sonstiges:
 * Flüssigkeiten sind in der Temperaturkonstante die höchste Instanz
 ! Clonk stuckt nicht mehr im Reperaturvorgang fest
 
+### 1.1 ###
++ diverse GUI Überladungen
++ Phobos.c4s
+* Laustärke vom Steincrusher Sound erhöht
+* Mars Gamma auf Wunsch d. Community reduziert
+  + Marssky.c als glob. Variable dafür
+! Loader wieder funktionstüchtig
