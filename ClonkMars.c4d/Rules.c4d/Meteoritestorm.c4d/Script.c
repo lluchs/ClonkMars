@@ -14,13 +14,17 @@ private func Wait() {
 }
 
 protected func FxWaitingTimer(object pTarget, int iEffectNumber) {
-	AddEffect("Meteoritestorm", this, 100, RandomX(10, 50), this);
+	// Warnsystem
+	for(var MetoDetection in FindObjects(Find_ID(MRAS)))
+    MetoDetection -> WarningMeto();
+  Schedule("AddEffect(\"Meteoritestorm\", this, 100, RandomX(10, 50), this);", 500, 0, this);
 	return -1;
 }
 
 protected func FxMeteoritestormStart(object pTarget, int iEffectNumber, bool fTemp) {
-	if(!fTemp)
-		EffectVar(0, pTarget, iEffectNumber) = RandomX(10, 50);
+	if(!fTemp){
+			EffectVar(0, pTarget, iEffectNumber) = RandomX(10, 50);
+   }
 }
 
 protected func FxMeteoritestormTimer(object pTarget, int iEffectNumber) {
