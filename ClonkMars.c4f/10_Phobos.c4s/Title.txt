@@ -1,2 +1,2 @@
-DE:Phobos
-US:Phobos
+DE:Phobos Station
+US:Phobos Station
