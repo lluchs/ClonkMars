@@ -1,8 +1,0 @@
-+ hinzugefügt | - entfernt | * verändert |! Bugfix
-
-+ Marssky.c als glob. Variable dafür
-+ diverse GUI Überladungen
-+ Phobos.c4s
-* Laustärke vom Steincrusher Sound erhöht
-* Mars Gamma auf Wunsch d. Community reduziert
-! Loader wieder funktionstüchtig

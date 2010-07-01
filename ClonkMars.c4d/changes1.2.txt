@@ -1,0 +1,5 @@
++ hinzugefügt | - entfernt | * verändert |! Bugfix
+
+* Phobos: Materialeinheit baubar
+* Frühwarnsystem: Kann jetzt in allen Szenarien erforscht werden
+* mehr Startbaupläne in Fossae, Chaos, Kasei und Chasma
