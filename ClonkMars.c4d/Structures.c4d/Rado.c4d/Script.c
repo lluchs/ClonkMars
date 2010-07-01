@@ -10,9 +10,6 @@ protected func Initialize(){
 	SetAction("Turn");
 	AddEffect("DestroyMeteorites", this, 10, 5, this);
 }
-public func MarsResearch() {
-	return true;
-}
 
 protected func ControlLeft(object pClonk) {
 	// not for JnR-Users
@@ -122,3 +119,4 @@ private func DoBlast(bool power) {
 }
 
 public func MaxDamage() { return 32; } //Maximaler Schaden
+public func MarsResearch() {return true;}
