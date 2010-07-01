@@ -14,3 +14,4 @@ protected func WarningMeto(){
   }
 
 public func MaxDamage() { return 32; } //Maximaler Schaden
+public func MarsResearch() {return true;}
