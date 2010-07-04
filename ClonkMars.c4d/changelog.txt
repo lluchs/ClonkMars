@@ -128,7 +128,7 @@ Fahrzeuge:
   ! zweite Triebwerkszündung bei Landekapseln ist nun unkaputt
   ! Kapsel-Landevektoring Bug behoben
 
-### Final 1.0 ###
+### Final 1.0 [Finalis] ###
 Rundenordner/Extra.c4g:
 + neue Maps: Elysium Abyss, Phobos
 + FolderMap wieder vollständig drin
@@ -237,7 +237,7 @@ Sonstiges:
 * Flüssigkeiten sind in der Temperaturkonstante die höchste Instanz
 ! Clonk stuckt nicht mehr im Reperaturvorgang fest
 
-### 1.1 ###
+### 1.1 [Phobos] ###
 + diverse GUI Überladungen
 + Phobos.c4s
 * Laustärke vom Steincrusher Sound erhöht
