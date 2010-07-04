@@ -1,5 +1,8 @@
 + hinzugefügt | - entfernt | * verändert |! Bugfix
 
-* Phobos: Materialeinheit baubar
+* Phobos: 
+  Materialeinheit baubar
+  Geldmenge drastisch reduziert
 * Frühwarnsystem: Kann jetzt in allen Szenarien erforscht werden
 * mehr Startbaupläne in Fossae, Chaos, Kasei und Chasma
++ Elysium Abyss
