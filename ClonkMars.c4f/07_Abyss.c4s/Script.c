@@ -34,16 +34,19 @@ func Initialize() {
     Vulcano -> SetClrModulation(RGBa(200,190,128,12));
   CreateObject(S_VO,0,0,-1); //Sound dafür
   SetWind(Random(42));
+  
+  CreateObject(OILS,465,540, -1);
+  
   return(1);
 }
 
-/*protected func InitializePlayer(int iPlr) {
+protected func InitializePlayer(int iPlr) {
 	var pCapsule = CreateObject(CPSL, RandomX(100, LandscapeWidth() - 100), 70, iPlr);
 	for(var pObj in FindObjects(Find_Owner(iPlr), Find_Or(Find_Category(C4D_Object), Find_OCF(OCF_CrewMember)))) {
 		pObj -> Enter(pCapsule);
 	}
 	pCapsule->SetDstPort(0, true);
-}*/
+}
 
 protected func Script2(){
   //place Dust
