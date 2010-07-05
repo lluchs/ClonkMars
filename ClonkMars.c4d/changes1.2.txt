@@ -6,3 +6,6 @@
 * Frühwarnsystem: Kann jetzt in allen Szenarien erforscht werden
 * mehr Startbaupläne in Fossae, Chaos, Kasei und Chasma
 + Elysium Abyss
+! Phobos hat wieder Temperatur
+* Phobos Texturen angepasst
+* Spouter optimiert
