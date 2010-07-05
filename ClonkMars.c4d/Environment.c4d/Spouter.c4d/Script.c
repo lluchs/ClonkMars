@@ -7,6 +7,8 @@ protected func Initalize() {
 }
 
 protected func CastOil() {
+  //Erdhack?
+  DigFree(-1,-1,4);
 	// steckt fest?
 	if(GBackSolid()) {
 		// langsam einen Weg nach oben finden!
