@@ -41,8 +41,8 @@ FullscreenBG=1
 	Area=687,154,89,47
 
 	[Scenario]
-	File=08_Abyss.c4s
-	BaseImage=Chasma.png
+	File=07_Abyss.c4s
+	BaseImage=Mons.png
 	OverlayImage=Chasma_Hl.png
 	Area=887,154,89,47
 
