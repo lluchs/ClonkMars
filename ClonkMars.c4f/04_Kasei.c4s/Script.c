@@ -21,5 +21,5 @@ protected func InitializePlayer(iPlr){
   func NotChoosableRules() { return [LNGT,ENRG,CNMT]; }
 
 func RegulatedMaxTemp() {
-	return 715;
+	return 950;
 }

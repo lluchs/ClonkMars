@@ -53,5 +53,8 @@ func Script8() {
   }
 
 func RegulatedMaxTemp() {
-	return 400;
+	return 900;
 }
+
+func LowerCooling() { return 500; }
+
