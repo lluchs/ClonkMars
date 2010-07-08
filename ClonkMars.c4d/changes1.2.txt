@@ -11,3 +11,4 @@
 * Spouter optimiert
 * Temperaturen teilweise angeglichen
 * Energieanzeigeeinheiten in Kilowattstunden
+* Forschen geht im Schnitt 50% schneller

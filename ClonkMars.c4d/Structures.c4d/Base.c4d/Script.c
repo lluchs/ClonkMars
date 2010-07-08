@@ -36,7 +36,7 @@ private func SoundCloseDoor() {
 }
 
 private func CanOpen() {
-	return !IsResearching();
+ return !IsResearching();
 }
 
 /* Steuerung */
@@ -347,7 +347,7 @@ protected func FxResearchStart(object pTarget, int iEffectNumber, int iTemp, id 
 	EffectVar(1, pTarget, iEffectNumber) = idDef;
 	var iTime = idDef -> ~GetResearchTime(this, pClonk);
 	if(!iTime)
-		iTime = RandomX(50, 200);
+		iTime = RandomX(20, 100);
 	EffectVar(2, pTarget, iEffectNumber) = iTime;
 	Sound("Lab_Research", 0, 0, 0, 0, +1);
 	EffectVar(4, pTarget, iEffectNumber) = true;
