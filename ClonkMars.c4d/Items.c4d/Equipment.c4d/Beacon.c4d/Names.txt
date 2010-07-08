@@ -1,0 +1,2 @@
+DE:Blinklicht
+US:Beacon Light
