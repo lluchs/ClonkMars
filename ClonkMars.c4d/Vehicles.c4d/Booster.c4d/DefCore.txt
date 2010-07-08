@@ -11,11 +11,11 @@ Value=125
 Mass=2600
 Components=METL=8;PSTC=8;WIRO=2;PIKT=1;FCLL=4;
 Picture=0,0,40,71
-Vertices=1
-VertexX=-11
-VertexY=-5
-VertexCNAT=5
-VertexFriction=80
+Vertices=3
+VertexX=-10,10,0
+VertexY=35,35,-35
+VertexCNAT=5,5,5
+VertexFriction=80,80,80
 BorderBound=1
 UprightAttach=8
 ContactCalls=1
