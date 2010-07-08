@@ -1,0 +1,16 @@
+[Action]
+Name=OnLaunch
+Delay=3
+Length=30
+FacetBase=0
+Facet=0,0,60,90,0,0
+NextAction=Idle
+
+[Action]
+Name=AfterLaunch
+Delay=3
+Length=30
+FacetBase=0
+Facet=0,0,60,90,0,0
+NextAction=Idle
+Reverse=1
