@@ -17,3 +17,5 @@ protected func Hit()
   Sound("RockHit*");
 	return(1);
 }
+
+public func MarsResearch() { return true; }
