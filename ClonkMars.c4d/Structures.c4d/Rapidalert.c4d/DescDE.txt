@@ -1,1 +1,1 @@
-Spielziel.
+Warnt vor Meteoritenstürmen.
