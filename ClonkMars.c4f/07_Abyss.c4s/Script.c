@@ -58,8 +58,8 @@ protected func Script2(){
 //Regelwähler
 func NotChoosableRules() { return [LNGT,LDAY,ENRG,CNMT]; }
 
-func LowerCooling() { return 125; }
+func LowerCooling() { return 20; }
 
 func RegulatedMaxTemp() {
-	return 800;
+	return 900;
 }
