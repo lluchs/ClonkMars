@@ -9,3 +9,5 @@
 ! Phobos hat wieder Temperatur
 * Phobos Texturen angepasst
 * Spouter optimiert
+* Temperaturen teilweise angeglichen
+* Energieanzeigeeinheiten in Kilowattstunden

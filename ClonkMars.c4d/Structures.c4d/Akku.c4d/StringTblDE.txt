@@ -1,4 +1,4 @@
-TxtStored=Aktuell gespeichert:|%d
+TxtStored=Aktuell gespeichert:|%d kWh
 TxtCharged=Energiezelle geladen.
 TxtAssign=Energie übertragen
 TxtNotEnoughPower=Nicht genügend Strom vorhanden.
