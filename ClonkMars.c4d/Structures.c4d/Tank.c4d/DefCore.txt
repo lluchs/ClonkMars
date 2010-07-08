@@ -8,7 +8,7 @@ Height=40
 Offset=-30,-20
 Value=700
 Mass=1000
-Components=METL=4;
+Components=METL=3;
 Picture=0,0,60,40
 Vertices=4
 VertexX=-28,27,27,-28

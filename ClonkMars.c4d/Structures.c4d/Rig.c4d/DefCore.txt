@@ -8,7 +8,7 @@ Height=65
 Offset=-25,-33
 Value=700
 Mass=600
-Components=METL=4;CRYS=1;
+Components=METL=3;CRYS=1;
 Picture=50,0,50,65
 Vertices=4
 VertexX=-16,19,-2,+17

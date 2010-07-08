@@ -9,7 +9,7 @@ Height=8
 Offset=-5,-4
 Value=4
 Mass=10
-Components=METL=1;
+Components=METL=1;CRYS=1;
 Picture=10,0,64,64
 Vertices=2
 VertexX=-3,3

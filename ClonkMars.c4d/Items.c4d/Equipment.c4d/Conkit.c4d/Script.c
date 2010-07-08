@@ -1,6 +1,7 @@
 /*--- Bausatz ---*/
 
 #strict
+#include L_RC // Recycling
 
 public func Activate(pClonk)
 { 

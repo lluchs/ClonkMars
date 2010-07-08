@@ -1,7 +1,7 @@
 /*--- Kit ---*/
 
 #strict 2
-
+#include L_RC // Recycling
 #include L_SS
 
 private func MaxFill() { return 3; }
