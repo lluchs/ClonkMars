@@ -16,7 +16,7 @@ public func ControlDigDouble() {
 			if(CheckComponents()){
 				RemoveComponents();
 				buildingProcess = true;
-				rocket = CreateObject(BSTR,-10,45,GetOwner(this));
+				rocket = CreateObject(BSTR,0,45,GetOwner(this));
 				rocket -> SetAction("Construct0");
 				Schedule("buildingProcess = false",600);
 			}
@@ -62,7 +62,7 @@ private func RemoveComponents(){
 public func ControlUpDouble() {
 	if(rocket){
 		if(!buildingProcess){
-			rocket->Launch();
+			rocket->StartCountdown();
 		}
 		else{
 			Message("$RocketBuildingInProcess$",this);

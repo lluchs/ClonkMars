@@ -2,69 +2,59 @@
 
 #strict 2
 
-public func Launch() {
-	AddEffect("EffectsDust", this, 1, 1, this);
-	AddEffect("Launching", this, 1, 1, this);
+
+public func StartCountdown() {
+	AddEffect("Countdown", this, 123, 36,this);
 }
 
-protected func FxLaunchingTimer() {
-	SetYDir(Max(GetYDir() - 10, -100));
-	if(GetY() <= 0) {
-		RemoveObject();
+local countdown;
+
+//Countdown
+protected func FxCountdownTimer(){
+	RemoveEffect("Countdown",this);
+	if(countdown == 0 || countdown == 30 || countdown == 45){
+		Log("$rocketStarts$ %s $rocketStarts2$ %d $seconds$",GetPlayerName(GetOwner(this)),60-countdown);
 	}
+	if(countdown >= 50){
+		Log("%d",60-countdown);
+		//Soundausgabe den letzten Sekunden -------------NF!!--------------einfach wieder reinnehmen
+		//Sound(Format("t_%d",60-countdown));
+	}
+	if(countdown == 60){
+		RemoveEffect("Countdown",this);
+	}
+	countdown++;
 }
 
-// geklaut von Hazard
-protected func FxEffectsDustTimer() {
+//Ende des Countdowns
+protected func FxCountdownStop(){
+	SetYDir(GetYDir(this)-1);
+	AddEffect("Launch", this, 123, 1,this);
+}
 
-	// Dust effect
-	var mat,i;
-	
-	// maximum distance in which the shuttle appears
-	var maxdistance = 150;
-	
-	// search for ground (yomisei: please use your sensor-function for that as soon as you finished it)
-	for(i=10; i<maxdistance; i+=5) {
-		if(GBackSolid(0,i)) {
-			mat = GetMaterial(0,i);
-			break;
-		}
+protected func FxLaunchStart(){
+	LaunchEarthquake(0, 40,500);//Erdbeben
+}
+
+//Tolle Effekte
+protected func FxLaunchTimer(){
+	if(GetEffect("Launch",this,0,6) < 100){
+		SetYDir(-3);
+		Sound("Rocket_enginestart",0,this,0,0,0);
 	}
-	
-	// ground in distance
-	if(i<maxdistance) {
-	
-		// check if digable
-		if(CheckDust(mat)) {
-		
-			// determine material color
-			var rand = Random(3);
-			var r = GetMaterialColor(mat,rand,0);
-			var g = GetMaterialColor(mat,rand,1);
-			var b = GetMaterialColor(mat,rand,2);
-			
-			// all values dependend on distance
-			var size = RandomX(20,300-i/2);
-			var alpha = Min(255,120+i);
-			var pos = RandomX(0,30);
-			// the nearer the dust to the center, the faster it is blown aside 
-			CreateParticle("Dust",-pos,i,(-50+pos)+GetXDir()/2,RandomX(-5,5),size,RGBa(r,g,b,alpha));
-			CreateParticle("Dust",+pos,i,(+50-pos)+GetXDir()/2,RandomX(-5,5),size,RGBa(r,g,b,alpha));
+	else{
+		SetYDir(GetYDir(this)-2);
+		Sound("Rocket_engineloop",0,this,100,0,0);
+		for(var i = 0; i < 15; i++){
+			CreateParticle("Thrust",0,35,RandomX(-2,2),100,180,RGBa(255,50,0,50));
+			CreateParticle("Thrust",11,35,RandomX(-1,1),40,100,RGBa(255,100,40,50));
+			CreateParticle("Thrust",-11,35,RandomX(-1,1),60,100,RGBa(255,100,40,50));
 		}
-		if(i < 50) {
-			var iX, iY, iM;
-			for(var j = 0; j < 20; j++) {
-				iX = RandomX(-20, 20);
-				if(!Random(2))
-					iX *= 2;
-				iY = 0;
-				while(!GBackSolid(iX, ++iY));
-				iM = (70 - i);
-				iY += RandomX(-2, 2) + iM / 3;
-				if(GBackSolid(iX, iY))
-					SetLandscapePixel(iX, iY, RGB(iM, iM, iM));
-			}
-		}
+		Smoke(RandomX(-20,20),RandomX(34,40),20);
+		Smoke(RandomX(-20,20),RandomX(34,40),RandomX(10,30));
+	}
+	if(GetY(this) < -50){
+		RemoveObject(this);
 	}
 }
 
