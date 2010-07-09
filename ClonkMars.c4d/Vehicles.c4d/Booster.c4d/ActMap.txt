@@ -1199,5 +1199,3 @@ Name=Construct197
 Length=1
 Facet=8865,71,45,71
 Delay=3
-NextAction=Construct198
-
