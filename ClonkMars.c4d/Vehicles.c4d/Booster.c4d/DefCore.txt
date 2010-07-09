@@ -6,7 +6,7 @@ Category=3332
 MaxUserSelect=0
 Width=45
 Height=71
-Offset=-23,-35
+Offset=-24,-35
 Value=125
 Mass=2600
 Components=PSTC=1;
