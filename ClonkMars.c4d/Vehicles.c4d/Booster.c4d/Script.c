@@ -11,14 +11,14 @@ local countdown;
 
 //Countdown
 protected func FxCountdownTimer(){
-	RemoveEffect("Countdown",this);
+	//RemoveEffect("Countdown",this);
 	if(countdown == 0 || countdown == 30 || countdown == 45){
 		Log("$rocketStarts$ %s $rocketStarts2$ %d $seconds$",GetPlayerName(GetOwner(this)),60-countdown);
 	}
 	if(countdown >= 50){
 		Log("%d",60-countdown);
 		//Soundausgabe den letzten Sekunden -------------NF!!--------------einfach wieder reinnehmen
-		//Sound(Format("t_%d",60-countdown));
+		Sound(Format("t_%d",60-countdown));
 	}
 	if(countdown == 60){
 		RemoveEffect("Countdown",this);

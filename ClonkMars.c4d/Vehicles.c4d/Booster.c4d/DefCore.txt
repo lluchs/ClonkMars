@@ -4,13 +4,13 @@ Version=4,1,0
 Name=Trägerrakete
 Category=3332
 MaxUserSelect=0
-Width=40
+Width=45
 Height=71
-Offset=-20,-35
+Offset=-23,-35
 Value=125
 Mass=2600
-Components=METL=8;PSTC=8;WIRO=2;PIKT=1;FCLL=4;
-Picture=0,0,40,71
+Components=PSTC=1;
+Picture=0,0,45,71
 Vertices=3
 VertexX=-10,10,0
 VertexY=35,35,-35
