@@ -59,23 +59,23 @@ protected func FxLaunchTimer(){
 	//Enginetart - noch nicht bewegen
 	if(GetEffect("Launch",this,0,6) < 144){
 		for(var i = 0; i < 15; i++){
-			CreateParticle("Thrust",0,35,RandomX(-2,2),100,180,RGBa(255,50,0,50));
-			CreateParticle("Thrust",11,35,RandomX(-1,1),40,100,RGBa(255,100,40,50));
-			CreateParticle("Thrust",-11,35,RandomX(-1,1),60,100,RGBa(255,100,40,50));
+			CreateParticle("Thrust",-5,35,RandomX(-2,2),100,180,RGBa(255,50,0,50));
+			CreateParticle("Thrust",10,35,RandomX(-1,1),40,100,RGBa(255,100,40,50));
+			CreateParticle("Thrust",-15,35,RandomX(-1,1),60,100,RGBa(255,100,40,50));
 		}
-		Smoke(RandomX(-20,20),RandomX(34,40),20);
-		Smoke(RandomX(-20,20),RandomX(34,40),RandomX(10,30));
+		CreateParticle("BThrust",-5,35,RandomX(-2,2),RandomX(200,150));
+		CreateParticle("BThrust",-10,35,RandomX(-2,2),RandomX(200,150));
 	}
 	else{
 		Sound("Rocket_engineloop",0,this,100,0,0);
 		SetYDir(GetYDir(this)-2);
 		for(var i = 0; i < 15; i++){
-			CreateParticle("Thrust",0,35,RandomX(-2,2),100,180,RGBa(255,50,0,50));
-			CreateParticle("Thrust",11,35,RandomX(-1,1),40,100,RGBa(255,100,40,50));
-			CreateParticle("Thrust",-11,35,RandomX(-1,1),60,100,RGBa(255,100,40,50));
+			CreateParticle("Thrust",-5,35,RandomX(-2,2),100,180,RGBa(255,50,0,50));
+			CreateParticle("Thrust",10,35,RandomX(-1,1),40,100,RGBa(255,100,40,50));
+			CreateParticle("Thrust",-15,35,RandomX(-1,1),60,100,RGBa(255,100,40,50));
 		}
-		Smoke(RandomX(-20,20),RandomX(34,40),20);
-		Smoke(RandomX(-20,20),RandomX(34,40),RandomX(10,30));
+		CreateParticle("BThrust",10,35,RandomX(-2,2),RandomX(200,150));
+		CreateParticle("BThrust",-15,35,RandomX(-2,2),RandomX(200,150));
 	}
 	if(GetY(this) < -50){
 		RemoveObject(this);
