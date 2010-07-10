@@ -1,0 +1,15 @@
+[DefCore]
+id=FLRE
+Name=Flare
+Version=4,9,5
+Category=C4D_Object
+MaxUserSelect=1
+Width=111
+Height=111
+Offset=-55,-55
+Value=1
+Mass=1
+Components=FLRE=1;
+Picture=0,0,111,111
+Vertices=1
+VertexY=1
