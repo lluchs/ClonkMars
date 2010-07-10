@@ -11,4 +11,4 @@ AlphaFade=1
 VertexCount=1
 VertexY=1
 CollisionFn=BounceY
-GravityAcc=50
+GravityAcc=30

@@ -88,9 +88,14 @@ protected func FxLaunchTimer(){
 			CreateParticle("Smoke2",0,65,RandomX(-2,2),80,150);
 			CreateParticle("Smoke2",11,65,RandomX(-2,2),70,70);
 			CreateParticle("Smoke2",-11,65,RandomX(-2,2),70,70);
+			
+			CreateParticle("Smoke2",0,55,RandomX(-50,50),RandomX(50,200),RandomX(200,400));
+			CreateParticle("Smoke2",0,55,RandomX(-50,50),RandomX(50,200),RandomX(200,400));
+			CreateParticle("Smoke2",0,55,RandomX(-50,50),RandomX(50,200),RandomX(200,400));
+			CreateParticle("Smoke2",0,55,RandomX(-50,50),RandomX(50,200),RandomX(200,400));
 		}
 	}
-	if(GetY(this) < -100){
+	if(GetY(this) < -400){
 		RemoveObject(this);
 	}
 }
