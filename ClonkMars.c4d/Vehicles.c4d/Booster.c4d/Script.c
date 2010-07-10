@@ -60,14 +60,14 @@ protected func FxLaunchTimer(){
 	//generelle Effekte
 	
 	//Enginestart - noch nicht bewegen
-	if(GetEffect("Launch",this,0,6) < 200){
+	if(GetEffect("Launch",this,0,6) < 300){
 		for(var i = 0; i < 15; i++){
 			//motoren an - aber noch nicht abheben
 		}
 		for(var i = 0; i < 3; i++){
-			CreateParticle("Smoke1",0,35,RandomX(-100,100),RandomX(-20,40),RandomX(200,400));
-			CreateParticle("Smoke1",11,35,RandomX(-100,100),RandomX(-20,40),RandomX(100,400));
-			CreateParticle("Smoke1",-11,35,RandomX(-100,100),RandomX(-20,40),RandomX(100,400));
+			CreateParticle("Smoke1",0,35,RandomX(-50,50),RandomX(-10,20),RandomX(200,400));
+			CreateParticle("Smoke1",11,35,RandomX(-50,50),RandomX(-10,20),RandomX(100,400));
+			CreateParticle("Smoke1",-11,35,RandomX(-50,50),RandomX(-10,20),RandomX(100,400));
 		}
 	}
 	if(GetEffect("Launch",this,0,6) > 144){
@@ -88,8 +88,6 @@ protected func FxLaunchTimer(){
 			CreateParticle("Smoke2",0,65,RandomX(-2,2),80,150);
 			CreateParticle("Smoke2",11,65,RandomX(-2,2),70,70);
 			CreateParticle("Smoke2",-11,65,RandomX(-2,2),70,70);
-			CreateParticle("Smoke2",16,35,RandomX(-2,2),40,80);
-			CreateParticle("Smoke2",-16,35,RandomX(-2,2),40,80);
 		}
 	}
 	if(GetY(this) < -100){

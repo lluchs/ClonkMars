@@ -11,3 +11,4 @@ AlphaFade=15
 VertexCount=1
 VertexY=1
 CollisionFn=Stop
+Additive=1
