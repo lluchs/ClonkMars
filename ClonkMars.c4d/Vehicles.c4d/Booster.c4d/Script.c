@@ -1,4 +1,5 @@
-/*-- Booster --*/
+RandomX(-2,2),100,150);
+			/*-- Booster --*/
 
 #strict 2
 
@@ -7,7 +8,7 @@ local countdown;
 public func StartCountdown() {
 	AddEffect("Countdown", this, 123, 36,this);
 	//debug
-	countdown = 89;
+	countdown = 110;
 }
 
 //Countdown
@@ -24,17 +25,21 @@ protected func FxCountdownTimer(){
 	//noch 10s
 	if(countdown == 110){
 		Sound("Rocket_pressure",0,this,0,0,-1);
-		Sound("Rocket_sparkle_start",0,this,0,0,1);
+		Sound("Rocket_sparkle_loop",0,this,0,0,1);
 	}
 	//noch 4s
 	if(countdown == 116){
-		Sound("Rocket_sparkle_start",0,this,0,0,-1);
+		Sound("Rocket_sparkle_loop",0,this,0,0,-1);
 		Sound("Rocket_enginestart",0,this,0,0,0);
 		AddEffect("Launch", this, 123, 1,this);
 	}
+	//noch 2s
+	if(countdown == 118){
+		LaunchEarthquake(0, 40,500);//Erdbeben
+	}
 	//Ab 10s Countdown
 	if(countdown >= 110){
-		Log("%d",60-countdown);
+		Log("%d",120-countdown);
 		//Sound(Format("t_%d",120-countdown));
 	}
 	//Nach 2 Minuten Countdown löschen
@@ -50,34 +55,44 @@ protected func FxCountdownStop(){
 	SetYDir(GetYDir(this)-1);
 }
 
-protected func FxLaunchStart(){
-	LaunchEarthquake(0, 40,500);//Erdbeben
-}
-
 //Tolle Effekte
 protected func FxLaunchTimer(){
-	//Enginetart - noch nicht bewegen
-	if(GetEffect("Launch",this,0,6) < 144){
+	//generelle Effekte
+	
+	//Enginestart - noch nicht bewegen
+	if(GetEffect("Launch",this,0,6) < 200){
 		for(var i = 0; i < 15; i++){
-			CreateParticle("Thrust",-5,35,RandomX(-2,2),100,180,RGBa(255,50,0,50));
-			CreateParticle("Thrust",10,35,RandomX(-1,1),40,100,RGBa(255,100,40,50));
-			CreateParticle("Thrust",-15,35,RandomX(-1,1),60,100,RGBa(255,100,40,50));
+			//motoren an - aber noch nicht abheben
 		}
-		CreateParticle("BThrust",-5,35,RandomX(-2,2),RandomX(200,150));
-		CreateParticle("BThrust",-10,35,RandomX(-2,2),RandomX(200,150));
+		for(var i = 0; i < 3; i++){
+			CreateParticle("Smoke1",0,35,RandomX(-100,100),RandomX(-20,40),RandomX(200,400));
+			CreateParticle("Smoke1",11,35,RandomX(-100,100),RandomX(-20,40),RandomX(100,400));
+			CreateParticle("Smoke1",-11,35,RandomX(-100,100),RandomX(-20,40),RandomX(100,400));
+		}
 	}
-	else{
+	if(GetEffect("Launch",this,0,6) > 144){
+		if(GetEffect("Launch",this,0,6) == 144){
+			SetYDir(-2);
+		}
+		/*if(GetYDir(this) > -(GetEffect("Launch",this,0,6)/36)){
+			SetYDir(-(1/100 * GetYDir(this) * GetYDir(this))+ 2 * GetYDir(this));
+		}*/
+		SetYDir(-GetEffect("Launch",this,0,6)/20 + 5);
 		Sound("Rocket_engineloop",0,this,100,0,0);
-		SetYDir(GetYDir(this)-2);
 		for(var i = 0; i < 15; i++){
-			CreateParticle("Thrust",-5,35,RandomX(-2,2),100,180,RGBa(255,50,0,50));
-			CreateParticle("Thrust",10,35,RandomX(-1,1),40,100,RGBa(255,100,40,50));
-			CreateParticle("Thrust",-15,35,RandomX(-1,1),60,100,RGBa(255,100,40,50));
+			CreateParticle("Thrust",0,35,RandomX(-2,2),100,180,RGBa(255,50,0,0));
+			CreateParticle("Thrust",10,35,RandomX(-1,1),40,100,RGBa(255,100,40,0));
+			CreateParticle("Thrust",-10,35,RandomX(-1,1),60,100,RGBa(255,100,40,0));
 		}
-		CreateParticle("BThrust",10,35,RandomX(-2,2),RandomX(200,150));
-		CreateParticle("BThrust",-15,35,RandomX(-2,2),RandomX(200,150));
+		for(var i = 0; i < 5; i++){
+			CreateParticle("Smoke2",0,65,RandomX(-2,2),80,150);
+			CreateParticle("Smoke2",11,65,RandomX(-2,2),70,70);
+			CreateParticle("Smoke2",-11,65,RandomX(-2,2),70,70);
+			CreateParticle("Smoke2",16,35,RandomX(-2,2),40,80);
+			CreateParticle("Smoke2",-16,35,RandomX(-2,2),40,80);
+		}
 	}
-	if(GetY(this) < -50){
+	if(GetY(this) < -100){
 		RemoveObject(this);
 	}
 }
