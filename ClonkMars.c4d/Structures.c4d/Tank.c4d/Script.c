@@ -98,8 +98,8 @@ protected func ControlThrow() {
 }
 
 protected func ContextSwitch2Oil() {
-  if(!Hostile(GetOwner(),GetOwner(Par()))){
 	[Zu Öl wechseln|Image=OILT|Condition=ContainsLava]
+	if(!Hostile(GetOwner(),GetOwner(Par()))){
 	ControlThrow();}
 		    else{
       Message("$TxtEnemy$",this());
@@ -107,8 +107,8 @@ protected func ContextSwitch2Oil() {
 }
 
 protected func ContextSwitch2Lava() {
-  if(!Hostile(GetOwner(),GetOwner(Par()))){
 	[Zu Lava wechseln|Image=OILT|Condition=ContainsOil]
+	if(!Hostile(GetOwner(),GetOwner(Par()))){
 	ControlThrow();}
 			    else{
       Message("$TxtEnemy$",this());
