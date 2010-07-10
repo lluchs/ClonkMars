@@ -22,6 +22,7 @@ public func TankFor(int mat) {
 }
 
 public func MaxFill() { return 3500; }
+
 private func FillPicture() { return; }
 
 private func UpdatePicture() {
@@ -62,36 +63,56 @@ public func PipelineConnect() {
 //Steuerung
   
 protected func ControlUp(){
-  Message("%d",this,GetFill());
+  if(!Hostile(GetOwner(),GetOwner(Par()))){
+  Message("%d",this,GetFill());}
+    else{
+      Message("$TxtEnemy$",this());
+      Sound("Error");}
   }
 
 protected func ControlDig(object pClonk) {
+  if(!Hostile(GetOwner(),GetOwner(Par()))){
 	if(type)
 		Message("$TxtOnlyOil$", pClonk);
 	var iChange = pClonk -> ~DoFuel(GetFill() * 100);
 	iChange = ChangeRange(iChange, 0, pClonk -> ~MaxFuel(), 0, 100);
 	Message("+%d", pClonk, iChange);
 	pClonk -> ~UpdateFuelHUD();
-	DoFill(-iChange);
+	DoFill(-iChange);}
+	    else{
+      Log("$TxtEnemy$");
+      Sound("Error");}
 	return 1;
 }
 
 protected func ControlThrow() {
+  if(!Hostile(GetOwner(),GetOwner(Par()))){
 	if(GetFill())
 		return Message("$TxtOnlyEmptyTank$", this);
 	type = !type;
-	UpdateTypePicture();
+	UpdateTypePicture();}
+	    else{
+      Message("$TxtEnemy$",this());
+      Sound("Error");}
 	return 1;
 }
 
 protected func ContextSwitch2Oil() {
+  if(!Hostile(GetOwner(),GetOwner(Par()))){
 	[Zu Öl wechseln|Image=OILT|Condition=ContainsLava]
-	ControlThrow();
+	ControlThrow();}
+		    else{
+      Message("$TxtEnemy$",this());
+      Sound("Error");}
 }
 
 protected func ContextSwitch2Lava() {
+  if(!Hostile(GetOwner(),GetOwner(Par()))){
 	[Zu Lava wechseln|Image=OILT|Condition=ContainsOil]
-	ControlThrow();
+	ControlThrow();}
+			    else{
+      Message("$TxtEnemy$",this());
+      Sound("Error");}
 }
 
 public func ContainsOil() {
