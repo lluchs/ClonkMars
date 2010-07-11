@@ -23,5 +23,5 @@ protected func Activate(int iPlr) {
 	if(IsFulfilled())
 		return MessageWindow("Huge Success! \\o/", iPlr);
 	else
-		return MessageWindow(Format("Aktueller Stand: %d; zu erreichen: %d", percent, GetGoal()), iPlr);
+		return MessageWindow(Format("$TxtGoal$", percent, GetGoal()), iPlr);
 }
