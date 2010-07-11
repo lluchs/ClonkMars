@@ -67,7 +67,7 @@ public func StopReproduction() {
 }
 
 protected func FxReproductionTimer(object pTarget, int iEffectNumber, int iEffectTime) {
-	if(!(Contained() -> CheckPower(2, false, true))) {
+	if(!(Contained() -> CheckPower(15, false, true))) { // * 100
 		EffectVar(0, pTarget, iEffectNumber) = 0;
 		UpdateHUDValue(HUD_Gencode, 0);
 		Sound("Error", 0, 0, 0, GetOwner()+1);
