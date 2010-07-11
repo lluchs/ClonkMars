@@ -33,8 +33,12 @@ protected func Activate(object pClonk) {
 			x = -5;
 		}
 	}
-	else
+	else if(act == "Walk")
 		dir = DIR_Bottom;
+	else {
+		Sound("Error");
+		return 1;
+	}
 	
 
 	
