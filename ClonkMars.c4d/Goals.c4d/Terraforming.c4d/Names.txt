@@ -1,2 +1,2 @@
-DE:Kristallabbau
-US:Crystal Mining
+DE:Terraforming
+US:Terraforming

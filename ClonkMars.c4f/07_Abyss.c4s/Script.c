@@ -63,3 +63,6 @@ func LowerCooling() { return 20; }
 func RegulatedMaxTemp() {
 	return 900;
 }
+
+//Spielziel
+func TerraformingGoal(){ return(50);}
