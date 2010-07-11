@@ -22,11 +22,11 @@ private func CreateDigger() {
 		while(GBackSolid(iX, iY))
 			iY--;
 		// direkt über dem Boden
-		while(!GBackSolid(iX, iY + 2))
+		while(!GBackSolid(iX, iY + 2) && iY <= LandscapeHeight())
 			iY++;
 		
-		// noch im Einflussbereich?
-		if(Distance(iX, iY) > TRFM_RADIUS)
+		// noch im Einflussbereich und innerhalb der Landschaft?
+		if(Distance(iX, iY) > TRFM_RADIUS || iY > LandscapeHeight())
 			continue;
 		// Effekt erstellen
 		AddEffect("DigEarth", this, 10, 10, this, 0, iX, iY);
