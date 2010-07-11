@@ -192,7 +192,11 @@ protected func FxMovePointerStart(object pTarget, int iEffectNumber, bool fTemp,
 
 protected func FxMovePointerTimer(object pTarget, int iEffectNumber) {
 	var iPointer = EffectVar(0, pTarget, iEffectNumber), iValue = EffectVar(1, pTarget, iEffectNumber);
-	DrawPointer(iPointer, Pointer[iPointer] + 1 - 2 * (iValue < Pointer[iPointer]));
+	
+	// Änderungsrate abhängig von Unterschied => max: 10
+	var change = (iValue - Pointer[iPointer]) / 100; //* (-2*(iValue < Pointer[iPointer])+1);
+	
+	DrawPointer(iPointer, Pointer[iPointer] + change);
 	if(iValue == Pointer[iPointer])
 		return -1;
 }
