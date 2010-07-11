@@ -103,6 +103,7 @@ protected func ControlThrow(object pClonk) {
 		if(GetPower() < GetCapacity()) {
 			DoPower(200);
 			pObj -> ChangeDef(CELL);
+			pObj -> Enter(pClonk);
 			Message("$TxtAssign$", this);
 		}
 	} else {
