@@ -14,6 +14,7 @@ protected func Initialize() {
 }
 
 protected func Activate(object pClonk) {
+	[$TxtCreateSplitter$]
 	var act = pClonk -> GetAction();
 	var dir, r = 0, x = 0, y = 10;
 	if(act == "Hangle") {
