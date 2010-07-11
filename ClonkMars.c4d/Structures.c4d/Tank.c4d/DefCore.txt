@@ -12,7 +12,7 @@ Components=METL=3;
 Picture=0,0,60,40
 Vertices=4
 VertexX=-28,27,27,-28
-VertexY=20,20,-17,-17
+VertexY=18,18,-17,-17
 VertexFriction=100,50,50,100
 Exclusive=1
 Construction=1
