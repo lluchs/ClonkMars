@@ -244,3 +244,30 @@ Sonstiges:
 * Mars Gamma auf Wunsch d. Community reduziert
   + Marssky.c als glob. Variable dafür
 ! Loader wieder funktionstüchtig
+
+### 1.2 [Gucky] ###
++ Elysium Abyss (Szenario)
++ Blinklicht (Item)
++ neues Ziel: Terraforming
+* Phobos: * Materialeinheit baubar
+          * Geldmenge drastisch reduziert
+* Frühwarnsystem: Kann jetzt in allen Szenarien erforscht werden
+* mehr Startbaupläne in Fossae, Chaos, Kasei und Chasma
+* Phobos Texturen angepasst
+* Spouter optimiert
+* Temperaturen teilweise angeglichen
+* Energieanzeigeeinheiten in Kilowattstunden
+* Forschen geht im Schnitt 50% schneller
+* Rapidalert hat nun Beschreibung
+* viele Gebäude kosten jetzt weniger
+* einite Items kosten jetzt weniger
+* alle Items sind recyclebar
+* Reproduktionskosten auf 1500 erhöht
+! Phobos hat wieder Temperatur
+! Tank nicht mehr vom Feind steuerbar
+! HUD-Pointer bewegen sich schneller
+! Splitter können nicht mehr in der Luft platziert werden
+! O2 Flasche macht keinen Sound mehr wenn leer
+! gefüllte Energiezelle fällt nicht mehr aus dem Clonk
+! Absturz der Engine mittels Terraformer bei nach unten offenen Szenarien gefixt
+! Tank schwebt nicht mehr in Flüssigkeiten (Verticefix)
