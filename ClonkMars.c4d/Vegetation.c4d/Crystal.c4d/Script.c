@@ -3,9 +3,14 @@
 
 local iPhase;
 
-private func ReproductionAreaSize() { return 100; }
-private func ReproductionRate()     { return 23; }
-private func MaxTreeCount()         { return 6; }
+private func ReproductionAreaSize() { return 400; }
+private func ReproductionRate()     { return 50; }
+private func MaxTreeCount()         { return 40; }
+
+protected func Initialize() {
+	// Wir sind voll ausgewachsen und können gepflückt werden
+	SetCategory(C4D_Object);
+}
 
 protected func Damage(iDamage) {
 	ControlDigDouble();
@@ -47,40 +52,60 @@ public func Reproduction()
   var iOffset = iSize / -2;
   if (ObjectCount(GetID(), iOffset, iOffset, iSize, iSize)<MaxTreeCount()) {
     // OK, hin damit
-    var pMush = PlaceVegetation(GetID(), iOffset, iOffset, iSize, iSize, 10);
+    //var pMush = PlaceVegetation(GetID(), iOffset, iOffset, iSize, iSize, 10);
+    Place(GetID(), Material("Tunnel"), iOffset, iOffset, iSize, iSize, 10);
     return 1;
   }
   // Kein Platz ;'(
   return;
 }
 
-/*
+private func Place(id ID, int mat, int x, int y, int wdt, int hgt, int growth) {
+	var i = 50000;
+	while(i--) {
+		var px = x + Random(wdt), py = y + Random(hgt);
+		if(GetMaterial(px, py) != mat)
+			continue;
+		
+		return CreateConstruction(ID, px, py, NO_OWNER, growth);
+	}
+}
+
 public func ContextChop(pClonk)		// per Kontextmenü pflücken
 {
   [$TxtPick$|Image=MUSH|Condition=IsStanding]
-  Pick();
+  ControlDigDouble();
   return 1;
-}*/
+}
 
 protected func RejectEntrance() {
-  return GetAction() == "Hang";
+  return IsStanding();
 }
 
 protected func ControlDigDouble() {
-	if(GetAction() == "Hang")
+	if(IsStanding())
 		Set(1);
 	return;
 }
 
-protected func Seed() {
-  if(IsStanding()) return;
-  // re-seed
-  if(!Contained() && !GetYDir() && !GetXDir())
-  	Set(0);
-  return _inherited(...);
+protected func Activate(object pClonk) {
+	[Kristall verarbeiten]
+	pClonk -> CreateContents(CRYS);
+	Sound("Crystal*");
+	RemoveObject();
 }
 
-public func IsStanding() { return GetCategory() & C4D_StaticBack; }	// steht noch
+protected func Seed() {
+  // re-seed
+  if(!IsStanding() && !Contained() && GetYDir() <= 5 && !GetXDir())
+  	Set(0);
+  
+  // steht der Kristall jetzt?
+  if(IsStanding())
+  	return _inherited(...);
+}
+
+public func IsStanding() { return GetAction() == "Hang"; }	// steht noch
 
 public func IsTree() { return 0; } // kein Baum
 
