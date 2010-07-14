@@ -24,16 +24,21 @@ public func Construction() {
 		if (Random(1))
 			SetDir(DIR_Right);
 	}
-	// Höhe anpassen
-	while (!GBackSolid(0, 10) && GetY() < LandscapeHeight())
-		SetPosition(GetX(), GetY() + 3);
+	MoveDown();
 	// Drehung nach Erdoberfläche
 	var x_off = GetDefWidth(GetID()) / 2;
 	var y_off = GetDefHeight(GetID()) / 2;
 	var slope = GetSolidOffset(-x_off, y_off) - GetSolidOffset(x_off, y_off);
 	SetR(slope*2); // passt besser
 	SetPhase(iPhase);
+	ScheduleCall(this, "MoveDown", 5);
 	return 1;
+}
+
+private func MoveDown() {
+	// Höhe anpassen
+	while (!GBackSolid(0, 7) && GetY() < LandscapeHeight())
+		SetPosition(GetX(), GetY() + 3);
 }
 
 private func GetSolidOffset(int x, int y)
