@@ -17,8 +17,6 @@ Value=3
 Mass=20
 Components=CRYS=1
 Picture=0,19,64,64
-ContactIncinerate=1
-BlastIncinerate=15
 Edible=1
 Growth=10
 Grab=2

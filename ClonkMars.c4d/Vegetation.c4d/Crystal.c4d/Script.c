@@ -16,8 +16,6 @@ protected func Damage(iDamage) {
 	ControlDigDouble();
 }
 
-protected func Incineration() { Extinguish(); }
-
 public func Construction() {
 	if(GetAction() == "Idle") {
 		SetAction("Hang");		// zufällige Animationsphase
