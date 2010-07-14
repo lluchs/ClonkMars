@@ -1,5 +1,5 @@
-RandomX(-2,2),100,150);
-			/*-- Booster --*/
+//RandomX(-2,2),100,150);
+/*-- Booster --*/
 
 #strict 2
 
