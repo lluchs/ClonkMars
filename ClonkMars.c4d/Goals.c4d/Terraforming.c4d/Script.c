@@ -11,7 +11,7 @@ public func IsFulfilled() {
 	for(var pTree in FindObjects(Find_Category(C4D_StaticBack), Find_Func("IsTree"))) {
 		iGreen += GetDefWidth(pTree -> GetID()) * pTree -> GetCon() / 100;
 	}
-	percent = iGreen / LandscapeWidth();
+	percent = iGreen * 100 / LandscapeWidth();
 	return percent >= GetGoal();
 }
 
