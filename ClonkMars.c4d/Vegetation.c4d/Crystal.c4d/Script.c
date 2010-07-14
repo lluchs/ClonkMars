@@ -127,3 +127,12 @@ public func Set(int iPar) {
 	}
 	return;
 }
+
+// praktische Platzierung!
+
+global func PlaceCrystals(int min, int max) {
+	var i = RandomX(min, max);
+	while(i--) {
+		PlaceInMaterial(CRY2, Material("Tunnel"));
+	}
+}

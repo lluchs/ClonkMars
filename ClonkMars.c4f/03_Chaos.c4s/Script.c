@@ -7,6 +7,7 @@ func Initialize() {
   SetSkyAdjust(RGBa(200,94,51,90),RGB(200,110,55));
   //Hintergrund
   CreateObject(BG_2,-0,0,-1);
+  PlaceCrystals(5, 20);
   return(1);
   }
 

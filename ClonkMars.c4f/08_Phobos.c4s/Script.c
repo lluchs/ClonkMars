@@ -10,6 +10,7 @@ func Initialize() {
   // Spielziel setzen
   FindObject(CROB)->AddType(MRAS, 2);
   CreateObject(MARS,-0,0,-1);
+  PlaceCrystals(5, 20);
   return(1);
 }
 

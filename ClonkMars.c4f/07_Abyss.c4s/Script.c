@@ -37,6 +37,8 @@ func Initialize() {
   
   CreateObject(OILS,465,540, -1);
   
+  PlaceCrystals(5, 20);
+  
   return(1);
 }
 

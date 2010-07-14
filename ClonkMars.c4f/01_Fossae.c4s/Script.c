@@ -7,6 +7,7 @@ func Initialize() {
   SetSkyParallax(0,10,0,3,0);
   DigBuildingsFree();
   ScriptGo(1);
+  PlaceCrystals(5, 20);
   return(1);
 }
 

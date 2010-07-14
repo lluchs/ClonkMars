@@ -24,6 +24,9 @@ func Initialize() {
   // Spouter
   PlaceObjects(OILS, RandomX(1,3), "Oil", 0, 1300, LandscapeWidth(), 300);  
   
+  // Kristalle
+  PlaceCrystals(5, 20);
+  
   return(1);
   }
 

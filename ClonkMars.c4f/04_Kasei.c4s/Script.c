@@ -5,6 +5,7 @@
 func Initialize() {
   MarsSky();
   SetSkyAdjust(RGBa(255,255,255,160), RGB(70,30,15));
+  PlaceCrystals(5, 20);
   return(1);
 }
 
