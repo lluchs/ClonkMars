@@ -27,8 +27,8 @@ public func Construction() {
 			SetDir(DIR_Right);
 	}
 	// Höhe anpassen
-	while (!GBackSolid(0, 12))
-		SetPosition(GetX(), GetY() + 1);
+	while (!GBackSolid(0, 10) && GetY() < LandscapeHeight())
+		SetPosition(GetX(), GetY() + 3);
 	// Drehung nach Erdoberfläche
 	var x_off = GetDefWidth(GetID()) / 2;
 	var y_off = GetDefHeight(GetID()) / 2;
