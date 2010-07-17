@@ -25,6 +25,9 @@ protected func CheckSky(){
 		SetAction("Wait");
 	else
 		SetAction("Green");
+  //Heal
+  for(var pClonk in FindObjects(Find_Container(this()),Find_ID(SCNK)))
+    DoEnergy(+1500,pClonk,true);
 }
 
 private func SoundOpenDoor() {
