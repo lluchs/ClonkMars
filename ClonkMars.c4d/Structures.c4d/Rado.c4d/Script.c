@@ -6,9 +6,10 @@
 #include PWRC // Energieverbraucher
 #include L_CA // Baugrafik
 
+static const RADO_Distance = 250;
+
 protected func Initialize(){
 	SetAction("Turn");
-	AddEffect("DestroyMeteorites", this, 10, 5, this);
 }
 
 protected func ControlLeft(object pClonk) {
@@ -78,15 +79,17 @@ private func GetAngle() {
 
 private func AngleCriteria() {
 	var iAngle = GetAngle();
-	return Find_And(Find_Distance(250), Find_Angle(iAngle + 20, iAngle - 20), Find_PathFree());
+	return Find_And(Find_Distance(RADO_Distance), Find_Angle(iAngle + 20, iAngle - 20), Find_PathFree());
 }
 
-protected func FxDestroyMeteoritesTimer() {
-	DoBlast(false);
-}
+local lastshot;
 
 // power: wenn true, wird immer ein Blast ausgeführt, unabhängig davon, ob was gefunden wird
-private func DoBlast(bool power) {
+public func DoBlast(bool power) {
+	// Cooldown
+	if(FrameCounter() - lastshot < 18)
+		return;
+	
 	// Wenn generell ein Strahl abgeschossen werden soll
 	if(power && !CheckPower(50)) {
 		return;
@@ -116,6 +119,10 @@ private func DoBlast(bool power) {
 	pObj -> SetAction("Effect", this);
 	
 	Sound("RADO_Shoot");
+	
+	lastshot = FrameCounter();
+	
+	return 1;
 }
 
 public func MaxDamage() { return 32; } //Maximaler Schaden
