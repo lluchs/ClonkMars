@@ -27,7 +27,7 @@ FacetBase=1
 PhaseCall=Smoking
 NextAction=Idle
 EndCall=Finish
-Sound=Melt_Crushing
+StartCall=MeltCrushing
 
 [Action]
 Name=Wait

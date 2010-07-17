@@ -227,6 +227,10 @@ protected func Produce(idItem, iParameter, fRight) {
 	}
 }
 
+protected func MeltCrushing() {
+	Sound("Melt_Crushing");
+}
+
 protected func Finish() {
 	CreateContents(idProduce);
 	
