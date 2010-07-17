@@ -16,7 +16,7 @@ NextAction=Panel
 
 [Action]
 Name=Construct
-Length=40
+Length=38
 Facet=0,45,40,40
 
 [Action]
@@ -171,11 +171,3 @@ Facet=1440,45,40,40
 Name=Construct37
 Length=1
 Facet=1480,45,40,40
-[Action]
-Name=Construct38
-Length=1
-Facet=1520,45,40,40
-[Action]
-Name=Construct39
-Length=1
-Facet=1560,45,40,40
