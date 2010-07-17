@@ -516,8 +516,13 @@ protected func FxViewportCheckDamage(object pTarget, int iEffectNumber, int iDmg
 	if(iDmgEngy < 0) {
 		if(GetCursor(GetOwner()) == this)
 			DoViewportBlood(GetOwner());
-		else
-			UpdateHUD(GetOwner(), HUD_EventLog, "ClonkAttack");
+		else {
+			// Cooldown
+			if(FrameCounter() - EffectVar(0, pTarget, iEffectNumber) > 50) {
+				UpdateHUD(GetOwner(), HUD_EventLog, "ClonkAttack");
+				EffectVar(0, pTarget, iEffectNumber) = FrameCounter();
+			}
+		}
 	}
 	return iDmgEngy;
 }
