@@ -260,7 +260,7 @@ Sonstiges:
 * Forschen geht im Schnitt 50% schneller
 * Rapidalert hat nun Beschreibung
 * viele Gebäude kosten jetzt weniger
-* einite Items kosten jetzt weniger
+* einige Items kosten jetzt weniger
 * alle Items sind recyclebar
 * Reproduktionskosten auf 1500 erhöht
 ! Phobos hat wieder Temperatur
