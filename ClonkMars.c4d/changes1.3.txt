@@ -1,9 +1,10 @@
 + hinzugefügt | - entfernt | * verändert |! Bugfix
 
 
-* Clonks heilen sich in der Basis langsam [#007741]
-+ Kristalle Objekte)
-! Panel-Baugrafikfehler gefixt
-* größere Genauigkeit für RADO-Auslösung
++ Kristalle (Objekte)
 + Cooldown für ClonkAttack (EventLog)
+* Clonks heilen sich in der Basis langsam [#007741]
 ! Spielziel Terraforming gefixt
+! Steinmahler-Sound korrekt [#007738]
+! Panel-Baugrafikfehler gefixt [#007735]
+! größere Genauigkeit für RADO-Auslösung [#007259]
