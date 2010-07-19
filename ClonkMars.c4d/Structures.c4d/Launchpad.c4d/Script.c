@@ -7,7 +7,7 @@
 local rocket;
 local buildingProcess;
 
-public func MaxDamage() { return 25; } //Maximaler Schaden
+public func MaxDamage() { return 35; } //Maximaler Schaden
 
 //Rakete bauen
 public func ControlDigDouble() {
