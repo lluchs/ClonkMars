@@ -1,3 +1,5 @@
 Fills up your Oxygen with 40 units.
 
 Hit DigDouble to feel the breeze!
+
+There is an Update in the laboratory to increase the capacity.
