@@ -107,7 +107,7 @@ protected func ControlThrow(object pClonk) {
 			Message("$TxtAssign$", this);
 		}
 	} else {
-		Message("$TxtNoCell$", this);
+		Message("$TxtNoChargedCell$", this);
 	}
 	return 1;
 }
