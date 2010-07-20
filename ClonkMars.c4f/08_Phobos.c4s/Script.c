@@ -9,6 +9,8 @@ func Initialize() {
   DigBuildingsFree();
   // Spielziel setzen
   FindObject(CROB)->AddType(MRAS, 2);
+  FindObject(CROB)->AddType(RADO, 4);
+  
   CreateObject(MARS,-0,0,-1);
   return(1);
 }
