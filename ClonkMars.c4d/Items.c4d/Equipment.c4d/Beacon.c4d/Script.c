@@ -1,6 +1,7 @@
 /*-- Specklicht --*/
 
 #strict 2
+#include L_RC // Recycling
 
 func Initialize() {
   SetAction("Idle");
