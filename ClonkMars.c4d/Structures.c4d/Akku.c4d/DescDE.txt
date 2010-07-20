@@ -1,6 +1,4 @@
-Speichert Energie und gibt sie bei Bedarf ab. Benötgt zum Energie
-speichern einen Kristall. Volle Energiezellen können wieder in den
-Akku eingespeist werden.
+Speichert Energie und gibt sie bei Bedarf ab. Benötgt zum Energie speichern einen Kristall. Volle Energiezellen können wieder in den Akku eingespeist werden.
 
 Steuerung:
 
