@@ -10,6 +10,19 @@ protected func Construction() {
 		return;
 	}
 	AddEffect("TerraformerCheck", this, 10, 50, this);
+	
+	// Drehung nach Erdoberfläche
+	var x_off = GetDefWidth(GetID()) / 2;
+	var y_off = GetDefHeight(GetID()) / 2;
+	var slope = GetSolidOffset(-x_off, y_off) - GetSolidOffset(x_off, y_off);
+	SetR(slope*2); // passt besser
+}
+
+private func GetSolidOffset(int x, int y)
+{
+  var i;
+  for (i = -20; GBackSolid(x, y - i) && (i < 20); i++);
+  return i;
 }
 
 protected func FxTerraformerCheckTimer() {
