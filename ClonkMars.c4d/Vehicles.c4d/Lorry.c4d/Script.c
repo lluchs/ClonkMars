@@ -123,6 +123,12 @@ protected func ContextLoadUp(object pClonk)
     AddCommand(pClonk, "Put", this(), 0,0, pClonk->Contents(i));
 }
 
+protected func ControlDig(object pClonk)
+{
+  // Herausnehmen per Graben: Holen-Menü öffnen
+  pClonk->SetCommand(0, "Get", this(), 0,0, 0, 1);
+}
+
 /*Recyceln*/
 
 protected func ContextRecycle(object pClonk) {

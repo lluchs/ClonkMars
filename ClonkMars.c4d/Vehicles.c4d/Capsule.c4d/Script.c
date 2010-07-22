@@ -344,3 +344,9 @@ private func DoCpslSound(int chng){
 	sndcount += chng;
 	if(sndcount < 0) sndcount = 0;
 }
+
+protected func ControlDig(object pClonk)
+{
+  // Herausnehmen per Graben: Holen-Menü öffnen
+  pClonk->SetCommand(0, "Get", this, 0,0, 0, 1);
+}
