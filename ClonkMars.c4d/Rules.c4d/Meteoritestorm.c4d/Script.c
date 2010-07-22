@@ -15,9 +15,10 @@ private func Wait() {
 
 protected func FxWaitingTimer(object pTarget, int iEffectNumber) {
 	// Warnsystem
-	for(var MetoDetection in FindObjects(Find_ID(MRAS)))
-    MetoDetection -> WarningMeto();
-  Schedule("AddEffect(\"Meteoritestorm\", this, 100, RandomX(10, 50), this);", 500, 0, this);
+	for(var MetoDetection in FindObjects(Find_ID(MRAS), Find_OCF(OCF_Fullcon)))
+		MetoDetection -> WarningMeto();
+	
+	Schedule("AddEffect(\"Meteoritestorm\", this, 100, RandomX(10, 50), this);", 500, 0, this);
 	return -1;
 }
 
