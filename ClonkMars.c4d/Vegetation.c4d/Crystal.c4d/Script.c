@@ -5,7 +5,7 @@ local iPhase;
 
 private func ReproductionAreaSize() { return 400; }
 private func ReproductionRate()     { return 50; }
-private func MaxTreeCount()         { return 40; }
+private func MaxTreeCount()         { return 15; }
 
 protected func Initialize() {
 	// Wir sind voll ausgewachsen und können gepflückt werden
