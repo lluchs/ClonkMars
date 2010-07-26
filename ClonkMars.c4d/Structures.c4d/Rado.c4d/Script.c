@@ -100,8 +100,10 @@ public func DoBlast(bool power) {
 		if(!ObjectCount2(Find_ID(METO), AngleCriteria())) {
 			return;
 		}
+		var energyneed = GetEffect("EnergyNeed", this);
 		if(!CheckPower(50)) {
-			UpdateHUD(-GetOwner() - 2, HUD_EventLog, "RadoEnergy");
+			if(!energyneed) // nur, wenn davor kein Energiepfeil 
+				UpdateHUD(-GetOwner() - 2, HUD_EventLog, "RadoEnergy");
 			return;
 		}
 	}
