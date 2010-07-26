@@ -2,5 +2,5 @@ Can teleport some Clonks from Station to Station. Use Splitter to increase your 
 
 Controls:
 
-- grab to beam as fast as it can
+- throw to beam as fast as it can
 - jump to beam with less energy but more time

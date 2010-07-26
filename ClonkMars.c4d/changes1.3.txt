@@ -20,3 +20,4 @@
 ! größere Genauigkeit für RADO-Auslösung [#007259]
 ! verwirrenden String im Akku gefixt (bei Energiezellenaktion) [#007739]
 ! Frühwarnsystem warnt erst, wenn fertiggebaut [#007866]
+! Station hatte falsche Steuerung in der Desc
