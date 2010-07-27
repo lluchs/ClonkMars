@@ -96,7 +96,7 @@ protected func Beam(int iClonk, int iStation, bool fFast) {
 		}
 		pObj = pNode;
 	}
-	Message("$TxtNeededEnergy$ %d", this, iEnergy);
+	Message("$TxtNeededEnergy$ %d kW", this, iEnergy);
 	
 	if(!CheckPower(iEnergy)) {
 		Sound("Error");
@@ -236,7 +236,7 @@ public func GetWarmth() {
   return(130);
 }
 
-public func MaxDamage() { return 35; } //Maximaler Schaden
+public func MaxDamage() { return 40; } //Maximaler Schaden
 
 /* Erforschbar */
 
