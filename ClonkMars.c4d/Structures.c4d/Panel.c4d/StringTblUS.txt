@@ -1,2 +1,2 @@
 TxtShowEnergy=Show current energy production
-TxtShowEnergyMsg=Current energy production:|%d kWh
+TxtShowEnergyMsg=Current energy production:|%d kW
