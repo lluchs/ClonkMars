@@ -13,6 +13,8 @@
 * diverse Beschreibungen von Objekten aktualisiert/gefixt
 * Rohkristallgrafik dezent verbessert
 * Kristallvermehrung um 2/3 reduziert
+* kWh als Energieangabe sinnigerweise durch kW ersetzt (dank ck)
+* Transmitterstation hält etwas mehr Schaden aus
 * Meteoriten lösen RADO-Check aus (++Perfomance)
 ! Spielziel Terraforming gefixt
 ! Steinmahler-Sound korrekt [#007738]
@@ -20,4 +22,5 @@
 ! größere Genauigkeit für RADO-Auslösung [#007259]
 ! verwirrenden String im Akku gefixt (bei Energiezellenaktion) [#007739]
 ! Frühwarnsystem warnt erst, wenn fertiggebaut [#007866]
-! Station hatte falsche Steuerung in der Desc
+! Station hatte falsche Steuerung in der Desc (danke Flobby)
+! keine HUD-Warnung mehr, wenn RADO bereits zuvor keine Energie hatte [#007910]
