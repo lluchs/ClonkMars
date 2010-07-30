@@ -15,6 +15,7 @@
 * Kristallvermehrung um 2/3 reduziert
 * kWh als Energieangabe sinnigerweise durch kW ersetzt (dank ck)
 * Transmitterstation hält etwas mehr Schaden aus
+* Trümmerteilmengenausgabe nach Contents berücksichtigt [#007961]
 * Meteoriten lösen RADO-Check aus (++Perfomance)
 ! Spielziel Terraforming gefixt
 ! Steinmahler-Sound korrekt [#007738]
@@ -24,3 +25,4 @@
 ! Frühwarnsystem warnt erst, wenn fertiggebaut [#007866]
 ! Station hatte falsche Steuerung in der Desc (danke Flobby)
 ! keine HUD-Warnung mehr, wenn RADO bereits zuvor keine Energie hatte [#007910]
+! Fundamente gehen nicht mehr kaputt [#007963]
