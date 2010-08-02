@@ -82,4 +82,8 @@ global func GetSolidOffset(int x, int y, int dir) {
 	return i;
 }
 
+protected func IsRecyclable() {
+	return IsFull();
+}
+
 public func MarsResearch() { return true; }
