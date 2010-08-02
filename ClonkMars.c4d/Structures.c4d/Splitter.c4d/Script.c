@@ -14,6 +14,11 @@ public func GetStation() {
 	return pStation;
 }
 
+protected func Damage() {
+	if(!GetStation()) // unzerstörbar mit Station
+		return inherited(...);
+}
+
 // Radius anzeigen
 protected func ControlUp(object pClonk) {
 	if(Hostile(GetOwner(), pClonk -> GetOwner())) {
