@@ -120,6 +120,17 @@ protected func FxBeamStart(object pTarget, int iEffectNumber, int iTemp, array a
 protected func FxBeamTimer(object pTarget, int iEffectNumber) {
 	var aNodes = EffectVar(0, pTarget, iEffectNumber), iLast = GetLength(aNodes) - 1;
 	
+	// fehlt der Splitter?
+	if(!aNodes[iLast]) {
+		pTarget -> Kill();
+		pTarget -> RemoveObject();
+		for(pNode in aNodes) {
+			if(pNode)
+				pNode -> ToggleReservation(); // alle freigeben
+		}
+		return -1;
+	}
+	
 	// Laser
 	var d = aNodes[iLast] -> ObjectDistance(aNodes[iLast-1]);
 	var a = Angle(AbsX(aNodes[iLast-1]->GetX()), AbsY(aNodes[iLast-1]->GetY()), AbsX(aNodes[iLast] -> GetX()), AbsY(aNodes[iLast] -> GetY()));
