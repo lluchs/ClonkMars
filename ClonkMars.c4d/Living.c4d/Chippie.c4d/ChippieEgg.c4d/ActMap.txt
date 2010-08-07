@@ -1,0 +1,12 @@
+[Action]
+Name=Break
+Length=7
+Delay=2
+Facet=48,0,6,6
+NextAction=Destroy
+
+[Action]
+Name=Destroy
+FacetBase=1
+StartCall=Destroy
+ 
