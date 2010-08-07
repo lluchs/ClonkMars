@@ -17,5 +17,3 @@ VertexY=-7,7,-7,7
 VertexFriction=75,75,75,75
 Grab=2
 GrabPutGet=1
-TimerCall=Content
-Timer=5

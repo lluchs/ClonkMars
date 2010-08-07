@@ -13,10 +13,23 @@ static const UNIT_metal_ashes_cost = 3;
 static const UNIT_plastic_cost = 350;
 public func GetTemp() { if(GetAction() == "Produce") return 500; return 250;}
 
-func Initialize() {
-  //Briefkasten
-  CreateObject(CUNT,10,10);
-  return(1);
+local slot;
+
+protected func Initialize() {
+	//Briefkasten
+	slot = CreateObject(CUNT, 10, 10, GetOwner());
+	slot->SetUnit(this);
+	slot->SetObjectOrder(this);
+	return _inherited(...);
+}
+
+protected func Destruction() {
+	slot->RemoveObject();
+	return _inherited(...);
+}
+
+public func Deconstruction() {
+	slot->RemoveObject();
 }
 
 private func CanOpen() {

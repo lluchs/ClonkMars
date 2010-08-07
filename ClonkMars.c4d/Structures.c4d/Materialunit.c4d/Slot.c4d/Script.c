@@ -1,10 +1,14 @@
 /*-- Vorsicht vor dem Chippie --*/
 
-#strict
+#strict 2
 
-public func Content(){
-  //Raus aus dem Hilfsobjekt
-  Exit(Contents(),0,0);
-  //Rein in das Hauptgebäude
-  Enter(FindObject(UNIT,-10,-50,100,100));
-  }
+local unit;
+
+public func SetUnit(object pObj) {
+	unit = pObj;
+}
+
+// wird aufgerufen, wenn ein Objekt reingesteckt wird
+protected func Collection(object pObj) {
+	pObj->Enter(unit);
+}
