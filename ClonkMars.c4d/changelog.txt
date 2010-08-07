@@ -271,3 +271,33 @@ Sonstiges:
 ! gefüllte Energiezelle fällt nicht mehr aus dem Clonk
 ! Absturz der Engine mittels Terraformer bei nach unten offenen Szenarien gefixt
 ! Tank schwebt nicht mehr in Flüssigkeiten (Verticefix)
+
+### 1.3 [Express] ###
++ Kristalle (Objekte)
++ Cooldown für ClonkAttack (EventLog)
++ auch Pflanzen haben nun Rotate
+* Clonks heilen sich in der Basis langsam [#007741]
+* Phobos: Flints sind kaufbar
+* Loren und Kapselsteuerung: Per Graben Items herausnehmbar
+* Phobos: Spielziel etwas schwerer gemacht
+* Materialeinheit Baukosten um 1/3 gesenkt
+* Satschüssel hat ein Overlay [#007791]
+* diverse Beschreibungen von Objekten aktualisiert/gefixt
+* Rohkristallgrafik dezent verbessert
+* Kristallvermehrung um 2/3 reduziert
+* kWh als Energieangabe sinnigerweise durch kW ersetzt (dank ck)
+* Transmitterstation hält etwas mehr Schaden aus
+* Trümmerteilmengenausgabe nach Contents berücksichtigt [#007961]
+* Meteoriten lösen RADO-Check aus (++Perfomance)
+! Spielziel Terraforming gefixt
+! Steinmahler-Sound korrekt [#007738]
+! Panel-Baugrafikfehler gefixt [#007735]
+! nur volle Splitterkits sind recycelbar [#007959]
+! größere Genauigkeit für RADO-Auslösung [#007259]
+! verwirrenden String im Akku gefixt (bei Energiezellenaktion) [#007739]
+! Frühwarnsystem warnt erst, wenn fertiggebaut [#007866]
+! Station hatte falsche Steuerung in der Desc (danke Flobby)
+! keine HUD-Warnung mehr, wenn RADO bereits zuvor keine Energie hatte [#007910]
+! Fundamente gehen nicht mehr kaputt [#007963]
+! Beamen während Splitter kaputtgeht macht keinen Error mehr [#007965]
+! Splitter an der Station ist unzerstörbar[#007960]
