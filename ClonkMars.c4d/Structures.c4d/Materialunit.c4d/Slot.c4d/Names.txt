@@ -1,0 +1,2 @@
+DE:Einwurf
+US:Slot

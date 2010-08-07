@@ -14,6 +14,8 @@ static const UNIT_plastic_cost = 350;
 public func GetTemp() { if(GetAction() == "Produce") return 500; return 250;}
 
 func Initialize() {
+  //Briefkasten
+  CreateObject(CUNT,10,10);
   return(1);
 }
 
