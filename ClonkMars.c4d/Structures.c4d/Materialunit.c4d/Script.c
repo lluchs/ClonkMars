@@ -17,7 +17,7 @@ local slot;
 
 protected func Initialize() {
 	//Briefkasten
-	slot = CreateObject(CUNT, 10, 10, GetOwner());
+	slot = CreateObject(CUNT, -41, 26, GetOwner());
 	slot->SetUnit(this);
 	slot->SetObjectOrder(this);
 	return _inherited(...);
