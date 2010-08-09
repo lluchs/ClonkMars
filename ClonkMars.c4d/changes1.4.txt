@@ -1,3 +1,6 @@
 + hinzugefügt | - entfernt | * verändert |! Bugfix
 
-+ einige fehlende Icons 
++ einige fehlende Icons
++ Materialeinheit hat außen einen Einwurf für Materialien
+* div. Icon Changes
+! Bohrturm Licht nicht mehr zu hoch
