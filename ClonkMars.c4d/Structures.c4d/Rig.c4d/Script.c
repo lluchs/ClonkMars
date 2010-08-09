@@ -13,7 +13,7 @@ func Initialize() {
   SetAction("Wait");
   pLamp = AddLightCone(1000, RGBa(255, 255, 255, 10));
 	pLamp -> ChangeSizeXY(800, 1000);
-	pLamp -> ChangeOffset(-3,-42);
+	pLamp -> ChangeOffset(-5,-37);
 	pLamp -> ChangeR(105);
 	pLamp -> LocalN("bAmbience") = true;
   return _inherited(...);
