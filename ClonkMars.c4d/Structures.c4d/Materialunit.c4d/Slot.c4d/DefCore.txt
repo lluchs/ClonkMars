@@ -17,3 +17,4 @@ VertexY=-7,7,-7,7
 VertexFriction=75,75,75,75
 Grab=2
 GrabPutGet=1
+Collection=-5,-2,10,5
