@@ -141,3 +141,37 @@ protected func Recycle(){
   Split2Components();
   }
   
+/* Flug */
+
+protected func ControlUpDouble(object pClonk) {
+	SetCommand(pClonk, "UnGrab"); // loslassen
+	//AppendCommand(pClonk, "Wait", 0, 0, 0, 0, 0, 1);
+	AppendCommand(pClonk, "Jump"); // hüpf
+	
+	// nun die Lore am Clonk festmachen
+	AddEffect("Attach", this, 100, 1, this, 0, pClonk, 36);
+	
+	return 1;
+}
+
+protected func FxAttachStart(object pTarget, int iEffectNumber, bool fTemp, object pClonk, int iFrames) {
+	if(fTemp)
+		return;
+	
+	EffectVar(0, pTarget, iEffectNumber) = pClonk;
+	EffectVar(1, pTarget, iEffectNumber) = iFrames;
+}
+
+protected func FxAttachTimer(object pTarget, int iEffectNumber, int iEffectTime) {
+	// Zeit überschritten?
+	if(iEffectTime > EffectVar(1, pTarget, iEffectNumber))
+		return -1;
+	
+	// Position korrigieren
+	var pClonk = EffectVar(0, pTarget, iEffectNumber);
+	SetPosition(pClonk->GetX(), pClonk->GetY());
+	SetXDir(pClonk->GetXDir());
+	SetYDir(pClonk->GetYDir());
+}
+
+  
