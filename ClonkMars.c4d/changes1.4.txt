@@ -2,5 +2,7 @@
 
 + einige fehlende Icons
 + Materialeinheit hat außen einen Einwurf für Materialien
++ teils neue Lorensteuerung mit dem Jetpack (s. Lorenbeschreibung)
 * div. Icon Changes
 ! Bohrturm Licht nicht mehr zu hoch
+! Labor piept nur einmal bei Strommangel [#008081]
