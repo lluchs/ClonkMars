@@ -201,7 +201,8 @@ protected func FxResearchTimer(object pTarget, int iEffectNumber, int iEffectTim
 		return PauseAllResearch();
 	if(!CheckPower(10)) {
 		Sound("Lab_Research", 0, 0, 0, 0, -1);
-		SetAction("SiRed");
+		if(GetAction() != "SiRed")
+			SetAction("SiRed");
 		EffectVar(4, pTarget, iEffectNumber) = false;
 		return;
 	}
