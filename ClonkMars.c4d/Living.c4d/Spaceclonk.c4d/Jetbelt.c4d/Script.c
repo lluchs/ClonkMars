@@ -131,6 +131,8 @@ private func Start(int iDir)
     SetUserAction();
     Active();
     
+    ControlDig(); // automatisch Sachen festheben
+    
     SetPhysical("CanScale", 0, PHYS_Temporary);
     SetPhysical("CanHangle", 0, PHYS_Temporary);
   }
