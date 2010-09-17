@@ -1,6 +1,7 @@
 [Action]
 Name=Door
 Length=11
+Delay=1
 Facet=0,56,18,22
 
 [Action]

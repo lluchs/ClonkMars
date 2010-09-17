@@ -100,14 +100,14 @@ func Ejection(object pObj) {
 
 func Collection2(object pObj) {
 	if(GetEntrance()) {
-		if(pObj -> ~IsClonk() && (IsFull(pObj) || Hostile(GetOwner(), pObj -> GetOwner()))) {
+		if(pObj -> ~IsClonk() && (IsFullOfClonks(pObj) || Hostile(GetOwner(), pObj -> GetOwner()))) {
 			//SetCommand(pObj, "Exit"); <- nicht möglich, da der Clonk damit erst kurz danach das Gebäude wieder verlässt
 			if(GetDir() == DIR_Left)
 				pObj -> Exit(pObj, GetDefCoreVal("Entrance", "DefCore", GetID(), 0) + GetDefCoreVal("Entrance", "DefCore", GetID(), 2) / 2, GetDefCoreVal("Entrance", "DefCore", GetID(), 1) + GetDefCoreVal("Entrance", "DefCore", GetID(), 3));
 			else if(GetDir() == DIR_Right)
 				pObj -> Exit(pObj, -GetDefCoreVal("Entrance", "DefCore", GetID(), 0) - GetDefCoreVal("Entrance", "DefCore", GetID(), 2) / 2, GetDefCoreVal("Entrance", "DefCore", GetID(), 1) + GetDefCoreVal("Entrance", "DefCore", GetID(), 3));
 			pObj -> Sound("CommandFailure1");
-			if(IsFull(pObj))
+			if(IsFullOfClonks(pObj))
 				Message("$TxtFull$", pObj, GetName(), ClonkCapacity());
 			return 1;
 		}
@@ -118,7 +118,7 @@ func Collection2(object pObj) {
 	return _inherited(pObj, ...);
 }
 
-public func IsFull(object pObj) {
+public func IsFullOfClonks(object pObj) {
 	return ClonkCapacity() && ClonkCapacity() <= ObjectCount2(Find_Container(this), Find_Exclude(pObj), Find_OCF(OCF_Alive), Find_Func("IsClonk"));
 }
 
@@ -140,7 +140,7 @@ private func PlaceClonkOverlay(object pObj) {
 }
 
 private func ResetDoorClonk() {
-	if(!IsFull())
+	if(!IsFullOfClonks())
 		SetGraphics(0, this, 0, ClonkOverlay());
 }
 

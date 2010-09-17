@@ -206,6 +206,10 @@ public func IsO2Producer() {
 	return GetAction() == "Green";
 }
 
+public func GetO2ProducerPriority() {
+	return 100;
+}
+
 public func PipelineConnect() {
 	return 1;
 }
