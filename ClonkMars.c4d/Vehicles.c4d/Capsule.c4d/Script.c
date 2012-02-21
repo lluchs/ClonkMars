@@ -275,7 +275,11 @@ protected func EffectDust() {
 				if(!Random(2))
 					iX *= 2;
 				iY = 0;
-				while(!GBackSolid(iX, ++iY));
+				var max = LandscapeHeight() - GetY();
+				while(!GBackSolid(iX, ++iY)) {
+					if(iY > max)
+						return;
+				}
 				iY += RandomX(-2, 2) + iM / 3;
 				if(GBackSolid(iX, iY))
 					SetLandscapePixel(iX, iY, iC);
