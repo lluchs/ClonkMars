@@ -81,7 +81,7 @@ protected func FxTemperatureTimer(object pTarget, int iEffectNumber) {
 		// max. 15 Energieverlust
 		pTarget -> DoEnergy(-ChangeRange(Abs(iTemp) - iLimit, 0, MaxTemp - iLimit, 1, 15));
 		// wir brennen!
-		pTarget -> AddFireEffect(GetEffect("FireEffect", pTarget, 0, 6) + 25, 0, true);
+		//pTarget -> AddFireEffect(GetEffect("FireEffect", pTarget, 0, 6) + 25, 0, true);
 	}
 	
 	pTarget -> UpdateHUDValue(HUD_ClonkTemp, iTemp);
