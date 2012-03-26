@@ -13,6 +13,9 @@ Delay=2
 Facet=16,0,16,25
 NextAction=Off
 FacetBase=0
+StartCall=On
+EndCall=Off
+AbortCall=Off
 
 [Action]
 Name=Idletime
