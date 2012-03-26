@@ -82,6 +82,7 @@ protected func FxTemperatureTimer(object pTarget, int iEffectNumber) {
 		pTarget -> DoEnergy(-ChangeRange(Abs(iTemp) - iLimit, 0, MaxTemp - iLimit, 1, 15));
 		// wir brennen!
 		//pTarget -> AddFireEffect(GetEffect("FireEffect", pTarget, 0, 6) + 25, 0, true);
+		Schedule("CreateParticle(\"Fire2\", -6 + Random(12), -5 + Random(15), GetWind() / 2, -RandomX(10, 20), RandomX(20, 50), 0, this)", 1, 25, pTarget);
 	}
 	
 	pTarget -> UpdateHUDValue(HUD_ClonkTemp, iTemp);
