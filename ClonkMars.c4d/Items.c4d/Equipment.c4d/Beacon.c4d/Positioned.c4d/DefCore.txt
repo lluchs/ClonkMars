@@ -2,13 +2,13 @@
 id=BECP
 Name=Blinklicht
 Version=4,9,5
-Category=C4D_Object
+Category=C4D_Structure
 MaxUserSelect=5
 Width=16
 Height=25
 Offset=-8,-13
 Value=5
-Mass=200
+Mass=7
 Components=PSTC=1;
 Picture=0,0,16,25
 Vertices=2
