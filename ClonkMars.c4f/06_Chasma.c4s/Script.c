@@ -28,7 +28,7 @@ func Initialize() {
   PlaceCrystals(5, 20);
   
   return(1);
-  }
+}
 
 protected func InitializePlayer(iPlr){
 	var pCapsule = CreateObject(CPSL, RandomX(LandscapeWidth() / 2, LandscapeWidth() - 50), 70, iPlr);
@@ -49,6 +49,7 @@ func NotChoosableRules() { return [LNGT,ENRG,CNMT,RSNB]; }
 
 // 1px-Wand ignorieren
 func RightClosed() { return true; }
+func LeftClosed() { return true; }
   
 func Script8() {
   for(var i;i<1;i++) PlaceInMaterial(_BUB,Material("DuroLava"));
