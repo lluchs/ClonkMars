@@ -22,9 +22,9 @@ global func AngleFree(int iAngle, int ox, int oy) {
 		//CreateParticle("PSpark", AbsX(iX), AbsY(iY), 0, 0, 70, RGB(255));
 		
 		// Workaround für 1px-Wände aus Vehicle
-		if(iX < 0 && GameCall("LeftClosed") && !GBackSemiSolid(AbsX(1), AbsY(iY)))
+		if(iX < 0 && GameCall("LeftClosed") && GetMaterial(AbsX(0), AbsY(iY)) == -1)
 			return 1;
-		if(iX > LandscapeWidth() && GameCall("RightClosed") && !GBackSemiSolid(AbsX(LandscapeWidth() - 1), AbsY(iY)))
+		if(iX > LandscapeWidth() && GameCall("RightClosed") && GetMaterial(AbsX(LandscapeWidth() - 1), AbsY(iY)) == -1)
 			return 1;
 		
 		// PathFree mag globale, GBackLiquid lokale Koordinaten

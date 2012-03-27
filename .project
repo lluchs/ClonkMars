@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>CM</name>
+	<name>Clonk Mars</name>
 	<comment></comment>
 	<projects>
+		<project>CR</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
@@ -14,4 +15,16 @@
 	<natures>
 		<nature>net.arctics.clonk.clonknature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>Objects.c4d</name>
+			<type>2</type>
+			<locationURI>c4group:C:%5CClonk%20Rage%5CObjects.c4d</locationURI>
+		</link>
+		<link>
+			<name>System.c4g</name>
+			<type>2</type>
+			<locationURI>c4group:C:%5CClonk%20Rage%5CSystem.c4g</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>
