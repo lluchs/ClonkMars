@@ -19,9 +19,9 @@ protected func InitializePlayer(int iPlr) {
 	pCapsule->SetDstPort(0, true);
 }
 
-protected func Script5(){
+protected func Script30(){
   //place Dust
-  for(var i;i<40;++i) 
+  for(var i;i<10;++i) 
   CreateParticle("Dust",Random(LandscapeWidth()),Random(LandscapeHeight()*2/3),RandomX(3,9),0,RandomX(1000,1500));
   return(goto(0));
   }
