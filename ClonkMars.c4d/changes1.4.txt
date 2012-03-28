@@ -1,8 +1,17 @@
 + hinzugefügt | - entfernt | * verändert |! Bugfix
 
-+ einige fehlende Icons
++ einige fehlende Icons hinzugefügt
 + Materialeinheit hat außen einen Einwurf für Materialien
 + teils neue Lorensteuerung mit dem Jetpack (s. Lorenbeschreibung)
++ Blinklicht mit Lichteffekt
 * div. Icon Changes
+* Cerberus Fossae ist etwas kleiner und damit schaffbarer
+* weniger Staubwolken in Fossae
+* eigener Feuereffekt für brennende Clonks
 ! Bohrturm Licht nicht mehr zu hoch
 ! Labor piept nur einmal bei Strommangel [#008081]
+! Blinklicht erschlägt keine wehrlosen Clonks mehr
+! Angle Free Verahalten bei geschlossener Map verbessert
+! Zeilenenden normalisiert
+- Regel "Ewige Kälte" aus der Standardauswahl im Regelwähler genommen
+- Extra.c4g aus allen Vorgaben entfernt
