@@ -2,4 +2,4 @@ Eine kleine Auffüllung für den Raumfahrerclonk.
 
 Enthält 40 Sauerstoffeinheiten, können per Doppelgraben (auch schrittweise) benutzt werden.
 
-Im Labor kann ein Upgrade erforscht werden, um die Kapazität zu erweitern.
+Im Labor kann ein Upgrade erforscht werden, um die Kapazität auf 80 zu erweitern.
