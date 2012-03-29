@@ -8,6 +8,10 @@
 #include O2GN // produziert Sauerstoff
 #include DACT //Damagecontrol
 
+private func EnergyNeedOverlay() {
+	return 3; // Overlay 1 und 2: Türsteuerung
+}
+
 public func GetTemp() { return 250;}
 
 public func MaxDamage() { return 40; } //Maximaler Schaden
@@ -32,3 +36,8 @@ protected func FxProduceO2Timer() {
 	if(GetCon() == 100 && !IsFull("O2") && CheckPower(10))
 		DoO2(10);
 }
+
+// erforschbar nach dem Terraformer
+public func MarsResearch() { return true; }
+public func GetResearchBase() { return TRFM; }
+
