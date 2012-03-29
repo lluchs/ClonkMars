@@ -84,15 +84,15 @@ protected func Beam(int iClonk, int iStation, bool fFast) {
 	// Berechnung der benötigten Energie
 	var iEnergy = 0, pObj, iDist;
 	for(var pNode in Way) {
-		// jeder Splitter kostet 10 Energie
-		iEnergy += 10;
-		// außerdem kommt die Hälfte der Entfernung zwischen den Splittern dazu
+		// jeder Splitter kostet 5 Energie
+		iEnergy += 5;
+		// außerdem kommt ein Viertel der Entfernung zwischen den Splittern dazu
 		if(pObj) {
 			iDist = pNode -> ObjectDistance(pObj);
 			if(iDist < TS_MaxDistance)
-				iEnergy += iDist / 2;
+				iEnergy += iDist / 4;
 			else // massiver Energieverbrauch bei langen Distanzen
-				iEnergy += iDist;
+				iEnergy += iDist / 2;
 		}
 		pObj = pNode;
 	}
