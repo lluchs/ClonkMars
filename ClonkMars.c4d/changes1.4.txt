@@ -4,6 +4,7 @@
 + Materialeinheit hat außen einen Einwurf für Materialien
 + teils neue Lorensteuerung mit dem Jetpack (s. Lorenbeschreibung)
 + Blinklicht mit Lichteffekt
++ Foldermap erneut drin
 * div. Icon Changes
 * Cerberus Fossae ist etwas kleiner und damit schaffbarer
 * weniger Staubwolken in Fossae
@@ -13,5 +14,6 @@
 ! Blinklicht erschlägt keine wehrlosen Clonks mehr
 ! Angle Free Verahalten bei geschlossener Map verbessert
 ! Zeilenenden normalisiert
+! #007962 Beschreibungsfehler der O2-Flasche
 - Regel "Ewige Kälte" aus der Standardauswahl im Regelwähler genommen
 - Extra.c4g aus allen Vorgaben entfernt
