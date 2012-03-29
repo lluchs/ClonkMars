@@ -21,6 +21,10 @@ protected func ControlDigDouble() {
 	return 1;
 }
 
+public func IsOn() {
+	return !!light;
+}
+
 protected func ControlUpDouble() {
 	return Activate();
 }

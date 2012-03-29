@@ -78,8 +78,24 @@ protected func Terraforming() { // TimerCall
 	  	
 	fTerraforming = true;
 	
-	if(!Random(10) && ObjectCount2(Find_Distance(TRFM_RADIUS), Find_Func("IsTree")) < Random(10)) { // neue Bäume
-		PlaceVegetation(RandomTreeID(), TRFM_RADIUS / -2, TRFM_RADIUS / -2, TRFM_RADIUS, TRFM_RADIUS, 10);
+	if(!Random(6) && ObjectCount2(Find_Distance(TRFM_RADIUS), Find_Func("IsTree")) < Random(10)) { // neue Bäume
+		var v;
+		if(!Random(2)) {
+			v = PlaceVegetation(RandomTreeID(), TRFM_RADIUS / -2, TRFM_RADIUS / -2, TRFM_RADIUS, TRFM_RADIUS, 10);
+			// nur ein Baum an einer Stelle
+			if(v && ObjectCount2(Find_Distance(50, AbsX(GetX(v)), AbsY(GetY(v))), Find_Func("IsTree")) > 1)
+				RemoveObject(v);
+		}
+		// erfolgreiche Platzierung nicht möglich?
+		if(!v) {
+			// zufälligen Digger wählen
+			var digger = Random(GetEffectCount("DigEarth", this));
+			var x = EffectVar(0, this, digger), y = EffectVar(1, this, digger);
+			// Kein Baum an der Stelle, aber LED in Reichweite?
+			if(!FindObject2(Find_AtPoint(x, y), Find_Func("IsTree")) && FindObject2(Find_ID(LED_), Find_Distance(250, x, y), Find_Func("IsOn"))) {
+				CreateConstruction(RandomTreeID(), x, y, NO_OWNER, 1);
+			}
+		}
 	}
 	
 	/* Temperatur anpassen */
@@ -166,10 +182,10 @@ protected func FxBlowAtmosphereTimer() {
 /* Steuerung */
 
 protected func ControlUp(){
-// Bereich anzeigen
+	// Bereich anzeigen
 	for(var i; i < 360; i++)
 		CreateParticle("PSpark", Cos(i, TRFM_RADIUS), Sin(i, TRFM_RADIUS), 0, 0, 70, RGBa(255, 255, 255, 128));
-		}
+}
 
 protected func ControlDig() {
 	ShowDigger();
