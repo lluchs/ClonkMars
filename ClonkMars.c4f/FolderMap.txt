@@ -11,12 +11,6 @@ FullscreenBG=1
 	Area=603,224,78,48
 
 	[Scenario]
-	File=2_Sinus.c4s
-	BaseImage=Sinus.png
-	OverlayImage=Sinus_Hl.png
-	Area=588,299,58,46
-
-	[Scenario]
 	File=03_Chaos.c4s
 	BaseImage=Chaos.png
 	OverlayImage=Chaos_Hl.png
@@ -29,12 +23,6 @@ FullscreenBG=1
 	Area=811,314,59,47
 
 	[Scenario]
-	File=01_Fossae.c4s
-	BaseImage=Cavum.png
-	OverlayImage=Cavum_Hl.png
-	Area=863,60,72,47
-
-	[Scenario]
 	File=06_Chasma.c4s
 	BaseImage=Chasma.png
 	OverlayImage=Chasma_Hl.png
@@ -42,15 +30,9 @@ FullscreenBG=1
 
 	[Scenario]
 	File=07_Abyss.c4s
-	BaseImage=Mons.png
-	OverlayImage=Chasma_Hl.png
+	BaseImage=Abyss.png
+	OverlayImage=Abyss_Hl.png
 	Area=887,154,89,47
-
-	[Scenario]
-	File=01_Fossae.c4s
-	BaseImage=Mons.png
-	OverlayImage=Mons_Hl.png
-	Area=556,159,78,47
 
 	[Scenario]
 	File=08_Phobos.c4s
