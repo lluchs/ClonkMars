@@ -17,6 +17,8 @@ Icewing: Pipesystem, Baugrafiksystem, Menüsystem, Betatesting
 
 JCaesar: Kapsellandesystem, div. Bugfixes
 
+Nachtschatten: Betatesting
+
 Hubble: Betatesting
 
 Mirosh (EKE Pack): Schweiss-Sound
