@@ -6,6 +6,7 @@
 + Blinklicht mit Lichteffekt
 + Foldermap erneut drin
 + Terraformer erstellt Bäume unterirdisch, wenn künstliches Licht vorhanden
++ Gewächshaus
 * Bäume wachsen unterirdisch nicht mehr
 * Pflanzen wachsen etwas gleichmäßiger
 * Meteoriten fallen schneller ( bei Meteoritensturm)
