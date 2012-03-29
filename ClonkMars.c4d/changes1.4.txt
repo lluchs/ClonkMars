@@ -5,6 +5,11 @@
 + teils neue Lorensteuerung mit dem Jetpack (s. Lorenbeschreibung)
 + Blinklicht mit Lichteffekt
 + Foldermap erneut drin
++ Terraformer erstellt Bäume unterirdisch, wenn künstliches Licht vorhanden
+* Bäume wachsen unterirdisch nicht mehr
+* Pflanzen wachsen etwas gleichmäßiger
+* Meteoriten fallen schneller ( bei Meteoritensturm)
+* Beschreibung Basis mit wichtigen Informationen ergänzt
 * div. Icon Changes
 * Cerberus Fossae ist etwas kleiner und damit schaffbarer
 * weniger Staubwolken in Fossae
