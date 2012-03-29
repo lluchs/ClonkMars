@@ -26,8 +26,8 @@ protected func CheckSky(){
 	else
 		SetAction("Green");
   //Heal
-  for(var pClonk in FindObjects(Find_Container(this()),Find_ID(SCNK)))
-    DoEnergy(+1500,pClonk,true);
+  for(var pClonk in FindObjects(Find_Container(this),Find_ID(SCNK)))
+    DoEnergy(+1500, pClonk, true, FX_Call_EngBaseRefresh);
 }
 
 private func SoundOpenDoor() {
