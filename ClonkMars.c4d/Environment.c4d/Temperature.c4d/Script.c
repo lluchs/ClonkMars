@@ -321,6 +321,11 @@ global func DoLandTemp(int iChange, int k) {
 }
 
 global func _DoLandTemp(int iEffectNum, int iChange, int k) {
+	if(GetEffect(0, 0, iEffectNum, 1) != "LandTemp") {
+		// something is broken
+		RecreateLandTempEffects();
+		return;
+	}
 	if(!k)
 		k = GetLandTempChangeSpeed(LandTempDist * EffectVar(0, 0, iEffectNum), LandTempDist * EffectVar(1, 0, iEffectNum));
 	var temp = EffectVar(2, 0, iEffectNum);
