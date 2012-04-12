@@ -239,20 +239,21 @@ protected func ControlSpecial()  {
 	return ShiftContents(0,0,0,1); 
 }
 
-/* Splitter-Anzeige */
-protected func FindSplitter() {
-	return FindObject2(Find_ID(SPTR), Find_AtPoint(), Find_Allied(GetOwner()));
+// Reihenfolge im Kontextmenü ist umgekehrte Reihenfolge im Script
+protected func ContextSizeSelection(object pClonk) {
+	[$CtxSetResolution$|Image=VWPT]
+	var iPlr = pClonk -> GetOwner();
+	return FindObject2(Find_ID(VWPT), Find_Owner(iPlr)) -> SizeSelection();
 }
 
-protected func ContextSplitter() {
-	[$CtxSplitter$|Image=SPTR|Condition=FindSplitter]
-	var splitter = FindSplitter();
-	if (splitter) {
-		splitter -> ControlUp(this);
-	}
+public func ContextHome(pCaller)
+{
+  [$CtxHomeDesc$|Image=CXHM|Condition=HasBase]
+  SetCommand(this, "Enter", FindBase(GetOwner(this)));
+  return(1);
 }
 
-/* Ãœberladung fÃ¼r Deconstruct */
+/* Überladung für Deconstruct */
 protected func ControlLeftDouble() {
 	if (GetAction() == "Deconstruct" || GetAction() == "Repair")
 		SetAction("Walk");
@@ -560,17 +561,17 @@ protected func Death() {
 	return _inherited(...);
 }
 
-public func ContextHome(pCaller)
-{
-  [$CtxHomeDesc$|Image=CXHM|Condition=HasBase]
-  SetCommand(this, "Enter", FindBase(GetOwner(this)));
-  return(1);
+/* Splitter-Anzeige */
+protected func FindSplitter() {
+	return FindObject2(Find_ID(SPTR), Find_AtPoint(), Find_Allied(GetOwner()));
 }
 
-protected func ContextSizeSelection(object pClonk) {
-	[$CtxSetResolution$|Image=VWPT]
-	var iPlr = pClonk -> GetOwner();
-	return FindObject2(Find_ID(VWPT), Find_Owner(iPlr)) -> SizeSelection();
+protected func ContextSplitter() {
+	[$CtxSplitter$|Image=SPTR|Condition=FindSplitter]
+	var splitter = FindSplitter();
+	if (splitter) {
+		splitter -> ControlUp(this);
+	}
 }
 
 /* Unterwasserlaufen */
