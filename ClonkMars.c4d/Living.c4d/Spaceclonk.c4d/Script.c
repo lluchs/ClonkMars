@@ -555,7 +555,7 @@ public func ContextHome(pCaller)
 }
 
 protected func ContextSizeSelection(object pClonk) {
-	[Auflösung einstellen|Image=VWPT]
+	[$CtxSetResolution$|Image=VWPT]
 	var iPlr = pClonk -> GetOwner();
 	return FindObject2(Find_ID(VWPT), Find_Owner(iPlr)) -> SizeSelection();
 }

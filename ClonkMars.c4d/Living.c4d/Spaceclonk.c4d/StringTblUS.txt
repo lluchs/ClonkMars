@@ -4,6 +4,7 @@ DeconstructNotFound=Coundn't find a building for deconstruction.
 DeconstructMustWalk=Clonk must be walking to begin deconstruction.
 CtxHomeDesc=Back to base
 CtxRepair=Repair
+CtxSetResolution=Set resolution
 NothingtoRepair=Nothing to repair!
 Standing=Just stand quitly to repair!
 NeededMaterials=Needed Materials:
