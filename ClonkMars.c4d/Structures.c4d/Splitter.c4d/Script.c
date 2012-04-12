@@ -20,7 +20,8 @@ protected func Damage() {
 }
 
 // Radius anzeigen
-protected func ControlUp(object pClonk) {
+// Dies kann auch über das Kontextmenü des Spaceclonks aufgerufen werden, ohne das Gebäude anzufassen
+public func ControlUp(object pClonk) {
 	if(Hostile(GetOwner(), pClonk -> GetOwner())) {
 		Sound("Error");
 		return;

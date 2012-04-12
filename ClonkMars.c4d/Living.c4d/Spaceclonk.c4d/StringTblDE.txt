@@ -2,6 +2,7 @@ CtrlInventoryDesc=Inventar auswählen
 CtxDeconstructDesc=Rückbau
 DeconstructNotFound=Kein rückbaubares Gebäude gefunden.
 DeconstructMustWalk=Clonk muss für den Rückbau stehen.
+CtxSplitter=Radius anzeigen
 CtxHomeDesc=Zurück zur Basis
 CtxRepair=Reparieren
 CtxSetResolution=Auflösung einstellen

@@ -239,6 +239,19 @@ protected func ControlSpecial()  {
 	return ShiftContents(0,0,0,1); 
 }
 
+/* Splitter-Anzeige */
+protected func FindSplitter() {
+	return FindObject2(Find_ID(SPTR), Find_AtPoint(), Find_Allied(GetOwner()));
+}
+
+protected func ContextSplitter() {
+	[$CtxSplitter$|Image=SPTR|Condition=FindSplitter]
+	var splitter = FindSplitter();
+	if (splitter) {
+		splitter -> ControlUp(this);
+	}
+}
+
 /* Überladung für Deconstruct */
 protected func ControlLeftDouble() {
 	if (GetAction() == "Deconstruct" || GetAction() == "Repair")
