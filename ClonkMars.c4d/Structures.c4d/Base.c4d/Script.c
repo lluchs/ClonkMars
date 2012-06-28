@@ -64,6 +64,12 @@ protected func ContextResearch(object pClonk) {
 	return 1;
 }
 
+protected func ContainedDig(object pClonk) {
+	[$TxtResearch$|Image=RSR1]
+	if(IsNotResearching())
+		return ContextResearch(pClonk);
+}
+
 private func IsNotResearching() {
 	return !IsResearching();
 }
