@@ -1,11 +1,32 @@
 /*--Allgemeines Aussehen--*/
 
 body {
+	background-image: none;
+	background-color: #101010;
+	color: #d1d1d1;
+}
 
+a {
+	color: hsl(0, 0%, 75%);
+	text-decoration: none;
+}
+
+a:hover {
+	text-shadow: #8dc3f1 1px 1px 2px;
+}
+
+a:active {
+	text-shadow: #f1ca8d 0px 0px 4px;
 }
 
 #Description {
 	font-size: 110%;
+}
+
+#wholepage {
+	max-width: 1565px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 h1 {
@@ -16,8 +37,12 @@ h1 {
 
 h2 {
 	font-family: Arial;
-	font-size: 110%;
+	font-size: 105%;
 	margin-top: 0px;
+}
+
+h3 {
+	font-size: 102%;
 }
 
 hr {
@@ -45,6 +70,10 @@ h2, h3 {
 	float: right;
 }
 
+#rn a {
+	text-decoration: underline;
+}
+
 #rn .red {
 	background-color: #efc1c1;
 }
@@ -53,37 +82,76 @@ h2, h3 {
 	background-color: #dbf0c1;
 }
 
-/* Portrait bei den News */
+#rn .green td a:hover {
+	text-shadow: #efc1c1 0px 0px 4px;
+}
+
+#rn td {
+	color: black;
+}
+
+#rn td a {
+	color: hsl(0, 0%, 25%);
+}
+
+#rn td a:hover {
+	/*text-shadow: hsl(0, 0%, 50%) 1px 1px 2px;*/
+}
+
+/* News */
 
 #Portrait {
 	width: 75px;
 	float: right;
 }
 
+#reg_News li {
+	margin-top: 1em;
+}
+
+#Description li, #Votes li, #comments li {
+	list-style-image: url('http://clonkforge.net/projects/project1125/li.png');
+}
+
+/*li:nth-child(odd) {
+	background-color: #101010;
+}*/
+
+li:nth-child(even) {
+	background-color: #202020;
+}
+
+#Archiv {
+	background-color: #101010;
+	border-top: 1px dashed #202020;
+}
+
 /* Konzepte */
 
-.kbox {
-	margin-bottom: 1em;
-	width: 100%;
-	min-height: 140px;
+#reg_concept img {
+	max-width: 100%;
 }
 
-.konzept {
-	margin-right: 200px;
+/* Votes */
+
+.vote {
+	color: black;
 }
 
-/* Sprite für Bilder */
-
-.sprite {
-	background: url('http://clonkforge.net/projects/project1125/Konzepte.jpg');
-	width: 176px;
-	height: 135px;
-	margin-right: 5px;
-	float: right;
+.vote a {
+	color: hsl(0, 0%, 25%);
 }
 
-	.clunker         { background-position: 0px 0px; }
-	.materialien { background-position: 0px -136px; }
-	.siedeln         { background-position: 0px -273px; }
-	.forschen       { background-position: 0px -411px; }
-	.jetbelt         { background-position: 0px -550px; }
+/* Kommentare */
+
+#markItUpCommentarea li {
+	background-color: transparent;
+}
+
+.comment {
+	box-shadow: #202020 0px 0px 10px;
+}
+
+#comments > div:nth-child(even) {
+	background-color: #202020;
+}
