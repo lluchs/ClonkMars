@@ -7,7 +7,7 @@ local wdt, hgt;
 local freeze, blood;
 
 // viewport padding in px
-static const VWPT_Padding = 80
+static const VWPT_Padding = 80;
 
 // overlay layer
 static const VWPT_Blood = 1;
@@ -108,8 +108,8 @@ public func UpdateViewportSize() {
 		SetFreeze(freeze);
 	}
 	// Anpassung bei kleiner Landschaft
-	wdt = Min(wdt, LandscapeWidth() + VWPT_Padding)
-	hgt = Min(hgt, LandscapeHeight() + VWPT_Padding)
+	wdt = Min(wdt, LandscapeWidth() + VWPT_Padding);
+	hgt = Min(hgt, LandscapeHeight() + VWPT_Padding);
 }
 
 global func SetViewportFreeze(int iPlr, int iFreeze) {
