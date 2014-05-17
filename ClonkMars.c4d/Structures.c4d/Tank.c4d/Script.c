@@ -21,7 +21,12 @@ public func TankFor(int mat) {
 		return WildcardMatch(MaterialName(mat), "*Lava*");
 }
 
-public func MaxFill() { return 3500; }
+public func MaxFill() {
+	if(type == 0)
+		return 3500;
+	else
+		return 8750;
+}
 
 private func FillPicture() { return; }
 
