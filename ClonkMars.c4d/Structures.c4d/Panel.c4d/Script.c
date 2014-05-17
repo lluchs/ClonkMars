@@ -32,9 +32,18 @@ protected func CheckDay() { // TimerCall
 		iEnergy = 0;
 }
 
+// The upgradable maximum energy output.
+private func BaseEnergy() {
+	if(UpgradeComplete(GetOwner(), U_SP))
+		return 25;
+	else
+		return 15;
+}
+
 private func ProduceEnergy() {
+	var iBase = BaseEnergy();
 	//regulates Power-producing by Sunstrength (powered by Luchs)
-	iEnergy = (15 - GetDarkness(15)) * PhaseFree() / 3;
+	iEnergy = (iBase - GetDarkness(iBase)) * PhaseFree() / 3;
 	return DoPower(iEnergy);
 }
 
