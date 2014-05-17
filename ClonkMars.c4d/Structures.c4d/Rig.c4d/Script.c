@@ -59,7 +59,8 @@ public func Transfer(int iAmount, int iMaterial, bool fNoChange) {
 		if(pTank -> GetFill() + iAmount <= pTank -> MaxFill()) {
 			if(!fNoChange) {
 				pTank -> DoFill(iAmount);
-				Overburn();
+				if(MaterialName(iMaterial) == "Oil")
+					Overburn();
 			}
 			return 1;
 		}
