@@ -9,6 +9,12 @@ func Initialize() {
   CreateObject(BG_1,-0,0,-1);
   CreateObject(DUSK,0,0,-1);
   ScriptGo(1);
+
+  // Spielziel setzen
+  var goal = FindObject(RCOB);
+  goal->AddType(DBSE);
+  goal->AddType(DLAB);
+  goal->AddType(DSOL);
   
   //Forschungsstation
   PlaceObjects(DBSE,1,"Durolava",950,1200,150,150);
