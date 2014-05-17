@@ -13,7 +13,7 @@ SkipDefs=LNKT=20600048
 [Game]
 StructNeedEnergy=0
 Goals=MONE=7
-Rules=TKNW=1;ENRG=1;LDAY=1;CNMT=1;CHOS=1
+Rules=TKNW=1;TACC=1;ENRG=1;LDAY=1;CNMT=1;CHOS=1
 
 [Player1]
 Wealth=30,0,0,250

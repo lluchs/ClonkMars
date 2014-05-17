@@ -14,7 +14,7 @@ SkipDefs=LNKT=20600048
 
 [Game]
 StructNeedEnergy=0
-Rules=CNMT=1;ENRG=1;LDAY=1;CHOS=1
+Rules=TKNW=1;TACC=1;CNMT=1;ENRG=1;LDAY=1;CHOS=1
 
 [Player1]
 Wealth=60,0,0,250
