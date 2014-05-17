@@ -4,6 +4,9 @@
 
 protected func Initialize() {
 	CreateLandTempEffects();
+	// This is said to fix a desync.
+	// See http://clonkforge.net/bugtrack.php?shbug=10976
+	RecreateLandTempEffects();
 	
 	for(var pClonk in FindObjects(Find_OCF(OCF_Alive), Find_Func("IsClonk")))
 		OnClonkRecruitment(pClonk);
