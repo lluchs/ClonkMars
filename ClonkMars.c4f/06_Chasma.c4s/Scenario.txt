@@ -4,7 +4,6 @@ Title=Tithonium Chasma
 Loader=Loader_CMars*
 Version=4,9,10,2
 MaxPlayer=6
-MaxPlayerLeague=12
 ForcedGfxMode=1
 
 [Definitions]

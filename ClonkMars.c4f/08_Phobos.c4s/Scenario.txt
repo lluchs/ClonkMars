@@ -3,7 +3,6 @@ Icon=34
 Title=Phobos Station
 Loader=Loader_CMars*
 MaxPlayer=4
-MaxPlayerLeague=12
 
 [Definitions]
 Definition1=Objects.c4d

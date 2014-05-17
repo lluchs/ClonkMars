@@ -3,7 +3,6 @@ Icon=15
 Title=Eos Chaos
 Loader=Loader_CMars*
 MaxPlayer=4
-MaxPlayerLeague=12
 
 [Definitions]
 Definition1=Objects.c4d
