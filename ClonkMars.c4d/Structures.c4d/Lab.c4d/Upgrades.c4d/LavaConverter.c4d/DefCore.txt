@@ -1,0 +1,7 @@
+[DefCore]
+id=U_LE
+Version=4,9,8
+Name=Upgrade Lava to Energy
+Category=C4D_StaticBack
+Width=64
+Height=64

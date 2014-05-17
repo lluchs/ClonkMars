@@ -1,0 +1,2 @@
+With this upgrade, the accumulator can use energy from lava.
+After researching, connect a pipe from your lava tank to an accumulator.

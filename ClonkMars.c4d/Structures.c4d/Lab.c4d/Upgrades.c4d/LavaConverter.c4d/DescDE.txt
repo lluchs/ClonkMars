@@ -1,0 +1,2 @@
+Mit diesem Upgrade kann der Akku auch die in Lava enthaltene Energie verwenden.
+Nach dem Erforschen ein Rohr vom Lavatank zum konvertierenden Akku verlegen, um diesen zu füllen.

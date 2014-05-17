@@ -20,6 +20,12 @@ public func IsBattery() {
 	return true;
 }
 
+public func PipelineConnect() {
+	return UpgradeComplete(GetOwner(), U_LE);
+}
+
+static const ACCU_LavaPerEnergy = 6;
+
 local Capacity;
 
 func Initialize() {
@@ -64,14 +70,34 @@ public func SetCapacity(int NewCapacity) {
   return true;
 }
 
+// Returns the maximum amount of energy the akku can suck in now.
+private func GetPowerIncrement() {
+  return BoundBy(GetCapacity() - GetPower(), 0, 10);
+}
+
 func Act() { // Timercall
-	if(!(GetOCF() & OCF_Fullcon))
-		return;
+  if(!(GetOCF() & OCF_Fullcon))
+    return;
   // Energie saugen
-  var iEnergy = BoundBy(GetCapacity() - GetPower(), 0, 10);
+  var iEnergy = GetPowerIncrement();
   if(iEnergy && CheckPower(iEnergy)) {
   	DoPower(iEnergy);
+	iEnergy = 0;
   }
+
+  // Maybe convert lava.
+  if(iEnergy && PipelineConnect()) {
+    for(var pTank in FindObjects(Find_ID(OILT), Find_Func("PipelineConnectedWith", this))) {
+      while(iEnergy > 0 && pTank -> GetFill() >= ACCU_LavaPerEnergy) {
+	pTank -> DoFill(-ACCU_LavaPerEnergy);
+	DoPower(1);
+	iEnergy--;
+      }
+      if(iEnergy <= 0)
+	break;
+    }
+  }
+
   return 1;
 }
 
