@@ -25,8 +25,13 @@ private func GetSolidOffset(int x, int y)
   return i;
 }
 
+// Checks whether the tree stands in Incindiary material.
+private func InLava() {
+	return GetMaterialVal("Incindiary", "Material", GetMaterial(0, GetDefHeight(GetID()) / 2));
+}
+
 protected func FxTerraformerCheckTimer() {
-	if(!FindObject2(Find_Distance(TRFM_RADIUS), Find_ID(TRFM), Find_Func("IsTerraforming"))) { // aktive Terraformingeinheit in der Nähe?
+	if(InLava() || !FindObject2(Find_Distance(TRFM_RADIUS), Find_ID(TRFM), Find_Func("IsTerraforming"))) { 
 		DoCon(-1);
 		if(GetCon() <= 1)
 			RemoveObject();
