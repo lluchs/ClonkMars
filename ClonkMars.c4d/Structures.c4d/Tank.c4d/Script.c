@@ -76,18 +76,22 @@ protected func ControlUp(){
   }
 
 protected func ControlDig(object pClonk) {
-  if(!Hostile(GetOwner(),GetOwner(Par()))){
-	if(type)
+	if(Hostile(GetOwner(), pClonk->GetOwner())) {
+		Message("$TxtEnemy$");
+		Sound("Error");
+		return;
+	}
+	if(type) {
 		Message("$TxtOnlyOil$", pClonk);
+		Sound("Error");
+		return;
+	}
+
 	var iChange = pClonk -> ~DoFuel(GetFill() * 100);
 	iChange = ChangeRange(iChange, 0, pClonk -> ~MaxFuel(), 0, 100);
 	Message("+%d", pClonk, iChange);
 	pClonk -> ~UpdateFuelHUD();
-	DoFill(-iChange);}
-	    else{
-      Log("$TxtEnemy$");
-      Sound("Error");}
-	return 1;
+	DoFill(-iChange);
 }
 
 protected func ControlThrow() {
