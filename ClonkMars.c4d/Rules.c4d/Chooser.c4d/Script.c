@@ -4,6 +4,13 @@
 
 local choosable;
 
+protected func Initialize() {
+	// Don't allow choosing rules when playing in the league.
+	if(GetLeague()) {
+		RemoveObject();
+	}
+}
+
 protected func Activate(int iPlr) {
 	if(!iPlr && GetCursor()) {
 		OpenMenu();
