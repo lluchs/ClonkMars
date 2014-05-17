@@ -1,5 +1,5 @@
 NotEnoughResources=Es sind nicht alle Rohstoffe zum Raketenbau vorhanden.
 IsBuilding=Rakete wird bereits gebaut
 RocketIsStillThere=Rakete ist bereits vorhanden
-ocketBuildingInProcess=Rakete ist noch in Bau
+RocketBuildingInProcess=Rakete ist noch in Bau
 NoRocketAvailable=Keine Rakete die gestartet werden kann
