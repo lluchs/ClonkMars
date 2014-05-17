@@ -11,12 +11,23 @@ private func FindDerrick() {
 
 local HasEnergy;
 
+// Returns the number of pixels to transfer in one go.
+private func TransferAmount(int iMat) {
+	if(MaterialName(iMat) == "Oil") {
+		return 3;
+	} else {
+		// Lava
+		return 9;
+	}
+}
+
 protected func Transfer() {
 	var pTarget = GetActionTarget(), iExtracted;
 	if (!pTarget) return; //Bohrturm verschwunden?
 	var mat = GetMaterial();
+	var amount = TransferAmount(mat);
 	// Passendes Ziel mit genügend Platz vorhanden?
-	if(!(pTarget -> Transfer(3, mat, true)))
+	if(!(pTarget -> Transfer(amount, mat, true)))
 		return StopTransfer(pTarget);
 	
 	if(!HasEnergy || GetActTime() % 10) {
@@ -29,7 +40,7 @@ protected func Transfer() {
 	}
 	
 	// in einem Durchgang wird nur ein Materialtyp extrahiert
-	for(var i = 3; i; i--) {
+	for(var i = amount; i; i--) {
 		if(ExtractLiquid() == mat)
 			iExtracted++;
 		else
