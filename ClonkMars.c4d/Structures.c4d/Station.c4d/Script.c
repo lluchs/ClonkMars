@@ -96,6 +96,11 @@ protected func Beam(int iClonk, int iStation, bool fFast) {
 		}
 		pObj = pNode;
 	}
+
+	// "Cheap Transmitter" upgrade
+	if(UpgradeComplete(GetOwner(), U_CT)) {
+		iEnergy /= 2;
+	}
 	Message("$TxtNeededEnergy$ %d kW", this, iEnergy);
 	
 	if(!CheckPower(iEnergy)) {
