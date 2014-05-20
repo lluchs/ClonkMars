@@ -1,6 +1,5 @@
-Can teleport some Clonks from Station to Station. Use Splitter to increase your network and the distances.
+Can teleport Clonks from Station to Station. Use Splitters to expand your network.
 
-Controls:
-
-- throw to beam as fast as it can
+Controls: Grab and
+- dig to beam on the fastest way possible
 - jump to beam with less energy but more time
