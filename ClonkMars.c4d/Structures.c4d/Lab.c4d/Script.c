@@ -101,7 +101,7 @@ private func NewResearch(id idImage, object pClonk) {
 	var i, idDef, iPlr = pClonk -> GetOwner();
 	while(idDef = GetDefinition(i++, C4D_StaticBack)) {
 		// Passende Kategorie und dem Spieler noch nicht bekannt
-		if (!HasUpgrade(idDef) && idDef -> ~IsUpgrade()) {
+		if (!HasUpgrade(idDef) && idDef -> ~IsUpgrade(iPlr)) {
 				AddMenuItem("$TxtResearchs$", "SelectResearch", idDef, pClonk, 0, pClonk);
 		}
 	}
