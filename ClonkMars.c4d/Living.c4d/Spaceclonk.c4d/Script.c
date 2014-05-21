@@ -43,6 +43,8 @@ protected func Initialize() {
 
 public func Birth() {
 	Sound("Clonk_Birth");
+	DoCon(-40);
+	Schedule("DoCon(1)", 50, 40);
 	UpdateHUD(GetOwner(), HUD_EventLog, "ClonkRepro");
 }
 
@@ -84,8 +86,6 @@ protected func FxReproductionTimer(object pTarget, int iEffectNumber, int iEffec
 	if(EffectVar(0, pTarget, iEffectNumber) >= 100 && !(Contained() -> ~IsFull())) {
 	 var pClonk = CreateObject(SCNK, 0, 0, GetOwner());
 	 pClonk -> Enter(Contained());
-	 pClonk -> DoCon(-40);
-	 pClonk -> Schedule("DoCon(1)", 50, 40);
 	 pClonk -> Birth();
 	 
 	 var death = FindObjects(Find_ID(SCNK), Find_Owner(GetOwner()), Find_Not(Find_OCF(OCF_Alive)), Find_Not(Find_Func("IsReproduced")), Sort_Random());
@@ -550,13 +550,16 @@ protected func FxViewportCheckDamage(object pTarget, int iEffectNumber, int iDmg
 protected func Death() {
 	for(var pObj in FindObjects(Find_ActionTarget(this), Find_Func("IsLight")))
 		pObj -> RemoveObject();
+	UpdateHUD(GetOwner(), HUD_EventLog, "ClonkDeath");
 	if(!GetCrew(GetOwner())) {
-		var pHUD = FindObject2(Find_ID(MHUD), Find_Owner(GetOwner()));
-		if(pHUD)
-			pHUD -> RemoveObject();
-	}
-	else {
-		UpdateHUD(GetOwner(), HUD_EventLog, "ClonkDeath");
+		// Respawn
+		var dish = CreateObject(SATD, 0, 0, GetOwner());
+		var clonk = CreateObject(GetID(), 0, 0, GetOwner());
+		clonk->GrabObjectInfo(this);
+		clonk->Enter(dish);
+
+		// Fix the death notice.
+		SetName(clonk->GetName());
 	}
 	return _inherited(...);
 }
