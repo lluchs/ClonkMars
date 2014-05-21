@@ -602,7 +602,7 @@ Name=Gencode41
 Length=1
 Facet=6560,161,160,36,0,41
 [Action]
-Name=Gencode41
+Name=Gencode42
 Length=1
 Facet=6720,161,160,36,0,41
 [Action]
@@ -1151,7 +1151,7 @@ Name=Fuel77
 Length=1
 Facet=12320,197,160,43,0,77
 [Action]
-Name=Fuel77
+Name=Fuel78
 Length=1
 Facet=12480,197,160,43,0,77
 [Action]
