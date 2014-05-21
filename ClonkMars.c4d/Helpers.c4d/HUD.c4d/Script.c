@@ -7,12 +7,11 @@ local Pointer;
 func Initialize() {
   SetPosition(150, 105);
   SetVisibility(VIS_Owner);
-  
-  SetStillOverlayAction("Temperatur", HUD_Temp);
-  SetStillOverlayAction("ItemLog", HUD_Log);
+  // Hide the base image.
+  SetClrModulation(RGBa(0, 0, 0, 255));
   
   Pointer = CreateArray(2);
-  return(1);
+  return 1;
 }
 
 static const HUD_O2 = 1;
