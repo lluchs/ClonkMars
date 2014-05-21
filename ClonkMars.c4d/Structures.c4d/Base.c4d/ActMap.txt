@@ -307,7 +307,7 @@ Name=Green
 Procedure=NONE
 Length=1
 Directions=1
-Facet=190,0,95,34,0,0
+Facet=189,0,95,34,0,0
 FacetBase=0
 
 [Action]
