@@ -1,3 +1,11 @@
 + hinzugefügt | - entfernt | * verändert |! Bugfix
 
++ Lava kann zu Energie konvertiert werden (Upgrade)
++ Solar Panels produzieren mehr Strom (Upgrade)
+* Gemeinschaftskonto und -Baupläne grundsätzlich für jedes Szenario
 * Transmitter: weniger Bau- und Betriebskosten
+* Anpassungen für Liga
+* Tanks können mehr Lava aufnehmen
+* Beschreibungen überarbeitet
+! Desync Fix (danke Uncobob)
+! Bäume wachsen nicht mehr in Lava
