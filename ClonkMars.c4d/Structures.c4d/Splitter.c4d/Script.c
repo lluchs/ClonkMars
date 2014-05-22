@@ -81,7 +81,7 @@ protected func CreateBasement() {
 	if(GetR()) {
 		var radius = 4 + GetDefHeight(SPTR) / 2;//GetDefCoreVal("Offset", "DefCore", SPTR, 1);
 		x = -Sin(GetR(), radius);
-		y = Cos(GetR(), radius);
+		y = Cos(GetR(), radius) + GetDefHeight(BasementID()) / 2;
 	}
 	
 	basement = CreateObject(BasementID(), x, y, GetOwner());
