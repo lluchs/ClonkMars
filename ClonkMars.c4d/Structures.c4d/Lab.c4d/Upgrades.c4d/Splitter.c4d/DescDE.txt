@@ -1,0 +1,1 @@
+Verbessert die Splitter, sodass mehrere Transmittervorgänge parallel stattfinden können.

@@ -44,7 +44,10 @@ public func FindTSNodes() {
 
 local fReserved;
 
-public func IsReserved() { return fReserved; }
+// With upgraded splitters, there are no reservations.
+public func IsReserved() {
+	return !UpgradeComplete(GetOwner(), U_SR) && fReserved;
+}
 
 public func ToggleReservation() {
 	return fReserved = !fReserved;

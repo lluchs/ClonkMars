@@ -1,0 +1,7 @@
+[DefCore]
+id=U_SR
+Version=4,9,8
+Name=Splitter Upgrade
+Category=C4D_StaticBack
+Width=64
+Height=64

@@ -1,0 +1,1 @@
+Improves splitters, allowing more than one transmitting operation at the same time.
