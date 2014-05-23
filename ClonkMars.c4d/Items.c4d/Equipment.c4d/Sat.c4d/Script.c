@@ -77,6 +77,8 @@ private func Reproduction() {
 	clonk->DoEnergy(targetEnergy - clonk->GetEnergy());
 	if(reproductionProgress == 100) {
 		var caps = CreateObject(CPSL, AbsX(RandomX(200, LandscapeWidth() - 200)), AbsY(-30), clonk->GetOwner());
+		// Activate boosters automatically.
+		caps->SetDstPort(0, true);
 		clonk->Enter(caps);
 		clonk->Birth();
 		clonk->Schedule("UpdateHUDValue(HUD_Gencode, 0)", 50);
