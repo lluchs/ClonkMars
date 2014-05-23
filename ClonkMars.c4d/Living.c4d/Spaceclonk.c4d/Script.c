@@ -551,17 +551,17 @@ protected func Death() {
 	for(var pObj in FindObjects(Find_ActionTarget(this), Find_Func("IsLight")))
 		pObj -> RemoveObject();
 	UpdateHUD(GetOwner(), HUD_EventLog, "ClonkDeath");
+
+	// Call Clonk's Death() which will do the death notice.
+	inherited(...);
 	if(!GetCrew(GetOwner())) {
 		// Respawn
 		var dish = CreateObject(SATD, 0, 0, GetOwner());
 		var clonk = CreateObject(GetID(), 0, 0, GetOwner());
 		clonk->GrabObjectInfo(this);
 		clonk->Enter(dish);
-
-		// Fix the death notice.
-		SetName(clonk->GetName());
 	}
-	return _inherited(...);
+	return 1;
 }
 
 /* Splitter-Anzeige */
