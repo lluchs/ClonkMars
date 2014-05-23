@@ -93,9 +93,15 @@ protected func ProduceMenu(object pClonk, fShowAll) {
 
 /* Produce */
 
+static const UNIT_door_retry_wait = 3;
+
 local idProduce, fContinue;
 
 protected func ProduceMetal(idItem, iParameter, fRight) {
+	if (DoorActive) {
+		// Try again soon.
+		ScheduleCall(this, "ProduceMetal", UNIT_door_retry_wait, 0, idItem, iParameter, fRight);
+	}
 	if (GetAction() != "Idle" || DoorActive || !FindObject2(Find_Container(this), Find_OCF(OCF_CrewMember)))
 		return fContinue = false;
 	if(!CheckPower(100, true)) {
@@ -135,6 +141,11 @@ protected func ProduceMetal(idItem, iParameter, fRight) {
 }
 
 protected func ProducePlastic(idItem, iParameter, fRight) {
+	if (DoorActive) {
+		// Try again soon.
+		ScheduleCall(this, "ProducePlastic", UNIT_door_retry_wait, 0, idItem, iParameter, fRight);
+		return;
+	}
 	if(GetAction() != "Idle" || DoorActive || !FindObject2(Find_Container(this), Find_OCF(OCF_CrewMember)))
 		return fContinue = false;
 	if(!CheckPower(100, true)) {
@@ -165,6 +176,11 @@ protected func ProducePlastic(idItem, iParameter, fRight) {
 }
 
 protected func ProduceLorry(idItem, iParameter, fRight) {
+	if (DoorActive) {
+		// Try again soon.
+		ScheduleCall(this, "ProduceLorry", UNIT_door_retry_wait, 0, idItem, iParameter, fRight);
+		return;
+	}
 	if (GetAction() != "Idle" || DoorActive || !FindObject2(Find_Container(this), Find_OCF(OCF_CrewMember)))
 		return fContinue = false;
 	if(!CheckPower(100, true)) {
