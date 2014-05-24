@@ -40,10 +40,6 @@ public func Set(int iAngle, int iWidth, int iDist, int iT)
   SetWidth(iWidth);
   l = 1000*iDist/GetActMapVal("Facet",GetAction(),0,3);
   DrawTransform();
-  
- 	// we are stuck?
-	if(Stuck())
-		RemoveObject();
 }
 
 public func GetAngle()  { return(r+180); }
