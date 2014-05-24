@@ -1,19 +1,24 @@
-/*--- Flint ---*/
+/*--- Laser Flint ---*/
 
-#strict
+#strict 2
 
-public func ExplodeSize() 
-{ 
-  return(18); 
+static const LFLN_radius = 100;
+
+protected func Hit() {
+	var crystals = FindObjects(Find_ID(CRY2), Find_Distance(LFLN_radius));
+	for (var crystal in crystals) {
+		var laser = LaserConnection(this, crystal);
+		laser->SetClrModulation(RGB(Random(255), Random(255), Random(255)));
+		crystal->CreateObject(CRYS, 0, 0, crystal->GetOwner());
+		crystal->RemoveObject();
+	}
+
+	if (GetLength(crystals)) {
+		Sound("DeEnergize");
+		RemoveObject();
+	} else {
+		Sound("Object_clunk");
+	}
 }
 
-protected func Hit()
-{
-  Explode(ExplodeSize());
-}
-
-/* Kann in der Chemiefabrik hergestellt werden */
-public func IsChemicalProduct() { return(1); }
-
-func IsAlchemContainer() { return(true); }
-func AlchemProcessTime() { return(100); }
+public func MarsResearch() { return true; }
