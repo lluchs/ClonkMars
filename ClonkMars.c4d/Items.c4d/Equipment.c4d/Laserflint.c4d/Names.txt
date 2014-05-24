@@ -1,2 +1,2 @@
-DE:Feuerstein
-US:Flintstone
+DE:Laserflint
+US:Laserflint
