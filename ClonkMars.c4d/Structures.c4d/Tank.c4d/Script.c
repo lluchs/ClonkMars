@@ -9,7 +9,6 @@
 local type; // 0: Öl; 1: Lava
 
 func Initialize() {
-	UpdateTypePicture();
 	UpdatePicture();
 	return 1;
 }
@@ -44,9 +43,16 @@ private func UpdatePicture() {
 }
 
 private func UpdateTypePicture() {
-	var act = "Oil";
-	if(type)
+	var act;
+	if(type) {
 		act = "Lava";
+		// Yellow fill indicator
+		SetClrModulation(RGB(255, 255, 0), 0, 1);
+	} else {
+		act = "Oil";
+		// Reset fill indicator
+		SetClrModulation(RGB(255, 255, 255), 0, 1);
+	}
 	if(IsFull())
 		act = Format("%sFull", act);
 	SetGraphics(0, this, PLAT, 2, GFXOV_MODE_Action, act);
