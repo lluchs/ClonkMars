@@ -137,10 +137,7 @@ protected func FxBeamTimer(object pTarget, int iEffectNumber) {
 	}
 	
 	// Laser
-	var d = aNodes[iLast] -> ObjectDistance(aNodes[iLast-1]);
-	var a = Angle(AbsX(aNodes[iLast-1]->GetX()), AbsY(aNodes[iLast-1]->GetY()), AbsX(aNodes[iLast] -> GetX()), AbsY(aNodes[iLast] -> GetY()));
-	var laser = aNodes[iLast] -> CreateObject(LASR);
-	laser->Set(a + 180, 5, d, 70);
+	var laser = LaserConnection(aNodes[iLast-1], aNodes[iLast]);
 	laser->SetClrModulation(GetPlrColorDw(GetOwner(pTarget)));	
 
 	pTarget -> Enter(aNodes[iLast-1]); // Target ins nächste Objekt verschieben

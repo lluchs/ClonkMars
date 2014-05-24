@@ -106,3 +106,11 @@ private func DrawTransform() {		// draw line
   );
   
 }
+
+global func LaserConnection(object from, object to) {
+  var d = from->ObjectDistance(to);
+  var a = Angle(AbsX(to->GetX()), AbsY(to->GetY()), AbsX(from->GetX()), AbsY(from->GetY()));
+  var laser = from->CreateObject(LASR);
+  laser->Set(a + 180, 5, d, 70);
+  return laser;
+}
