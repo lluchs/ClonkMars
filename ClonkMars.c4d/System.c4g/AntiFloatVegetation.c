@@ -10,10 +10,10 @@
 
 protected func Initialize() {
 	AddEffect("CheckAir", this, 1, 30, this);
-	return inherited(...);
+	return _inherited(...);
 }
 
 protected func FxCheckAirTimer(object target, int effectNum, int effectTime) {
 	if(GetMaterial(0,10) != Material("Earth"))
-		DoCon(-10);
+		DoCon(-50);
 }
