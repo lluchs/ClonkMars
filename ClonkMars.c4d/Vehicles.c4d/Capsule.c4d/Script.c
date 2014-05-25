@@ -223,7 +223,9 @@ protected func ControlUpDouble() {
 }
 
 private func Launch() {
-	RemoveVertex(portvertex);
+	// Remove all bottom vertices to prevent the capsule from stucking.
+	for (var vertex in [portvertex, 2, 1, 0])
+		RemoveVertex(vertex);
 	portvertex = -1;
 	SetAction("FreeFall");
 	SetActionData();
