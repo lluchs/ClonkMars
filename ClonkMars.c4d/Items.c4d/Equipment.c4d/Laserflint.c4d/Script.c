@@ -14,7 +14,7 @@ protected func Hit() {
 	}
 
 	if (GetLength(crystals)) {
-		Sound("DeEnergize");
+		Sound("Laserflint");
 		RemoveObject();
 	} else {
 		Sound("Object_clunk");
