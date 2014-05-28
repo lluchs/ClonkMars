@@ -32,27 +32,24 @@ private func FillPicture() { return; }
 private func UpdatePicture() {
 	if(GetCon() != 100)
 		return;
+
 	// Der Bohrturm füllt evtl. nicht ganz
 	var iNum = GetFill() * 5 / MaxFill();
 	if(MaxFill() - GetFill() < 5)
 		iNum = 5; // trotzdem als voll anzeigen
-	SetGraphics(0, this, _BAR, 1, GFXOV_MODE_Action, Format("%d/5", iNum));
+
+	var gfx = 0;
+	if(ContainsLava())
+		gfx = "Lava";
+	SetGraphics(gfx, this, _BAR, 1, GFXOV_MODE_Action, Format("%d/5", iNum));
 	SetObjDrawTransform(1000, 0, -8000, 0, 1000, 3500, this, 1);
+
 	UpdateTypePicture();
 	return 1;
 }
 
 private func UpdateTypePicture() {
-	var act;
-	if(type) {
-		act = "Lava";
-		// Yellow fill indicator
-		SetClrModulation(RGB(255, 255, 0), 0, 1);
-	} else {
-		act = "Oil";
-		// Reset fill indicator
-		SetClrModulation(RGB(255, 255, 255), 0, 1);
-	}
+	var act = ContentType();
 	if(IsFull())
 		act = Format("%sFull", act);
 	SetGraphics(0, this, PLAT, 2, GFXOV_MODE_Action, act);
@@ -138,11 +135,16 @@ public func ContainsLava() {
 	return type == 1;
 }
 
+public func ContentType() {
+	if(ContainsOil())
+		return "Oil";
+	if(ContainsLava())
+		return "Lava";
+}
+
 protected func ContextFlush() {
 	[Tank leeren|Image=OILT]
-	var mat = "Oil";
-	if(type)
-		mat = "Lava";
+	var mat = ContentType();
 	CastPXS(mat, Abs(DoFill(-MaxFill())), 20);
 	return 1;
 }
@@ -158,17 +160,13 @@ public func MaxDamage() { return 20; } //Maximaler Schaden
 private func DestroyBlast(object pTarget) {
 	if(!pTarget) if(!(pTarget=this)) return;
 	var iAmount = pTarget -> GetFill();
-	var mat = "Oil";
-	if(type)
-		mat = "Lava";
+	var mat = ContentType();
 	pTarget -> CastPXS(mat, RandomX(iAmount / 2, iAmount), 50);
 	return inherited(...);
 }
 
 public func Deconstruction() {
-	var mat = "Oil";
-	if(type)
-		mat = "Lava";
+	var mat = ContentType();
 	CastPXS(mat, Abs(DoFill(-MaxFill())), 20);
 	return _inherited(...);
 }
