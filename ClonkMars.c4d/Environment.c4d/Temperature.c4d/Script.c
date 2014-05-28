@@ -27,7 +27,7 @@ protected func OnClonkRecruitment(object pClonk) {
 protected func FxTemperatureTimer(object pTarget, int iEffectNumber) {
 	var iTemp = EffectVar(0, pTarget, iEffectNumber);
 	
-	var k = 5+Random(5); // Wachstumsfaktor
+	var k = 7; // Wachstumsfaktor
 	
 	var iOuterTemp = pTarget -> GetLandTemp();
 	
@@ -63,7 +63,7 @@ protected func FxTemperatureTimer(object pTarget, int iEffectNumber) {
 			iChange = 1;
 	}
 	// außer bei schwerem Anzug
-	if(Abs(iChange) == 1 && pTarget -> ~HeavySuit() && Random(2)) {
+	if(Abs(iChange) == 1 && pTarget -> ~HeavySuit()) {
 		iChange = 0;
 	}
 	
