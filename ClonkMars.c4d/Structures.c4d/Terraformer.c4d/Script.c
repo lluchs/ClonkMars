@@ -44,6 +44,13 @@ public func RecreateDigger() {
 	CreateDigger();
 }
 
+// Sets x and y to the coordinates of a random digger.
+public func GetRandomDiggerPos(&x, &y) {
+	var digger = Random(GetEffectCount("DigEarth", this));
+	x = EffectVar(0, this, digger);
+	y = EffectVar(1, this, digger);
+}
+
 protected func Incineration() {
 	RemoveDigger();
 	return _inherited(...);
@@ -77,8 +84,10 @@ protected func Terraforming() { // TimerCall
 		iEnergy--;
 	  	
 	fTerraforming = true;
-	
-	if(!Random(6) && ObjectCount2(Find_Distance(TRFM_RADIUS), Find_Func("IsTree")) < Random(10)) { // neue Bäume
+
+	var treeCount = ObjectCount2(Find_Distance(TRFM_RADIUS), Find_Func("IsTree"));
+	// Try to place two trees as soon as possible.
+	if(treeCount < 2 || !Random(6) && treeCount < Random(10)) { // neue Bäume
 		var v;
 		if(!Random(2)) {
 			v = PlaceVegetation(RandomTreeID(), TRFM_RADIUS / -2, TRFM_RADIUS / -2, TRFM_RADIUS, TRFM_RADIUS, 10);
@@ -89,12 +98,21 @@ protected func Terraforming() { // TimerCall
 		// erfolgreiche Platzierung nicht möglich?
 		if(!v) {
 			// zufälligen Digger wählen
-			var digger = Random(GetEffectCount("DigEarth", this));
-			var x = EffectVar(0, this, digger), y = EffectVar(1, this, digger);
+			var x, y;
+			GetRandomDiggerPos(x, y);
 			// Kein Baum an der Stelle, aber LED in Reichweite?
 			if(!FindObject2(Find_AtPoint(x, y), Find_Func("IsTree")) && FindObject2(Find_ID(LED_), Find_Distance(250, x, y), Find_Func("IsOn"))) {
 				CreateConstruction(RandomTreeID(), x, y, NO_OWNER, 1);
 			}
+		}
+	}
+
+	// Place grass.
+	if(ObjectCount2(Find_ID(GRAS), Find_Distance(TRFM_RADIUS)) < 10) {
+		var x, y;
+		GetRandomDiggerPos(x, y);
+		if(!FindObject2(Find_AtPoint(x, y), Find_ID(GRAS))) {
+			CreateObject(GRAS, x, y, NO_OWNER);
 		}
 	}
 	
@@ -118,7 +136,7 @@ public func IsTerraforming() {
 }
 
 private func RandomTreeID() {
-	var aTrees = [TRE5, TRE6, TRE7, GRAS];
+	var aTrees = [TRE5, TRE6, TRE7];
 	return aTrees[Random(GetLength(aTrees))];
 }
 
