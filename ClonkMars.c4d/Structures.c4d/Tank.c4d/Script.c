@@ -142,9 +142,17 @@ public func ContentType() {
 		return "Lava";
 }
 
+// Returns the name of the material to be evicted.
+public func ContentMaterial() {
+	if(ContainsOil())
+		return "Oil";
+	if(ContainsLava())
+		return "DuroLava";
+}
+
 protected func ContextFlush() {
 	[Tank leeren|Image=OILT]
-	var mat = ContentType();
+	var mat = ContentMaterial();
 	CastPXS(mat, Abs(DoFill(-MaxFill())), 20);
 	return 1;
 }
@@ -160,13 +168,13 @@ public func MaxDamage() { return 20; } //Maximaler Schaden
 private func DestroyBlast(object pTarget) {
 	if(!pTarget) if(!(pTarget=this)) return;
 	var iAmount = pTarget -> GetFill();
-	var mat = ContentType();
+	var mat = ContentMaterial();
 	pTarget -> CastPXS(mat, RandomX(iAmount / 2, iAmount), 50);
 	return inherited(...);
 }
 
 public func Deconstruction() {
-	var mat = ContentType();
+	var mat = ContentMaterial();
 	CastPXS(mat, Abs(DoFill(-MaxFill())), 20);
 	return _inherited(...);
 }
