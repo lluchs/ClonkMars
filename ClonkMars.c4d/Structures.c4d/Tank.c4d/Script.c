@@ -143,8 +143,12 @@ public func ContentMaterial() {
 		return "DuroLava";
 }
 
+protected func NotEmpty() {
+	return GetFill() != 0;
+}
+
 protected func ContextFlush() {
-	[$TxtFlushTank$|Image=OILT]
+	[$TxtFlushTank$|Image=OILT|Condition=NotEmpty]
 	var mat = ContentMaterial();
 	CastPXS(mat, Abs(DoFill(-MaxFill())), 20);
 	return 1;
