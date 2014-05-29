@@ -97,34 +97,27 @@ protected func ControlDig(object pClonk) {
 	DoFill(-iChange);
 }
 
-protected func ControlThrow() {
-  if(!Hostile(GetOwner(),GetOwner(Par()))){
-	if(GetFill())
-		return Message("$TxtOnlyEmptyTank$", this);
-	type = !type;
-	UpdateTypePicture();}
-	    else{
-      Message("$TxtEnemy$",this());
-      Sound("Error");}
+protected func ControlThrow(object clonk) {
+	if(!Hostile(GetOwner(), clonk->GetOwner())) {
+		if(GetFill())
+			return Message("$TxtOnlyEmptyTank$", this);
+		type = !type;
+		UpdateTypePicture();
+	} else {
+		Message("$TxtEnemy$",this());
+		Sound("Error");
+	}
 	return 1;
 }
 
 protected func ContextSwitch2Oil() {
-	[Zu Öl wechseln|Image=OILT|Condition=ContainsLava]
-	if(!Hostile(GetOwner(),GetOwner(Par()))){
-	ControlThrow();}
-		    else{
-      Message("$TxtEnemy$",this());
-      Sound("Error");}
+	[$TxtSwitchToOil$|Image=OILT|Condition=ContainsLava]
+	ControlThrow(...);
 }
 
 protected func ContextSwitch2Lava() {
-	[Zu Lava wechseln|Image=OILT|Condition=ContainsOil]
-	if(!Hostile(GetOwner(),GetOwner(Par()))){
-	ControlThrow();}
-			    else{
-      Message("$TxtEnemy$",this());
-      Sound("Error");}
+	[$TxtSwitchToLava$|Image=OILT|Condition=ContainsOil]
+	ControlThrow(...);
 }
 
 public func ContainsOil() {
@@ -151,7 +144,7 @@ public func ContentMaterial() {
 }
 
 protected func ContextFlush() {
-	[Tank leeren|Image=OILT]
+	[$TxtFlushTank$|Image=OILT]
 	var mat = ContentMaterial();
 	CastPXS(mat, Abs(DoFill(-MaxFill())), 20);
 	return 1;
