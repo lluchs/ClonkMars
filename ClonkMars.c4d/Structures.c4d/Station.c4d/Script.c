@@ -154,6 +154,10 @@ protected func FxBeamTimer(object pTarget, int iEffectNumber) {
 protected func FxBeamStop(object pTarget, int iEffectNumber, int iReason, bool fTemp) {
 	if(fTemp)
 		return;
+	// Don't stop beaming when the Clonk suffocates.
+	if(iReason == 4)
+		return -1;
+
 	var pStation = pTarget -> Contained();
 	pStation -> Sound("Transmitter_down");
 	pStation -> SetAction("Energize");
