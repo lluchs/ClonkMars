@@ -10,6 +10,7 @@ func Initialize() {
   // Spielziel setzen
   FindObject(CROB)->AddType(MRAS, 2);
   FindObject(CROB)->AddType(RADO, 4);
+  FindObject(CROB)->AddType(PORT, 1);
   
   CreateObject(MARS,-0,0,-1);
   return(1);
