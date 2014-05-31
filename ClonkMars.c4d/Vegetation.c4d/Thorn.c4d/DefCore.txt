@@ -15,6 +15,7 @@ SolidMask=0,0,14,38
 Value=1
 Mass=15
 Picture=0,0,14,38
+StretchGrowth=1
 NeededGfxMode=1
 Rotate=1
 RotatedSolidmasks=1
