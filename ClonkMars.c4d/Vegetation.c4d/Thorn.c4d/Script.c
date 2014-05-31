@@ -27,7 +27,6 @@ protected func Damage()
 
 func Destroy() {
   var obj;
-  if(GetAction()ne"Falling") return(1);
   Sound("RockBreak*");
   Sound("Blast2",0,0,50);
   // links oben
