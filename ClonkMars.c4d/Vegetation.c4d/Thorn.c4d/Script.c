@@ -4,15 +4,10 @@
 
 local phase;
 
-protected func Construction() {
+protected func Initialize() {
 	SetAction("Hanging");
 	SetPhase(phase=Random(4));
-
-	// Drehung nach Erdoberfläche
-	var x_off = 18 * GetCon() / 100;
-	var y_off = 15 * GetCon() / 100;
-	var slope = GetSolidOffset(-x_off, y_off) - GetSolidOffset(x_off, y_off);
-	SetR(slope);
+	SlopeRotation();
 
 	ScheduleCall(this, "Grow", RandomX(100, 500));
 }
@@ -21,6 +16,14 @@ private func Grow() {
 	DoCon(1);
 	if(GetCon() < 100)
 		ScheduleCall(this, "Grow", 1);
+}
+
+// Drehung nach Erdoberfläche
+private func SlopeRotation() {
+	var x_off = 18 * GetCon() / 100;
+	var y_off = 15 * GetCon() / 100;
+	var slope = GetSolidOffset(-x_off, y_off) - GetSolidOffset(x_off, y_off);
+	SetR(slope);
 }
 
 protected func Damage() {
@@ -55,8 +58,14 @@ private func Destroy() {
 
 private func Regenerate() {
 	// Find a new place to live.
-	var wipf = PlaceAnimal(WIPF);
-	var thorn = CreateObject(GetID(), AbsX(wipf->GetX()), AbsY(wipf->GetY()), NO_OWNER);
-	thorn->SetCon(1);
-	wipf->RemoveObject();
+	for(var i = 0; i < 10000; i++) {
+		var wipf = PlaceAnimal(WIPF);
+		var x = AbsX(wipf->GetX()), y = AbsY(wipf->GetY());
+		wipf->RemoveObject();
+		if(FindObject2(Find_AtPoint(x, y), Find_Category(C4D_Structure)))
+			continue;
+		var thorn = CreateObject(GetID(), x, y, NO_OWNER);
+		thorn->SetCon(1);
+		break;
+	}
 }
