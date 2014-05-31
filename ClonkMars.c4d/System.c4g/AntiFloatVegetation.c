@@ -14,6 +14,17 @@ protected func Initialize() {
 }
 
 protected func FxCheckAirTimer(object target, int effectNum, int effectTime) {
-	if(GetMaterial(0,10) != Material("Earth"))
-		DoCon(-50);
+	if(GetID() != CRY2) {
+		if(GetMaterial(0,10) != Material("Rock") || (GetMaterial(0,10) != Material("Crystal"))) {
+			DoCon(-50);
+		}
+	}
+	else {
+		if(GetID() == CRY2) {
+			if(GetMaterial(0,10) != Material("Sky")) {
+				DoCon(-50);
+			}
+		}
+	}
+	return(1);
 }
