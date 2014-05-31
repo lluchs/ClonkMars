@@ -1,6 +1,7 @@
 /*-- Grass --*/
 
 #strict
+#include TRE5
 
 protected func Initialize() 
 { 
