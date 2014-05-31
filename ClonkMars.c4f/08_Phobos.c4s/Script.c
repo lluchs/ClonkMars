@@ -36,7 +36,7 @@ global func FxFragmentRainTimer(object target, int effectNum, int effectTime) {
 
 global func FxMeteorTrailTimer(object target, int effectNum, int effectTime) {
 	// Until we stop.
-	if (GetYDir() < 0) return -1;
+	if (GetYDir() <= 0) return -1;
 
 	Smoke(0, 0, 5);
 	Smoke(0, -5, Random(7));
