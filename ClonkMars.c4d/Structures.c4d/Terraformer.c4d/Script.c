@@ -112,7 +112,7 @@ protected func Terraforming() { // TimerCall
 		var x, y;
 		GetRandomDiggerPos(x, y);
 		if(!FindObject2(Find_AtPoint(x, y), Find_ID(GRAS))) {
-			CreateObject(GRAS, x, y, NO_OWNER);
+			CreateConstruction(GRAS, x, y, NO_OWNER, 1);
 		}
 	}
 	

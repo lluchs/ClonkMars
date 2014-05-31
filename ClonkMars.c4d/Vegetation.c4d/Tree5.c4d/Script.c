@@ -5,7 +5,7 @@
 #include TREE
 
 protected func Construction() {
-	if(!FindObject2(Find_Distance(TRFM_RADIUS), Find_ID(TRFM))) { // Terraformingeinheit in der Nähe?
+	if(!FindTerraformer()) { // Terraformingeinheit in der Nähe?
 		RemoveObject();
 		return;
 	}
@@ -30,8 +30,16 @@ private func InLava() {
 	return GetMaterialVal("Incindiary", "Material", GetMaterial(0, GetDefHeight(GetID()) / 2));
 }
 
+private func FindTerraformer(bool active) {
+	var criteria = Find_And(Find_Distance(TRFM_RADIUS), Find_ID(TRFM));
+	if (active) {
+		criteria = Find_And(criteria, Find_Func("IsTerraforming"));
+	}
+	return FindObject2(criteria);
+}
+
 protected func FxTerraformerCheckTimer() {
-	if(InLava() || !FindObject2(Find_Distance(TRFM_RADIUS), Find_ID(TRFM), Find_Func("IsTerraforming"))) { 
+	if(InLava() || !FindTerraformer(true)) { 
 		DoCon(-1);
 		if(GetCon() <= 1)
 			RemoveObject();
