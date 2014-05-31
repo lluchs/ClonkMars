@@ -16,3 +16,9 @@ global func Round(int iValue, int iNum, int iDir) {
 global func ChangeRange(int iValue, int iOldMin, int iOldMax, int iMin, int iMax) {
 	return (iValue - iOldMin) * (iMax - iMin) / (iOldMax - iOldMin) + iMin;
 }
+
+// Rotates (0, y) by r degrees.
+global func RotateY(int r, int y, &rx, &ry) {
+	rx = -Sin(r, y);
+	ry =  Cos(r, y);
+}

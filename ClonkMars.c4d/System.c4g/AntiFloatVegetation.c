@@ -14,17 +14,18 @@ protected func Initialize() {
 }
 
 protected func FxCheckAirTimer(object target, int effectNum, int effectTime) {
-	if(GetID() != CRY2) {
-		if(GetMaterial(0,10) != Material("Rock") || (GetMaterial(0,10) != Material("Crystal"))) {
-			DoCon(-50);
-		}
+	var x, y;
+	RotateY(GetR(), GetDefHeight() / 2 + 2, x, y);
+	var mat = GetMaterial(x, y);
+
+	if(GetID() == CRY2) {
+		if(mat == Material("Rock") || mat == Material("Crystal"))
+			return;
+	} else {
+		if(GetMaterialVal("Soil", "Material", mat))
+			return;
 	}
-	else {
-		if(GetID() == CRY2) {
-			if(GetMaterial(0,10) != Material("Sky")) {
-				DoCon(-50);
-			}
-		}
-	}
-	return(1);
+
+	// None of the criteria above matched - die fast.
+	DoCon(-50);
 }
