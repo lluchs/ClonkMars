@@ -14,8 +14,10 @@ protected func Initialize() {
 
 private func Grow() {
 	DoCon(1);
-	if(GetCon() < 100)
+	if(GetCon() < 100) {
+		Sound("Crack*");
 		ScheduleCall(this, "Grow", 1);
+	}
 }
 
 // Drehung nach Erdoberfläche
