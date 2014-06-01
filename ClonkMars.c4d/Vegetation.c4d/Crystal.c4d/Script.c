@@ -1,7 +1,7 @@
 #strict 2
 #include TREE
 
-local iPhase;
+local iPhase, onCeiling;
 
 private func ReproductionAreaSize() { return 400; }
 private func ReproductionRate()     { return 50; }
@@ -24,14 +24,18 @@ public func Construction() {
 		if (Random(1))
 			SetDir(DIR_Right);
 	}
-	MoveDown();
+	if(Random(2)) {
+		MoveDown();
+	} else {
+		MoveUp();
+	}
 	// Drehung nach Erdoberfläche
 	var x_off = GetDefWidth(GetID()) / 2;
 	var y_off = GetDefHeight(GetID()) / 2;
-	var slope = GetSolidOffset(-x_off, y_off) - GetSolidOffset(x_off, y_off);
-	SetR(slope*2); // passt besser
+	var slope = 2 * GetSolidOffset(-x_off, y_off) - GetSolidOffset(x_off, y_off);
+	if (onCeiling) slope = 180 - slope;
+	SetR(slope); // passt besser
 	SetPhase(iPhase);
-	ScheduleCall(this, "MoveDown", 5);
 	return 1;
 }
 
@@ -39,13 +43,31 @@ private func MoveDown() {
 	// Höhe anpassen
 	while (!GBackSolid(0, 7) && GetY() < LandscapeHeight())
 		SetPosition(GetX(), GetY() + 3);
+	ScheduleCall(this, "MoveDown", 5);
 }
 
-private func GetSolidOffset(int x, int y)
-{
-  var i;
-  for (i = -20; GBackSolid(x, y - i) && (i < 20); i++);
-  return i;
+// Tries to put the crystal on the ceiling, falling back to standard placement.
+private func MoveUp() {
+	var tunnel = Material("Tunnel");
+	var y = -5;
+	while (GetMaterial(0, y) == tunnel)
+		y -= 5;
+	if (GBackSolid(0, y)) {
+		// Find the edge.
+		while (GBackSolid(0, ++y));
+		SetPosition(GetX(), GetY() + y + GetDefHeight(GetID()));
+		onCeiling = true;
+	} else {
+		MoveDown();
+	}
+}
+
+private func GetSolidOffset(int x, int y) {
+	var i;
+	var sign = 1;
+	if (onCeiling) sign = -1;
+	for (i = -20; GBackSolid(x, sign * (y - i)) && (i < 20); i++);
+	return i;
 }
 
 public func Reproduction()
