@@ -89,6 +89,10 @@ public func DoBlast(bool power) {
 	// Cooldown
 	if(FrameCounter() - lastshot < 18)
 		return;
+
+	// Nur, wenn fertig gebaut.
+	if(GetCon() != 100)
+		return;
 	
 	// Wenn generell ein Strahl abgeschossen werden soll
 	if(power && !CheckPower(50)) {
