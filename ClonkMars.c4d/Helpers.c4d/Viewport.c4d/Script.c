@@ -47,8 +47,8 @@ private func GetRes(int index) {
 }
 
 public func SizeSelection() {
-	var menu = CreateMenuTemplate(GetID(), "Auflösung wählen");
-	AddEnumChoice(menu, 0, "res", 0, "Auflösung");
+	var menu = CreateMenuTemplate(GetID(), "$MenuTitle$");
+	AddEnumChoice(menu, 0, "res", 0, "$MenuResolution$");
 	
 	// Vordefinierte Auflösungen
 	var res = GetRes(-1);
@@ -57,9 +57,9 @@ public func SizeSelection() {
 	}
 	
 	// Benutzerdefiniert
-	AddEnumChoiceItem(menu, 0, "res", "user", "Benutzerdefiniert", 0, 0, true);
-	AddRangeChoice(menu, 0, "X", MenuCond_Chosen(0, "res", "user"), "X-Auflösung", 0, 1, 3000, 1, wdt);
-	AddRangeChoice(menu, 0, "Y", MenuCond_Chosen(0, "res", "user"), "Y-Auflösung", 0, 1, 3000, 1, hgt);
+	AddEnumChoiceItem(menu, 0, "res", "user", "$MenuCustom$", 0, 0, true);
+	AddRangeChoice(menu, 0, "X", MenuCond_Chosen(0, "res", "user"), "$MenuX$", 0, 1, 3000, 1, wdt);
+	AddRangeChoice(menu, 0, "Y", MenuCond_Chosen(0, "res", "user"), "$MenuY$", 0, 1, 3000, 1, hgt);
 	
 	CreateMenuByTemplate(GetCursor(GetOwner()), this, "ChooseSize", menu);
 	
