@@ -4,6 +4,9 @@
 
 #include TRE5
 
+// Grass does not produce O2.
+public func IsTree() { return false; }
+
 protected func Construction() { 
 	// Zufällige Form  
 	SetAction("Grass");
