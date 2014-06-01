@@ -8,7 +8,7 @@
 #appendto TRE7 //Wompfberrytree
 #appendto CRY2 //Crystals
 
-protected func Initialize() {
+protected func Construction() {
 	AddEffect("CheckAir", this, 1, 30, this);
 	return _inherited(...);
 }
