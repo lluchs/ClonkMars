@@ -1,0 +1,11 @@
+[DefCore]
+id=BAGE
+Name=1
+Version=4,9,5
+Category=1
+Width=220
+Height=220
+Offset=-110,-110
+Components=_NEW=1;
+Picture=0,0,220,220
+ 
