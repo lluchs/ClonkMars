@@ -3,10 +3,7 @@
 #strict 2
 
 protected func Initialize() {
-	CreateLandTempEffects();
-	// This is said to fix a desync.
-	// See http://clonkforge.net/bugtrack.php?shbug=10976
-	RecreateLandTempEffects();
+	InitializeLandTempPoints();
 	
 	for(var pClonk in FindObjects(Find_OCF(OCF_Alive), Find_Func("IsClonk")))
 		OnClonkRecruitment(pClonk);
@@ -99,66 +96,73 @@ protected func FxLandTempHUDUpdateTimer(object pTarget, int iEffectNumber) {
 
 /* Temperatureffekt für die Landschaft */
 
-static LandTempEffects, LandTempDebug;
+static LandTempPoints, LandTempDebug;
 static const LandTempDist = 100;
 static const MaxTemp = 1000;
 
+// Toggles the pretty debug particles.
 global func ToggleLandTempDebug() {
 	return LandTempDebug = !LandTempDebug;
 }
 
-global func CreateLandTempEffects() {
-	LandTempEffects = CreateArray(LandscapeWidth() / LandTempDist);
+// Initializes the land temperature points, overriding previous ones.
+global func InitializeLandTempPoints() {
+	LandTempPoints = CreateArray(LandscapeWidth() / LandTempDist);
 	// x-1 bzw. y-1, damit auch am Spielfeldrand ein Effekt vorhanden ist
 	// dieser ist natürlich außerhalb der Landschaft
-	var iTimer = 0;
 	for(var x = 0; (x-1) * LandTempDist < LandscapeWidth(); x++) {
-		LandTempEffects[x] = CreateArray(LandscapeHeight() / LandTempDist);
+		LandTempPoints[x] = CreateArray(LandscapeHeight() / LandTempDist);
 		for(var y = 0; (y-1) * LandTempDist < LandscapeHeight(); y++) {
-			LandTempEffects[x][y] = AddEffect("LandTemp", 0, 10, 0, 0, 0, x, y);
-			iTimer++;
-			Schedule(Format("ChangeEffect(0, 0, %d, \"LandTemp\", 50)", LandTempEffects[x][y]), iTimer);
-			if(iTimer > 50)
-				iTimer = 0;
+			LandTempPoints[x][y] = InitLandTempPoint(x, y);
 		}
 	}
 }
 
-global func RemoveLandTempEffects() {
-	var i = GetEffectCount("LandTemp");
-	while(i--)
-		RemoveEffect("LandTemp");
+global func GetLandTempPoint(int x, int y) {
+	return LandTempPoints[x][y];
 }
 
-global func RecreateLandTempEffects() {
-	RemoveLandTempEffects();
-	CreateLandTempEffects();
+global func GetRandomLandTempPoint() {
+	var rx = Random(GetLength(LandTempPoints));
+	var ry = Random(GetLength(LandTempPoints[rx]));
+	return LandTempPoints[rx][ry];
 }
 
-global func GetLandTempEffect(int x, int y) {
-	return LandTempEffects[x][y];
-}
-
-global func FxLandTempStart(object pTarget, int iEffectNumber, bool fTemp, int x, int y) {
-	if(fTemp)
-		return;
-	EffectVar(0, 0, iEffectNumber) = x;
-	EffectVar(1, 0, iEffectNumber) = y;
-	
+// Initializes a land temp point with the given coordinates.
+global func InitLandTempPoint(int x, int y) {
 	// Starttemperatur bei heißem Material
+	var temp = 0;
 	if(GetMaterialVal("Incindiary", "Material", GetMaterial(x*LandTempDist, y*LandTempDist))) {
-		EffectVar(2, 0, iEffectNumber) = MaxTemp / 2;
+		temp = MaxTemp / 2;
 	}
 	
 	if(LandTempDebug)
 		CreateParticle("PSpark", x*LandTempDist, y*LandTempDist, 0, 0, 50, RGB(0, 255));
+
+	return [x, y, temp];
 }
 
-global func FxLandTempTimer(object pTarget, int iEffectNumber) {
+// Returns the number of points to process per tick.
+private func PointsPerTick() {
+	return GetLength(LandTempPoints) * 2;
+}
+
+// Timer call in the Temperature object.
+// Selectes PointsPerTick() random land temp points to tick.
+protected func Timer() {
+	var i = PointsPerTick(), ltp;
+	while (i--) {
+		ltp = GetRandomLandTempPoint();
+		LandTempPoints[ltp[0]][ltp[1]][2] = LandTempTick(ltp);
+	}
+}
+
+// Performs a timer tick for the given land temp point, returning the new temperature.
+global func LandTempTick(array ltp) {
 	// *= LandTempDist für tatsächliche Koordinaten!
-	var x = EffectVar(0, 0, iEffectNumber), y = EffectVar(1, 0, iEffectNumber);
+	var x = ltp[0], y = ltp[1];
 	var iX = x * LandTempDist, iY = y * LandTempDist;
-	var iTemp = EffectVar(2, 0, iEffectNumber);
+	var iTemp = ltp[2];
 	
 	// Temperatur der anderen Seiten anpassen
 	var iSides, iOther, k;
@@ -166,25 +170,25 @@ global func FxLandTempTimer(object pTarget, int iEffectNumber) {
 	if(y) {
 		k =  10 - GetLandTempChangeSpeed(iX, iY - LandTempDist);
 		iSides += k;
-		iOther += k * EffectVar(2, 0, GetLandTempEffect(x, y-1));
+		iOther += k * GetLandTempPoint(x, y-1)[2];
 	}
 	// unten
-	if((y-1) != LandscapeHeight() / LandTempDist) {
+	if(y != LandscapeHeight() / LandTempDist) {
 		k =  10 - GetLandTempChangeSpeed(iX, iY + LandTempDist);
 		iSides += k;
-		iOther += k * EffectVar(2, 0, GetLandTempEffect(x, y+1));
+		iOther += k * GetLandTempPoint(x, y+1)[2];
 	}
 	// links
 	if(x) {
 		k =  10 - GetLandTempChangeSpeed(iX - LandTempDist, iY);
 		iSides += k;
-		iOther += k * EffectVar(2, 0, GetLandTempEffect(x-1, y));
+		iOther += k * GetLandTempPoint(x-1, y)[2];
 	}
 	// rechts
 	if((x-1) != LandscapeWidth() / LandTempDist) {
 		k =  10 - GetLandTempChangeSpeed(iX + LandTempDist, iY);
 		iSides += k;
-		iOther += k * EffectVar(2, 0, GetLandTempEffect(x+1, y));
+		iOther += k * GetLandTempPoint(x+1, y)[2];
 	}
 	
 	// Durchschnitt der Werte berechnen
@@ -227,9 +231,6 @@ global func FxLandTempTimer(object pTarget, int iEffectNumber) {
 	// Bestand + k * (Schranke - Bestand)
 	iTemp += k * (iOther - iTemp) / 10;
 	
-	// neue Temperatur abspeichern
-	EffectVar(2, 0, iEffectNumber) = iTemp;
-	
 	// Toller Partikel!
 	if(LandTempDebug) {
 		var b0 = RGB(0, 0, 255), b1 = RGB(255, 0, 0);
@@ -241,6 +242,8 @@ global func FxLandTempTimer(object pTarget, int iEffectNumber) {
 		
 		CreateParticle("PSpark", iX, iY, 0, 0, 100, b);
 	}
+
+	return iTemp;
 }
 
 // *cough*
@@ -277,22 +280,22 @@ global func GetLandTemp() {
 	x = Round(iX, LandTempDist, RoundDown) / LandTempDist;
 	y = Round(iY, LandTempDist, RoundDown) / LandTempDist;
 	
-	var iEffectNum;
-	if(iEffectNum = GetLandTempEffect(x, y)) {
+	var ltp;
+	if(ltp = GetLandTempPoint(x, y)) {
 		iNum++;
-		iTemp += EffectVar(2, 0, iEffectNum);
+		iTemp += ltp[2];
 	}
-	if(iEffectNum = GetLandTempEffect(x+1, y)) {
+	if(ltp = GetLandTempPoint(x+1, y)) {
 		iNum++;
-		iTemp += EffectVar(2, 0, iEffectNum);
+		iTemp += ltp[2];
 	}
-	if(iEffectNum = GetLandTempEffect(x, y+1)) {
+	if(ltp = GetLandTempPoint(x, y+1)) {
 		iNum++;
-		iTemp += EffectVar(2, 0, iEffectNum);
+		iTemp += ltp[2];
 	}
-	if(iEffectNum = GetLandTempEffect(x+1, y+1)) {
+	if(ltp = GetLandTempPoint(x+1, y+1)) {
 		iNum++;
-		iTemp += EffectVar(2, 0, iEffectNum);
+		iTemp += ltp[2];
 	}
 	
 	iTemp /= iNum;
@@ -300,39 +303,35 @@ global func GetLandTemp() {
 	return iTemp;
 }
 
+// Changes the land temperatur in the caller's position.
 global func DoLandTemp(int iChange, int k) {
 	var iX = GetX(), iY = GetY(), x, y;
 	
 	x = Round(iX, LandTempDist, RoundDown) / LandTempDist;
 	y = Round(iY, LandTempDist, RoundDown) / LandTempDist;
 	
-	var iEffectNum;
-	if(iEffectNum = GetLandTempEffect(x, y)) {
-		_DoLandTemp(iEffectNum, iChange, k);
+	var ltp;
+	if(ltp = GetLandTempPoint(x, y)) {
+		_DoLandTemp(ltp, iChange, k);
 	}
-	if(iEffectNum = GetLandTempEffect(x+1, y)) {
-		_DoLandTemp(iEffectNum, iChange, k);
+	if(ltp = GetLandTempPoint(x+1, y)) {
+		_DoLandTemp(ltp, iChange, k);
 	}
-	if(iEffectNum = GetLandTempEffect(x, y+1)) {
-		_DoLandTemp(iEffectNum, iChange, k);
+	if(ltp = GetLandTempPoint(x, y+1)) {
+		_DoLandTemp(ltp, iChange, k);
 	}
-	if(iEffectNum = GetLandTempEffect(x+1, y+1)) {
-		_DoLandTemp(iEffectNum, iChange, k);
+	if(ltp = GetLandTempPoint(x+1, y+1)) {
+		_DoLandTemp(ltp, iChange, k);
 	}
 	
 	return 1;
 }
 
-global func _DoLandTemp(int iEffectNum, int iChange, int k) {
-	if(GetEffect(0, 0, iEffectNum, 1) != "LandTemp") {
-		// something is broken
-		RecreateLandTempEffects();
-		return;
-	}
+global func _DoLandTemp(array ltp, int iChange, int k) {
 	if(!k)
-		k = GetLandTempChangeSpeed(LandTempDist * EffectVar(0, 0, iEffectNum), LandTempDist * EffectVar(1, 0, iEffectNum));
-	var temp = EffectVar(2, 0, iEffectNum);
+		k = GetLandTempChangeSpeed(LandTempDist * ltp[0], LandTempDist * ltp[1]);
+	var temp = ltp[2];
 	temp += k * iChange / 10;
 	temp = BoundBy(temp, -MaxTemp, MaxTemp);
-	EffectVar(2, 0, iEffectNum) = temp;
+	LandTempPoints[ltp[0]][ltp[1]][2] = temp;
 }
