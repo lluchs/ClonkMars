@@ -173,7 +173,7 @@ global func LandTempTick(array ltp) {
 		iOther += k * GetLandTempPoint(x, y-1)[2];
 	}
 	// unten
-	if(y != LandscapeHeight() / LandTempDist) {
+	if((y+1) * LandTempDist < LandscapeHeight()) {
 		k =  10 - GetLandTempChangeSpeed(iX, iY + LandTempDist);
 		iSides += k;
 		iOther += k * GetLandTempPoint(x, y+1)[2];
@@ -185,7 +185,7 @@ global func LandTempTick(array ltp) {
 		iOther += k * GetLandTempPoint(x-1, y)[2];
 	}
 	// rechts
-	if((x-1) != LandscapeWidth() / LandTempDist) {
+	if((x+1) * LandTempDist < LandscapeWidth()) {
 		k =  10 - GetLandTempChangeSpeed(iX + LandTempDist, iY);
 		iSides += k;
 		iOther += k * GetLandTempPoint(x+1, y)[2];
