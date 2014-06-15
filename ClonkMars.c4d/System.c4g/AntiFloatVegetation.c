@@ -18,6 +18,8 @@ protected func FxCheckAirTimer(object target, int effectNum, int effectTime) {
 	RotateY(GetR(), GetDefHeight() / 2 + 2, x, y);
 	var mat = GetMaterial(x, y);
 
+	// Contained objects do not float.
+	if(Contained()) return;
 	if(GetID() == CRY2) {
 		if(!GBackSolid(x, y))
 			this->ControlDigDouble();
