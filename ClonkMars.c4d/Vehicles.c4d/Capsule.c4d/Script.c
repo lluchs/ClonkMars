@@ -205,14 +205,21 @@ protected func ContactBottom() {
 			//FIXME: Do that less hacky...
 		} 
 		if(ObjectCount2(Find_Container(this), Find_OCF(OCF_CrewMember)))
-			ScheduleCall(this, "Eject", 30);
+			ScheduleCall(this, "Eject", 30, 0, GetX(), GetY());
 		if(port) ScheduleCall(port, "PortWait", 50);
 	}
 	return 1;
 }
 
-protected func Eject() {
+// Ejects the contained clonks if the given position matches.
+protected func Eject(int x, int y) {
 	if(vertblow == 2) return;
+	if(GetX() != x || GetY() != y) {
+		if(!GetXDir() && !GetYDir())
+			// Try again in a moment.
+			ScheduleCall(this, "Eject", 10, 0, GetX(), GetY());
+		return;
+	}
 	for(var pObj in FindObjects(Find_Container(this), Find_OCF(OCF_CrewMember)))
 		pObj -> Exit();
 }
