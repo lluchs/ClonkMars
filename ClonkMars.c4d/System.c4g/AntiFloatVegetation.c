@@ -19,8 +19,9 @@ protected func FxCheckAirTimer(object target, int effectNum, int effectTime) {
 	var mat = GetMaterial(x, y);
 
 	if(GetID() == CRY2) {
-		if(GBackSolid(x, y))
-			return;
+		if(!GBackSolid(x, y))
+			this->ControlDigDouble();
+		return;
 	} else {
 		if(GetMaterialVal("Soil", "Material", mat))
 			return;
