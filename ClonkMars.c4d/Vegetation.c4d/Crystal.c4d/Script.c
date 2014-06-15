@@ -39,11 +39,12 @@ public func Construction() {
 	return 1;
 }
 
-private func MoveDown() {
+private func MoveDown(bool notagain) {
 	// Höhe anpassen
 	while (!GBackSolid(0, 7) && GetY() < LandscapeHeight())
 		SetPosition(GetX(), GetY() + 3);
-	ScheduleCall(this, "MoveDown", 5);
+	if (!notagain)
+		ScheduleCall(this, "MoveDown", 5, 0, true);
 }
 
 // Tries to put the crystal on the ceiling, falling back to standard placement.
