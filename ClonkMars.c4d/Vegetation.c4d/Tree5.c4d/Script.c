@@ -40,7 +40,7 @@ private func FindTerraformer(bool active) {
 
 protected func FxTerraformerCheckTimer() {
 	if(InLava() || !FindTerraformer(true)) { 
-		DoCon(-1);
+		DoCon(-Max(GetDefGrowth(GetID()) / 5, 1));
 		if(GetCon() <= 1)
 			RemoveObject();
 		TreeHurt(5 + Random(10));

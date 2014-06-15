@@ -18,7 +18,7 @@ Value=5
 Mass=400
 Components=WOOD=2
 Picture=0,0,26,36
-Growth=1
+Growth=15
 Grab=1
 Rotate=1
 Chop=1
