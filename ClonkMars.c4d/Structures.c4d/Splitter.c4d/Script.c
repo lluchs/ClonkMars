@@ -88,6 +88,11 @@ protected func CreateBasement() {
 	basement -> SetR(GetR());
 }
 
+protected func Destruction() {
+	if (basement == true) basement = 0;
+	return inherited(...);
+}
+
 /* Wir brauchen keinen Loreninhalt */
 
 public func NoLorryEjection() {

@@ -13,8 +13,7 @@ protected func Initialize() {
 	DoFill(3);
 }
 
-protected func Activate(object pClonk) {
-	[$TxtCreateSplitter$]
+private func PlaceSplitter(object pClonk) {
 	var act = pClonk -> GetAction();
 	var dir, r = 0, x = 0, y = 10;
 	if(act == "Hangle") {
@@ -37,11 +36,8 @@ protected func Activate(object pClonk) {
 	else if(act == "Walk")
 		dir = DIR_Bottom;
 	else {
-		Sound("Error");
-		return 1;
+		return;
 	}
-	
-
 	
 	var pSite = CreateConstruction(SPTR, x, y, pClonk -> GetOwner(), 100, false, false);	
 	if(pSite) {
@@ -58,12 +54,32 @@ protected func Activate(object pClonk) {
 		pSite->CreateParticle("PSpark", x_off[0], y_off[0], 0, 0, 50, RGB(255), pSite);
 		pSite->CreateParticle("PSpark", x_off[1], y_off[1], 0, 0, 50, RGB(0, 255), pSite);
 		*/
-		
+	}
+	return pSite;
+}
+
+protected func Activate(object pClonk) {
+	[$TxtCreateSplitter$]
+	var splitter = PlaceSplitter(pClonk);
+	if (!splitter) {
+		Sound("Error");
+	} else {
 		DoFill(-1);
 		if(!GetFill())
 			RemoveObject();
 	}
 	return 1;
+}
+
+protected func ContextTestConnection(object clonk) {
+	[$TxtTestConnection$|Image=SPTR]
+	var splitter = PlaceSplitter(clonk);
+	if (splitter) {
+		splitter->ControlUp(clonk);
+		splitter->RemoveObject();
+	} else {
+		Sound("Error");
+	}
 }
 
 static const DIR_Top = 2;

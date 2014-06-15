@@ -1,1 +1,2 @@
 TxtCreateSplitter=Splitter errichten
+TxtTestConnection=Verbindung testen
