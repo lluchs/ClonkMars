@@ -98,3 +98,6 @@ protected func Destruction() {
 public func NoLorryEjection() {
 	return true;
 }
+
+/* Kein Rückbau wenn ein Stations-Splitter */
+public func NoDeconstruction() { return GetStation(); }
