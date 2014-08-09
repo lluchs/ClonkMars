@@ -182,3 +182,8 @@ func UpdateTransferZone()
 {
 	UpdatePicture();
 }
+
+/* Use different overlay for the damage indicator. */
+private func RepairNeedOverlay() {
+	return 3;
+}

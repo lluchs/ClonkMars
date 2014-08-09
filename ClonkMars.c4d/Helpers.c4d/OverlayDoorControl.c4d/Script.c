@@ -21,6 +21,10 @@ private func EnergyNeedOverlay() { // Overlay des Energiepfeils
 	return 3;
 }
 
+private func RepairNeedOverlay() { // Overlay des Repariersymbols
+	return 4;
+}
+
 private func ClonkCapacity() {
 	return;
 }

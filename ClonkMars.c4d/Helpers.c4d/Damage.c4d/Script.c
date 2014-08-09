@@ -37,8 +37,13 @@ protected func Construction() {
 
 public func Damage (int iChange)
 {
-	if(iChange <= 0)
+	if(iChange <= 0) {
+		if (GetDamage() == 0)
+			RemoveRepairNeed();
 		return;
+	}
+
+	DrawRepairNeed();
 	
 	if (GetDamage() > MaxDamage())
 		AddEffect("MaxDamageExplosion", this, 1, 20, this, DACT);
@@ -223,6 +228,26 @@ public func Deconstruction() {
 	while(node = HashIterNext(iter)) {
 		CastObjects(node[0], node[1], 10);
 	}
+
+	RemoveRepairNeed();
 	
 	return _inherited(...);
+}
+
+/* RepairNeed overlay drawing */
+
+// To be overwritten by buildings using overlays.
+private func RepairNeedOverlay() {
+	return _inherited() || GFX_Overlay + 1;
+}
+
+// Adds a static repair need symbol.
+private func DrawRepairNeed() {
+	SetGraphics(0, this, REPA, RepairNeedOverlay(), GFXOV_MODE_Base);
+	SetClrModulation(RGBa(255, 255, 255, 128), this, RepairNeedOverlay());
+}
+
+// Removes the repair need symbol if one has been drawn.
+private func RemoveRepairNeed() {
+	SetGraphics(0, this, 0, RepairNeedOverlay());
 }
