@@ -320,6 +320,24 @@ protected func AtBuildingToRepair() {
 	return GetPhysical("CanConstruct") && FindObject2(Find_AtObject(), Find_Category(C4D_Structure), Find_Allied(GetOwner()), Find_Func("GetDamage"), Find_Func("MaxDamage"));
 }
 
+protected func ContextUpgrade(object clonk) {
+	[$CtxUpgrade$|Image=CXCN|Condition=AtBuildingToUpgrade]
+	var struct = AtBuildingToUpgrade();
+	if (!struct) {
+		Message("$NothingtoUpgrade$", this);
+		return false;
+	}
+	if (GetAction() != "Walk") {
+		Message("$Standing$", this);
+		return false;
+	}
+	SetAction("Upgrade", struct);
+}
+
+protected func AtBuildingToUpgrade() {
+	return GetPhysical("CanConstruct") && FindObject2(Find_AtObject(), Find_Category(C4D_Structure), Find_Allied(GetOwner()), Find_Func("IsUpgradable"));
+}
+
 /* Stirnlampe */
 
 protected func FxHeadlampTimer(object pTarget, int iEffectNumber) {
@@ -487,6 +505,17 @@ protected func Repairing() {
 		Message(output, pObj);
 		
 		return SetAction("Walk");
+	}
+	
+	// Funken und bläuliches Licht
+	WeldingFX(20 * GetDir() - 10, 8);
+}
+
+protected func Upgrading() {
+	if(GetActTime() > RandomX(150, 250)) {
+		GetActionTarget()->Upgrade();
+		SetAction("Walk");
+		return;
 	}
 	
 	// Funken und bläuliches Licht

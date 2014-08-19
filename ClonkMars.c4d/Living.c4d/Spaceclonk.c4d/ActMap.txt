@@ -285,6 +285,19 @@ StartCall=Repairing
 Sound=Clonk_Build
 
 [Action]
+Name=Upgrade
+Procedure=NONE
+Directions=2
+FlipDir=1
+Length=8
+Delay=2
+Attach=8
+Facet=128,220,16,20
+NextAction=Upgrade
+StartCall=Upgrading
+Sound=Clonk_Build
+
+[Action]
 Name=Recycle
 Procedure=NONE
 Directions=2

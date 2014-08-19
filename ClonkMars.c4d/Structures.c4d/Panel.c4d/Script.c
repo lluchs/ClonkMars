@@ -34,7 +34,7 @@ protected func CheckDay() { // TimerCall
 
 // The upgradable maximum energy output.
 private func BaseEnergy() {
-	if(UpgradeComplete(GetOwner(), U_SP))
+	if(upgraded)
 		return 25;
 	else
 		return 15;
@@ -89,6 +89,18 @@ private func PhaseFree() {
 	return AngleFree(iAngle) + AngleFree(iAngle - 15) + AngleFree(iAngle + 15);
 }
 
+/* Upgrade */
+local upgraded;
+
+public func IsUpgradable() {
+	return !upgraded && UpgradeComplete(GetOwner(), U_SP);
+}
+
+public func Upgrade() {
+	upgraded = true;
+	SetGraphics("Upgrade", this, GetID(), 1, GFXOV_MODE_Base);
+}
+
 /* Steuerung */
 
 // aktuell erzeugte Energie anzeigen
@@ -100,12 +112,6 @@ protected func ControlUp() {
 protected func ContextShowEnergy() {
 	[$TxtShowEnergy$|Image=CXEC]
 	ControlUp();
-}
-
-/* Upgrade */
-protected func PExtended(){
-  //2do: mehr Energieproduzieren
-  SetGraphics("Graphics_ext",this());
 }
 
 /* Erforschbar */
