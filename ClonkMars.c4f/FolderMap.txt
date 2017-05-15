@@ -11,6 +11,12 @@ FullscreenBG=1
 	Area=603,224,78,48
 
 	[Scenario]
+	File=02_Sinus.c4s
+	BaseImage=Sinus.png
+	OverlayImage=Sinus_Hl.png
+	Area=588,299,58,46
+
+	[Scenario]
 	File=03_Chaos.c4s
 	BaseImage=Chaos.png
 	OverlayImage=Chaos_Hl.png
